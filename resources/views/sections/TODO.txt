@@ -1,0 +1,5 @@
+If we end up going this way, we need each section to be responsible for its own include files.  Currently including everything globally.
+
+team.html includes gallery as well.
+
+Implement laravel.

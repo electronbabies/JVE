@@ -1,0 +1,181 @@
+#ForkliftBuilder {
+    position: absolute;
+    left: 1450px;
+    top: 355px;
+}
+
+.ForkliftPart {
+    position: absolute;
+}
+
+.ForkliftSilhouette {
+    left: 0px;
+    top: 0px;
+    width:231px;
+    height:169px;
+
+    background-image: url('/img/fl_builder/silhouette.png');
+    display: block;
+}
+
+#IndoorTire {
+    left: 83px;
+    top: 127px;
+    width: 36px;
+    height: 36px;
+    background-image: url('/img/fl_builder/indoor_tire.png');
+    display: none;
+}
+
+#OutdoorTire {
+    left: 83px;
+    top: 127px;
+    width: 36px;
+    height: 36px;
+    background-image: url('/img/fl_builder/outdoor_tire.png');
+    display: none;
+}
+
+#ElectricEngine {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#GasEngine {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#ThreeCapacity {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#FiveCapacity {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#SixCapacity {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#EightCapacity {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#OtherCapacity {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#ThirtySixAttachment {
+    left: 19px;
+    top: 83px;
+    width: 64px;
+    height: 80px;
+    background-image: url('/img/fl_builder/36_attachment.png');
+    display: none;
+}
+
+#FortyTwoAttachment {
+    left: 19px;
+    top: 83px;
+    width: 64px;
+    height: 80px;
+    background-image: url('/img/fl_builder/42_attachment.png');
+    display: none;
+}
+
+#FortyEightAttachment {
+    left: 19px;
+    top: 83px;
+    width: 64px;
+    height: 80px;
+    background-image: url('/img/fl_builder/48_attachment.png');
+    display: none;
+}
+
+#SideShifter {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#LPTank {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#SeatBelt {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#StrobeLight {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#FireExtinguisher {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
+
+#OpportunityCharger {
+    left: 0px;
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    background-image: url('/img/fl_builder/.png');
+    display: none;
+}
