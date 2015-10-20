@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
 <div class="wrap  bg-banner-holder-3 d-wrap" id="wrap-10">
-	<div class="container wrap-lg">
+	<div class="container wrap-xl">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="row">

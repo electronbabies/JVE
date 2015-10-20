@@ -1,8 +1,8 @@
 @extends('app')
 
 @section('content')
-    <div class="wrap bg-banner-holder-4 d-wrap">
-        <div class="container wrap-lg">
+    <div class="wrap bg-banner-holder-2 d-wrap">
+        <div class="container wrap-xl">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="row">
@@ -11,11 +11,11 @@
                             </h6>
 
                             <h2 class=" text-center mg-sm tc-white">
-                                Our Warehouse
+                                In Stock
                             </h2>
 
                             <h3 class="orange text-center mg-lg tc-saffron">
-                                <span>Sub text here?</span>
+                                <span>Special deals on in stock equipment!</span>
                             </h3>
                         </div>
                     </div>
