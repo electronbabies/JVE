@@ -105,6 +105,11 @@ h1{
 .wrap-lg{
 	padding:100px 50px;
 }
+
+.wrap-md {
+	padding: 50px 50px;
+}
+
 .wrap-sm{
 	padding:20px 50px;
 }
@@ -764,7 +769,7 @@ iframe{
 }
 
 .rounded-corners {
-	border-radius: 10px;
+	border-radius: 20px;
 }
 .center-image {
 	display: inline-block;

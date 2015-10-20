@@ -1,6 +1,6 @@
 
 <div class="wrap {{ $BGColor or Config::get('constants.COLOR_DARK_BLUE') }} d-wrap">
-    <div class="container wrap-lg">
+    <div class="container wrap-md">
         <div class="row">
             <div class="col-sm-12">
                 <h6 class="text-center tc-white-2 mg-md">

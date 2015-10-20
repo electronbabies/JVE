@@ -9,7 +9,7 @@
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<input type="hidden" name="RequestType" value="Sales">
 	<div class="wrap tc-white bg-repeat d-wrap" id="wrap-22">
-		<div class="container wrap-lg">
+		<div class="container wrap-md">
 			<div class="row">
 				<div class="col-sm-12">
 					<h6 class="text-center tc-white-2 mg-md">

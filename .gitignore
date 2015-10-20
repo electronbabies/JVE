@@ -3,3 +3,5 @@
 Homestead.yaml
 Homestead.json
 .env
+/public/img/blog_images
+/public/img/gallery_images

@@ -100,26 +100,93 @@ class FormsController extends Controller
     ];
     */
 
+    const REQUEST_TYPE_PARTS        = 'Parts';
+    const REQUEST_TYPE_RENTAL       = 'Rental';
+    const REQUEST_TYPE_SALES        = 'Sales';
+    const REQUEST_TYPE_SERVICE      = 'Service';
+
     public function store()
     {
         $Input = Request::all();
         $Validator = Validator::make($Input, [
-            'FirstName'             => 'required',
-            'LastName'              => 'required',
-            'CompanyName'           => '',
-            'PhoneNumber'           => 'required',
-            'EmailAddress'          => 'required',
-            'Brand'                 => '',
-            'Tires'                 => '',
-            'Engine'                => '',
-            'Capacity'              => '',
-            'Attachment'            => '',
-            'OperatingHours'        => '',
+            'FirstName' => 'required',
+            'LastName' => 'required',
+            'CompanyName' => '',
+            'PhoneNumber' => 'required',
+            'EmailAddress' => 'required',
         ]);
 
-        if($Validator->fails())
-            return redirect('/forms/'.str_replace(' ', '', strtolower($Input['RequestType']))->withErrors($Validator));
+        if ($Validator->fails())
+            return redirect('/forms/' . str_replace(' ', '', strtolower($Input['RequestType']))->withErrors($Validator));
 
+        switch($Input['RequestType']) {
+            case static::REQUEST_TYPE_PARTS:
+                return $this->ProcessPartsRequest($Input);
+
+            case static::REQUEST_TYPE_SALES:
+                return $this->ProcessSaleRequest($Input);
+
+            case static::REQUEST_TYPE_RENTAL:
+                return $this->ProcessRentalRequest($Input);
+
+            case static::REQUEST_TYPE_SERVICE:
+                return $this->ProcessServiceRequest($Input);
+        }
+    }
+
+    public function ProcessServiceRequest($Input) {
+        // make & model
+        // Get logged user, or register as guest
+        $objUser = \Auth::User() ?: \App\User::GetGuestAccount();
+
+        // Create invoice
+        $objInvoice = new \App\Invoice;
+        $objInvoice->user_id = $objUser->id;
+        $objInvoice->type = $Input['RequestType'];
+        $objInvoice->company_name = $Input['CompanyName'];
+        $objInvoice->first_name = $Input['FirstName'];
+        $objInvoice->last_name = $Input['LastName'];
+        $objInvoice->email = $Input['EmailAddress'];
+        $objInvoice->phone = $Input['PhoneNumber'];
+        $objInvoice->status = \App\Invoice::STATUS_NEW;
+        $objInvoice->comments = $Input['Comments'];
+
+        if (!$objInvoice->save())
+            App::abort('500', 'Master invoice could not save.  Breaking page.  Not saving invoice items.');
+
+        $objInvoiceItem = new \App\InvoiceItem;
+        $objInvoiceItem->invoice_id = $objInvoice->id;
+        $objInvoiceItem->type = 'Service';
+        $objInvoiceItem->title = 'Service Request';
+        $objInvoiceItem->status = \App\InvoiceItem::STATUS_ACTIVE;
+        $objInvoiceItem->save();
+
+        // All this work to make a title pretty!!!
+        $tTitleOptions = [];
+        if ($Input['Make'])
+            $tTitleOptions[] = "Make - " . $Input['Make'];
+
+        if ($Input['Model'])
+            $tTitleOptions[] = "Model - " . $Input['Model'];
+
+        if ($tTitleOptions)
+            $objInvoiceItem->title .= ": (" . implode(' / ', $tTitleOptions) . ")";
+
+        return redirect('/forms/success');
+    }
+
+    public function ProcessPartsRequest($Input) {
+        // Same thing at this point
+        return $this->ProcessServiceRequest($Input);
+        return redirect('/forms/success');
+    }
+
+    public function ProcessRentalRequest($Input) {
+        // Same thing at this point
+        return $this->ProcessSaleRequest($Input);
+    }
+
+    public function ProcessSaleRequest($Input) {
         // Get logged user, or register as guest
         $objUser = \Auth::User() ?: \App\User::GetGuestAccount();
 
@@ -136,9 +203,12 @@ class FormsController extends Controller
         $objInvoice->last_name = $Input['LastName'];
         $objInvoice->email = $Input['EmailAddress'];
         $objInvoice->phone = $Input['PhoneNumber'];
+        $objInvoice->status = \App\Invoice::STATUS_NEW;
+        $objInvoice->comments = $Input['Comments'];
+
+
         if(!$objInvoice->save())
             App::abort('500', 'Master invoice could not save.  Breaking page.  Not saving invoice items.');
-
 
         // Invoice Items
         $tInvoiceItemFields = [
@@ -166,6 +236,7 @@ class FormsController extends Controller
                         $objInvoiceItem->invoice_id = $objInvoice->id;
                         $objInvoiceItem->type = 'Accessory';
                         $objInvoiceItem->title = "{$Accessory}";
+                        $objInvoiceItem->status = \App\InvoiceItem::STATUS_ACTIVE;
                         $objInvoiceItem->save();
                     }
                 }
@@ -175,6 +246,7 @@ class FormsController extends Controller
                     $objInvoiceItem->invoice_id = $objInvoice->id;
                     $objInvoiceItem->type = $Item;
                     $objInvoiceItem->title = $Input[$Item];
+                    $objInvoiceItem->status = \App\InvoiceItem::STATUS_ACTIVE;
                     $objInvoiceItem->save();
                 }
             }
@@ -189,6 +261,13 @@ class FormsController extends Controller
     }
     public function rental()
     {
+        View::share('tBrands', $this->tBrands);
+        View::share('tAccessories', $this->tAccessories);
+        View::share('tOperatingHours', $this->tOperatingHours);
+        View::share('tAttachment', $this->tAttachment);
+        View::share('tCapacity', $this->tCapacity);
+        View::share('tEngine', $this->tEngine);
+        View::share('tTires', $this->tTires);
 		return view('forms.rental');
     }
 

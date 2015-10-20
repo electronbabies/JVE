@@ -1,6 +1,6 @@
 <div class="wrap {{ $BGColor or Config::get('constants.COLOR_DARK_BLUE') }} d-wrap">
     <!-- Title -->
-    <div class="container wrap-lg transparent rounded-corners">
+    <div class="container wrap-md transparent rounded-corners">
 <?php $Count = 0; ?>
 
 @forelse($tBlogPosts as $objPost)
@@ -11,7 +11,7 @@
             echo '<div class="row blog">';
     ?>
         <div class="col-sm-3">
-            <img src="img/blog_images/{{ $objPost->image_filename }}" class="blog_image" style="padding-left: {{ $objPost->x_offset }}px; padding-top: {{ $objPost->y_offset }}px;" />
+            <img src="img/blog_images/{{ $objPost->image_filename }}" class="blog_image img-rounded" style="padding-left: {{ $objPost->x_offset }}px; padding-top: {{ $objPost->y_offset }}px;" />
         </div>
         <div class="col-sm-3">
             <h5 class="text-center">
