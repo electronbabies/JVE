@@ -10,6 +10,11 @@ use Validator;
 
 class FormsController extends StaticController
 {
+    const REQUEST_TYPE_PARTS = 'Parts';
+    const REQUEST_TYPE_RENTAL = 'Rental';
+    const REQUEST_TYPE_SALES = 'Sales';
+    const REQUEST_TYPE_SERVICE = 'Service';
+
     public $tBrands = [
         'Crown',
         'UniCarriers',
@@ -58,52 +63,6 @@ class FormsController extends StaticController
         'Fire Extinguisher' => 'FireExtinguisher',
         'Opportunity Charger' => 'OpportunityCharger',
     ];
-
-    // Form options => filename of their option in the graphic
-    /*public $tTires = [
-        'Indoor'                =>  'indoor_tire.png',
-        'Outdoor'               =>  'outdoor_tire.png',
-    ];
-
-    public $tEngine = [
-        'Electric'              =>  'electric_engine.png',
-        'Gas'                   =>  'gas_engine.png',
-    ];
-
-    public $tCapacity = [
-        '3000 LB'               =>  '3000_capacity.png',
-        '5000 LB'               =>  '5000_capacity.png',
-        '6000 LB'               =>  '6000_capacity.png',
-        '8000 LB'               =>  '8000_capacity.png',
-        'Other'                 =>  'other_capacity.png',
-    ];
-
-    public $tAttachment = [
-        '36"'                   =>  '36_attachment.png',
-        '42"'                   =>  '42_attachment.png',
-        '48"'                   =>  '48_attachment.png',
-    ];
-
-    // Images may not be necessary here.  Might want to indicate on top right of div though.
-    public $tOperatingHours = [
-        '8 Hours' => '8_hours.png',
-        'More' => 'extra_battery.png', // Extra batteries if so
-    ];
-
-    public $tAccessories = [
-        'Side Shifter'          =>  'side_shifter.png',
-        'LP Tank'               =>  'lp_tank.png',
-        'Seat Belt'             =>  'seat_belt.png',
-        'Strobe Light'          =>  'strobe_light.png',
-        'Fire Extinguisher'     =>  'fire_extinguisher.png',
-        'Opportunity Charger'   =>  'opportunity_charger.png',
-    ];
-    */
-
-    const REQUEST_TYPE_PARTS        = 'Parts';
-    const REQUEST_TYPE_RENTAL       = 'Rental';
-    const REQUEST_TYPE_SALES        = 'Sales';
-    const REQUEST_TYPE_SERVICE      = 'Service';
 
     public function store()
     {

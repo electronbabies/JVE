@@ -35,22 +35,30 @@
                             <li class="dropdown">
                                 <ul style="list-style: none; padding-left: 20px;">
                                     @if($objUser->email == 'guest@jvequipment.com')
-                                    <li>
-                                        <a href="/auth/register"><i class="fa fa-fw fa-user"></i> Create Account</a>
-                                    </li>
 
-                                    <li>
-                                        <a href="/auth/login"><i class="fa fa-fw fa-laptop"></i> Log In</a>
-                                    </li>
+                                    <a href="/auth/register">
+                                        <li>
+                                            <i class="fa fa-fw fa-user"></i> Create Account
+                                        </li>
+                                    </a>
+                                    <a href="/auth/login">
+                                        <li>
+                                            <i class="fa fa-fw fa-laptop"></i> Log In
+                                        </li>
+                                    </a>
                                     @endif
-                                    <li>
-                                        <div><a href="/forms/service"><i class="fa fa-fw fa-envelope"></i> Contact Us</a></div>
-                                    </li>
+                                    <a href="/forms/service">
+                                        <li>
+                                            <i class="fa fa-fw fa-envelope"></i> Contact Us
+                                        </li>
+                                    </a>
                                     @if($objUser->email != 'guest@jvequipment.com')
                                     <li class="divider"></li>
-                                    <li>
-                                        <a href="/auth/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                                    </li>
+                                    <a href="/auth/logout">
+                                        <li>
+                                            <i class="fa fa-fw fa-power-off"></i> Log Out
+                                        </li>
+                                    </a>
                                     @endif
                                 </ul>
                             </li>

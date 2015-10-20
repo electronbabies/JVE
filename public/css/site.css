@@ -45,7 +45,7 @@ a.ltc-white{
 	padding-bottom: 0px !important;
 }
 
-.dropdown-menu > li > ul > li:hover{
+.dropdown-menu > li > ul > a li:hover{
 	background-color: rgba(0, 0, 0, .175);
 }
 /* Globals type styling */
