@@ -9,6 +9,12 @@ use View;
 
 class StaticController extends Controller
 {
+	public function __construct() {
+
+		$objUser = \Auth::User() ?: \App\User::GetGuestAccount();
+
+		View::share('objUser', $objUser);
+	}
 	function index()
 	{
 		/*$Parser = new \Smalot\PdfParser\Parser();

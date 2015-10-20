@@ -16,7 +16,7 @@ a:hover{text-decoration: none; cursor:pointer;}
 button{outline: none!important;} /* Prevent ugly blue glow on chrome and safari */
 
 
-a{
+a.ltc-white{
 	color:#FFFFFF!important;
 }
  a:hover{
@@ -25,8 +25,25 @@ a{
 	 cursor:pointer;
 }
 
+.nav .open > a, .nav .open > a:focus {
 
+	background-color: #2C2C2C;
+	color: #000000;
+}
+.dropdown-menu > li a{
 
+	color: #000000;
+	font-size: 14px;
+}
+
+.dropdown-menu > li > ul > li {
+	padding-bottom: 5px;
+	color:#333;
+}
+
+.dropdown-menu > li > ul > li:hover{
+	background-color: rgba(0, 0, 0, .175);
+}
 /* Globals type styling */
  h1, h2, h3, h4, h6, label, .btn{
 	font-family:Lato;

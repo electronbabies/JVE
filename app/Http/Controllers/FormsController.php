@@ -8,7 +8,7 @@ use View;
 use Request;
 use Validator;
 
-class FormsController extends Controller
+class FormsController extends StaticController
 {
     public $tBrands = [
         'Crown',

@@ -1,7 +1,4 @@
 <div class="wrap bg-b-edge d-wrap b-divider" id="nav-wrap">
-	<div class="login">
-		<a href="/auth/login"><img id="LoginIcon" src="/img/login.png" /></a>
-	</div>
     <div class="container">
         <nav class="navbar row">
             <div class="navbar-header">
@@ -19,23 +16,46 @@
                         <a href="/service" class="ltc-white">Service</a>
                     </li>
                     <li>
-                        <a href="/parts">Parts</a>
+                        <a href="/parts" class="ltc-white">Parts</a>
                     </li>
                     <li>
-                        <a href="/sales">Sales</a>
+                        <a href="/sales" class="ltc-white">Sales</a>
                     </li>
                     <li>
-                        <a href="/rentals">Rentals</a>
+                        <a href="/rentals" class="ltc-white">Rentals</a>
                     </li>
                     <li>
-                        <a href="/gallery">Gallery</a>
+                        <a href="/gallery" class="ltc-white">Gallery</a>
                     </li>
-                    <!--<li>
-                        <a href="contact-us.php">Contact Us</a>
+                    <li>
+                        <a href="#" class="dropdown-toggle ltc-white" data-toggle="dropdown"><i
+                                class="fa fa-envelope"></i>&nbsp;&nbsp;{{ $objUser->name }}<b
+                                class="caret"></b></a>
+                        <ul class="dropdown-menu message-dropdown" style="top: 120%;">
+                            <li class="dropdown">
+                                <ul style="list-style: none; padding-left: 20px;">
+                                    @if($objUser->email == 'guest@jvequipment.com')
+                                    <li name='MenuItem'>
+                                        <a href="/auth/register"><i class="fa fa-fw fa-user"></i> Create Account</a>
+                                    </li>
+
+                                    <li name='MenuItem'>
+                                        <a href="/auth/login"><i class="fa fa-fw fa-laptop"></i> Log In</a>
+                                    </li>
+                                    @endif
+                                    <li name='MenuItem'>
+                                        <div><a href="/forms/service"><i class="fa fa-fw fa-envelope"></i> Contact Us</a></div>
+                                    </li>
+                                    @if($objUser->email != 'guest@jvequipment.com')
+                                    <li class="divider"></li>
+                                    <li name='MenuItem'>
+                                        <a href="/auth/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                    </li>
+                                    @endif
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
-                     <li>
-                        <a href="blog.php">Blog</a>
-                    </li> -->
                 </ul>
             </div>
         </nav>

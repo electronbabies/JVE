@@ -47,7 +47,7 @@ class User extends Model implements AuthenticatableContract,
      */
     static public function GetGuestAccount()
     {
-        $objUser = \App\User::where('name', '=', 'Guest')->get();
+        $objUser = \App\User::where('name', '=', 'Guest')->first();
         return $objUser;
     }
     /*
