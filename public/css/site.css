@@ -41,6 +41,10 @@ a.ltc-white{
 	color:#333;
 }
 
+.dropdown-menu > li > ul > li.divider {
+	padding-bottom: 0px !important;
+}
+
 .dropdown-menu > li > ul > li:hover{
 	background-color: rgba(0, 0, 0, .175);
 }

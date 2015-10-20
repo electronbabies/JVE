@@ -35,20 +35,20 @@
                             <li class="dropdown">
                                 <ul style="list-style: none; padding-left: 20px;">
                                     @if($objUser->email == 'guest@jvequipment.com')
-                                    <li name='MenuItem'>
+                                    <li>
                                         <a href="/auth/register"><i class="fa fa-fw fa-user"></i> Create Account</a>
                                     </li>
 
-                                    <li name='MenuItem'>
+                                    <li>
                                         <a href="/auth/login"><i class="fa fa-fw fa-laptop"></i> Log In</a>
                                     </li>
                                     @endif
-                                    <li name='MenuItem'>
+                                    <li>
                                         <div><a href="/forms/service"><i class="fa fa-fw fa-envelope"></i> Contact Us</a></div>
                                     </li>
                                     @if($objUser->email != 'guest@jvequipment.com')
                                     <li class="divider"></li>
-                                    <li name='MenuItem'>
+                                    <li>
                                         <a href="/auth/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                                     </li>
                                     @endif
