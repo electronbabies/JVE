@@ -18,7 +18,7 @@
 </div>
 <div class="row">
 	<div class="col-lg-12">
-		<div class="col-lg-6 col-lg-offset-3">
+		<div class="col-lg-8 col-lg-offset-2">
 			<div class="table-responsive">
 				<table class="table table-bordered table-hover table-striped">
 					<thead>

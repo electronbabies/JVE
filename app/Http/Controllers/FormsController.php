@@ -26,53 +26,62 @@ class FormsController extends StaticController
 
     // Form options => css class of their option in the graphic
     public $tTires = [
-        'Indoor' => 'IndoorTire',
-        'Outdoor' => 'OutdoorTire',
+        'Solid Pneumatic Tires (Indoor / Outdoor)'		=> 'PneumaticTire',
+        'Black Non Marking Tires'						=> 'NonMarkingTire',
+        'Cushion Tires (Warehouse'						=> 'WarehouseTire',
     ];
 
     public $tEngine = [
-        'Electric' => 'ElectricEngine',
-        'Gas' => 'GasEngine',
+        'Electric'		=> 'ElectricEngine',
+        'Gas'			=> 'GasEngine',
     ];
 
+    // TODO:  To display capacity, show it lifting boxes of different sizes with the # in lbs on the side.
     public $tCapacity = [
-        '3000 LB' => 'ThreeCapacity',
-        '5000 LB' => 'FiveCapacity',
-        '6000 LB' => 'SixCapacity',
-        '8000 LB' => 'EightCapacity',
-        'Other' => 'OtherCapacity',
+        '3000 LB'		=> 'ThreeCapacity',
+        '5000 LB'		=> 'FiveCapacity',
+        '6000 LB'		=> 'SixCapacity',
+        '8000 LB'		=> 'EightCapacity',
+        'Other'			=> 'OtherCapacity',
     ];
 
     public $tAttachment = [
-        '36"' => 'ThirtySixAttachment',
-        '42"' => 'FortyTwoAttachment',
-        '48"' => 'FortyEightAttachment',
+        '36"'									=> 'ThirtySixAttachment',
+        '42"'									=> 'FortyTwoAttachment',
+        '48"'									=> 'FortyEightAttachment',
+        '54"'									=> 'FiftyFourAttachment',
+        '60"'									=> 'SixtyAttachment',
+        '72"'									=> 'SeventyTwoAttachment',
+        'Bale Clamps'               			=> 'BaleClamps',
+        'Carton Clamps'							=> 'CartonClamps',
+        'Push/Pulls' 							=> 'PushPulls',
+        'Single-Double Pallet Handler'			=> 'PalletHandler',
     ];
 
     // Images may not be necessary here.  Might want to indicate on top right of div though.
     public $tOperatingHours = [
-        '8 Hours' => 'EightHours',
-        'More' => 'ExtraBattery', // Extra batteries if so
+        '8 Hours' 		=> 'EightHours',
+        'More' 			=> 'ExtraBattery', // Extra batteries if so
     ];
 
     public $tAccessories = [
-        'Side Shifter' => 'SideShifter',
-        'LP Tank' => 'LPTank',
-        'Seat Belt' => 'SeatBelt',
-        'Strobe Light' => 'StrobeLight',
-        'Fire Extinguisher' => 'FireExtinguisher',
-        'Opportunity Charger' => 'OpportunityCharger',
+        'Side Shifter' 				=> 'SideShifter',
+        'LP Tank'					=> 'LPTank',
+        'Seat Belt' 				=> 'SeatBelt',
+        'Strobe Light' 				=> 'StrobeLight',
+        'Fire Extinguisher' 		=> 'FireExtinguisher',
+        'Opportunity Charger' 		=> 'OpportunityCharger',
     ];
 
     public function store()
     {
         $Input = Request::all();
         $Validator = Validator::make($Input, [
-            'FirstName' => 'required',
-            'LastName' => 'required',
-            'CompanyName' => '',
-            'PhoneNumber' => 'required',
-            'EmailAddress' => 'required',
+            'FirstName' 		=> 'required',
+            'LastName' 			=> 'required',
+            'CompanyName' 		=> '',
+            'PhoneNumber' 		=> 'required',
+            'EmailAddress' 		=> 'required',
         ]);
 
         if ($Validator->fails())
@@ -94,7 +103,6 @@ class FormsController extends StaticController
     }
 
     public function ProcessServiceRequest($Input) {
-        // make & model
         // Get logged user, or register as guest
         $objUser = \Auth::User() ?: \App\User::GetGuestAccount();
 
@@ -137,7 +145,6 @@ class FormsController extends StaticController
     public function ProcessPartsRequest($Input) {
         // Same thing at this point
         return $this->ProcessServiceRequest($Input);
-        return redirect('/forms/success');
     }
 
     public function ProcessRentalRequest($Input) {
