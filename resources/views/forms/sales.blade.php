@@ -7,7 +7,7 @@
 @section('content')
 <form action="/forms/store" method="post">
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-	<input type="hidden" name="RequestType" value="Sales">
+	<input type="hidden" name="RequestType" value="{{ $RequestType }}">
 	<div class="wrap tc-white bg-repeat d-wrap" id="wrap-22">
 		<div class="container wrap-md">
 			<div class="row">
@@ -21,7 +21,7 @@
 					</h2>
 
 					<h3 class="orange text-center mg-lg tc-saffron">
-						<span>Sales Department</span>
+						<span>{{ $RequestType }} Department</span>
 					</h3>
 
 					<div class="divider-h">
@@ -173,18 +173,39 @@
 											</div>
 										</div>
 										<div class="row">
-											<div class="col-sm-6">
-												<div class="form-group">
+											<div class="col-sm-12 text-center">
+												<div class="form-group" style="padding-left: 50px;">
 													<label>
-														Accessories
+														Accessories <i style="font-size: 12px;">(Some accessories are required)</i>
 													</label>
 													<br />
+													<div class="text-left checkbox checkbox-info checkbox-circle checkbox-success">
+														<?php $Count = 0; ?>
 														@foreach ($tAccessories as $Accessory => $CSSClass)
-															<input type="checkbox" name="Accessories[]" FBCSS="{{ $CSSClass }}" value="{{ $Accessory }}" TabIndex="12">{{ $Accessory }}<br />
+															<?php
+																$Count++;
+																$IsDisabled = in_array($Accessory, $tMandatoryItems) ? 'disabled checked' : '';
+																$Divisions = 3;
+																if($Count % ( count($tAccessories) / $Divisions) == 1) {
+																	echo "<div class='col-sm-" . (int)(12 / $Divisions) . "'>";
+																 }
+															?>
+															<input type="checkbox" name="Accessories[]" FBCSS="{{ $CSSClass }}" value="{{ $Accessory }}" TabIndex="12" {{ $IsDisabled }}>
+															<label>
+																{{ $Accessory }}
+															</label>
+															<br />
+															<?php
+																if ($Count % (count($tAccessories) / $Divisions) == 0) {
+																	echo "</div>";
+																}
+															?>
 														@endforeach
+													</div>
 												</div>
 											</div>
 										</div>
+										<br />
 										<div class="form-group">
 											<label>
 												Comments

@@ -65,13 +65,20 @@ class FormsController extends StaticController
     ];
 
     public $tAccessories = [
-        'Side Shifter' 				=> 'SideShifter',
+		'Opportunity Charger' 		=> 'OpportunityCharger',
         'LP Tank'					=> 'LPTank',
         'Seat Belt' 				=> 'SeatBelt',
         'Strobe Light' 				=> 'StrobeLight',
         'Fire Extinguisher' 		=> 'FireExtinguisher',
-        'Opportunity Charger' 		=> 'OpportunityCharger',
+		'Side Shifter' 				=> 'SideShifter',
     ];
+
+    public $tMandatoryItems = [
+		'Seat Belt',
+		'Strobe Light',
+		'Fire Extinguisher',
+		'Side Shifter',
+	];
 
     public function store()
     {
@@ -185,12 +192,14 @@ class FormsController extends StaticController
             'Attachment',
             'OperatingHours',
             'Accessories' => [
-                'Side Shifter',
-                'LP Tank',
-                'Seat Belt',
-                'Strobe Light',
-                'Fire Extinguisher',
-                'Opportunity Charger',
+                'LP Tank', // Inform this is a 2nd tank.  Fork lifts come with LP Tanks.  Gas only.
+                'Opportunity Charger', // Electric only
+
+                // Mandatory Items
+				'Seat Belt',
+				'Strobe Light',
+				'Fire Extinguisher',
+				'Side Shifter',
             ],
         ];
 
@@ -234,7 +243,11 @@ class FormsController extends StaticController
         View::share('tCapacity', $this->tCapacity);
         View::share('tEngine', $this->tEngine);
         View::share('tTires', $this->tTires);
-		return view('forms.rental');
+        View::share('tMandatoryItems', $this->tMandatoryItems);
+
+		View::share('RequestType', 'Rental');
+        // Intentionally sales.  Currently, there is literally no difference between the two forms except for the type.
+		return view('forms.sales');
     }
 
 	public function sales()
@@ -246,7 +259,9 @@ class FormsController extends StaticController
         View::share('tCapacity', $this->tCapacity);
         View::share('tEngine', $this->tEngine);
         View::share('tTires', $this->tTires);
+		View::share('tMandatoryItems', $this->tMandatoryItems);
 
+		View::share('RequestType', 'Sales');
 		return view('forms.sales');
 	}
 

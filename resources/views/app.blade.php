@@ -13,6 +13,7 @@
     {!! Html::style('css/animate.css') !!}
     {!! Html::style('css/ionicons.min.css') !!}
     {!! Html::style('css/et-line.min.css') !!}
+	{!! Html::style('css/awesome-bootstrap-checkbox.css') !!}
     {!! Html::script('js/jquery-2.1.0.min.js') !!}
     {!! Html::script('js/bootstrap.js') !!}
     {!! Html::script('js/jssor.js') !!}

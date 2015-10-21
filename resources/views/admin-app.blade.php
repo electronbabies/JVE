@@ -9,6 +9,7 @@
 
 	<title>J.V. Equipment Admin Panel</title>
 
+	{!! Html::style('css/awesome-bootstrap-checkbox.css') !!}
 	{!! Html::script('js/jquery-2.1.0.min.js') !!}
 	{!! Html::script('js/bootstrap.js') !!}
 
