@@ -177,16 +177,16 @@
 						class="active"
 					@endif
 				>
-					<a href="/admin/clients"><i class="fa fa-fw {{ Config::get('constants.ICON_CLIENTS') }}"></i> Clients</a>
+					<a href="/admin/clients"><i class="fa fa-fw {{ Config::get('constants.ICON_CLIENTS') }}"></i> Users</a>
 				</li>
-				<li
+				{{--<li
 					@if ($ActiveClass == 'Employees')
 						class="active"
 					@endif
 					>
 					<a href="/admin/employees"><i class="fa fa-fw {{ Config::get('constants.ICON_EMPLOYEES') }}"></i> Employees</a>
 
-				</li>
+				</li>--}}
 				<li
 					@if ($ActiveClass == 'Calendar')
 						class="active"

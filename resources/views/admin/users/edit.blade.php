@@ -11,7 +11,7 @@
 					<i class="fa {{ Config::get('constants.ICON_DASHBOARD') }}"></i> <a href="/admin">Dashboard</a>
 				</li>
 				<li class="active">
-					<i class="fa {{ Config::get('constants.ICON_CLIENTS') }}"></i> <a href="/admin/clients">Clients</a>
+					<i class="fa {{ Config::get('constants.ICON_CLIENTS') }}"></i> <a href="/admin/clients">Users</a>
 				</li>
 				<li class="">
 					<i class="fa {{ Config::get('constants.ICON_SINGLE_CLIENT') }}"></i> {{ $objClient->name }}

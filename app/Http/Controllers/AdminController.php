@@ -43,7 +43,8 @@ class AdminController extends Controller
 	{
 		// This needs to change to a constant when / if we make an Clients Controller
 		View::share('ActiveClass', 'Clients');
-		$tClients = \App\User::where('role', \App\User::ROLE_CLIENT)->get();
+		//$tClients = \App\User::where('role', \App\User::ROLE_CLIENT)->get();
+		$tClients = \App\User::all();
 		View::share('tClients', $tClients);
 		return view('admin.clients');
 	}

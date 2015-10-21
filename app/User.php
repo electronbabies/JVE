@@ -41,6 +41,10 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
+    public function Invoices()
+    {
+        return $this->hasMany('App\Invoice');
+    }
     /**
      * Return global guest user account
      * @return mixed

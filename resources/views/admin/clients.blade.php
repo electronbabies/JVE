@@ -3,7 +3,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">
-			Clients
+			Users
 		</h1>
 		<ol class="breadcrumb">
 			<li>
@@ -11,7 +11,7 @@
 				<i class="fa {{ Config::get('constants.ICON_DASHBOARD') }}"></i> <a href="/admin">Dashboard</a>
 			</li>
 			<li class="active">
-				<i class="fa {{ Config::get('constants.ICON_CLIENTS') }}"></i> Clients
+				<i class="fa {{ Config::get('constants.ICON_CLIENTS') }}"></i> Users
 			</li>
 		</ol>
 	</div>
@@ -25,6 +25,7 @@
 					<tr>
 						<th>Name</th>
 						<th>Email</th>
+						<th>Type</th>
 						<th>Invoices</th>
 						<th>Revenue</th>
 					</tr>
@@ -34,7 +35,8 @@
 						<tr>
 							<td><a href='/admin/users/edit/{{ $objClient->id }}'>{{ $objClient->name }}</a></td>
 							<td><a href="mailto:{{ $objClient->email }}">{{ $objClient->email }}</a></td>
-							<td>{{-- Need invoice count --}}</td>
+							<td>{{ $objClient->role }}
+							<td>{{ count($objClient->Invoices) }}</td>
 							<td>$321.33</td>
 						</tr>
 					@empty
