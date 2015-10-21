@@ -52,7 +52,7 @@
 							</tr>
 						@empty
 							<tr>
-								<td colspan="8" class='text-center'>
+								<td colspan="9" class='text-center'>
 									This client has no invoices.
 								</td>
 							</tr>

@@ -15,6 +15,7 @@ class StaticController extends Controller
 
 		View::share('objUser', $objUser);
 	}
+
 	function index()
 	{
 		/*$Parser = new \Smalot\PdfParser\Parser();
@@ -39,21 +40,29 @@ class StaticController extends Controller
 
 	function service()
 	{
+		$tGalleryImages = \App\GalleryImage::all();
+		View::share('tGalleryImages', $tGalleryImages);
 		return view('service');
 	}
 
 	function parts()
 	{
+		$tGalleryImages = \App\GalleryImage::all();
+		View::share('tGalleryImages', $tGalleryImages);
 		return view('parts');
 	}
 
 	function sales()
 	{
+		$tGalleryImages = \App\GalleryImage::all();
+		View::share('tGalleryImages', $tGalleryImages);
 		return view('sales');
 	}
 
 	function rentals()
 	{
+		$tGalleryImages = \App\GalleryImage::all();
+		View::share('tGalleryImages', $tGalleryImages);
 		return view('rentals');
 	}
 	function gallery()
@@ -65,7 +74,10 @@ class StaticController extends Controller
 
 	function gallery_view($ImageID)
 	{
+		$tGalleryImages = \App\GalleryImage::all();
 		$objImage = \App\GalleryImage::findorFail($ImageID);
+
+		View::share('tGalleryImages', $tGalleryImages);
 		View::share('objImage', $objImage);
 		return view('gallery_view');
 	}
