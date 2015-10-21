@@ -11,12 +11,14 @@ return [
 	'IMG_WAREHOUSE' => 'bg-banner-holder-4',
 
 	// Icon classes (font-awesome)
-	'ICON_DASHBOARD'	=> 'fa-dashboard',
-	'ICON_CLIENTS'		=> 'fa-dollar',
-	'ICON_EMPLOYEES'	=> 'fa-male',
-	'ICON_CALENDAR' 	=> 'fa-calendar-o',
-	'ICON_WEBSITE'		=> 'fa-external-link-square',
-	'ICON_BLOG'			=> 'fa-coffee',
-	'ICON_EDIT'			=> 'fa-edit',
-	'ICON_GALLERY'		=> 'fa-image',
+	'ICON_DASHBOARD'			=> 'fa-dashboard',
+	'ICON_SINGLE_CLIENT'		=> 'fa-male',
+	'ICON_CLIENTS'				=> 'fa-group',
+	'ICON_EMPLOYEES'			=> 'fa-male',
+	'ICON_CALENDAR' 			=> 'fa-calendar-o',
+	'ICON_WEBSITE'				=> 'fa-external-link-square',
+	'ICON_BLOG'					=> 'fa-coffee',
+	'ICON_EDIT'					=> 'fa-edit',
+	'ICON_GALLERY'				=> 'fa-image',
+	'ICON_INVOICE'				=> 'fa-archive',
 ];

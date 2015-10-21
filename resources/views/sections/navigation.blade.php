@@ -47,6 +47,13 @@
                                         </li>
                                     </a>
                                     @endif
+                                    @if($objUser->role == \App\User::ROLE_ADMIN)
+                                    <a href="/admin">
+                                        <li>
+                                            <i class="fa fa-fw {{ Config::get('constants.ICON_DASHBOARD') }}"></i> Admin Panel
+                                        </li>
+                                    </a>
+                                    @endif
                                     <a href="/forms/service">
                                         <li>
                                             <i class="fa fa-fw fa-envelope"></i> Contact Us

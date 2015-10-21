@@ -11,11 +11,18 @@ class Invoice extends Model
 	const STATUS_REVIEWED		= 'Reviewed';
 	const STATUS_FINALIZED		= 'Finalized';
 
+	protected $dates = ['created_at', 'updated_at'];
+
 	protected $table = 'invoices';
 
 	public function InvoiceItems()
 	{
 		return $this->hasMany('App\InvoiceItem');
+	}
+
+	public function User()
+	{
+		return $this->belongsTo('App\User');
 	}
 }
 

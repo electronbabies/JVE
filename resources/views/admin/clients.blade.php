@@ -32,7 +32,7 @@
 					<tbody>
 					@forelse ($tClients as $objClient)
 						<tr>
-							<td><a href='/admin/edit/user/{{ $objClient->id }}'>{{ $objClient->name }}</a></td>
+							<td><a href='/admin/users/edit/{{ $objClient->id }}'>{{ $objClient->name }}</a></td>
 							<td><a href="mailto:{{ $objClient->email }}">{{ $objClient->email }}</a></td>
 							<td>{{-- Need invoice count --}}</td>
 							<td>$321.33</td>

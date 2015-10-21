@@ -51,6 +51,12 @@ Route::get('admin', 'AdminController@index');
 Route::get('admin/clients', 'AdminController@clients');
 Route::get('admin/employees', 'AdminController@employees');
 
+// Admin Users
+Route::get('admin/users/edit/{ClientID}', 'UsersController@edit');
+
+// Admin Invoices
+Route::get('admin/invoices/edit/{InvoiceID}', 'InvoiceController@edit');
+
 // Admin Blog
 Route::get('admin/blog', 'BlogController@index');
 Route::get('admin/blog/edit/{id}', 'BlogController@edit');
