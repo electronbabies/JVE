@@ -82,4 +82,9 @@ class User extends Model implements AuthenticatableContract,
     public function IsAdmin() {
         return $this->role == static::ROLE_ADMIN;
     }
+
+    public function Vacations()
+	{
+		return $this->hasMany('\App\VacationRequest');
+	}
 }

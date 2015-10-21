@@ -12,8 +12,8 @@ return [
 
 	// Icon classes (font-awesome)
 	'ICON_DASHBOARD'			=> 'fa-dashboard',
-	'ICON_SINGLE_CLIENT'		=> 'fa-male',
-	'ICON_CLIENTS'				=> 'fa-group',
+	'ICON_SINGLE_USER'			=> 'fa-male',
+	'ICON_USERS'				=> 'fa-group',
 	'ICON_EMPLOYEES'			=> 'fa-male',
 	'ICON_CALENDAR' 			=> 'fa-calendar-o',
 	'ICON_WEBSITE'				=> 'fa-external-link-square',
@@ -21,4 +21,5 @@ return [
 	'ICON_EDIT'					=> 'fa-edit',
 	'ICON_GALLERY'				=> 'fa-image',
 	'ICON_INVOICE'				=> 'fa-archive',
+	'ICON_VACATION'				=> 'fa-suitcase',
 ];

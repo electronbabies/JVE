@@ -48,11 +48,15 @@ Route::get('forms/success', 'FormsController@success');
 
 // Admin Dashboard
 Route::get('admin', 'AdminController@index');
-Route::get('admin/clients', 'AdminController@clients');
-Route::get('admin/employees', 'AdminController@employees');
 
 // Admin Users
-Route::get('admin/users/edit/{ClientID}', 'UsersController@edit');
+Route::get('admin/users', 'UsersController@index');
+Route::get('admin/users/edit/{UserID}', 'UsersController@edit');
+
+// Admin Vacations
+Route::get('admin/vacations', 'VacationController@index');
+Route::get('admin/vacations/edit/{VacationID}', 'VacationController@edit');
+Route::post('admin/vacations/store/', 'VacationController@store');
 
 // Admin Invoices
 Route::get('admin/invoices/edit/{InvoiceID}', 'InvoiceController@edit');

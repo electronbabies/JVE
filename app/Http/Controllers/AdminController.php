@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use View;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -26,6 +27,9 @@ class AdminController extends Controller
 	}
 	public function index()
 	{
+		$tVacations = \App\VacationRequest::where('from', '>', Carbon::now())->get();
+		//gPrint($tVacations);
+		//die();
 		return view('admin.index');
 	}
 
@@ -37,15 +41,5 @@ class AdminController extends Controller
 		View::share('tEmployees', $tEmployees);
 
 		return view('admin.employees');
-	}
-
-	public function clients()
-	{
-		// This needs to change to a constant when / if we make an Clients Controller
-		View::share('ActiveClass', 'Clients');
-		//$tClients = \App\User::where('role', \App\User::ROLE_CLIENT)->get();
-		$tClients = \App\User::all();
-		View::share('tClients', $tClients);
-		return view('admin.clients');
 	}
 }

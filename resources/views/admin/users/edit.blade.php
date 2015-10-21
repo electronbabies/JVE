@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">
-				{{ $objClient->name }}
+				{{ $objUser->name }}
 			</h1>
 			<ol class="breadcrumb">
 				<li>
@@ -11,10 +11,10 @@
 					<i class="fa {{ Config::get('constants.ICON_DASHBOARD') }}"></i> <a href="/admin">Dashboard</a>
 				</li>
 				<li class="active">
-					<i class="fa {{ Config::get('constants.ICON_CLIENTS') }}"></i> <a href="/admin/clients">Users</a>
+					<i class="fa {{ Config::get('constants.ICON_USERS') }}"></i> <a href="/admin/users">Users</a>
 				</li>
 				<li class="">
-					<i class="fa {{ Config::get('constants.ICON_SINGLE_CLIENT') }}"></i> {{ $objClient->name }}
+					<i class="fa {{ Config::get('constants.ICON_SINGLE_USER') }}"></i> {{ $objUser->name }}
 				</li>
 			</ol>
 		</div>
@@ -53,7 +53,7 @@
 						@empty
 							<tr>
 								<td colspan="9" class='text-center'>
-									This client has no invoices.
+									This user has no invoices.
 								</td>
 							</tr>
 						@endforelse

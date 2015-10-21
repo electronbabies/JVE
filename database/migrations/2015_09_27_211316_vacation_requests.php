@@ -15,7 +15,7 @@ class VacationRequests extends Migration
         Schema::create('vacation_requests', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('comments');
+            $table->text('comments');
             $table->dateTime('from');
             $table->dateTime('to');
             $table->timestamps();

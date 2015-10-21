@@ -11,7 +11,7 @@
 				<i class="fa {{ Config::get('constants.ICON_DASHBOARD') }}"></i> <a href="/admin">Dashboard</a>
 			</li>
 			<li class="active">
-				<i class="fa {{ Config::get('constants.ICON_CLIENTS') }}"></i> Users
+				<i class="fa {{ Config::get('constants.ICON_USERS') }}"></i> Users
 			</li>
 		</ol>
 	</div>
@@ -31,18 +31,18 @@
 					</tr>
 					</thead>
 					<tbody>
-					@forelse ($tClients as $objClient)
+					@forelse ($tUsers as $objUser)
 						<tr>
-							<td><a href='/admin/users/edit/{{ $objClient->id }}'>{{ $objClient->name }}</a></td>
-							<td><a href="mailto:{{ $objClient->email }}">{{ $objClient->email }}</a></td>
-							<td>{{ $objClient->role }}
-							<td>{{ count($objClient->Invoices) }}</td>
+							<td><a href='/admin/users/edit/{{ $objUser->id }}'>{{ $objUser->name }}</a></td>
+							<td><a href="mailto:{{ $objUser->email }}">{{ $objUser->email }}</a></td>
+							<td>{{ $objUser->role }}
+							<td>{{ count($objUser->Invoices) }}</td>
 							<td>$321.33</td>
 						</tr>
 					@empty
 						<tr>
 							<td colspan="4" class='text-center'>
-								No clients in system.
+								No users in system.
 							</td>
 						</tr>
 					@endforelse

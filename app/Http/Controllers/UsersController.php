@@ -9,14 +9,22 @@ use View;
 
 class UsersController extends AdminController
 {
-    public function edit($ClientID)
+	const ACTIVE_CLASS = 'Users';
+    public function edit($UserID)
 	{
-		$objClient = \App\User::find($ClientID);
-		$tInvoices = \App\Invoice::where('user_id', $ClientID)->get();
+		$objUser = \App\User::find($UserID);
+		$tInvoices = \App\Invoice::where('user_id', $UserID)->get();
 
-		View::share('objClient', $objClient);
+		View::share('objUser', $objUser);
 		View::share('tInvoices', $tInvoices);
 
 		return view('admin.users.edit');
+	}
+
+	public function index()
+	{
+		$tUsers = \App\User::all();
+		View::share('tUsers', $tUsers);
+		return view('admin.users.index');
 	}
 }

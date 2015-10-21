@@ -13,6 +13,10 @@
 	{!! Html::script('js/jquery-2.1.0.min.js') !!}
 	{!! Html::script('js/bootstrap.js') !!}
 
+	{!! Html::style('css/bootstrap-datetimepicker.css') !!}
+	{!! Html::script('js/moment.js') !!}
+	{!! Html::script('js/bootstrap-datetimepicker.js') !!}
+
 	<!-- Morris Charts JavaScript -->
 	{{-- !!}{!! Html::script('js/plugins/morris/raphael.min.js') !!}
 	{!! Html::script('js/plugins/morris/morris.min.js') !!}
@@ -174,11 +178,11 @@
 					<a href="/admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
 				</li>
 				<li
-					@if ($ActiveClass == 'Clients')
+					@if ($ActiveClass == 'Users')
 						class="active"
 					@endif
 				>
-					<a href="/admin/clients"><i class="fa fa-fw {{ Config::get('constants.ICON_CLIENTS') }}"></i> Users</a>
+					<a href="/admin/users"><i class="fa fa-fw {{ Config::get('constants.ICON_USERS') }}"></i> Users</a>
 				</li>
 				{{--<li
 					@if ($ActiveClass == 'Employees')
@@ -208,6 +212,15 @@
 					@endif
 					>
 					<a href="/admin/gallery"><i class="fa fa-fw {{ Config::get('constants.ICON_GALLERY') }}"></i> Gallery</a>
+				</li>
+				<li
+					@if ($ActiveClass == 'Vacations')
+					class="active"
+					@endif
+					>
+					<a href="/admin/vacations"><i
+							class="fa fa-fw {{ Config::get('constants.ICON_VACATION') }}"></i>
+						Vacation Request</a>
 				</li>
 				<li>
 					<a href="/"><i class="fa fa-fw {{ Config::get('constants.ICON_WEBSITE') }}"></i> Public Site</a>
