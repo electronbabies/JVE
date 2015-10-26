@@ -19,6 +19,20 @@ class User extends Model implements AuthenticatableContract,
     const ROLE_ADMIN = 'Admin';
     const ROLE_CLIENT = 'Client';
     const ROLE_EMPLOYEE = 'Employee';
+    const ROLE_GUEST = 'Guest';
+
+    // There has to be a better way to do this.
+    static $tRoles = [
+    	self::ROLE_ADMIN,
+		self::ROLE_CLIENT,
+		self::ROLE_EMPLOYEE,
+		self::ROLE_GUEST,
+	];
+
+	public function scopeClients($query)
+	{
+		return $query->where('role', '=', static::ROLE_CLIENT);
+	}
 
     /**
      * The database table used by the model.
@@ -51,9 +65,15 @@ class User extends Model implements AuthenticatableContract,
      */
     static public function GetGuestAccount()
     {
-        $objUser = \App\User::where('name', '=', 'Guest')->first();
+        $objUser = \App\User::where('role', '=', static::ROLE_GUEST)->first();
         return $objUser;
     }
+
+    public function IsGuestAccount()
+	{
+		return $this->role == static::ROLE_GUEST;
+	}
+
     /*
      * $Permissions string Slash (/) separated permission list
      */
@@ -68,7 +88,7 @@ class User extends Model implements AuthenticatableContract,
         foreach($tPermissions as $Permission) {
             switch($Permission) {
                 case 'Admin Panel':
-                    if($objUser->role == 'Client')
+                    if($objUser->role == static::ROLE_CLIENT)
                         return false;
                     break;
                 default:
@@ -79,9 +99,55 @@ class User extends Model implements AuthenticatableContract,
 
         return true;
     }
-    public function IsAdmin() {
-        return $this->role == static::ROLE_ADMIN;
-    }
+
+	public function IsAdmin()
+	{
+		return $this->role == static::ROLE_ADMIN;
+	}
+
+
+	// Mutators
+    public function getFirstNameAttribute($value)
+	{
+	 	$Name = $this->IsGuestAccount() ? '' : $this->attributes['name'];
+		$tNames = explode(' ', $Name);
+		//echo $value;
+		//gPrint($tNames);
+		//die();
+		// In case for some reason they put multiple first names
+		$LastName = count($tNames) > 1 ? array_pop($tNames) : '';
+		$FirstName = implode(' ', $tNames);
+
+		$FirstName = $this->IsGuestAccount() ? '' : $FirstName;
+
+		return ucfirst($FirstName);
+	}
+
+	public function getLastNameAttribute($value)
+	{
+		$Name = $this->IsGuestAccount() ? '' : $this->attributes['name'];
+		$tNames = explode(' ', $Name);
+		$LastName = count($tNames) > 1 ? array_pop($tNames) : '';
+
+		$LastName = $this->IsGuestAccount() ? '' : $LastName;
+
+		return ucfirst($LastName);
+	}
+
+	public function getEmailAttribute($value)
+	{
+		return $this->IsGuestAccount() ? '' : $value;
+	}
+
+	public function getPhoneAttribute($value)
+	{
+		return $this->IsGuestAccount() ? '' : $value;
+	}
+
+	public function getCompanyNameAttribute($value)
+	{
+		return $this->IsGuestAccount() ? '' : $value;
+	}
 
     public function Vacations()
 	{

@@ -37,14 +37,14 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
+								<div class="checkbox checkbox-info checkbox-circle">
+									<input type="checkbox" name="remember">
 									<label>
-										<input type="checkbox" name="remember"> Remember Me
+										Remember Me
 									</label>
 								</div>
 							</div>
 						</div>
-
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">Login</button>

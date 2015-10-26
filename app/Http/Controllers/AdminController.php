@@ -19,27 +19,26 @@ class AdminController extends Controller
 		if(!$objUser || !$objUser->HasPermissions('Admin Panel'))
 			Abort('404');
 
-		View::share('objUser', $objUser);
-
+		View::share('objLoggedInUser', $objUser);
 		View::share('ActiveClass', static::ACTIVE_CLASS);
 
 		// No parent constructor.  All is well.
 	}
+
 	public function index()
 	{
-		$tVacations = \App\VacationRequest::where('from', '>', Carbon::now())->get();
-		//gPrint($tVacations);
-		//die();
+		$tUpcomingVacations = \App\VacationRequest::upcoming()->get();
+		$tVacationRequests = \App\VacationRequest::requests()->get();
+		$tNewInvoices = \App\Invoice::unhandled()->get();
+		$tActiveGalleryImages = \App\GalleryImage::all();
+		$tAllClients = \App\User::clients()->get();
+
+		View::share('tUpcomingVacations', $tUpcomingVacations);
+		View::share('tVacationRequests', $tVacationRequests);
+		View::share('tNewInvoices', $tNewInvoices);
+		View::share('tActiveGalleryImages', $tActiveGalleryImages);
+		View::share('tAllClients', $tAllClients);
+
 		return view('admin.index');
-	}
-
-	public function employees()
-	{
-		// This needs to change to a constant when / if we make an Employees Controller
-		View::share('ActiveClass', 'Employees');
-		$tEmployees = \App\User::where('role', \App\User::ROLE_EMPLOYEE)->get();
-		View::share('tEmployees', $tEmployees);
-
-		return view('admin.employees');
 	}
 }

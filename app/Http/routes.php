@@ -52,14 +52,18 @@ Route::get('admin', 'AdminController@index');
 // Admin Users
 Route::get('admin/users', 'UsersController@index');
 Route::get('admin/users/edit/{UserID}', 'UsersController@edit');
+Route::post('admin/users/store', 'UsersController@store');
 
 // Admin Vacations
 Route::get('admin/vacations', 'VacationController@index');
 Route::get('admin/vacations/edit/{VacationID}', 'VacationController@edit');
+Route::get('admin/vacations/edit/{VacationID}/ReturnTo/{Location}', 'VacationController@edit');
 Route::post('admin/vacations/store/', 'VacationController@store');
 
 // Admin Invoices
+Route::get('admin/invoices', 'InvoiceController@index');
 Route::get('admin/invoices/edit/{InvoiceID}', 'InvoiceController@edit');
+Route::get('admin/invoices/edit/{InvoiceID}/ReturnTo/{Location}', 'InvoiceController@edit');
 
 // Admin Blog
 Route::get('admin/blog', 'BlogController@index');

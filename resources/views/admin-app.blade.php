@@ -69,7 +69,7 @@
 										</span>
 
 								<div class="media-body">
-									<h5 class="media-heading"><strong>{{ $objUser->name }} }}</strong>
+									<h5 class="media-heading"><strong>{{ $objLoggedInUser->name }} }}</strong>
 									</h5>
 
 									<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
@@ -87,7 +87,7 @@
 										</span>
 
 								<div class="media-body">
-									<h5 class="media-heading"><strong>{{ $objUser->name }}</strong>
+									<h5 class="media-heading"><strong>{{ $objLoggedInUser->name }}</strong>
 									</h5>
 
 									<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
@@ -105,7 +105,7 @@
 										</span>
 
 								<div class="media-body">
-									<h5 class="media-heading"><strong>{{ $objUser->name }}</strong>
+									<h5 class="media-heading"><strong>{{ $objLoggedInUser->name }}</strong>
 									</h5>
 
 									<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
@@ -148,7 +148,7 @@
 				</ul>
 			</li>
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ $objUser->name  }} <b
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ $objLoggedInUser->name  }} <b
 						class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li>
@@ -184,14 +184,14 @@
 				>
 					<a href="/admin/users"><i class="fa fa-fw {{ Config::get('constants.ICON_USERS') }}"></i> Users</a>
 				</li>
-				{{--<li
-					@if ($ActiveClass == 'Employees')
+				<li
+					@if ($ActiveClass == 'Invoices')
 						class="active"
 					@endif
 					>
-					<a href="/admin/employees"><i class="fa fa-fw {{ Config::get('constants.ICON_EMPLOYEES') }}"></i> Employees</a>
+					<a href="/admin/invoices"><i class="fa fa-fw {{ Config::get('constants.ICON_INVOICE') }}"></i> Orders</a>
 
-				</li>--}}
+				</li>
 				<li
 					@if ($ActiveClass == 'Calendar')
 						class="active"

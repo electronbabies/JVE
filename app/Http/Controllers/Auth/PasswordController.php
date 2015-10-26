@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\StaticController;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
-class PasswordController extends Controller
+class PasswordController extends StaticController
 {
     /*
     |--------------------------------------------------------------------------
@@ -28,5 +29,7 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+
+        return parent::__construct();
     }
 }

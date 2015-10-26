@@ -37,13 +37,13 @@
 													<label>
 														First Name
 													</label>
-													<input class="form-control" tabindex="1" name="FirstName" />
+													<input class="form-control" tabindex="1" name="FirstName" value="{{ $objUser->first_name }}" />
 												</div>
 												<div class="form-group">
 													<label>
 														Company Name
 													</label>
-													<input class="form-control" tabindex="3" name="CompanyName" />
+													<input class="form-control" tabindex="3" name="CompanyName" value="{{ $objUser->company_name }}" />
 												</div>
 											</div>
 											<div class="col-sm-6">
@@ -51,7 +51,7 @@
 													<label>
 														Last Name
 													</label>
-													<input class="form-control" tabindex="2" name="LastName" />
+													<input class="form-control" tabindex="2" name="LastName" value="{{ $objUser->last_name }}" />
 												</div>
 												<div class="row">
 													<div class="col-sm-6">
@@ -79,7 +79,7 @@
 													<label>
 														Phone Number
 													</label>
-													<input class="form-control" tabindex="6" name="PhoneNumber"/>
+													<input class="form-control" tabindex="6" name="PhoneNumber" value="{{ $objUser->phone }}"/>
 												</div>
 											</div>
 											<div class="col-sm-6">
@@ -87,7 +87,7 @@
 													<label>
 														Email Address
 													</label>
-													<input class="form-control" tabindex="7" name="EmailAddress"/>
+													<input class="form-control" tabindex="7" name="EmailAddress" value="{{ $objUser->email }}"/>
 												</div>
 											</div>
 										</div>

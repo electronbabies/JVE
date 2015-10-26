@@ -34,7 +34,7 @@
                         <ul class="dropdown-menu message-dropdown" style="top: 120%;">
                             <li class="dropdown">
                                 <ul style="list-style: none; padding-left: 20px;">
-                                    @if($objUser->email == 'guest@jvequipment.com')
+                                    @if($objUser->IsGuestAccount())
 
                                     <a href="/auth/register">
                                         <li>
@@ -47,7 +47,7 @@
                                         </li>
                                     </a>
                                     @endif
-                                    @if($objUser->role == \App\User::ROLE_ADMIN)
+                                    @if($objUser->HasPermissions('Admin Panel'))
                                     <a href="/admin">
                                         <li>
                                             <i class="fa fa-fw {{ Config::get('constants.ICON_DASHBOARD') }}"></i> Admin Panel
@@ -59,7 +59,7 @@
                                             <i class="fa fa-fw fa-envelope"></i> Contact Us
                                         </li>
                                     </a>
-                                    @if($objUser->email != 'guest@jvequipment.com')
+                                    @if(!$objUser->IsGuestAccount())
                                     <li class="divider"></li>
                                     <a href="/auth/logout">
                                         <li>

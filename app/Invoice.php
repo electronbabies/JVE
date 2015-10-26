@@ -24,6 +24,11 @@ class Invoice extends Model
 	{
 		return $this->belongsTo('App\User');
 	}
+
+	public function scopeUnhandled($query)
+	{
+		return $query->where('status', '=', static::STATUS_NEW);
+	}
 }
 
 class InvoiceItem extends Model
@@ -38,4 +43,6 @@ class InvoiceItem extends Model
 	{
 		return $this->belongsTo('App\Invoice');
 	}
+
+
 }

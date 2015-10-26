@@ -3,7 +3,11 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header" id="BlogTitleHeader">
-				Vacation Request
+				@if($objRequest->id)
+					{{ $objRequest->User->name }}
+				@else
+					New Vacation Request
+				@endif
 			</h1>
 			<ol class="breadcrumb">
 				<li>
@@ -21,33 +25,46 @@
 	</div>
 	<form action="/admin/vacations/store" method="post" enctype="multipart/form-data">
 		<input type="hidden" value="{{ $objRequest->id }}" name="VacationID">
+		<input type="hidden" value="{{ $ReturnTo }}" name="ReturnTo">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="col-lg-4 col-lg-offset-1">
-				<label>From</label>
-				<div class="input-group date" id="DateTimePickerFrom">
-					<input class="form-control" name='From'>
-					<span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+					<label>From</label>
+					<div class="input-group date" id="DateTimePickerFrom">
+						<input class="form-control" name='From'>
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+                    	</span>
+					</div>
 				</div>
-			</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="col-lg-4 col-lg-offset-1">
-				<label>To</label>
+				<div class="col-lg-4 col-lg-offset-2">
+					<label>To</label>
 					<div class="input-group date" id="DateTimePickerTo">
 						<input class="form-control" type="text" name='To'>
 						<span class="input-group-addon">
 							<span class="glyphicon glyphicon-calendar"></span>
                     	</span>
 					</div>
-			</div>
+				</div>
 			</div>
 		</div>
+		@if($objRequest->id)
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="col-lg-4 col-lg-offset-1">
+					<label>Status</label>
+					<div class="input-group date">
+						<select class="form-control" type="text" name='Status' @if(!$objLoggedInUser->IsAdmin()) disabled @endif>
+							@foreach(\App\VacationRequest::$tStatusOptions as $Status)
+								<option value="{{ $Status }}" @if($objRequest->status == $Status) selected @endif>{{ $Status }}</option>
+							@endforeach
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		@endif
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="col-lg-10 col-lg-offset-1">

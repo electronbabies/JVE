@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">
-				Vacations
+				Your Vacations
 			</h1>
 			<ol class="breadcrumb">
 				<li>
@@ -27,20 +27,22 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="table-responsive">
-			<label>All Vacations</label>
+			<label></label>
 				<table class="table table-bordered table-hover table-striped">
 					<thead>
-					<tr>
-						<th>From</th>
-						<th>To</th>
-						<th>Comments</th>
-						<th>Status</th>
-						<th>Vacation Length</th>
-					</tr>
+						<tr>
+							<th>Users</th>
+							<th>From</th>
+							<th>To</th>
+							<th>Comments</th>
+							<th>Status</th>
+							<th>Vacation Length</th>
+						</tr>
 					</thead>
 					<tbody>
 					@forelse ($tVacationRequests as $objRequest)
 						<tr>
+							<td><a href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->User->name }}</a></td>
 							<td><a href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->from->format('Y/m/d H:i:s') }}</a></td>
 							<td><a href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->to->format('Y/m/d H:i:s') }}</a></td>
 
@@ -50,7 +52,7 @@
 						</tr>
 					@empty
 						<tr>
-							<td colspan="5" class='text-center'>
+							<td colspan="6" class='text-center'>
 								No vacations
 							</td>
 						</tr>
