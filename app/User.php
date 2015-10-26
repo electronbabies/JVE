@@ -26,7 +26,6 @@ class User extends Model implements AuthenticatableContract,
     	self::ROLE_ADMIN,
 		self::ROLE_CLIENT,
 		self::ROLE_EMPLOYEE,
-		self::ROLE_GUEST,
 	];
 
 	public function scopeClients($query)
