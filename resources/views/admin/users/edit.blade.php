@@ -53,6 +53,9 @@
 								<?php $Selected = $Role == $objUser->role ? 'selected' : '' ?>
 								<option value="{{ $Role }}" {{ $Selected }}>{{ $Role }}</option>
 							@endforeach
+							@if ($objUser->IsGuestAccount())
+									<option value="Guest" selected>Guest</option>
+							@endif
 						</select>
 					</div>
 				</div>
