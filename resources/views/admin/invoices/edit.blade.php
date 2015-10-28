@@ -68,7 +68,7 @@
 			<div class="col-lg-12">
 				<div class="col-lg-3 col-lg-offset-5">
 					<div class="form-group">
-						<button type="button" id="AddItem" class="btn btn-primary">Add Order Item</button>
+						<button type="button" id="AddItem" class="btn btn-default">Add Order Item</button>
 					</div>
 				</div>
 			</div>
