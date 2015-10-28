@@ -232,6 +232,36 @@
 	<div id="wrapper">
 		<div id="page-wrapper">
 			<div class="container-fluid">
+
+			@if($FormResponse)
+				<?php
+					switch($FormResponse['ResponseType']) {
+						case \App\Http\Controllers\AdminController::MESSAGE_ERROR :
+							$AlertClass = 'alert-danger';
+							$Pretext = "Error!";
+							break;
+						case \App\Http\Controllers\AdminController::MESSAGE_INFO :
+							$AlertClass = 'alert-info';
+							$Pretext = "Note!";
+							break;
+						case \App\Http\Controllers\AdminController::MESSAGE_SUCCESS :
+							$AlertClass = 'alert-success';
+							$Pretext = "Success!";
+							break;
+						case \App\Http\Controllers\AdminController::MESSAGE_WARNING :
+							$AlertClass = 'alert-warning';
+							$Pretext = "Warning!";
+							break;
+						default:
+							$AlertClass = 'alert-info';
+					}
+				?>
+				<div class="row">
+					<div class="col-lg-12 alert {{ $AlertClass }} text-center">
+						<h3><b>{{ $Pretext }}</b> {!! $FormResponse['Content'] !!}</h3>
+					</div>
+				</div>
+			@endif
 			@yield('content')
 			</div>
 		</div>

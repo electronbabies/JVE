@@ -22,6 +22,9 @@ class AdminController extends Controller
 		View::share('objLoggedInUser', $objUser);
 		View::share('ActiveClass', static::ACTIVE_CLASS);
 
+
+		View::share('FormResponse', []);
+
 		// No parent constructor.  All is well.
 	}
 

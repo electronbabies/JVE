@@ -33,6 +33,11 @@ class User extends Model implements AuthenticatableContract,
 		return $query->where('role', '=', static::ROLE_CLIENT);
 	}
 
+	public function scopeNonClient($query)
+	{
+		return $query->where('role', '!=', static::ROLE_CLIENT)->where('role', '!=', static::ROLE_GUEST);
+	}
+
     /**
      * The database table used by the model.
      *
@@ -58,6 +63,7 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasMany('App\Invoice');
     }
+
     /**
      * Return global guest user account
      * @return mixed
@@ -104,15 +110,11 @@ class User extends Model implements AuthenticatableContract,
 		return $this->role == static::ROLE_ADMIN;
 	}
 
-
-	// Mutators
     public function getFirstNameAttribute($value)
 	{
 	 	$Name = $this->IsGuestAccount() ? '' : $this->attributes['name'];
 		$tNames = explode(' ', $Name);
-		//echo $value;
-		//gPrint($tNames);
-		//die();
+
 		// In case for some reason they put multiple first names
 		$LastName = count($tNames) > 1 ? array_pop($tNames) : '';
 		$FirstName = implode(' ', $tNames);

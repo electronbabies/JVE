@@ -64,6 +64,8 @@ Route::post('admin/vacations/store/', 'VacationController@store');
 Route::get('admin/invoices', 'InvoiceController@index');
 Route::get('admin/invoices/edit/{InvoiceID}', 'InvoiceController@edit');
 Route::get('admin/invoices/edit/{InvoiceID}/ReturnTo/{Location}', 'InvoiceController@edit');
+Route::get('admin/invoices/delete_item/{id}', 'InvoiceController@delete_item');
+Route::post('admin/invoices/store/', 'InvoiceController@store');
 
 // Admin Blog
 Route::get('admin/blog', 'BlogController@index');

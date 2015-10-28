@@ -9,5 +9,10 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 abstract class Controller extends BaseController
 {
+	const MESSAGE_SUCCESS = 'Success';
+	const MESSAGE_ERROR = 'Error';
+	const MESSAGE_INFO = 'Info';
+	const MESSAGE_WARNING = 'Warning';
+
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }

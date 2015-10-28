@@ -35,20 +35,17 @@
 						if($Count % 6 == 1)
 							echo '<div class="row">';
 					?>
-						<a href="/admin/gallery/edit/{{ $objImage->id }}">
-							<div class="col-lg-2" name="GalleryImage" ImageID="{{ $objImage->id }}" style="padding-bottom: 20px;">
+						<div class="col-lg-2" name="GalleryImage" ImageID="{{ $objImage->id }}" style="padding-bottom: 20px;">
+							<a href="/admin/gallery/edit/{{ $objImage->id }}">
 								<div style="border: 1px solid #ddd; border-radius: 4px; height: 200px;">
 									<img src="/img/gallery_images/{{ $objImage->image_filename }}" class="gallery_image img-thumbnail" style="max-height:100%; border: none;">
 									<br />
-
-
 								</div>
-								<div style='width: 100%'>
+							</a>
+							<div style='width: 100%'>
 								<button type="button" class="btn btn-xs btn-danger" name="DeleteGallery" style="display:block; margin-top: 10px; margin-left: auto; margin-right: auto;">Delete</button>
-								</div>
-
 							</div>
-						</a>
+						</div>
 					<?php
 						if($Count % 6 == 0 || count($tGalleryImages) == $Count)
 							echo '</div>';

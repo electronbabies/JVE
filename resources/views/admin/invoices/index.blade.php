@@ -32,15 +32,15 @@
 							<th>Status</th>
 							<th>Created At</th>
 							<th>Last Modified</th>
+							<th>Reviewed By</th>
+							<th>Assigned To</th>
 						</tr>
 						</thead>
 						<tbody>
 						@forelse ($tInvoices as $objInvoice)
 							<tr>
 								<td>
-									<button name='EditInvoice' class='btn btn-default center-block' style='width:100%'
-											InvoiceID="{{ $objInvoice->id }}">Edit
-									</button>
+									<button name='EditInvoice' class='btn btn-default center-block' style='width:100%' InvoiceID="{{ $objInvoice->id }}">Edit</button>
 								</td>
 								<td>{{ $objInvoice->type }}</td>
 								<td>{{--<a href='/admin/invoices/edit/{{ $objInvoice->id }}'>--}}{{ $objInvoice->first_name }} {{ $objInvoice->last_name }}</td>
@@ -50,6 +50,8 @@
 								<td>{{ $objInvoice->status }}</td>
 								<td>{{ $objInvoice->created_at->format('m/d/Y h:i:s A') }}</td>
 								<td>{{ $objInvoice->updated_at->format('m/d/Y h:i:s A') }}</td>
+								<td>@if($objInvoice->ReviewedUser)1<a href="/admin/users/edit/{{ $objInvoice->ReviewedUser->id}}">{{ $objInvoice->ReviewedUser->name }}</a>@endif</td>
+								<td>@if($objInvoice->AssignedUser)1<a href="/admin/users/edit/{{ $objInvoice->AssignedUser->id}}">{{ $objInvoice->AssignedUser->name }}</a>@endif</td>
 							</tr>
 						@empty
 							<tr>

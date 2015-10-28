@@ -1,12 +1,12 @@
 @extends('admin-app')
 @section('content')
-	<form action="/admin/invoices/update" method="post">
+	<form action="/admin/invoices/store" method="post">
 		<input type="hidden" name="InvoiceID" value="{{ $objInvoice->id }}">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					Invoice #{{ $objInvoice->id }}
+					Order #{{ $objInvoice->id }}
 				</h1>
 				<ol class="breadcrumb">
 					<li>
@@ -14,13 +14,13 @@
 						<i class="fa {{ Config::get('constants.ICON_DASHBOARD') }}"></i> <a href="/admin">Dashboard</a>
 					</li>
 					<li class="">
-						<i class="fa {{ Config::get('constants.ICON_CLIENTS') }}"></i> <a href="/admin/clients">Users</a>
+						<i class="fa {{ Config::get('constants.ICON_USERS') }}"></i> <a href="/admin/clients">Users</a>
 					</li>
 					<li class="">
-						<i class="fa {{ Config::get('constants.ICON_SINGLE_CLIENT') }}"></i> <a href="/admin/users/edit/{{ $objInvoice->user_id }}">{{ $objInvoice->User->name }}</a>
+						<i class="fa {{ Config::get('constants.ICON_SINGLE_USER') }}"></i> <a href="/admin/users/edit/{{ $objInvoice->user_id }}">{{ $objInvoice->User->name }}</a>
 					</li>
 					<li class="active">
-						<i class="fa {{ Config::get('constants.ICON_INVOICE') }}"></i> Invoice #{{ $objInvoice->id }}
+						<i class="fa {{ Config::get('constants.ICON_INVOICE') }}"></i> Order #{{ $objInvoice->id }}
 					</li>
 				</ol>
 			</div>
@@ -29,7 +29,7 @@
 			<div class="col-lg-12">
 				<div class="col-lg-10 col-lg-offset-1">
 					<div class="table-responsive">
-						<table class="table table-bordered table-hover table-striped">
+						<table class="table table-bordered table-hover table-striped" id="ItemTable">
 							<thead>
 							<tr>
 								<th>Title</th>
@@ -42,13 +42,14 @@
 							</thead>
 							<tbody>
 							@forelse ($tInvoiceItems as $objItem)
-								<tr>
-									<td>{{ $objItem->title }}</td>
-									<td>{{ $objItem->type }}</td>
+								<tr name='ItemRow' ItemID="{{ $objItem->id }}">
+									<td><input type="text" class="form-control" name="InvoiceItem[{{ $objItem->id }}][Title]" value="{{ $objItem->title }}"></td>
+									<td>
+										<input type="text" class="form-control" name="InvoiceItem[{{ $objItem->id }}][Type]" value="{{ $objItem->type }}"></td>
 									<td>{{ $objItem->status }}</td>
 									<td>{{ $objItem->created_at->format('m/d/Y h:i:s A') }}</td>
 									<td>{{ $objItem->updated_at->format('m/d/Y h:i:s A') }}</td>
-									<td><button class="btn btn-danger" style="width: 100%;" name="DeleteItem" ItemID="{{ $objItem->id }}">Delete</button>
+									<td><button type='button' class="btn btn-danger" name="DeleteItem" style="width: 100%;">Delete</button>
 								</tr>
 							@empty
 								<tr>
@@ -65,10 +66,47 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-12">
+				<div class="col-lg-3 col-lg-offset-5">
+					<div class="form-group">
+						<button type="button" id="AddItem" class="btn btn-primary">Add Order Item</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
 				<div class="col-lg-10 col-lg-offset-1">
 					<div class="form-group">
 						<label>Comments</label>
-						<textarea class="form-control" rows=3>{{ $objInvoice->comments }}</textarea>
+						<textarea class="form-control" name="Comments" rows=3>{{ $objInvoice->comments }}</textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="col-lg-5 col-lg-offset-1">
+					<div class="form-group">
+						<label>Assign To</label>
+						<select name="AssignTo" class="form-control">
+							<option value="0"></option>
+						@foreach($tNonClientUsers as $objUser)
+							<?php
+								$Selected = $objUser->id == ($objInvoice->AssignedUser && $objInvoice->AssignedUser->id) ? 'selected' : ''; ?>
+							<option value="{{ $objUser->id }}" {{ $Selected }}>{{ $objUser->name }}</option>
+						@endforeach
+						</select>
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<div class="form-group">
+						<label>Change Status</label>
+						<select name="Status" class="form-control">
+							@foreach(\App\Invoice::$tStatuses as $Status)
+								<?php $Selected = $objInvoice->status == $Status ? 'selected' : ''; ?>
+								<option value="{{ $Status }}" {{ $Selected }}>{{ $Status }}</option>
+							@endforeach
+						</select>
 					</div>
 				</div>
 			</div>
@@ -78,15 +116,48 @@
 			<div class="col-lg-12">
 				<div class="col-lg-2 col-lg-offset-5">
 					<div class="form-group">
-						<button type="submit" class="btn btn-default">Update Invoice</button>
+						<button type="submit" class="btn btn-primary">Update Order</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
 	<script type="text/javascript">
-		$('button[name=EditInvoice').click(function () {
-			window.location = "/admin/invoices/edit/" + $(this).attr('InvoiceID');
+		$(document).on('click', 'button[name=DeleteItem]', function () {
+			if (confirm('Are you sure you want to delete this order item?')) {
+				var ItemElem = $(this).parents('tr[name=ItemRow]');
+				var ItemID = ItemElem.attr('ItemID');
+
+				if(ItemID == 'new') {
+					ItemElem.remove();
+				} else {
+					$.ajax({
+						url: '/admin/invoices/delete_item/' + ItemID,
+
+					}).done(function (data) {
+						if (data == 'success') {
+							ItemElem.remove();
+						} else {
+							alert('Error deleting item.  Contact network administrator');
+						}
+					});
+				}
+			}
 		});
+		var NewItemCount = 0;
+		$('#AddItem').click(function () {
+			$('#ItemTable tr:last').after('\
+				<tr name="ItemRow" ItemID="new">\
+					<td><input type="text" class="form-control" name="InvoiceItem[new][' + NewItemCount + '][Title]"></td>\
+					<td><input type="text" class="form-control" name="InvoiceItem[new][' + NewItemCount + '][Type]"></td>\
+					<td>Pending Save</td>\
+					<td>N/A</td>\
+					<td>N/A</td>\
+					<td><button type="button" class="btn btn-danger" name="DeleteItem" style="width: 100%;">Delete</button></td>\
+				</tr>\
+			');
+			NewItemCount++;
+		});
+
 	</script>
 @stop

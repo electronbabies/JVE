@@ -12,7 +12,7 @@
 							Parts Department
 						</h2>
 						<h3 class="orange text-center mg-lg tc-saffron">
-							<span>Service on parts in the entire Rio Grande Valley, Laredo and Mexico.</span>
+							<span>Service on parts in the entire Rio Grande Valley, Laredo and Reynosa.</span>
 						</h3>
 					</div>
 				</div>

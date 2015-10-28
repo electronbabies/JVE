@@ -34,7 +34,7 @@ class Invoices extends Migration
             $table->integer('invoice_id');
             $table->string('title');
             $table->string('type');
-            $table->enum('status', ['Active', 'Modified', 'Deleted']);
+            $table->enum('status', ['Active', 'Modified', 'Deleted'])->default('Active');
             $table->timestamps();
         });
     }
