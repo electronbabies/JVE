@@ -50,8 +50,8 @@
 								<td>{{ $objInvoice->status }}</td>
 								<td>{{ $objInvoice->created_at->format('m/d/Y h:i:s A') }}</td>
 								<td>{{ $objInvoice->updated_at->format('m/d/Y h:i:s A') }}</td>
-								<td>@if($objInvoice->ReviewedUser)1<a href="/admin/users/edit/{{ $objInvoice->ReviewedUser->id}}">{{ $objInvoice->ReviewedUser->name }}</a>@endif</td>
-								<td>@if($objInvoice->AssignedUser)1<a href="/admin/users/edit/{{ $objInvoice->AssignedUser->id}}">{{ $objInvoice->AssignedUser->name }}</a>@endif</td>
+								<td>@if($objInvoice->ReviewedUser)<a href="/admin/users/edit/{{ $objInvoice->ReviewedUser->id}}">{{ $objInvoice->ReviewedUser->name }}</a>@endif</td>
+								<td>@if($objInvoice->AssignedUser)<a href="/admin/users/edit/{{ $objInvoice->AssignedUser->id}}">{{ $objInvoice->AssignedUser->name }}</a>@endif</td>
 							</tr>
 						@empty
 							<tr>
