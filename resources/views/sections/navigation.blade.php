@@ -71,6 +71,9 @@
                             </li>
                         </ul>
                     </li>
+					<li>
+						<div id="google_translate_element"></div>
+					</li>
                 </ul>
             </div>
         </nav>

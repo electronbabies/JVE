@@ -71,6 +71,8 @@ Route::post('admin/invoices/store/', 'InvoiceController@store');
 Route::get('admin/blog', 'BlogController@index');
 Route::get('admin/blog/edit/{id}', 'BlogController@edit');
 Route::get('admin/blog/delete/{id}', 'BlogController@delete');
+Route::get('admin/blog/front_page_check/{id}', 'BlogController@front_page_check');
+Route::get('admin/blog/front_page_order/{id}/order_by/{order_by}', 'BlogController@front_page_order');
 Route::post('admin/blog/store/', 'BlogController@store');
 
 // Admin Gallery

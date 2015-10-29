@@ -16,9 +16,39 @@ class BlogController extends AdminController
 
 	public function index()
 	{
-		$tBlogPosts = \App\BlogPost::orderBy('updated_at', 'DESC')->get();
+		$tBlogPosts = \App\BlogPost::orderBy('created_at', 'DESC')->get();
 		View::share('tBlogPosts', $tBlogPosts);
 		return view('admin.blog.index');
+	}
+
+	/**
+	 * Ajax delete
+	 * @param $id
+	 */
+	public function front_page_order($id, $order_by)
+	{
+		$objPost = \App\BlogPost::findOrFail($id);
+		$objPost->order_by = $order_by;
+
+		if ($objPost->save()) {
+			exit('success');
+		}
+		exit('error');
+	}
+
+	/**
+	 * Ajax delete
+	 * @param $id
+	 */
+	public function front_page_check($id)
+	{
+		$objPost = \App\BlogPost::findOrFail($id);
+		$objPost->display_on_front_page = !$objPost->display_on_front_page;
+
+		if ($objPost->save()) {
+			exit('success');
+		}
+		exit('error');
 	}
 
 	/**

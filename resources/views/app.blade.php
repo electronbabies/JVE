@@ -16,6 +16,15 @@
 	{!! Html::style('css/awesome-bootstrap-checkbox.css') !!}
     {!! Html::script('js/jquery-2.1.0.min.js') !!}
     {!! Html::script('js/bootstrap.js') !!}
+
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+	</script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
     @yield('extra_header')
     <title>J.V. Equipment</title>
 </head>

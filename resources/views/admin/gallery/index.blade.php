@@ -38,7 +38,7 @@
 						<div class="col-lg-2" name="GalleryImage" ImageID="{{ $objImage->id }}" style="padding-bottom: 20px;">
 							<a href="/admin/gallery/edit/{{ $objImage->id }}">
 								<div style="border: 1px solid #ddd; border-radius: 4px; height: 200px;">
-									<img src="/img/gallery_images/{{ $objImage->image_filename }}" class="gallery_image img-thumbnail" style="max-height:100%; border: none;">
+									<img src="/img/gallery_images/{{ $objImage->image_filename }}" class="gallery_image img-thumbnail center-block" style="max-height:100%; border: none;">
 									<br />
 								</div>
 							</a>

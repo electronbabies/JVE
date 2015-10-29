@@ -29,18 +29,36 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">{!! $objPost->title !!}</h3>
 			</div>
-			<div class="panel-body">
+			<div class="panel-body" style="padding-left: 30px;">
 				<div class="row">
-					<div class="col-lg-3">
-						<img src="/img/blog_images/{{ $objPost->image_filename }}" class="blog_image">
+					<div class="col-lg-3" style="border: 1px solid #ddd; border-radius: 4px;">
+						<img src="/img/blog_images/{{ $objPost->image_filename }}" class="blog_image center-block" style="padding-top: 10px; padding-bottom: 10px;">
 					</div>
 					<div class="col-lg-6">
 						{!! $objPost->entry !!}
 					</div>
-					<div class="col-lg-2 col-lg-offset-1 pull-right">
+					<div class="col-lg-2 col-lg-offset-1">
 						<div class="pull-right">
 							<a href="/admin/blog/edit/{{ $objPost->id }}"><button type="button" class="btn btn-sm btn-default" name="EditBlog">Edit</button></a>
 							<button type="button" class="btn btn-sm btn-default" name="DeleteBlog">Delete</button>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="col-lg-3 form-group">
+							<div class="col-lg-3">
+								<label class="control-label" style="font-weight: bold; padding-top: 5px;">Order</label>
+							</div>
+							<div class="col-lg-6 ">
+								<input type="text" class="form-control" name="FrontPageOrder" value="{{ $objPost->order_by }}" size=1>
+							</div>
+						</div>
+						<div class="checkbox checkbox-success checkbox-circle pull-right">
+							<?php $Checked = $objPost->display_on_front_page ? 'checked' : ''; ?>
+							<input type="checkbox" class="checkbox" {{ $Checked }} name="FrontPageCheck" onclick="return false;">
+							<label style="padding-left: 5px; font-weight: bold;">Front page</label>
 						</div>
 					</div>
 				</div>
@@ -69,5 +87,41 @@
 		}
 	});
 
+	$('input[name=FrontPageOrder]').blur(function () {
+		var TextField = $(this);
+		var BlogElem = TextField.parents('div[name=BlogPost]');
+		var BlogID = BlogElem.attr('BlogID');
+		var ParentDiv = TextField.parents('div .form-group');
+
+		if(TextField.val()) {
+			$.ajax({
+				url: '/admin/blog/front_page_order/' + BlogID + '/order_by/' + TextField.val()
+			}).done(function (data) {
+				if (data == 'success') {
+					ParentDiv.addClass('has-success');
+				} else {
+					alert('Error changing order.  Contact network administrator');
+					ParentDiv.addClass('has-error');
+				}
+			});
+		}
+	});
+
+	$('input[name=FrontPageCheck]').click(function() {
+		var CheckBox = $(this);
+		var BlogElem = CheckBox.parents('div[name=BlogPost]');
+		var BlogID = BlogElem.attr('BlogID');
+
+		$.ajax({
+			url: '/admin/blog/front_page_check/' + BlogID
+		}).done(function(data) {
+			if(data == 'success') {
+				// Check / uncheck box
+				CheckBox.prop('checked', !CheckBox.is(':checked'));
+			} else {
+				alert('Error displaying on front page.  Contact network administrator');
+			}
+		});
+	});
 </script>
 @stop

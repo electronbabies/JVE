@@ -834,3 +834,7 @@ iframe{
 .blog_image {
 	max-width: 270px;
 }
+
+input[type='checkbox'] {
+    cursor: pointer;
+}

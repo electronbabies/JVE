@@ -17,7 +17,7 @@
 						<i class="fa {{ Config::get('constants.ICON_USERS') }}"></i> <a href="/admin/clients">Users</a>
 					</li>
 					<li class="">
-						<i class="fa {{ Config::get('constants.ICON_SINGLE_USER') }}"></i> <a href="/admin/users/edit/{{ $objInvoice->user_id }}">User #{{ $objInvoice->user_id }}</a>
+						<i class="fa {{ Config::get('constants.ICON_SINGLE_USER') }}"></i> <a href="/admin/users/edit/{{ $objInvoice->user_id }}">{{ $objInvoice->User->name }}</a>
 					</li>
 					<li class="active">
 						<i class="fa {{ Config::get('constants.ICON_INVOICE') }}"></i> Order #{{ $objInvoice->id }}

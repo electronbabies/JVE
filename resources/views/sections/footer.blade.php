@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h6 class="text-center tc-white-2 mg-md">
-                    <span class="fa fa-fax icon icon-book icon-gears icon-magnifying-glass icon-md"></span>
+                    {{-- <span class="fa fa-fax icon icon-book icon-gears icon-magnifying-glass icon-md"></span>--}}
                 </h6>
                 <h2 class=" text-center mg-sm">
                     Location &amp; Contact Information
