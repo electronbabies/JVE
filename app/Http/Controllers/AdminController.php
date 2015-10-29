@@ -35,12 +35,14 @@ class AdminController extends Controller
 		$tNewInvoices = \App\Invoice::unhandled()->get();
 		$tActiveGalleryImages = \App\GalleryImage::all();
 		$tAllClients = \App\User::clients()->get();
+		$BlogCount = \App\BlogPost::count();
 
 		View::share('tUpcomingVacations', $tUpcomingVacations);
 		View::share('tVacationRequests', $tVacationRequests);
 		View::share('tNewInvoices', $tNewInvoices);
 		View::share('tActiveGalleryImages', $tActiveGalleryImages);
 		View::share('tAllClients', $tAllClients);
+		View::share('BlogCount', $BlogCount);
 
 		return view('admin.index');
 	}
