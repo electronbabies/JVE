@@ -28,7 +28,7 @@ class StaticController extends Controller
 		echo $Text;
 	die();*/
 		// TODO:  Ajax button to change display on front page status.  Right now forcing top power of 2 to top
-		$tBlogPosts = \App\BlogPost::where('display_on_front_page', true)->orderBy('updated_at', 'DESC')->get();
+		$tBlogPosts = \App\BlogPost::where('display_on_front_page', true)->orderBy('order_by', 'ASC')->get();
 
 		View::share('tBlogPosts', $tBlogPosts);
 		return view('index');
