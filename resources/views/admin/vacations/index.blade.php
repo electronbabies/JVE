@@ -42,9 +42,9 @@
 					<tbody>
 					@forelse ($tVacationRequests as $objRequest)
 						<tr>
-							<td><a href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->User->name }}</a></td>
-							<td><a href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->from->format('Y/m/d H:i:s') }}</a></td>
-							<td><a href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->to->format('Y/m/d H:i:s') }}</a></td>
+							<td><a sort="{{ $objRequest->User->name }}" href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->User->name }}</a></td>
+							<td><a sort="{{ $objRequest->from->format('Y/m/d H:i:s') }}" href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->from->format('Y/m/d H:i:s') }}</a></td>
+							<td><a sort="{{ $objRequest->to->format('Y/m/d H:i:s') }}" href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->to->format('Y/m/d H:i:s') }}</a></td>
 
 							<td><textarea class="form-control" readonly>{{ $objRequest->comments }}</textarea></td>
 							<td>{{ $objRequest->status }}</td>

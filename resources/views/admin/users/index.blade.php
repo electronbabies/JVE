@@ -32,7 +32,7 @@
 					<tbody>
 					@forelse ($tUsers as $objUser)
 						<tr>
-							<td><a href='/admin/users/edit/{{ $objUser->id }}'>{{ $objUser->name }}</a></td>
+							<td><a sort="{{ $objUser->name }}" href='/admin/users/edit/{{ $objUser->id }}'>{{ $objUser->name }}</a></td>
 							<td><a href="mailto:{{ $objUser->email }}">{{ $objUser->email }}</a></td>
 							<td>{{ $objUser->role }}
 							<td>{{ count($objUser->Invoices) }}</td>
