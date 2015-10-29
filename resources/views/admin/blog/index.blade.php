@@ -99,9 +99,10 @@
 			}).done(function (data) {
 				if (data == 'success') {
 					ParentDiv.addClass('has-success');
+					ParentDiv.removeClass('has-error');
 				} else {
-					alert('Error changing order.  Contact network administrator');
 					ParentDiv.addClass('has-error');
+					ParentDiv.removeClass('has-success');
 				}
 			});
 		}

@@ -27,6 +27,9 @@ class BlogController extends AdminController
 	 */
 	public function front_page_order($id, $order_by)
 	{
+		if(!is_numeric($order_by))
+			exit('error');
+
 		$objPost = \App\BlogPost::findOrFail($id);
 		$objPost->order_by = $order_by;
 
