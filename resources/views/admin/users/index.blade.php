@@ -20,14 +20,13 @@
 	<div class="col-lg-12">
 		<div class="col-lg-8 col-lg-offset-2">
 			<div class="table-responsive">
-				<table class="table table-bordered table-hover table-striped">
+				<table class="table table-bordered table-hover table-striped" @if(count($tUsers)) data-toggle="table" @endif>
 					<thead>
 					<tr>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Type</th>
-						<th>Invoices</th>
-						<th>Revenue</th>
+						<th data-sortable="true">Name</th>
+						<th data-sortable="true">Email</th>
+						<th data-sortable="true">Type</th>
+						<th data-sortable="true">Invoices</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -37,7 +36,6 @@
 							<td><a href="mailto:{{ $objUser->email }}">{{ $objUser->email }}</a></td>
 							<td>{{ $objUser->role }}
 							<td>{{ count($objUser->Invoices) }}</td>
-							<td>$321.33</td>
 						</tr>
 					@empty
 						<tr>

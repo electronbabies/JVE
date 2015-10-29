@@ -85,24 +85,24 @@
 		<div class="col-lg-12">
 			<div class="col-lg-10 col-lg-offset-1">
 				<div class="table-responsive">
-					<table class="table table-bordered table-hover table-striped">
+					<table class="table table-bordered table-hover table-striped" data-toggle="table">
 						<thead>
 						<tr>
 							<th>Edit</th>
-							<th>Type</th>
-							<th>Name</th>
-							<th>Email Address</th>
-							<th>Phone Number</th>
-							<th>Company</th>
-							<th>Status</th>
-							<th>Created At</th>
-							<th>Last Modified</th>
+							<th data-sortable="true">Type</th>
+							<th data-sortable="true">Name</th>
+							<th data-sortable="true">Email Address</th>
+							<th data-sortable="true">Phone Number</th>
+							<th data-sortable="true">Company</th>
+							<th data-sortable="true">Status</th>
+							<th data-sortable="true">Created At</th>
+							<th data-sortable="true">Last Modified</th>
 						</tr>
 						</thead>
 						<tbody>
 						@forelse ($tInvoices as $objInvoice)
 							<tr>
-								<td><button name='EditInvoice' class='btn btn-default center-block' style='width:100%' InvoiceID="{{ $objInvoice->id }}">Edit</button></td>
+								<td><a href='/admin/invoices/edit/{{ $objInvoice->id }}'><button name='EditInvoice' class='btn btn-default center-block' style='width:100%' InvoiceID="{{ $objInvoice->id }}">Edit</button></a></td>
 								<td>{{ $objInvoice->type }}</td>
 								<td>{{--<a href='/admin/invoices/edit/{{ $objInvoice->id }}'>--}}{{ $objInvoice->first_name }} {{ $objInvoice->last_name }}</td>
 								<td><a href="mailto:{{ $objInvoice->email }}">{{ $objInvoice->email }}</a></td>
@@ -125,10 +125,4 @@
 			</div>
 		</div>
 	</div>
-
-	<script type="text/javascript">
-		$('button[name=EditInvoice').click(function() {
-			window.location = "/admin/invoices/edit/" + $(this).attr('InvoiceID');
-		});
-	</script>
 @stop

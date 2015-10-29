@@ -48,6 +48,13 @@ class InvoiceController extends AdminController
 			$objInvoiceItem->save();
 		}
 
+		$objInvoice->first_name = $Input['InvoiceFirstName'];
+		$objInvoice->last_name = $Input['InvoiceLastName'];
+		$objInvoice->type = $Input['InvoiceType'];
+		$objInvoice->email = $Input['InvoiceEmail'];
+		$objInvoice->phone = $Input['InvoicePhone'];
+		$objInvoice->company_name = $Input['InvoiceCompany'];
+
 		$objInvoice->comments = $Input['Comments'];
 		$objInvoice->assigned_to = $Input['AssignTo'];
 

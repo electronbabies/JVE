@@ -130,8 +130,8 @@ class FormsController extends StaticController
 
         $objInvoiceItem = new \App\InvoiceItem;
         $objInvoiceItem->invoice_id = $objInvoice->id;
-        $objInvoiceItem->type = 'Service';
-        $objInvoiceItem->title = 'Service Request';
+        $objInvoiceItem->type = $Input['RequestType'] == 'Parts' ? 'Parts' : 'Service';
+        $objInvoiceItem->title = $Input['RequestType'] == 'Parts' ? 'Parts Request' : 'Service Request';
         $objInvoiceItem->status = \App\InvoiceItem::STATUS_ACTIVE;
         $objInvoiceItem->save();
 

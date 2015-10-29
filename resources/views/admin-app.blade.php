@@ -9,13 +9,24 @@
 
 	<title>J.V. Equipment Admin Panel</title>
 
-	{!! Html::style('css/awesome-bootstrap-checkbox.css') !!}
-	{!! Html::script('js/jquery-2.1.0.min.js') !!}
-	{!! Html::script('js/bootstrap.js') !!}
+	{!! Html::style('/css/awesome-bootstrap-checkbox.css') !!}
+	{!! Html::script('/js/jquery-2.1.0.min.js') !!}
+	{!! Html::script('/js/bootstrap.js') !!}
 
-	{!! Html::style('css/bootstrap-datetimepicker.css') !!}
-	{!! Html::script('js/moment.js') !!}
-	{!! Html::script('js/bootstrap-datetimepicker.js') !!}
+	{!! Html::style('/css/bootstrap-datetimepicker.css') !!}
+	{!! Html::script('/js/moment.js') !!}
+	{!! Html::script('/js/bootstrap-datetimepicker.js') !!}
+
+	{{--{!! Html::script('js/jquery.tablesorter.min.js') !!}--}}
+
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/bootstrap-table.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/bootstrap-table.min.js"></script>
+
+	<!-- Latest compiled and minified Locales -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/locale/bootstrap-table-zh-CN.min.js"></script>
 
 	<!-- Morris Charts JavaScript -->
 	{{-- !!}{!! Html::script('js/plugins/morris/raphael.min.js') !!}

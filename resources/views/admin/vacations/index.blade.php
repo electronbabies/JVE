@@ -28,15 +28,15 @@
 		<div class="col-lg-12">
 			<div class="table-responsive">
 			<label></label>
-				<table class="table table-bordered table-hover table-striped">
+				<table class="table table-bordered table-hover table-striped" @if(count($tVacationRequests)) data-toggle="table" @endif >
 					<thead>
 						<tr>
-							<th>Users</th>
-							<th>From</th>
-							<th>To</th>
+							<th data-sortable="true">Users</th>
+							<th data-sortable="true">From</th>
+							<th data-sortable="true">To</th>
 							<th>Comments</th>
-							<th>Status</th>
-							<th>Vacation Length</th>
+							<th data-sortable="true">Status</th>
+							<th data-sortable="true">Vacation Length</th>
 						</tr>
 					</thead>
 					<tbody>

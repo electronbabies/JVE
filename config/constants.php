@@ -21,5 +21,6 @@ return [
 	'ICON_EDIT'					=> 'fa-edit',
 	'ICON_GALLERY'				=> 'fa-image',
 	'ICON_INVOICE'				=> 'fa-archive',
+	'ICON_INVOICE_ITEMS'		=> 'fa-file-archive-o',
 	'ICON_VACATION'				=> 'fa-suitcase',
 ];
