@@ -16,7 +16,7 @@
         </div>
         <div class="row voffset">
             <div class="col-sm-3">
-                <img src="/img/rmn6_thumb.jpg" class="img-circle center-block mg-md" width="100px" height="100px" />
+                <img src="/img/edinburg.jpg" class="img-circle center-block mg-md" width="100px" height="100px" />
                 <h4 class="text-center mg-sm tc-saffron fancy-font">
                     <strong>Edinburg, Texas</strong>
                 </h4>
@@ -26,7 +26,7 @@
                 </p>
             </div>
             <div class="col-sm-3">
-                <img src="/img/rmn6_thumb.jpg" class="img-circle center-block mg-md" width="100px" height="100px" />
+                <img src="/img/mexico.jpg" class="img-circle center-block mg-md" width="100px" height="100px" />
                 <h4 class="text-center mg-sm tc-saffron fancy-font">
                     <strong>Reynosa Tamps, Mexico</strong>
                 </h4>
@@ -38,7 +38,7 @@
                 </p>
             </div>
             <div class="col-sm-3">
-                <img src="/img/rmn6_thumb.jpg" class="img-circle center-block mg-md" width="100px" height="100px" />
+                <img src="/img/laredo.png" class="img-circle center-block mg-md" width="100px" height="100px" />
                 <h4 class="text-center mg-sm tc-saffron fancy-font">
                     <strong>Laredo, Texas</strong>
                 </h4>
