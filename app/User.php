@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Carbon\Carbon;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -28,6 +29,10 @@ class User extends Model implements AuthenticatableContract,
 		self::ROLE_EMPLOYEE,
 	];
 
+	public function scopeNewClients($query)
+	{
+		return $query->where('role', '=', static::ROLE_CLIENT)->where('created_at', '>', Carbon::now()->subMonth());
+	}
 	public function scopeClients($query)
 	{
 		return $query->where('role', '=', static::ROLE_CLIENT);

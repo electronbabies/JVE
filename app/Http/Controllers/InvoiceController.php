@@ -67,7 +67,9 @@ class InvoiceController extends AdminController
 		if($tWarnings)
 			return redirect('admin/invoices/edit/' . $objInvoice->id)->with('FormResponse', ['ResponseType' => static::MESSAGE_WARNING, 'Content' => implode('<br />', $tWarnings) . ' <br />Contact Administrator']);
 
-		return redirect('admin/invoices/edit/'.$objInvoice->id)->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Invoice saved successfully']);
+		$Path = $Input['ReturnTo'] == 'Dashboard' ? '' : '/invoices/edit/'.$objInvoice->id;
+
+		return redirect("admin{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Invoice saved successfully']);
 	}
 
 
@@ -97,7 +99,6 @@ class InvoiceController extends AdminController
 		View::share('tInvoiceItems', $tInvoiceItems);
 		View::share('tNonClientUsers', $tNonClientUsers);
 		View::share('ReturnTo', $ReturnTo);
-		View::share('FormResponse', Session::get('FormResponse'));
 		return view('admin.invoices.edit');
 	}
 

@@ -3,7 +3,7 @@
 	<script>
 		jQuery(document).ready(function ($) {
 			var jssor_1_options = {
-				$AutoPlay: true,
+				$AutoPlay: false,
 				$FillMode: 1,
 				$DragOrientation: 3,
 				$AutoPlaySteps: 4,
@@ -26,7 +26,7 @@
 
 			//responsive code begin
 			//you can remove responsive code if you don't want the slider scales while window resizes
-			function ScaleSlider() {
+			/*function ScaleSlider() {
 				var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
 				if (refSize) {
 					refSize = Math.min(refSize, 1000);
@@ -40,7 +40,7 @@
 			ScaleSlider();
 			$(window).bind("load", ScaleSlider);
 			$(window).bind("resize", ScaleSlider);
-			$(window).bind("orientationchange", ScaleSlider);
+			$(window).bind("orientationchange", ScaleSlider);*/
 			//responsive code end
 		});
 	</script>
@@ -148,7 +148,7 @@
 	</div>
 	<div class="voffset row">
 		<div class="col-lg-12">
-			<div id="jssor_1" style="position:relative; height: 350px;" class="center-block">
+			<div id="jssor_1" style="position:relative; height: 350px; width:1200px;" class="center-block">
 				<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
 					<div
 						style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
@@ -171,7 +171,7 @@
 
 					?>
 
-							<img data-u="image" src="/img/gallery_images/{{ $objImage->image_filename }}" class="slide-image">
+							<a href="/gallery/view/{{ $objImage->id }}"><img data-u="image" src="/img/gallery_images/{{ $objImage->image_filename }}" class="slide-image"></a>
 
 					<?php
 

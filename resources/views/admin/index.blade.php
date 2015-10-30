@@ -116,7 +116,7 @@
 								<div class="list-group">
 									@forelse($tNewInvoices as $objInvoice)
 										<a href="/admin/invoices/edit/{{ $objInvoice->id}}/ReturnTo/Dashboard" class="list-group-item">
-											<span class="badge">{{ str_replace('before', 'ago', $objInvoice->created_at->diffForHumans(Carbon\Carbon::now())) }}</span>
+											<span class="badge">{{ str_replace(['after', 'before'], ['from now', 'ago'], $objInvoice->created_at->diffForHumans(Carbon\Carbon::now())) }}</span>
 											<i class="fa fa-fw {{ Config::get('constants.ICON_INVOICE') }}"></i> {{ $objInvoice->User->name }}
 										</a>
 									@empty
@@ -138,7 +138,7 @@
                                 <div class="list-group">
                                 @forelse($tUpcomingVacations as $objVacation)
                                     <a href="/admin/vacations/edit/{{ $objVacation->id}}/ReturnTo/Dashboard" class="list-group-item">
-                                        <span class="badge">{{ str_replace('after', '', $objVacation->from->diffForHumans(Carbon\Carbon::now())) }}</span>
+                                        <span class="badge">{{ str_replace(['after', 'before'], ['from now', 'ago'], $objVacation->from->diffForHumans(Carbon\Carbon::now())) }}</span>
                                         <i class="fa fa-fw {{ Config::get('constants.ICON_VACATION') }}"></i> {{ $objVacation->User->name }}
                                     </a>
                                 @empty
@@ -162,7 +162,7 @@
 									@forelse($tVacationRequests as $objVacation)
 										<a href="/admin/vacations/edit/{{ $objVacation->id}}/ReturnTo/Dashboard" class="list-group-item">
 											<span
-												class="badge">{{ str_replace('after', '', $objVacation->from->diffForHumans(Carbon\Carbon::now())) }}</span>
+												class="badge">{{ str_replace(['after', 'before'], ['from now', 'ago'], $objVacation->from->diffForHumans(Carbon\Carbon::now())) }}</span>
 											<i class="fa fa-fw {{ Config::get('constants.ICON_VACATION') }}"></i> {{ $objVacation->User->name }}
 										</a>
 									@empty
@@ -175,6 +175,32 @@
 							</div>
 						</div>
 					</div>
+
+					<div class="col-lg-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title"><i
+										class="fa fa-fw {{ Config::get('constants.ICON_USERS') }}"></i> This Months Registered Clients</h3>
+							</div>
+							<div class="panel-body">
+								<div class="list-group">
+									@forelse($tNewClients as $objClient)
+										<a href="/admin/users/edit/{{ $objClient->id}}/ReturnTo/Dashboard" class="list-group-item">
+											<span
+												class="badge">{{ str_replace(['after', 'before'], ['from now', 'ago'], $objClient->created_at->diffForHumans(Carbon\Carbon::now())) }}</span>
+											<i class="fa fa-fw {{ Config::get('constants.ICON_SINGLE_USER') }}"></i> {{ $objClient->name }}
+										</a>
+									@empty
+										<a href="#" class="list-group-item">
+											<i class="fa fa-fw {{ Config::get('constants.ICON_SINGLE_USER') }}"></i>
+											No newly registered clients.
+										</a>
+									@endforelse
+								</div>
+							</div>
+						</div>
+					</div>
+
 
             </div>
             <!-- /.container-fluid -->

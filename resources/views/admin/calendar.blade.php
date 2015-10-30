@@ -83,5 +83,6 @@
 	<script type="text/javascript" src="/js/underscore/underscore-min.js"></script>
 	<script type="text/javascript" src="/js/calendar/calendar.js"></script>
 	<script type="text/javascript" src="/js/calendar/app.js"></script>
+
 </div>
 @stop

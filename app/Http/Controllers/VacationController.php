@@ -62,9 +62,11 @@ class VacationController extends AdminController
 
 		$objVacation->save();
 
-		if($Input['ReturnTo'] == 'Dashboard')
-			return redirect('/admin');
+		$Path = $Input['ReturnTo'] == 'Dashboard' ? '' : '/vacations';
 
-		return redirect('/admin/vacations');
+		return redirect("/admin{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Vacation saved successfully']);
+
+
+
 	}
 }

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use View;
 use Carbon\Carbon;
+use Session;
 
 class AdminController extends Controller
 {
@@ -23,7 +24,8 @@ class AdminController extends Controller
 		View::share('ActiveClass', static::ACTIVE_CLASS);
 
 
-		View::share('FormResponse', []);
+		$FormResponse = Session::get('FormResponse') ? Session::get('FormResponse') : [];
+		View::share('FormResponse', $FormResponse);
 
 		// No parent constructor.  All is well.
 	}
@@ -36,6 +38,7 @@ class AdminController extends Controller
 		$tActiveGalleryImages = \App\GalleryImage::all();
 		$tAllClients = \App\User::clients()->get();
 		$BlogCount = \App\BlogPost::count();
+		$tNewClients = \App\User::newclients()->get();
 
 		View::share('tUpcomingVacations', $tUpcomingVacations);
 		View::share('tVacationRequests', $tVacationRequests);
@@ -43,6 +46,7 @@ class AdminController extends Controller
 		View::share('tActiveGalleryImages', $tActiveGalleryImages);
 		View::share('tAllClients', $tAllClients);
 		View::share('BlogCount', $BlogCount);
+		View::share('tNewClients', $tNewClients);
 
 		return view('admin.index');
 	}

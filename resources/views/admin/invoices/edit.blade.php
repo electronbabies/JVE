@@ -2,6 +2,7 @@
 @section('content')
 	<form action="/admin/invoices/store" method="post">
 		<input type="hidden" name="InvoiceID" value="{{ $objInvoice->id }}">
+		<input type="hidden" name="ReturnTo" value="{{ $ReturnTo }}">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-lg-12">

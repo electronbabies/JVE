@@ -49,6 +49,14 @@
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
+	<script type="text/javascript">
+		$(document).ready(function () { /* Hide broken titles */
+			$("img").error(function () {
+				$(this).attr('src', '/img/image-not-found.gif');
+			});
+		});
+	</script>
+
 	{{-- Any specific header information on a dashboard page not needed globally --}}
 	@yield('extra_header')
 
@@ -243,7 +251,6 @@
 	<div id="wrapper">
 		<div id="page-wrapper">
 			<div class="container-fluid">
-
 			@if($FormResponse)
 				<?php
 					switch($FormResponse['ResponseType']) {

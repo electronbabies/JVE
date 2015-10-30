@@ -6,7 +6,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<h6 class="text-center tc-white-2 mg-md">
-						<span class="fa fa-image"></span>
+						<span class="fa {{ Config::get('constants.ICON_GALLERY') }}"></span>
 					</h6>
 
 					<h2 class=" text-center tc-white mg-sm">

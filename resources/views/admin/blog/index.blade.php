@@ -52,7 +52,7 @@
 								<label class="control-label" style="font-weight: bold; padding-top: 5px;">Order</label>
 							</div>
 							<div class="col-lg-6 ">
-								<input type="text" class="form-control" name="FrontPageOrder" value="{{ $objPost->order_by }}" size=1>
+								<input type="text" class="form-control" name="FrontPageOrder" value="{{ $objPost->order_by }}" style="width: 42px;">
 							</div>
 						</div>
 						<div class="checkbox checkbox-success checkbox-circle pull-right">
