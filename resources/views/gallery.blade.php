@@ -9,7 +9,6 @@
 
 	ul li {
 		list-style: none;
-		margin-bottom: 25px;
 	}
 
 	ul li img {
