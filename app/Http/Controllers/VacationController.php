@@ -56,8 +56,8 @@ class VacationController extends AdminController
 		if(!$objVacation->id)
 			$objVacation->user_id = $objUser->id;
 
-		// Only admins can change status
-		if($objUser->role == \App\User::ROLE_ADMIN)
+		// Only admins can change status and status always starts pending.
+		if($objUser->role == \App\User::ROLE_ADMIN && $VacationID != 'new')
 			$objVacation->status = $Input['Status'] ?: \App\VacationRequest::STATUS_PENDING;
 
 		$objVacation->save();
