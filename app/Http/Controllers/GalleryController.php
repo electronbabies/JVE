@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use View;
 use Request;
+use File;
 
 class GalleryController extends AdminController
 {
@@ -46,10 +47,9 @@ class GalleryController extends AdminController
 
 	public function store()
 	{
-		$Input = Request::all();
 		$File = Request::file('Image');
 
-		$objImage = $Input['PostID'] ? \App\GalleryImage::findOrFail($Input['PostID']) : new \App\GalleryImage;
+		$objImage = Request::get('PostID') ? \App\GalleryImage::findOrFail(Request::get('PostID')) : new \App\GalleryImage;
 
 		if ($File) {
 			$FileExtension = $File->getClientOriginalExtension();
@@ -68,10 +68,19 @@ class GalleryController extends AdminController
 			}
 		}
 
-		$objImage->title = $Input['title'];
-		$objImage->entry = $Input['entry'];
+		$objImage->title = Request::get('title');
+		$objImage->entry = Request::get('entry');
+		$objImage->mast_height = Request::get('mast_height');
+		$objImage->make = Request::get('make');
+		$objImage->model = Request::get('model');
+		$objImage->warranty = Request::get('warranty');
+		$objImage->year = str_replace(',', '', Request::get('year'));
+		$objImage->price = str_replace('$', '', Request::get('price'));
+		$objImage->sold = Request::get('sold') == 'on' ? true : false;
+		$objImage->hours = Request::get('hours');
+		$objImage->serial = Request::get('serial');
 		$objImage->save();
 
-		return redirect('/admin/gallery');
+		return redirect('/admin/gallery')->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Gallery saved successfully']);
 	}
 }

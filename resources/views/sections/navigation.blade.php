@@ -72,7 +72,7 @@
                         </ul>
                     </li>
 					<li>
-						<div id="google_translate_element"></div>
+						<div id="google_translate_element" style="width: 150px;"></div>
 					</li>
                 </ul>
             </div>

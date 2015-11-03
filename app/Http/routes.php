@@ -52,6 +52,7 @@ Route::get('admin', 'AdminController@index');
 // Admin Users
 Route::get('admin/users', 'UsersController@index');
 Route::get('admin/users/edit/{UserID}', 'UsersController@edit');
+Route::get('admin/users/edit/{UserID}/ReturnTo/{Location}', 'UsersController@edit');
 Route::post('admin/users/store', 'UsersController@store');
 
 // Admin Vacations

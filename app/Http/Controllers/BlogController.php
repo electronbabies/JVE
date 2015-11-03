@@ -109,6 +109,6 @@ class BlogController extends AdminController
 		$objPost->y_offset = $Input['y_offset'];
 		$objPost->save();
 
-		return redirect('/admin/blog');
+		return redirect('/admin/blog')->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Blog saved successfully']);
 	}
 }

@@ -11,13 +11,14 @@ class UsersController extends AdminController
 {
 	const ACTIVE_CLASS = 'Users';
 
-	public function edit($UserID)
+	public function edit($UserID, $ReturnTo = '')
 	{
 		$objUser = \App\User::find($UserID);
 		$tInvoices = \App\Invoice::where('user_id', $UserID)->get();
 
 		View::share('objUser', $objUser);
 		View::share('tInvoices', $tInvoices);
+		View::share('ReturnTo', $ReturnTo);
 
 		return view('admin.users.edit');
 	}
@@ -41,7 +42,9 @@ class UsersController extends AdminController
 		$objUser->phone = $Input['Phone'];
 		$objUser->save();
 
-		return redirect('/admin/users');
+		$Path = $Input['ReturnTo'] == 'Dashboard' ? '' : '/users';
+
+		return redirect("/admin{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'User saved successfully']);
 
 	}
 }

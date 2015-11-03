@@ -22,6 +22,7 @@
 	<form action="/admin/users/store" method="post" enctype="multipart/form-data">
 		<input type="hidden" value="{{ $objUser->id }}" name="UserID">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		<input type="hidden" value="{{ $ReturnTo }}" name="ReturnTo">
 		<?php $ReadOnly = $objUser->IsGuestAccount() ? 'readonly disabled' : ''; ?>
 
 		<div class="row">
