@@ -66,7 +66,7 @@ class CalendarController extends AdminController
 		$tBlogPosts = \App\BlogPost::all();
 		foreach($tBlogPosts as $objPost) {
 			$tResult = [];
-			$tResult['id'] = $objClient->id;
+			$tResult['id'] = $objPost->id;
 			$tResult['class'] = 'event-info';
 			$tResult['url'] = "/admin/blog/edit/{$objPost->id}";
 			$tResult['title'] = "New Blog Post:  {$objPost->title}";
