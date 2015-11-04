@@ -17,6 +17,45 @@ class User extends Model implements AuthenticatableContract,
 {
     use Authenticatable, Authorizable, CanResetPassword;
 
+    static $tUserPermissions = [
+    	'Users' => [
+			'Edit/Client' 		=> "Edit Client",
+			'View/Client'		=> "View Client",
+			'View/Employee'		=> "View Employee",
+    	],
+    	// Definitely need to make type static
+		'Orders' => [
+			'View/Service'		=> 'View Service Orders',
+			'View/Parts' 		=> 'View Parts Orders',
+			'View/Rental' 		=> 'View Rental Orders',
+			'View/Sales' 		=> 'View Sales Orders',
+			// Only assign to works with edit
+			'Edit/Service' 		=> 'Edit Service Orders',
+			'Edit/Parts' 		=> 'Edit Parts Orders',
+			'Edit/Rental' 		=> 'Edit Rental Orders',
+			'Edit/Sales' 		=> 'Edit Sales Orders',
+		],
+		'Blog' => [
+			'Edit/Blog'			=> 'Edit Blog Posts',
+//			'View/Blog'			=> 'View Blog Posts (Backend Only)',
+		],
+		'Gallery' => [
+			'Edit/Gallery'		=> 'Edit Gallery Posts',
+			// Might want to mark these as sold if they can, and not shown if they can't.
+			'View/Sold'			=> 'View Sold Gallery Posts',
+		],
+		'Vacations' => [
+			// Should be all employees
+			'Edit/Vacation'		=> 'Edit Vacation Requests'
+		],
+		/*'Holidays' => [
+			// Should be only admins
+		],*/
+		'Calendar' => [
+			'View/Calendar'		=> 'View Calendar',
+		],
+    ];
+
     const ROLE_ADMIN = 'Admin';
     const ROLE_CLIENT = 'Client';
     const ROLE_EMPLOYEE = 'Employee';
@@ -25,8 +64,8 @@ class User extends Model implements AuthenticatableContract,
     // There has to be a better way to do this.
     static $tRoles = [
     	self::ROLE_ADMIN,
-		self::ROLE_CLIENT,
 		self::ROLE_EMPLOYEE,
+		self::ROLE_CLIENT,
 	];
 
 	public function scopeNewClients($query)
@@ -64,26 +103,42 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
+	/**
+	 * Return global guest user account
+	 * @return mixed
+	 */
+	static public function GetGuestAccount()
+	{
+		$objUser = \App\User::where('role', '=', static::ROLE_GUEST)->first();
+		return $objUser;
+	}
+
+	public function IsGuestAccount()
+	{
+		return $this->role == static::ROLE_GUEST;
+	}
+
+
     public function Invoices()
     {
         return $this->hasMany('App\Invoice');
     }
 
-    /**
-     * Return global guest user account
-     * @return mixed
-     */
-    static public function GetGuestAccount()
-    {
-        $objUser = \App\User::where('role', '=', static::ROLE_GUEST)->first();
-        return $objUser;
-    }
-
-    public function IsGuestAccount()
+    public function permissions()
 	{
-		return $this->role == static::ROLE_GUEST;
+		return $this->hasMany('App\Permission');
 	}
 
+	public function HasPermission($Permission)
+	{
+		if($this->IsAdmin())
+			return true;
+
+		foreach($this->permissions as $tPermission) {
+			if($tPermission->permission == $Permission)
+				return true;
+		}
+	}
     /*
      * $Permissions string Slash (/) separated permission list
      */

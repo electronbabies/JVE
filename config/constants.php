@@ -24,4 +24,5 @@ return [
 	'ICON_INVOICE_ITEMS'		=> 'fa-file-archive-o',
 	'ICON_VACATION'				=> 'fa-suitcase',
 	'ICON_HOLIDAYS'				=> 'fa-tree',
+	'ICON_PERMISSIONS' 			=> 'fa-key',
 ];

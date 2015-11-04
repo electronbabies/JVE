@@ -33,6 +33,7 @@ class UsersController extends AdminController
 	public function store()
 	{
 		$Input = Request::all();
+
 		$objUser = \App\User::findOrFail($Input['UserID']);
 
 		$objUser->name = $Input['Name'];
@@ -40,6 +41,18 @@ class UsersController extends AdminController
 		$objUser->company_name = $Input['CompanyName'];
 		$objUser->role = $Input['Role'];
 		$objUser->phone = $Input['Phone'];
+
+		$tPermissions = Request::get('Permissions');
+
+		$objUser->permissions()->delete();
+		foreach($tPermissions as $Permission => $State) {
+			if($State == 'on') {
+				$NewPermission = new \App\Permission;
+				$NewPermission->user_id = $objUser->id;
+				$NewPermission->permission = $Permission;
+				$NewPermission->save();
+			}
+		}
 		$objUser->save();
 
 		$Path = $Input['ReturnTo'] == 'Dashboard' ? '' : '/users';

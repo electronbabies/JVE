@@ -89,3 +89,7 @@ Route::post('admin/gallery/store/', 'GalleryController@store');
 Route::get('admin/calendar', 'CalendarController@index');
 Route::get('admin/calendar/events', 'CalendarController@events');
 
+// Admin Permissions
+Route::get('admin/permissions', 'PermissionController@index');
+Route::get('admin/permissions/edit/{id}', 'PermissionController@edit');
+Route::post('admin/permissions/store/', 'PermissionController@store');
