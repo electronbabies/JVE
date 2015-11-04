@@ -241,6 +241,15 @@
 							class="fa fa-fw {{ Config::get('constants.ICON_VACATION') }}"></i>
 						Vacation Request</a>
 				</li>
+				<li
+					@if ($ActiveClass == 'Holidays')
+					class="active"
+					@endif
+					>
+					<a href="/admin/vacations/holidays"><i
+							class="fa fa-fw {{ Config::get('constants.ICON_HOLIDAYS') }}"></i>
+						Holidays</a>
+				</li>
 				<li>
 					<a href="/"><i class="fa fa-fw {{ Config::get('constants.ICON_WEBSITE') }}"></i> Public Site</a>
 				</li>

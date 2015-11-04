@@ -157,6 +157,6 @@ class User extends Model implements AuthenticatableContract,
 
     public function Vacations()
 	{
-		return $this->hasMany('\App\VacationRequest');
+		return $this->hasMany('\App\VacationRequest')->where('type', \App\VacationRequest::TYPE_VACATION);
 	}
 }

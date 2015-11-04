@@ -12,6 +12,9 @@ class VacationRequest extends Model
 	const STATUS_DENIED				= 'Denied';
 	const STATUS_PENDING			= 'Pending';
 
+	const TYPE_HOLIDAY				= 'Holiday';
+	const TYPE_VACATION				= 'Vacation';
+
 	protected $table = 'vacation_requests';
 	protected $dates = ['created_at', 'updated_at', 'from', 'to'];
 
@@ -21,7 +24,7 @@ class VacationRequest extends Model
 	{
 		$this->setRawAttributes([
 			'from' 		=> Carbon::now()->addDays(1),
-			'to'		=> Carbon::now()->addDays(2),
+			'to'		=> Carbon::now()->addDays(1),
 		], true);
 		return parent::__construct($attributes);
 	}
@@ -31,15 +34,32 @@ class VacationRequest extends Model
 		return $this->belongsTo('\App\User');
 	}
 
-	public function scopeUpcoming($query)
+	public function scopeUpcomingVacations($query)
 	{
 		$StartDate = Carbon::now();
 		$EndDate = Carbon::now()->addMonth();
-		return $query->where('from', '>', $StartDate)->where('from', '<', $EndDate)->where('status', '=', static::STATUS_APPROVED);
+		return $query->where('from', '>', $StartDate)->where('from', '<', $EndDate)->where('status', '=', static::STATUS_APPROVED)->where('type', static::TYPE_VACATION);
+	}
+
+	public function scopeUpcomingHolidays($query)
+	{
+		$StartDate = Carbon::now();
+		$EndDate = Carbon::now()->addMonth();
+		return $query->where('from', '>', $StartDate)->where('from', '<', $EndDate)->where('status', '=', static::STATUS_APPROVED)->where('type', static::TYPE_HOLIDAY);
 	}
 
 	public function scopeRequests($query)
 	{
-		return $query->where('status', '=', static::STATUS_PENDING);
+		return $query->where('status', '=', static::STATUS_PENDING)->where('type', static::TYPE_VACATION);
+	}
+
+	public function scopeVacations($query)
+	{
+		return $query->where('type', static::TYPE_VACATION);
+	}
+
+	public function scopeHolidays($query)
+	{
+		return $query->where('type', static::TYPE_HOLIDAY);
 	}
 }

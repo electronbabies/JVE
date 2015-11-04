@@ -59,6 +59,9 @@ Route::post('admin/users/store', 'UsersController@store');
 Route::get('admin/vacations', 'VacationController@index');
 Route::get('admin/vacations/edit/{VacationID}', 'VacationController@edit');
 Route::get('admin/vacations/edit/{VacationID}/ReturnTo/{Location}', 'VacationController@edit');
+Route::get('admin/vacations/holidays/', 'VacationController@holidays');
+Route::get('admin/vacations/holidays/edit/{VacationID}', 'VacationController@holidays_edit');
+Route::get('admin/vacations/holidays/delete/{id}', 'VacationController@holidays_delete');
 Route::post('admin/vacations/store/', 'VacationController@store');
 
 // Admin Invoices

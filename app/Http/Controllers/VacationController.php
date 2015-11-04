@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\VacationRequest;
 use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -23,11 +24,32 @@ class VacationController extends AdminController
 	{
 		$objRequest = $VacationID == 'new' ? new \App\VacationRequest : \App\VacationRequest::findOrFail($VacationID);
 
-
 		View::share('ReturnTo', $ReturnTo);
-
 		View::share('objRequest', $objRequest);
 		return view('admin.vacations.edit');
+	}
+
+	public function holidays_delete($id)
+	{
+		if (\App\VacationRequest::destroy($id)) {
+			exit('success');
+		}
+		exit('error');
+	}
+
+	public function holidays()
+	{
+		View::share('tHolidays', \App\VacationRequest::where('type', '=', \App\VacationRequest::TYPE_HOLIDAY)->get());
+		View::share('ActiveClass', 'Holidays');
+		return view('admin.vacations.holidays.index');
+	}
+
+	public function holidays_edit($HolidayID)
+	{
+		View::share('ActiveClass', 'Holidays');
+		$objRequest = $HolidayID == 'new' ? new \App\VacationRequest : \App\VacationRequest::findOrFail($HolidayID);
+		View::share('objRequest', $objRequest);
+		return view('admin.vacations.holidays.edit');
 	}
 	public function store()
 	{
@@ -56,15 +78,24 @@ class VacationController extends AdminController
 		if(!$objVacation->id)
 			$objVacation->user_id = $objUser->id;
 
-		// Only admins can change status and status always starts pending.
-		if($objUser->role == \App\User::ROLE_ADMIN && $VacationID != 'new')
-			$objVacation->status = $Input['Status'] ?: \App\VacationRequest::STATUS_PENDING;
+		if(Request::get('Type') == VacationRequest::TYPE_HOLIDAY)
+			$objVacation->status = \App\VacationRequest::STATUS_APPROVED;
+		else {
+			// Only admins can change status and status always starts pending.
+			if ($objUser->role == \App\User::ROLE_ADMIN && $VacationID != 'new')
+				$objVacation->status = $Input['Status'] ?: \App\VacationRequest::STATUS_PENDING;
+		}
+
+		$objVacation->type = $Input['Type'];
 
 		$objVacation->save();
 
-		$Path = $Input['ReturnTo'] == 'Dashboard' ? '' : '/vacations';
+		if($Input['Type'] == \App\VacationRequest::TYPE_HOLIDAY)
+			$Path = Request::get('ReturnTo') == 'Dashboard' ? '' : '/vacations/holidays';
+		else
+			$Path = Request::get('ReturnTo') == 'Dashboard' ? '' : '/vacations';
 
-		return redirect("/admin{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Vacation saved successfully']);
+		return redirect("/admin{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => Request::get('Type') . ' saved successfully']);
 
 
 

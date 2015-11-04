@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Config;
 
 class CalendarController extends AdminController
 {
@@ -25,19 +26,31 @@ class CalendarController extends AdminController
 
 		// TODO:  Add from / to restraints
 		$tVacations = \App\VacationRequest::all();
+
+		// Calendar has no time zone conversion AND has no concept of daylight savings time. :(
+		$Offset = (6) * 60 * 60 * 1000;
+
 		foreach ($tVacations as $objVacation) {
 			$tResult = [];
 			$tResult['id'] = $objVacation->id;
-			$PreText = $objVacation->status == \App\VacationRequest::STATUS_PENDING ? 'PENDING VACATION REQUEST' : 'APPROVED VACATION REQUEST';
-			$tResult['title'] = "{$PreText}: {$objVacation->User->name}: {$objVacation->comments}";
-			$tResult['url'] = "/admin/vacations/edit/{$objVacation->id}";
-			$tResult['class'] = $objVacation->status == \App\VacationRequest::STATUS_PENDING ? 'event-warning' : 'event-success';
-			$tResult['start'] = strtotime($objVacation->from) .'000';
-			$tResult['end'] = strtotime($objVacation->to) . '000';
+
+			if($objVacation->type == \App\VacationRequest::TYPE_HOLIDAY) {
+				$tResult['class'] = 'event-special';
+				$tResult['url'] = "/admin/vacations/holidays/edit/{$objVacation->id}";
+				$tResult['title'] = "HOLIDAY: {$objVacation->comments}";
+			}
+			else {
+				$tResult['class'] = $objVacation->status == \App\VacationRequest::STATUS_PENDING ? 'event-warning' : 'event-success';
+				$PreText = $objVacation->status == \App\VacationRequest::STATUS_PENDING ? 'PENDING VACATION REQUEST' : 'APPROVED VACATION REQUEST';
+				$tResult['url'] = "/admin/vacations/edit/{$objVacation->id}";
+				$tResult['title'] = "{$PreText}: {$objVacation->User->name}: {$objVacation->comments}";
+			}
+
+			$tResult['start'] = (int)strtotime($objVacation->from . " UTC") .'000' + $Offset;
+			$tResult['end'] = (int)strtotime($objVacation->to . " UTC") . '000' + $Offset;
+
 			$tCalendarData['result'][] = $tResult;
 		}
-
-		//$t
 
 		echo json_encode($tCalendarData);
 		die();

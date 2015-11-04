@@ -3,11 +3,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header" id="BlogTitleHeader">
-				@if($objRequest->id)
-					{{ $objRequest->User->name }}
-				@else
-					New Vacation Request
-				@endif
+				New Holiday
 			</h1>
 			<ol class="breadcrumb">
 				<li>
@@ -25,9 +21,8 @@
 	</div>
 	<form action="/admin/vacations/store" method="post" enctype="multipart/form-data">
 		<input type="hidden" value="{{ $objRequest->id }}" name="VacationID">
-		<input type="hidden" value="{{ $ReturnTo }}" name="ReturnTo">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		<input type="hidden" value="Vacation" name="Type">
+		<input type="hidden" value="Holiday" name="Type">
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="col-lg-4 col-lg-offset-1">
@@ -50,22 +45,6 @@
 				</div>
 			</div>
 		</div>
-		@if($objRequest->id)
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="col-lg-4 col-lg-offset-1">
-					<label>Status {{ $objRequest->status }}</label>
-					<div class="input-group date">
-						<select class="form-control" type="text" name='Status' @if(!$objLoggedInUser->IsAdmin()) disabled @endif>
-							@foreach(\App\VacationRequest::$tStatusOptions as $Status)
-								<option value="{{ $Status }}" @if($objRequest->status == $Status) selected @endif>{{ $Status }}</option>
-							@endforeach
-						</select>
-					</div>
-				</div>
-			</div>
-		</div>
-		@endif
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="col-lg-10 col-lg-offset-1">
@@ -78,19 +57,19 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3 form-group">
-				<button type="submit" class="btn btn-lg btn-primary center-block">Save Vacation Request</button>
+				<button type="submit" class="btn btn-lg btn-primary center-block">Save Holiday Request</button>
 			</div>
 		</div>
 	</form>
 	<script type="text/javascript">
 		$(function () {
 			$('#DateTimePickerFrom').datetimepicker({
-				defaultDate: "{{ $objRequest->from->format('m/d/Y') }} 08:00:00",
+				defaultDate: "{{ $objRequest->from->format('m/d/Y') }} 00:00:00",
 			});
 		});
 		$(function () {
 			$('#DateTimePickerTo').datetimepicker({
-				defaultDate: "{{ $objRequest->to->format('m/d/Y') }} 17:00:00",
+				defaultDate: "{{ $objRequest->to->format('m/d/Y') }} 23:59:59",
 			});
 		});
 	</script>

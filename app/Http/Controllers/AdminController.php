@@ -32,7 +32,8 @@ class AdminController extends Controller
 
 	public function index()
 	{
-		$tUpcomingVacations = \App\VacationRequest::upcoming()->get();
+		$tUpcomingVacations = \App\VacationRequest::upcomingvacations()->get();
+		$tUpcomingHolidays = \App\VacationRequest::upcomingholidays()->get();
 		$tVacationRequests = \App\VacationRequest::requests()->get();
 		$tNewInvoices = \App\Invoice::unhandled()->get();
 		$tActiveGalleryImages = \App\GalleryImage::all();
@@ -41,6 +42,7 @@ class AdminController extends Controller
 		$tNewClients = \App\User::newclients()->get();
 
 		View::share('tUpcomingVacations', $tUpcomingVacations);
+		View::share('tUpcomingHolidays', $tUpcomingHolidays);
 		View::share('tVacationRequests', $tVacationRequests);
 		View::share('tNewInvoices', $tNewInvoices);
 		View::share('tActiveGalleryImages', $tActiveGalleryImages);

@@ -175,6 +175,30 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-lg-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title"><i
+										class="fa fa-fw {{ Config::get('constants.ICON_HOLIDAYS') }}"></i> Upcoming Holidays</h3>
+							</div>
+							<div class="panel-body">
+								<div class="list-group">
+									@forelse($tUpcomingHolidays as $objVacation)
+										<a href="/admin/vacations/holidays/edit/{{ $objVacation->id}}/ReturnTo/Dashboard" class="list-group-item">
+											<span
+												class="badge">{{ str_replace(['after', 'before'], ['from now', 'ago'], $objVacation->from->diffForHumans(Carbon\Carbon::now())) }}</span>
+											<i class="fa fa-fw {{ Config::get('constants.ICON_HOLIDAYS') }}"></i> {{ $objVacation->User->name }}
+										</a>
+									@empty
+										<a href="#" class="list-group-item">
+											<i class="fa fa-fw {{ Config::get('constants.ICON_HOLIDAYS') }}"></i>
+											No upcoming holidays.
+										</a>
+									@endforelse
+								</div>
+							</div>
+						</div>
+					</div>
 
 					<div class="col-lg-4">
 						<div class="panel panel-default">
