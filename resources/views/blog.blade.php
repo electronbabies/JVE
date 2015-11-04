@@ -5,7 +5,7 @@
 <!-- Main container -->
 <div class="page-container">
 
-<?php include_once(__DIR__ . '/sections/navigation.blade.php'); ?>
+<?php include_once(__DIR__ . '/sections/header.blade.php'); ?>
 
 <!-- featured-rental -->
 <div class="wrap bg-banner-holder-4 d-wrap" id="featured-rental">
@@ -158,7 +158,6 @@
 			</div>
 		</div>
 	</div>
-	<?php include_once(__DIR__.'/sections/footer.php'); ?>
 </div>
 <!-- wrap-24 END -->
 

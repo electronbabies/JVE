@@ -195,6 +195,5 @@
 		</div>
 	</div>
 </div>
-@include('sections.gallery', ['BGColor' => Config::get('constants.COLOR_LIGHT_BLUE')])
-@include('sections.footer', ['BGColor' => Config::get('constants.COLOR_DARK_BLUE')] )
+@include('sections.scroll_gallery', ['BGColor' => Config::get('constants.COLOR_LIGHT_BLUE')])
 @stop

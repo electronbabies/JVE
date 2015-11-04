@@ -1,4 +1,4 @@
-@extends('admin-app')
+@extends('admin.admin-app')
 @section('content')
 	<div class="row">
 		<div class="col-lg-12">
@@ -23,52 +23,73 @@
 		<input type="hidden" value="{{ $objUser->id }}" name="UserID">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<input type="hidden" value="{{ $ReturnTo }}" name="ReturnTo">
-		<?php $ReadOnly = $objUser->IsGuestAccount() ? 'readonly disabled' : ''; ?>
+		<?php $ReadOnly = !$objUser->IsAdmin() ? 'readonly disabled' : ''; ?>
 
 		<div class="row">
-			<div class="col-lg-12">
-				<div class="col-lg-8 col-lg-offset-1">
-					<div class="col-lg-4 form-group">
+			<div class="col-lg-10 col-lg-offset-1 text-center">
+				<h1> User Information</h1>
+					<div class="col-lg-3 form-group">
 						<label>Name</label>
 						<input class="form-control" id='Name' name='Name' value="{{ $objUser->name }}" {{ $ReadOnly }}>
 					</div>
-					<div class="col-lg-4 form-group">
+					<div class="col-lg-3 form-group">
 						<label>Email</label>
 						<input class="form-control"  name='Email' value="{{ $objUser->email }}" {{ $ReadOnly }}>
+					</div>
+					<div class="col-lg-3 form-group">
+						<label>Company</label>
+						<input class="form-control" id='Name' name='CompanyName' value="{{ $objUser->company_name }}" {{ $ReadOnly }}>
+					</div>
+					<div class="col-lg-3 form-group">
+						<label>Phone</label>
+						<input class="form-control" name='Phone' value="{{ $objUser->phone }}" {{ $ReadOnly }}>
 					</div>
 				</div>
 			</div>
 		</div>
 
+
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="col-lg-8 col-lg-offset-1">
-					<div class="col-lg-4 form-group">
-						<label>Company</label>
-						<input class="form-control" id='Name' name='CompanyName' value="{{ $objUser->company_name }}" {{ $ReadOnly }}>
-					</div>
-					<div class="col-lg-4 form-group">
-						<label>Type</label>
-						<select class="form-control" name="Role" {{ $ReadOnly }}>
-							@foreach (\App\User::$tRoles as $Role)
-								<?php $Selected = $Role == $objUser->role ? 'selected' : '' ?>
-								<option value="{{ $Role }}" {{ $Selected }}>{{ $Role }}</option>
-							@endforeach
-							@if ($objUser->IsGuestAccount())
-									<option value="Guest" selected>Guest</option>
-							@endif
-						</select>
-					</div>
+			<hr />
+			<h1 class="text-center">Permissions</h1>
+				<div class="col-lg-10 col-lg-offset-1 form-group">
+					<label>Type</label>
+					<select class="form-control" name="Role" {{ $ReadOnly }}>
+						@foreach (\App\User::$tRoles as $Role)
+							<?php $Selected = $Role == $objUser->role ? 'selected' : '' ?>
+							<option value="{{ $Role }}" {{ $Selected }}>{{ $Role }}</option>
+						@endforeach
+						@if ($objUser->IsGuestAccount())
+							<option value="Guest" selected>Guest</option>
+						@endif
+					</select>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="col-lg-8 col-lg-offset-1">
-					<div class="col-lg-4 form-group">
-						<label>Phone</label>
-						<input class="form-control" name='Phone' value="{{ $objUser->phone }}" {{ $ReadOnly }}>
-					</div>
+				<div class="col-lg-10 col-lg-offset-1">
+						<?php $Count = 0; ?>
+						@foreach(\App\User::$tUserPermissions as $Group => $tPermissionGroup)
+						<?php $Count++; ?>
+						@if($Count % 3 == 1)
+							<div class="row">
+						@endif
+						<div class="col-lg-4">
+							<div class="checkbox checkbox-success checkbox-circle" {{--style="border: 1px #ddd solid; border-radius: 4px;"--}}>
+							<h3 >{{ $Group }}</h3>
+							@foreach($tPermissionGroup as $DBValue => $TextToDisplay)
+								<?php
+									$Checked = $objUser->HasPermission($DBValue) ? 'checked' : '';
+									//$ReadOnly = $objUser->IsAdmin() ? 'readonly disabled' : '';
+								?>
+								<input type="checkbox" class="checkbox" name="Permissions[{{ $DBValue }}]" {{ $Checked }} {{ $ReadOnly }}>
+								<label>{{ $TextToDisplay }}</label><br />
+							@endforeach
+								@if($Count % 3 == 0)
+									</div>
+								@endif
+							</div>
+						</div>
+						@endforeach
+
 				</div>
 			</div>
 		</div>
@@ -83,7 +104,9 @@
 		</div>
 	</form>
 	<div class="row">
-		<div class="col-lg-12">
+		<div class="col-lg-12 text-center">
+		<hr />
+		<h1>Orders</h1>
 			<div class="col-lg-10 col-lg-offset-1">
 				<div class="table-responsive">
 					<table class="table table-bordered table-hover table-striped" data-toggle="table">

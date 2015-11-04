@@ -114,6 +114,6 @@
 	</div>
 </div>
 
-@include('sections.footer', ['BGColor' => Config::get('constants.COLOR_DARK_BLUE')] )
+@include('sections.locations', ['BGColor' => Config::get('constants.COLOR_DARK_BLUE')] )
 
 @stop

@@ -1,4 +1,4 @@
-@extends('admin-app')
+@extends('admin.admin-app')
 @section('content')
                 <!-- Page Heading -->
                 <div class="row">

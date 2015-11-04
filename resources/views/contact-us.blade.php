@@ -5,7 +5,7 @@
 <!-- Main container -->
 <div class="page-container">
 
-	<?php include_once(__DIR__ . '/sections/navigation.blade.php'); ?>
+	<?php include_once(__DIR__ . '/sections/header.blade.php'); ?>
 
 <!-- wrap-22 -->
 <div class="wrap tc-white   bg-banner-holder-1 d-wrap" id="wrap-22">
@@ -182,7 +182,6 @@
 				</div>
 			</div>
 		</div>
-		<?php include_once(__DIR__.'/sections/footer.php'); ?>
 	</div>
 </div>
 <!-- wrap-22 END -->

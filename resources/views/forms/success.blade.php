@@ -26,7 +26,7 @@
 			</div>
 		</div>
 	</div>
-@include('sections.footer', ['BGColor' => Config::get('constants.COLOR_DARK_BLUE')] )
+@include('sections.locations', ['BGColor' => Config::get('constants.COLOR_DARK_BLUE')] )
 
 <script type="text/javascript">
 	var Seconds = 5;

@@ -30,8 +30,9 @@
 </head>
 <body>
     <div class="page-container">
-        @include('sections.navigation')
+        @include('sections.header')
         @yield('content')
-    </div>
+		@include('sections.locations')
+	</div>
 </body>
 </html>

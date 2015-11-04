@@ -1,4 +1,4 @@
-@extends('admin-app')
+@extends('admin.admin-app')
 @section('content')
 	<form action="/admin/invoices/store" method="post">
 		<input type="hidden" name="InvoiceID" value="{{ $objInvoice->id }}">

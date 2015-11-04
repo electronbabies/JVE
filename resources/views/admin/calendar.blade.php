@@ -1,4 +1,4 @@
-@extends('admin-app')
+@extends('admin.admin-app')
 
 @section('extra_header')
 	{{-- <link rel="stylesheet" href="/css/bootstrap-responsive.css">--}}
