@@ -12,7 +12,7 @@
 							Service Department
 						</h2>
 						<h3 class="orange text-center mg-lg tc-saffron">
-							<span>We provide award winning service.</span>
+							<span>We provide award winning service. </span>
 						</h3>
 					</div>
 				</div>
