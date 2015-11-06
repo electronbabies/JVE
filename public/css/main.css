@@ -1085,7 +1085,7 @@ label {
 }
 }
 .elements-header {
-    background-image: url("img/placehold/1920x700.gif");
+    background-image: url("/img/placehold/1920x700.gif");
     background-position: center bottom, center top;
     background-repeat: no-repeat;
     background-size: auto auto, cover;
@@ -1193,17 +1193,17 @@ section#about.about-product {
 }
 }
 .about-product [class^="col-"]:nth-of-type(1) article::before {
-    background: rgba(0, 0, 0, 0) url("img/hl-1.png") no-repeat scroll left top;
+    background: rgba(0, 0, 0, 0) url("/img/hl-1.png") no-repeat scroll left top;
     height: 352px;
     width: 11px;
 }
 .about-product [class^="col-"]:nth-of-type(2) article::before {
-    background: rgba(0, 0, 0, 0) url("img/hl-2.png") no-repeat scroll left top;
+    background: rgba(0, 0, 0, 0) url("/img/hl-2.png") no-repeat scroll left top;
     height: 221px;
     width: 11px;
 }
 .about-product [class^="col-"]:nth-of-type(3) article::before {
-    background: rgba(0, 0, 0, 0) url("img/hl-3.png") no-repeat scroll left top;
+    background: rgba(0, 0, 0, 0) url("/img/hl-3.png") no-repeat scroll left top;
     height: 302px;
     width: 111px;
 }
@@ -1239,7 +1239,7 @@ section#about.about-product {
     text-align: center;
 }
 .steps article::after {
-    background: rgba(0, 0, 0, 0) url("img/arrow.png") no-repeat scroll center center;
+    background: rgba(0, 0, 0, 0) url("/img/arrow.png") no-repeat scroll center center;
     content: "";
     height: 100%;
     position: absolute;
@@ -1613,7 +1613,7 @@ section#about.about-product {
     text-align: center;
 }
 .price {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x1080.gif") no-repeat scroll center center;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x1080.gif") no-repeat scroll center center;
     border-top: 1px solid #e8e9ed;
     margin-bottom: 100px;
     position: relative;
@@ -1865,7 +1865,7 @@ footer.fullstyle {
     width: 50px;
 }
 .testimonials .owl-carousel .owl-controls .owl-buttons .owl-prev {
-    background-image: url("img/arrow-left.png");
+    background-image: url("/img/arrow-left.png");
     left: -50px;
 }
 @media (max-width: 1199px) {
@@ -1874,7 +1874,7 @@ footer.fullstyle {
 }
 }
 .testimonials .owl-carousel .owl-controls .owl-buttons .owl-next {
-    background-image: url("img/arrow-right.png");
+    background-image: url("/img/arrow-right.png");
     float: right;
     right: -50px;
 }
@@ -1955,7 +1955,7 @@ footer.fullstyle {
     opacity: 1;
 }
 .twitter {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x1080.gif") no-repeat fixed center center / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x1080.gif") no-repeat fixed center center / cover ;
     position: relative;
     z-index: 1;
 }
@@ -2332,7 +2332,7 @@ a h5:hover {
     line-height: 32px;
 }
 .wrap-programs {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x1080.gif") no-repeat fixed center center / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x1080.gif") no-repeat fixed center center / cover ;
     min-height: 590px;
     padding-bottom: 140px;
     padding-top: 170px;
@@ -2688,7 +2688,7 @@ section.team .team-description p {
     top: -10px;
 }
 .about-me-header {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x700.gif") no-repeat scroll center top / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x700.gif") no-repeat scroll center top / cover ;
     min-height: 700px;
     text-align: left;
 }
@@ -2715,7 +2715,7 @@ section.team .team-description p {
     padding-bottom: 0;
 }
 .wrap-features {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x1080.gif") no-repeat fixed center center / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x1080.gif") no-repeat fixed center center / cover ;
     min-height: 700px;
     padding: 100px 0;
     position: relative;
@@ -2892,7 +2892,7 @@ section.team .team-description p {
     font-weight: bold;
 }
 .wrap-counters {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x1080.gif") no-repeat fixed center center / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x1080.gif") no-repeat fixed center center / cover ;
     min-height: 540px;
     padding: 170px 0 120px;
     position: relative;
@@ -2952,7 +2952,7 @@ section.team .team-description p {
     font-weight: normal;
 }
 .price-header {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x700.gif") no-repeat scroll center top / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x700.gif") no-repeat scroll center top / cover ;
     height: 700px;
     position: relative;
     text-align: center;
@@ -3013,7 +3013,7 @@ section.team .team-description p {
     font-size: 14px;
 }
 .wrap-rates {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x1080.gif") no-repeat fixed center center / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x1080.gif") no-repeat fixed center center / cover ;
     padding: 100px 0 80px;
     position: relative;
 }
@@ -3054,7 +3054,7 @@ section.team .team-description p {
     padding-bottom: 30px;
 }
 .wrap-downloads .download-item .ico .down-ico {
-    background: rgba(0, 0, 0, 0) url("img/icons/download-icon.png") no-repeat scroll center center;
+    background: rgba(0, 0, 0, 0) url("/img/icons/download-icon.png") no-repeat scroll center center;
     display: block;
     height: 40px;
     width: 30px;
@@ -3108,7 +3108,7 @@ section.team .team-description p {
     padding: 20px 0;
 }
 .gallery-header {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x700.gif") no-repeat scroll center top / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x700.gif") no-repeat scroll center top / cover ;
     height: 700px;
     position: relative;
     text-align: center;
@@ -3190,7 +3190,7 @@ section.team .team-description p {
     color: #2a2d32;
 }
 .about-header {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x700.gif") no-repeat scroll center center / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x700.gif") no-repeat scroll center center / cover ;
     height: 700px;
     padding-top: 300px;
     position: relative;
@@ -3247,7 +3247,7 @@ section.team .team-description p {
     top: 0;
 }
 .video .video-bg {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x1080.gif") no-repeat fixed center center;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x1080.gif") no-repeat fixed center center;
     bottom: 0;
     display: none;
     left: 0;
@@ -3532,14 +3532,14 @@ section.team .team-description p {
     display: none;
 }
 .blog-header {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x700.gif") no-repeat scroll center center / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x700.gif") no-repeat scroll center center / cover ;
     height: 700px;
     padding-top: 300px;
     position: relative;
     text-align: center;
 }
 .blog-header.blog-post-header {
-    background-image: url("img/placehold/1920x700.gif");
+    background-image: url("/img/placehold/1920x700.gif");
 }
 .blog-header h1 {
     color: #fff;
@@ -3794,7 +3794,7 @@ section.team .team-description p {
     float: left;
 }
 .homeSectionBlog .sidebar .calendar #my-calendar .ui-datepicker-header .ui-datepicker-prev span {
-    background: rgba(0, 0, 0, 0) url("img/calendar-left.png") no-repeat scroll left center;
+    background: rgba(0, 0, 0, 0) url("/img/calendar-left.png") no-repeat scroll left center;
     cursor: pointer;
     margin-top: 7px;
 }
@@ -3802,7 +3802,7 @@ section.team .team-description p {
     float: right;
 }
 .homeSectionBlog .sidebar .calendar #my-calendar .ui-datepicker-header .ui-datepicker-next span {
-    background: rgba(0, 0, 0, 0) url("img/calendar-right.png") no-repeat scroll left center;
+    background: rgba(0, 0, 0, 0) url("/img/calendar-right.png") no-repeat scroll left center;
     cursor: pointer;
     margin-top: 7px;
 }
@@ -3978,7 +3978,7 @@ section.team .team-description p {
     float: left;
 }
 .wrap-controls .dropdown-calendar #my-calendar .ui-datepicker-header .ui-datepicker-prev span {
-    background: rgba(0, 0, 0, 0) url("img/calendar-left.png") no-repeat scroll left center;
+    background: rgba(0, 0, 0, 0) url("/img/calendar-left.png") no-repeat scroll left center;
     cursor: pointer;
     margin-top: 7px;
 }
@@ -3986,7 +3986,7 @@ section.team .team-description p {
     float: right;
 }
 .wrap-controls .dropdown-calendar #my-calendar .ui-datepicker-header .ui-datepicker-next span {
-    background: rgba(0, 0, 0, 0) url("img/calendar-right.png") no-repeat scroll left center;
+    background: rgba(0, 0, 0, 0) url("/img/calendar-right.png") no-repeat scroll left center;
     cursor: pointer;
     margin-top: 7px;
 }
@@ -4517,7 +4517,7 @@ section.team .team-description p {
     width: 12px;
 }
 .service-header {
-    background: rgba(0, 0, 0, 0) url("img/placehold/1920x700.gif") no-repeat scroll center center / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/placehold/1920x700.gif") no-repeat scroll center center / cover ;
     height: 700px;
     padding-top: 300px;
     position: relative;
@@ -5180,7 +5180,7 @@ button {
     position: relative;
 }
 .wrap-header-slider::after {
-    background: rgba(0, 0, 0, 0) url("img/graph-home2.svg") no-repeat scroll center top / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/graph-home2.svg") no-repeat scroll center top / cover ;
     bottom: 0;
     content: "";
     display: block;

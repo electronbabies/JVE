@@ -109,7 +109,6 @@
                             <h2 class=" text-center mg-sm tc-white">
                                 In Stock
                             </h2>
-
                             <h3 class="orange text-center mg-lg tc-saffron">
                                 <span>Special deals on in stock equipment!</span>
                             </h3>

@@ -1,41 +1,36 @@
-<div class="wrap {{ $BGColor or Config::get('constants.COLOR_DARK_BLUE') }} d-wrap">
-    <!-- Title -->
-    <div class="container wrap-md transparent rounded-corners">
-<?php $Count = 0; ?>
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+                  <h6 class="text-center white mg-md">
+                      <span style="color: #ffffff; padding-top: 50px" class="fa fa-newspaper-o icon icon-book icon-gears icon-magnifying-glass icon-md"></span>
+                  </h6>
+                  <h2 class="text-center mg-sm">
+                      News &amp; Latest Information
+                  </h2>
+                  <h3 class="text-center mg-lg ">
+                      <span style="color: #FF9100">Stay up to date with  JVEquipment?</span>
+                  </h3>
+              </div>
+    </div>
 
-@forelse($tBlogPosts as $objPost)
-    <?php
-        // So annoying that laravel doesn't have an iteration count!
-        $Count++;
-        if($Count % 2 == 1)
-            echo '<div class="row blog">';
-    ?>
-        <div class="col-sm-3">
-            <img src="img/blog_images/{{ $objPost->image_filename }}" class="blog_image img-rounded center-block" style="padding-left: {{ $objPost->x_offset }}px; padding-top: {{ $objPost->y_offset }}px;" />
+    <div class="container">
+    <div class="row">
+
+      @forelse($tBlogPosts as $objPost)
+      <div class="col-md-4 wow fadeInUp" data-wow-duration="2s"> <!-- Loop -->
+        <div class="post">
+          <div class="post-heading"> <a class="post-image" href="#"> <img src="img/blog_images/{{ $objPost->image_filename }}" alt="post" width="360" height="230"> </a> </div>
+          <div class="post-body">
+            <h5> {!! $objPost->title !!} </h5>
+            <p> {!! $objPost->entry !!} </p>
+          </div>
         </div>
-        <div class="col-sm-3">
-            <h5 class="text-center">
-                {!! $objPost->title !!}
-            </h5>
-            <p class="text-justify">
-                {!! $objPost->entry !!}
-            </p>
-        </div>
-
-    <?php
-        if ($Count % 2 == 0 || $Count == count($tBlogPosts))
-            echo '</div>';
-
-        if ($Count % 2 == 0 && ($Count) != count($tBlogPosts))
-            echo '
-                <div class="divider-h">
-                    <span class="divider"></span>
-                </div>
-            ';
-    ?>
-@empty
-{{-- Nothing atm --}}
-@endforelse
+      </div>
+      @empty
+      @endforelse
 
     </div>
+  </div>
 </div>
+</section>

@@ -480,37 +480,37 @@ iframe {
     opacity: 1;
 }
 .bg-banner-holder-2 {
-    background-image: url("img/banner-holder-2.jpg");
+    background-image: url("/img/banner-holder-2.jpg");
 }
 .bg-banner-holder-2 {
-    background-image: url("img/banner-holder-2.jpg");
+    background-image: url("/img/banner-holder-2.jpg");
 }
 .bg-banner-holder-3 {
-    background-image: url("img/banner-holder-3.jpg");
+    background-image: url("/img/banner-holder-3.jpg");
 }
 .bg-banner-holder-4 {
-    background-image: url("img/banner-holder-4.jpg");
+    background-image: url("/img/banner-holder-4.jpg");
 }
 .bg-banner-holder-2 {
-    background-image: url("img/banner-holder-2.jpg");
+    background-image: url("/img/banner-holder-2.jpg");
 }
 .bg-banner-holder-3 {
-    background-image: url("img/banner-holder-3.jpg");
+    background-image: url("/img/banner-holder-3.jpg");
 }
 .bg-banner-holder-4-blur {
-    background-image: url("img/banner-holder-4-blur.jpg");
+    background-image: url("/img/banner-holder-4-blur.jpg");
 }
 .bg-banner-holder-4 {
-    background-image: url("img/banner-holder-4.jpg");
+    background-image: url("/img/banner-holder-4.jpg");
 }
 .bg-banner-holder-3 {
-    background-image: url("img/banner-holder-3.jpg");
+    background-image: url("/img/banner-holder-3.jpg");
 }
 .bg-banner-holder-2 {
-    background-image: url("img/banner-holder-2.jpg");
+    background-image: url("/img/banner-holder-2.jpg");
 }
 .bg-banner-holder-1 {
-    background-image: url("img/banner-holder-1.jpg");
+    background-image: url("/img/banner-holder-1.jpg");
 }
 @media (max-width: 1024px) {
 .wrap {
@@ -676,13 +676,13 @@ form {
     font-size: 12px;
 }
 #LogoImg {
-    background-image: url("img/logo-color.png");
+    background-image: url("/img/logo-color.png");
     background-size: 100% auto;
     height: 45px;
     width: 136px;
 }
 #LogoImg:hover {
-    background-image: url("img/logo-mobile.png");
+    background-image: url("/img/logo-mobile.png");
 }
 #UnknownBrandForm {
     display: none;
