@@ -21,18 +21,13 @@
     {!! Html::script('js/bootstrap.js') !!}
 	{!! Html::script('js/custom.js') !!}
 
-	<!-- <script type="text/javascript"> function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element'); } </script> -->
-	<!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
     @yield('extra_header')
     <title>J.V. Equipment - {{ $PageTitle }}</title>
 </head>
 <body>
-    <div class="page-container">
-        @include('sections.header')
-        @yield('content')
+    @include('sections.header')
+    @yield('content')
 		@include('sections.locations')
 		@include('sections.footer')
-
-	</div>
 </body>
 </html>
