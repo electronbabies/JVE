@@ -53,6 +53,7 @@ class UsersController extends AdminController
 		$objUser->company_name = Request::get('CompanyName');
 		$objUser->role = Request::get('Role');
 		$objUser->phone = Request::get('Phone');
+		$objUser->account_number = Request::get('AccountNumber');
 
 		$tPermissions = Request::get('Permissions');
 

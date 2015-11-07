@@ -14,12 +14,13 @@ class StaticController extends Controller
 
 		$objUser = \Auth::User() ?: \App\User::GetGuestAccount();
 
+		View::share('PageTitle', 'Welcome');
 		View::share('objUser', $objUser);
 	}
 
 	function index()
 	{
-		/*$PDFDir = 'minitrac_invoices/';
+		/*$PDFDir = 'minitrac_invoices';
 
 		$Files = Storage::Files($PDFDir);
 		gPrint($Files);
@@ -29,6 +30,9 @@ class StaticController extends Controller
 			$PDF = $Parser->parseFile(storage_path('app') . '/' .$File);
 			preg_match('/DATE\s+\d{2}\/\d{2}\/\d{2}\s+(\d+)/', $PDF->getText(), $tMatches);
 			$AccountNumber = $tMatches[1];
+			if(!Storage::exists("{$PDFDir}/{$AccountNumber}")) {
+				Storage::makeDirectory("{$PDFDir}/{$AccountNumber}");
+			}
 			echo $AccountNumber;
 			die();
 		}
@@ -49,6 +53,7 @@ class StaticController extends Controller
 
 	function service()
 	{
+		View::share('PageTitle', 'Service');
 		$tGalleryImages = \App\GalleryImage::all();
 		View::share('tGalleryImages', $tGalleryImages);
 		return view('service');
@@ -56,6 +61,7 @@ class StaticController extends Controller
 
 	function parts()
 	{
+		View::share('PageTitle', 'Parts');
 		$tGalleryImages = \App\GalleryImage::all();
 		View::share('tGalleryImages', $tGalleryImages);
 		return view('parts');
@@ -63,6 +69,7 @@ class StaticController extends Controller
 
 	function sales()
 	{
+		View::share('PageTitle', 'Sales');
 		$tGalleryImages = \App\GalleryImage::all();
 		View::share('tGalleryImages', $tGalleryImages);
 		return view('sales');
@@ -70,12 +77,14 @@ class StaticController extends Controller
 
 	function rentals()
 	{
+		View::share('PageTitle', 'Rentals');
 		$tGalleryImages = \App\GalleryImage::all();
 		View::share('tGalleryImages', $tGalleryImages);
 		return view('rentals');
 	}
 	function gallery()
 	{
+		View::share('PageTitle', 'Gallery');
 		$tGalleryImages = \App\GalleryImage::all();
 		View::share('tGalleryImages', $tGalleryImages);
 		return view('gallery');
@@ -83,6 +92,7 @@ class StaticController extends Controller
 
 	function gallery_view($ImageID)
 	{
+		View::share('PageTitle', 'Gallery');
 		$tGalleryImages = \App\GalleryImage::all();
 		$objImage = \App\GalleryImage::findorFail($ImageID);
 
