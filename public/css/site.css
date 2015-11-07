@@ -2,7 +2,7 @@
 body {
     -moz-osx-font-smoothing: grayscale;
     background-color: #21385e;
-    background-image: url("http://localhost:8888/img/cement-texture.gif");
+    background-image: url("/img/cement-texture.gif");
     margin: 0;
     overflow-x: hidden;
     padding: 0;
@@ -708,4 +708,11 @@ form {
 }
 section#blog.blog div.container div.container div.row div:nth-child(n+4) {
     display: none;
+}
+span.language-status {
+    height: 30px;
+    overflow: hidden;
+    padding-top: 3px;
+    display: inline-block;
+    margin-right: -20px;
 }

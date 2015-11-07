@@ -13,6 +13,8 @@
           <li> <a href="/sales">Sales</a> </li>
           <li> <a href="/rentals">Rentals</a> </li>
           <li> <a href="/gallery">Gallery</a> </li>
+          <li> <a href="/contact">Contact Us</a> </li>
+
           {{--
           <li>
             <a href="#" class="dropdown-toggle ltc-white" data-toggle="dropdown"><i class="fa fa-envelope"></i>&nbsp;&nbsp;{{ $objUser->name }}<b class="caret"></b></a>

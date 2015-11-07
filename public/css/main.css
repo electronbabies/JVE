@@ -635,10 +635,12 @@ label {
 }
 .navbar {
 	min-height: inherit;
+	margin-top: 30px;
 	transition: background-color 0.3s linear 0s;
 }
 .navMobile.navbar-default {
 	background: rgba(250, 250, 250, 0.95) none repeat scroll 0 0;
+	margin-top: 0px;
 }
 .navMobile.navbar-default .navbar-search {
 	background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
@@ -650,6 +652,7 @@ label {
 .navMobile .navbar-nav > li > a, .navMobile .toggle-button {
 	padding-bottom: 34px;
 	padding-top: 34px;
+	color: red;
 }
 .navMobile .navbar-search {
 	height: 79px;
@@ -1131,7 +1134,7 @@ section.divider.striped-icon {
 }
 .home-header {
 	background-color: #1976d2;
-	background-image: url("http://localhost:8888/img/building-wallpaper-noise.jpg");
+	background-image: url("/img/building-wallpaper-noise.jpg");
 	background-position: center top, center top;
 	background-repeat: no-repeat;
 	background-size: cover, cover;
@@ -1145,11 +1148,8 @@ section.home-header h2 {
 	line-height: 180%;
 	margin: 0;
 }
-.home-header a.btn-primary {
-	margin-bottom: 40px;
-}
+
 section.home-header p {
-	color: orange;
 	font-size: 22px;
 	letter-spacing: 0.12em;
 	margin: 0;
@@ -5266,10 +5266,16 @@ button {
 		color: #3460a5;
 	}
 }
-section.userBar {
+.userBar {
   background-color: #333333;
   height: 30px;
   overflow: hidden;
   display: block;
-  font-size: 10px !important;
+}
+.userBar a {font-size: 12px !important; color: white;padding-left: 20px;}
+.userBar span { float: right; }
+a.btn.btn-primary {
+    padding: 4px 11px;
+    font-size: 11px;
+    display: none;
 }
