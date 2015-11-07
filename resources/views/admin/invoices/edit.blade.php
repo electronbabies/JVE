@@ -1,5 +1,9 @@
 @extends('admin.admin-app')
 @section('content')
+	<?php
+		$ReadOnly = !$objLoggedInUser->HasPermission("Edit/{$objInvoice->type}") ? 'readonly' : '';
+		$Disabled = !$objLoggedInUser->HasPermission("Edit/{$objInvoice->type}") ? 'disabled' : '';
+	?>
 	<form action="/admin/invoices/store" method="post">
 		<input type="hidden" name="InvoiceID" value="{{ $objInvoice->id }}">
 		<input type="hidden" name="ReturnTo" value="{{ $ReturnTo }}">
@@ -32,37 +36,37 @@
 					<div class="col-lg-4">
 						<div class="form-group">
 							<label>First Name</label>
-							<input class="form-control" type='text' name='InvoiceFirstName' value="{{ $objInvoice->first_name }}">
+							<input class="form-control" type='text' name='InvoiceFirstName' value="{{ $objInvoice->first_name }}" {{ $ReadOnly }}>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="form-group">
 							<label>Last Name</label>
-							<input class="form-control" type='text' name='InvoiceLastName' value="{{ $objInvoice->last_name }}">
+							<input class="form-control" type='text' name='InvoiceLastName' value="{{ $objInvoice->last_name }}" {{ $ReadOnly }}>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="form-group">
 							<label>Type</label>
-							<input class="form-control" type='text' name='InvoiceType' value="{{ $objInvoice->type }}">
+							<input class="form-control" type='text' name='InvoiceType' value="{{ $objInvoice->type }}" readonly>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="form-group">
 							<label>Email</label>
-							<input class="form-control" type='text' name='InvoiceEmail' value="{{ $objInvoice->email }}">
+							<input class="form-control" type='text' name='InvoiceEmail' value="{{ $objInvoice->email }}" {{ $ReadOnly }}>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="form-group">
 							<label>Phone</label>
-							<input class="form-control" type='text' name='InvoicePhone' value="{{ $objInvoice->phone }}">
+							<input class="form-control" type='text' name='InvoicePhone' value="{{ $objInvoice->phone }}" {{ $ReadOnly }}>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="form-group">
 							<label>Company</label>
-							<input class="form-control" type='text' name='InvoiceCompany' value="{{ $objInvoice->company_name }}">
+							<input class="form-control" type='text' name='InvoiceCompany' value="{{ $objInvoice->company_name }}" {{ $ReadOnly }}>
 						</div>
 					</div>
 				</div>
@@ -81,19 +85,23 @@
 								<th>Status</th>
 								<th>Created At</th>
 								<th>Modified At</th>
-								<th>Delete</th>
+								@if($objLoggedInUser->HasPermission("Edit/{$objInvoice->type}"))
+									<th>Delete</th>
+								@endif
 							</tr>
 							</thead>
 							<tbody>
 							@forelse ($tInvoiceItems as $objItem)
 								<tr name='ItemRow' ItemID="{{ $objItem->id }}">
-									<td><input type="text" class="form-control" name="InvoiceItem[{{ $objItem->id }}][Title]" value="{{ $objItem->title }}"></td>
+									<td><input type="text" class="form-control" name="InvoiceItem[{{ $objItem->id }}][Title]" value="{{ $objItem->title }}" {{ $ReadOnly }}></td>
 									<td>
-										<input type="text" class="form-control" name="InvoiceItem[{{ $objItem->id }}][Type]" value="{{ $objItem->type }}"></td>
+										<input type="text" class="form-control" name="InvoiceItem[{{ $objItem->id }}][Type]" value="{{ $objItem->type }}" readonly></td>
 									<td>{{ $objItem->status }}</td>
 									<td>{{ $objItem->created_at->format('m/d/Y h:i:s A') }}</td>
 									<td>{{ $objItem->updated_at->format('m/d/Y h:i:s A') }}</td>
-									<td><button type='button' class="btn btn-danger" name="DeleteItem" style="width: 100%;">Delete</button>
+									@if($objLoggedInUser->HasPermission("Edit/{$objInvoice->type}"))
+										<td><button type='button' class="btn btn-danger" name="DeleteItem" style="width: 100%;">Delete</button>
+									@endif
 								</tr>
 							@empty
 								<tr>
@@ -108,6 +116,7 @@
 				</div>
 			</div>
 		</div>
+		@if($objLoggedInUser->HasPermission("Edit/{$objInvoice->type}"))
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="col-lg-3 col-lg-offset-5">
@@ -117,12 +126,13 @@
 				</div>
 			</div>
 		</div>
+		@endif
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="col-lg-10 col-lg-offset-1">
 					<div class="form-group">
 						<label>Comments</label>
-						<textarea class="form-control" name="Comments" rows=3>{{ $objInvoice->comments }}</textarea>
+						<textarea class="form-control" name="Comments" rows=3 {{ $ReadOnly }}>{{ $objInvoice->comments }}</textarea>
 					</div>
 				</div>
 			</div>
@@ -132,7 +142,7 @@
 				<div class="col-lg-5 col-lg-offset-1">
 					<div class="form-group">
 						<label>Assign To</label>
-						<select name="AssignTo" class="form-control">
+						<select name="AssignTo" class="form-control" {{ $Disabled }}>
 							<option value="0"></option>
 						@foreach($tNonClientUsers as $objUser)
 							<?php
@@ -145,7 +155,7 @@
 				<div class="col-lg-5">
 					<div class="form-group">
 						<label>Change Status</label>
-						<select name="Status" class="form-control">
+						<select name="Status" class="form-control" {{ $Disabled }}>
 							@foreach(\App\Invoice::$tStatuses as $Status)
 								<?php $Selected = $objInvoice->status == $Status ? 'selected' : ''; ?>
 								<option value="{{ $Status }}" {{ $Selected }}>{{ $Status }}</option>
@@ -156,15 +166,18 @@
 			</div>
 		</div>
 		<hr />
+		@if($objLoggedInUser->HasPermission("Edit/{$objInvoice->type}"))
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="col-lg-2 col-lg-offset-5">
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Update Order</button>
+						<button type="Submit" class="btn btn-primary" name='Submit' value="Apply">Apply</button>
+						<button type="Submit" class="btn btn-primary" name='Submit' value="Save">Save</button>
 					</div>
 				</div>
 			</div>
 		</div>
+		@endif
 	</form>
 	<script type="text/javascript">
 		$(document).on('click', 'button[name=DeleteItem]', function () {

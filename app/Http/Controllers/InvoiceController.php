@@ -16,7 +16,9 @@ class InvoiceController extends AdminController
 	{
 		$Input = Request::all();
 		$objInvoice = \App\Invoice::findorFail($Input['InvoiceID']);
-		$objUser = \Auth::User();
+
+		if(!$this->objLoggedInUser->HasPermission("Edit/{$objInvoice->type}"))
+			abort('404');
 
 		$tWarnings = [];
 		foreach($Input['InvoiceItem'] as $ID => $tItem) {
@@ -59,7 +61,7 @@ class InvoiceController extends AdminController
 		$objInvoice->assigned_to = $Input['AssignTo'];
 
 		if($objInvoice->status != \App\Invoice::STATUS_REVIEWED && $Input['Status'] == \App\Invoice::STATUS_REVIEWED)
-			$objInvoice->reviewed_by = $objInvoice->id;
+			$objInvoice->reviewed_by = $this->objLoggedInUser->id;
 
 		$objInvoice->status = $Input['Status'];
 		$objInvoice->save();
@@ -67,7 +69,10 @@ class InvoiceController extends AdminController
 		if($tWarnings)
 			return redirect('admin/invoices/edit/' . $objInvoice->id)->with('FormResponse', ['ResponseType' => static::MESSAGE_WARNING, 'Content' => implode('<br />', $tWarnings) . ' <br />Contact Administrator']);
 
-		$Path = $Input['ReturnTo'] == 'Dashboard' ? '' : '/invoices';
+		if (Request::get('Submit') == 'Save')
+			$Path = $Input['ReturnTo'] == 'Dashboard' ? '' : '/invoices';
+		else
+			$Path = '/invoices/edit/' . $objInvoice->id;
 
 		return redirect("admin{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Invoice saved successfully']);
 	}
@@ -80,6 +85,10 @@ class InvoiceController extends AdminController
 	public function delete_item($id)
 	{
 		$objInvoiceItem = \App\InvoiceItem::find($id);
+
+		if (!$this->objLoggedInUser->HasPermission("Edit/{$objInvoiceItem->Invoice->type}"))
+			abort('404');
+
 		$objInvoiceItem->status = \App\InvoiceItem::STATUS_DELETED;
 		if ($objInvoiceItem->save()) {
 			exit('success');
@@ -90,10 +99,15 @@ class InvoiceController extends AdminController
 	public function edit($InvoiceID, $ReturnTo = '')
 	{
 		$objInvoice = \App\Invoice::find($InvoiceID);
+
+		if (!$this->objLoggedInUser->HasPermission("View/{$objInvoice->type}"))
+			abort('404');
+
 		$tInvoiceItems = $objInvoice->InvoiceItems->filter(function($objItem) {
 			return ($objItem->status == \App\InvoiceItem::STATUS_ACTIVE || $objItem->status == \App\InvoiceITem::STATUS_MODIFIED);
 		});
-		$tNonClientUsers = \App\User::nonclient()->get();
+
+		$tNonClientUsers = \App\User::nonclient()->permusers($this->objLoggedInUser)->nonclient()->get();
 
 		View::share('objInvoice', $objInvoice);
 		View::share('tInvoiceItems', $tInvoiceItems);
@@ -104,7 +118,9 @@ class InvoiceController extends AdminController
 
 	public function index()
 	{
-		$tInvoices = \App\Invoice::all();
+		if(!$this->objLoggedInUser->HasPermission('View/Orders'))
+			abort('404');
+		$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->get();
 
 		View::share('tInvoices', $tInvoices);
 		return view('admin.invoices.index');

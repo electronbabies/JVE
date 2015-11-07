@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use View;
+use Storage;
 
 class StaticController extends Controller
 {
@@ -18,15 +19,27 @@ class StaticController extends Controller
 
 	function index()
 	{
-		/*$Parser = new \Smalot\PdfParser\Parser();
-		$PDF = $Parser->parseFile(public_path() . "/test_text.pdf");
-		$Text = $PDF->getText();
-		$Details = $PDF->getDetails();
-		gPrint($Details);
-		gPrint($PDF->getObjects());
+		/*$PDFDir = 'minitrac_invoices/';
 
-		echo $Text;
-	die();*/
+		$Files = Storage::Files($PDFDir);
+		gPrint($Files);
+
+		$Parser = new \Smalot\PdfParser\Parser();
+		foreach($Files as $File) {
+			$PDF = $Parser->parseFile(storage_path('app') . '/' .$File);
+			preg_match('/DATE\s+\d{2}\/\d{2}\/\d{2}\s+(\d+)/', $PDF->getText(), $tMatches);
+			$AccountNumber = $tMatches[1];
+			echo $AccountNumber;
+			die();
+		}
+
+
+
+
+
+		echo $AccountNumber;
+		die();*/
+
 		// TODO:  Ajax button to change display on front page status.  Right now forcing top power of 2 to top
 		$tBlogPosts = \App\BlogPost::where('display_on_front_page', true)->orderBy('order_by', 'ASC')->get();
 

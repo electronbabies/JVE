@@ -17,11 +17,13 @@
 		</ol>
 	</div>
 </div>
+@if($objLoggedInUser->HasPermission("Edit/Blog"))
 <div class="row">
 	<div class="col-lg-12 col-lg-offset-5">
 		<a href="/admin/blog/edit/new"><button type="button" class="btn btn-lg btn-default" style='width:200px'; name="NewPost">New Post</button></a><br /><br/>
 	</div>
 </div>
+@endif
 @foreach($tBlogPosts as $objPost)
 <div class="row" name="BlogPost" BlogID="{{ $objPost->id }}">
 	<div class="col-lg-12">
@@ -44,6 +46,7 @@
 						</div>
 					</div>
 				</div>
+				@if($objLoggedInUser->HasPermission("Edit/Blog"))
 				<hr>
 				<div class="row">
 					<div class="col-lg-12">
@@ -55,6 +58,7 @@
 								<input type="text" class="form-control" name="FrontPageOrder" value="{{ $objPost->order_by }}" style="width: 42px;">
 							</div>
 						</div>
+
 						<div class="checkbox checkbox-success checkbox-circle pull-right">
 							<?php $Checked = $objPost->display_on_front_page ? 'checked' : ''; ?>
 							<input type="checkbox" class="checkbox" {{ $Checked }} name="FrontPageCheck" onclick="return false;">
@@ -62,6 +66,7 @@
 						</div>
 					</div>
 				</div>
+				@endif
 			</div>
 		</div>
 	</div>

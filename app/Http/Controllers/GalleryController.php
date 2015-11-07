@@ -15,6 +15,9 @@ class GalleryController extends AdminController
 
 	public function index()
 	{
+		if (!$this->objLoggedInUser->HasPermission('View/Gallery'))
+			abort('404');
+
 		$tGalleryImages = \App\GalleryImage::orderBy('updated_at', 'DESC')->get();
 		View::share('tGalleryImages', $tGalleryImages);
 		return view('admin.gallery.index');
@@ -26,6 +29,9 @@ class GalleryController extends AdminController
 	 */
 	public function delete($id)
 	{
+		if (!$this->objLoggedInUser->HasPermission("Edit/Gallery"))
+			abort('404');
+
 		if (\App\GalleryImage::destroy($id)) {
 			exit('success');
 		}
@@ -34,6 +40,9 @@ class GalleryController extends AdminController
 
 	public function edit($id)
 	{
+		if (!$this->objLoggedInUser->HasPermission("View/Gallery"))
+			abort('404');
+
 		$objImage = $id == 'new' ? new \App\GalleryImage : \App\GalleryImage::findOrFail($id);
 
 		View::share('objImage', $objImage);
@@ -47,6 +56,9 @@ class GalleryController extends AdminController
 
 	public function store()
 	{
+		if(!$this->objLoggedInUser->HasPermission("Edit/Gallery"))
+			abort('404');
+
 		$File = Request::file('Image');
 
 		$objImage = Request::get('PostID') ? \App\GalleryImage::findOrFail(Request::get('PostID')) : new \App\GalleryImage;
@@ -81,6 +93,9 @@ class GalleryController extends AdminController
 		$objImage->serial = Request::get('serial');
 		$objImage->save();
 
-		return redirect('/admin/gallery')->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Gallery saved successfully']);
+		$Path = Request::get('submit') == 'Save' ? '' : "/edit/{$objImage->id}";
+
+
+		return redirect("/admin/gallery{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Gallery saved successfully']);
 	}
 }

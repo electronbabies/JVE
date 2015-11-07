@@ -16,6 +16,9 @@ class BlogController extends AdminController
 
 	public function index()
 	{
+		if (!$this->objLoggedInUser->HasPermission('View/Blog'))
+			abort('404');
+
 		$tBlogPosts = \App\BlogPost::orderBy('created_at', 'DESC')->get();
 		View::share('tBlogPosts', $tBlogPosts);
 		return view('admin.blog.index');
@@ -27,6 +30,9 @@ class BlogController extends AdminController
 	 */
 	public function front_page_order($id, $order_by)
 	{
+		if (!$this->objLoggedInUser->HasPermission('Edit/Blog'))
+			abort('404');
+
 		if(!is_numeric($order_by))
 			exit('error');
 
@@ -45,6 +51,9 @@ class BlogController extends AdminController
 	 */
 	public function front_page_check($id)
 	{
+		if (!$this->objLoggedInUser->HasPermission('Edit/Blog'))
+			abort('404');
+
 		$objPost = \App\BlogPost::findOrFail($id);
 		$objPost->display_on_front_page = !$objPost->display_on_front_page;
 
@@ -60,6 +69,9 @@ class BlogController extends AdminController
 	 */
 	public function delete($id)
 	{
+		if (!$this->objLoggedInUser->HasPermission('Edit/Blog'))
+			abort('404');
+
 		if(\App\BlogPost::destroy($id)) {
 			exit('success');
 		}
@@ -68,19 +80,20 @@ class BlogController extends AdminController
 
 	public function edit($id)
 	{
+		if (!$this->objLoggedInUser->HasPermission('View/Blog') || ($id == 'new' && !$this->objLoggedInUser->HasPermission('Edit/Blog')))
+			abort('404');
+
 		$objPost = $id == 'new' ? new \App\BlogPost : \App\BlogPost::findOrFail($id);
 
 		View::share('objPost', $objPost);
 		return view('admin.blog.edit');
 	}
 
-	public function create()
-	{
-		return view('admin.blog.create');
-	}
-
 	public function store()
 	{
+		if (!$this->objLoggedInUser->HasPermission('Edit/Blog'))
+			abort('404');
+
 		$Input = Request::all();
 		$File = Request::file('Image');
 
@@ -109,6 +122,8 @@ class BlogController extends AdminController
 		$objPost->y_offset = $Input['y_offset'];
 		$objPost->save();
 
-		return redirect('/admin/blog')->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Blog saved successfully']);
+		$Path = Request::get('submit') == 'Save' ? '' : "/edit/{$objPost->id}";
+
+		return redirect("/admin/blog{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Blog saved successfully']);
 	}
 }
