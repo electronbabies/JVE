@@ -245,6 +245,7 @@ h2 {
 }
 .nav > li a:hover, .nav > li a:focus {
     background: transparent none repeat scroll 0 0;
+    color: red;
 }
 .navbar-toggle {
     border: 0 none;

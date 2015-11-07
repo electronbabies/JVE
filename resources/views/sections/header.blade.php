@@ -1,4 +1,20 @@
 <header>
+  <section class="userBar">
+    <ul>
+          @if($objUser->IsGuestAccount())
+          <li> <a href="/auth/register"> <i class="fa fa-fw fa-user"></i> Create Account</a></li>
+          {{-- <a href="/auth/login"> <li> <i class="fa fa-fw fa-laptop"></i> Log In </li> </a> --}}
+          @endif @if($objUser->HasPermissions('Admin Panel'))
+          <li> <a href="/admin"> <i class="fa fa-fw {{ Config::get('constants.ICON_DASHBOARD') }}"></i> Admin Panel  </a></li>
+          @endif
+          {{-- <a href="/forms/service"> <li> <i class="fa fa-fw fa-envelope"></i> Contact Us </li> </a>
+          @if(!$objUser->IsGuestAccount())
+          <li class="divider"></li>
+          <a href="/auth/logout"> <li> <i class="fa fa-fw fa-power-off"></i> Log Out </li> </a>
+          @endif --}}
+        </ul>
+      </li>      <li> <div id="google_translate_element" style="width: 150px;"></div> </li>
+  </section>
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top navmobile" id="nav">
     <div class="container relative-nav-container">
       <a data-target="#navbar-collapse" data-toggle="collapse" class="toggle-button visible-xs-block"> <i class="fa fa-navicon"></i> </a>
@@ -11,7 +27,7 @@
           <li> <a href="/sales">Sales</a> </li>
           <li> <a href="/rentals">Rentals</a> </li>
           <li> <a href="/gallery">Gallery</a> </li>
-          <li>
+          {{-- <li>
             <a href="#" class="dropdown-toggle ltc-white" data-toggle="dropdown"><i class="fa fa-envelope"></i>&nbsp;&nbsp;{{ $objUser->name }}<b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown" style="top: 120%;">
               <li class="dropdown">
@@ -30,10 +46,10 @@
                 </ul>
               </li>
             </ul>
-          </li>
-          <li>
+          </li> --}}
+          {{-- <li>
             <div id="google_translate_element" style="width: 150px;"></div>
-          </li>
+          </li> --}}
         </ul>
       </div>
     </div>
