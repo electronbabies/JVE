@@ -196,6 +196,7 @@
 				>
 					<a href="/admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
 				</li>
+				@if($objLoggedInUser->HasPermission('View/Users'))
 				<li
 					@if ($ActiveClass == 'Users')
 						class="active"
@@ -203,14 +204,17 @@
 				>
 					<a href="/admin/users"><i class="fa fa-fw {{ Config::get('constants.ICON_USERS') }}"></i> Users</a>
 				</li>
+				@endif
+				@if($objLoggedInUser->HasPermission('View/Orders'))
 				<li
 					@if ($ActiveClass == 'Invoices')
 						class="active"
 					@endif
 					>
 					<a href="/admin/invoices"><i class="fa fa-fw {{ Config::get('constants.ICON_INVOICE') }}"></i> Orders</a>
-
 				</li>
+				@endif
+				@if($objLoggedInUser->HasPermission('View/Blog'))
 				<li
 					@if ($ActiveClass == 'Blog')
 						class="active"
@@ -218,6 +222,8 @@
 				>
 					<a href="/admin/blog"><i class="fa fa-fw {{ Config::get('constants.ICON_BLOG') }}"></i> Blog</a>
 				</li>
+				@endif
+				@if($objLoggedInUser->HasPermission('View/Gallery'))
 				<li
 					@if ($ActiveClass == 'Gallery')
 					class="active"
@@ -225,6 +231,8 @@
 					>
 					<a href="/admin/gallery"><i class="fa fa-fw {{ Config::get('constants.ICON_GALLERY') }}"></i> Gallery</a>
 				</li>
+				@endif
+
 				<li
 					@if ($ActiveClass == 'Vacations')
 					class="active"
@@ -234,6 +242,7 @@
 							class="fa fa-fw {{ Config::get('constants.ICON_VACATION') }}"></i>
 						Vacation Request</a>
 				</li>
+
 				@if ($objLoggedInUser->IsAdmin())
 				<li
 					@if ($ActiveClass == 'Holidays')

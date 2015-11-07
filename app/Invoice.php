@@ -18,6 +18,19 @@ class Invoice extends Model
 		self::STATUS_FINALIZED,
 	];
 
+	const TYPE_SERVICE			= 'Service';
+	const TYPE_PARTS 			= 'Parts';
+	const TYPE_RENTAL 			= 'Rental';
+	const TYPE_SALES 			= 'Sales';
+
+	static public $tTypes = [
+		self::TYPE_SERVICE,
+		self::TYPE_PARTS,
+		self::TYPE_RENTAL,
+		self::TYPE_SALES,
+	];
+
+
 	protected $dates = ['created_at', 'updated_at'];
 
 	protected $table = 'invoices';
@@ -47,5 +60,33 @@ class Invoice extends Model
 	public function scopeUnhandled($query)
 	{
 		return $query->where('status', '=', static::STATUS_NEW);
+	}
+
+	/**
+	 * Invoices (aka Orders) allowed to be viewed by user
+	 * @param $query
+	 * @param $objUser
+	 */
+	public function scopePerminvoices($query, $objUser)
+	{
+		// Something never true, otherwise it returns a full set on 0 permissions matched.
+		$query->where('type', '0');
+
+		$query->orWhere(function($query) use ($objUser){
+			if ($objUser->HasPermission('View/' . static::TYPE_SERVICE))
+				$query->orwhere('type', static::TYPE_SERVICE);
+
+			if ($objUser->HasPermission('View/' . static::TYPE_PARTS))
+				$query->orwhere('type', static::TYPE_PARTS);
+
+			if ($objUser->HasPermission('View/' . static::TYPE_RENTAL))
+				$query->orwhere('type', static::TYPE_RENTAL);
+
+			if ($objUser->HasPermission('View/' . static::TYPE_SALES)) {
+				$query->orwhere('type', static::TYPE_SALES);
+			}
+		});
+
+		return $query;
 	}
 }

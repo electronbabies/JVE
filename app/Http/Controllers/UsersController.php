@@ -14,7 +14,12 @@ class UsersController extends AdminController
 	public function edit($UserID, $ReturnTo = '')
 	{
 		$objUser = \App\User::find($UserID);
-		$tInvoices = \App\Invoice::where('user_id', $UserID)->get();
+
+		if(!$this->objLoggedInUser->HasPermission("View/{$objUser->role}"))
+			abort('404');
+
+
+		$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->where('user_id', $UserID)->get();
 
 		View::share('objUser', $objUser);
 		View::share('tInvoices', $tInvoices);
@@ -25,7 +30,11 @@ class UsersController extends AdminController
 
 	public function index()
 	{
-		$tUsers = \App\User::all();
+		if(!$this->objLoggedInUser->HasPermission('View/Users'))
+			abort('404');
+
+		$tUsers = \App\User::permusers($this->objLoggedInUser)->get();
+
 		View::share('tUsers', $tUsers);
 		return view('admin.users.index');
 	}
@@ -36,16 +45,19 @@ class UsersController extends AdminController
 
 		$objUser = \App\User::findOrFail($Input['UserID']);
 
-		$objUser->name = $Input['Name'];
-		$objUser->email = $Input['Email'];
-		$objUser->company_name = $Input['CompanyName'];
-		$objUser->role = $Input['Role'];
-		$objUser->phone = $Input['Phone'];
+		if (!$this->objLoggedInUser->HasPermission("Edit/{$objUser->role}"))
+			abort('404');
+
+		$objUser->name = Request::get('Name');
+		$objUser->email = Request::get('Email');
+		$objUser->company_name = Request::get('CompanyName');
+		$objUser->role = Request::get('Role');
+		$objUser->phone = Request::get('Phone');
 
 		$tPermissions = Request::get('Permissions');
 
 		$objUser->permissions()->delete();
-		foreach($tPermissions as $Permission => $State) {
+		foreach((array)$tPermissions as $Permission => $State) {
 			if($State == 'on') {
 				$NewPermission = new \App\Permission;
 				$NewPermission->user_id = $objUser->id;
@@ -55,9 +67,11 @@ class UsersController extends AdminController
 		}
 		$objUser->save();
 
-		$Path = $Input['ReturnTo'] == 'Dashboard' ? '' : '/users';
+		if(Request::get('Submit') == 'Save')
+			$Path = $Input['ReturnTo'] == 'Dashboard' ? '' : '/users';
+		else
+			$Path = "/users/edit/{$objUser->id}";
 
 		return redirect("/admin{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'User saved successfully']);
-
 	}
 }

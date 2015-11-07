@@ -16,13 +16,12 @@ class AdminController extends Controller
 	const ACTIVE_CLASS = 'Dashboard';
 
 	public function __construct() {
-		$objUser = \Auth::User();
-		if(!$objUser || !$objUser->HasPermissions('Admin Panel'))
+		$this->objLoggedInUser = \Auth::User();
+		if(!$this->objLoggedInUser || !$this->objLoggedInUser->HasPermission('Admin/View'))
 			Abort('404');
 
-		View::share('objLoggedInUser', $objUser);
+		View::share('objLoggedInUser', $this->objLoggedInUser);
 		View::share('ActiveClass', static::ACTIVE_CLASS);
-
 
 		$FormResponse = Session::get('FormResponse') ? Session::get('FormResponse') : [];
 		View::share('FormResponse', $FormResponse);

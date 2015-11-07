@@ -1,6 +1,10 @@
 @extends('admin.admin-app')
 
 @section('content')
+	<?php
+		$ReadOnly = !$objLoggedInUser->HasPermission("Edit/Blog") ? 'readonly' : '';
+		$Disabled = !$objLoggedInUser->HasPermission("Edit/Blog") ? 'disabled' : '';
+	?>
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header" id="BlogTitleHeader">
@@ -30,13 +34,13 @@
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3 form-group">
 				 <label>Title</label>
-				 <input class="form-control" id='Title' name='title' value="{{ $objPost->title }}">
+				 <input class="form-control" id='Title' name='title' value="{{ $objPost->title }}" {{ $ReadOnly }}>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3 form-group">
 				<label>Body</label>
-				<textarea class="form-control" name='entry' rows=20>{{ $objPost->entry }}</textarea>
+				<textarea class="form-control" name='entry' rows=20 {{ $ReadOnly }}>{{ $objPost->entry }}</textarea>
 			</div>
 		</div>
 		<div class="row">
@@ -49,25 +53,34 @@
 				@endif
 			</div>
 		</div>
+		@if($objLoggedInUser->HasPermission("Edit/Blog"))
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3 form-group">
 				<i style='font-size: 12px;'>Upload New File </i><i style="font-size: 8px">(Old image will be replaced)</i>
 				<input type="file" name='Image'>
 			</div>
 		</div>
+		@endif
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3 form-group">
 				<label>Image Offset</label><br/>
-				<div style="float:left; padding-top: 6px; padding-right: 5px; padding-bottom: 15px;" >X </div> <input class="form-control" id='x_offset' name='x_offset' value="{{ $objPost->x_offset }}" style="width: 50px;" maxlength=3 placeholder="  0">
+				<div style="float:left; padding-top: 6px; padding-right: 5px; padding-bottom: 15px;" >X </div> <input class="form-control" id='x_offset' name='x_offset' value="{{ $objPost->x_offset }}" style="width: 50px;" maxlength=3 placeholder="  0" {{ $ReadOnly }}>
 				<div class="clearfix"></div>
-				<div style="float:left; padding-top: 6px; padding-right: 5px;">Y</div> <input class="form-control" id='y_offset' name='y_offset' value="{{ $objPost->y_offset }}" style="width: 50px" maxlength=3 placeholder="  0">
+				<div style="float:left; padding-top: 6px; padding-right: 5px;">Y</div> <input class="form-control" id='y_offset' name='y_offset' value="{{ $objPost->y_offset }}" style="width: 50px" maxlength=3 placeholder="  0" {{ $ReadOnly }}>
 			</div>
 		</div>
+		@if($objLoggedInUser->HasPermission("Edit/Blog"))
 		<div class="row">
-			<div class="col-lg-6 col-lg-offset-3 form-group">
-				<button type="submit" class="btn btn-lg btn-primary center-block">Save Post</button>
+			<div class="col-lg-6 col-lg-offset-5 form-group">
+				<div class="col-lg-2">
+					<button type="submit" name="submit" value="Apply" class="btn btn-lg btn-primary center-block">Apply</button>
+				</div>
+				<div class="col-lg-2">
+					<button type="submit" name="submit" value="Save" class="btn btn-lg btn-primary center-block">Save</button>
+				</div>
 			</div>
 		</div>
+		@endif
 	</form>
 
 	<script type="text/javascript">

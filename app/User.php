@@ -18,42 +18,51 @@ class User extends Model implements AuthenticatableContract,
     use Authenticatable, Authorizable, CanResetPassword;
 
     static $tUserPermissions = [
+    	'Admin Panel' => [
+    		'Admin/View'		=> 'View Admin Panel',
+    	],
     	'Users' => [
-			'Edit/Client' 		=> "Edit Client",
-			'View/Client'		=> "View Client",
-			'View/Employee'		=> "View Employee",
+			'Edit/Admin' 		=> "Edit Admins",
+			'Edit/Client' 		=> "Edit Clients",
+			'Edit/Employee' 	=> "Edit Employees",
+			'View/Admin' 		=> "View Admins",
+			'View/Client'		=> "View Clients",
+			'View/Employee'		=> "View Employees",
+			'View/Guest' 		=> "View Guest",
     	],
     	// Definitely need to make type static
 		'Orders' => [
-			'View/Service'		=> 'View Service Orders',
-			'View/Parts' 		=> 'View Parts Orders',
-			'View/Rental' 		=> 'View Rental Orders',
-			'View/Sales' 		=> 'View Sales Orders',
 			// Only assign to works with edit
 			'Edit/Service' 		=> 'Edit Service Orders',
 			'Edit/Parts' 		=> 'Edit Parts Orders',
 			'Edit/Rental' 		=> 'Edit Rental Orders',
 			'Edit/Sales' 		=> 'Edit Sales Orders',
+			'View/Service'		=> 'View Service Orders',
+			'View/Parts' 		=> 'View Parts Orders',
+			'View/Rental' 		=> 'View Rental Orders',
+			'View/Sales' 		=> 'View Sales Orders',
 		],
 		'Blog' => [
 			'Edit/Blog'			=> 'Edit Blog Posts',
-//			'View/Blog'			=> 'View Blog Posts (Backend Only)',
+			'View/Blog'			=> 'View Blog Posts',
 		],
 		'Gallery' => [
 			'Edit/Gallery'		=> 'Edit Gallery Posts',
 			// Might want to mark these as sold if they can, and not shown if they can't.
 			'View/Sold'			=> 'View Sold Gallery Posts',
+			'View/Gallery'		=> 'View Gallery',
 		],
-		'Vacations' => [
+		/*'Vacations' => [
 			// Should be all employees
-			'Edit/Vacation'		=> 'Edit Vacation Requests'
-		],
+			'Edit/Vacation'		=> 'Edit Vacation Requests',
+			'View/Vacation'		=> 'View Vacation',
+		],*/
 		/*'Holidays' => [
 			// Should be only admins
 		],*/
-		'Calendar' => [
+		/*'Calendar' => [
 			'View/Calendar'		=> 'View Calendar',
-		],
+		],*/
     ];
 
     const ROLE_ADMIN = 'Admin';
@@ -68,6 +77,34 @@ class User extends Model implements AuthenticatableContract,
 		self::ROLE_CLIENT,
 	];
 
+	/**
+	 * Users allowed to be viewed by logged in user
+	 * @param $query
+	 * @param $objUser
+	 */
+	public function scopePermusers($query, $objUser)
+	{
+		// Something never true, otherwise it returns a full set on 0 permissions matched.
+		$query->where('role', '0');
+
+		$query->orWhere(function ($query) use ($objUser) {
+			if ($objUser->HasPermission('View/Client'))
+				$query->orwhere('role', static::ROLE_CLIENT);
+
+			if ($objUser->HasPermission('View/Employee'))
+				$query->orwhere('role', static::ROLE_EMPLOYEE);
+
+			if ($objUser->HasPermission('View/Admin'))
+				$query->orwhere('role', static::ROLE_ADMIN);
+
+			if ($objUser->HasPermission('View/Guest')) {
+				$query->orwhere('role', static::ROLE_GUEST);
+			}
+		});
+
+		return $query;
+	}
+
 	public function scopeNewClients($query)
 	{
 		return $query->where('role', '=', static::ROLE_CLIENT)->where('created_at', '>', Carbon::now()->subMonth());
@@ -75,6 +112,16 @@ class User extends Model implements AuthenticatableContract,
 	public function scopeClients($query)
 	{
 		return $query->where('role', '=', static::ROLE_CLIENT);
+	}
+
+	public function scopeEmployees($query)
+	{
+		return $query->where('role', '=', static::ROLE_EMPLOYEE);
+	}
+
+	public function scopeAdmins($query)
+	{
+		return $query->where('role', '=', static::ROLE_ADMIN);
 	}
 
 	public function scopeNonClient($query)
@@ -129,10 +176,34 @@ class User extends Model implements AuthenticatableContract,
 		return $this->hasMany('App\Permission');
 	}
 
-	public function HasPermission($Permission)
+	public function HasPermission($Permission, $SkipAggregate=false)
 	{
+		// Admins rule all muahahaha
 		if($this->IsAdmin())
 			return true;
+
+		// Aggregate permissions
+		if(!$SkipAggregate) {
+			switch($Permission) {
+				case 'View/Users':
+					if ($this->HasPermission('View/Client', true) || $this->HasPermission('View/Employee', true)
+						|| $this->HasPermission('View/Admin', true) || $this->HasPermission('View/Guest', true))
+						return true;
+					return false;
+				case 'View/Orders':
+					if ($this->HasPermission('View/Service', true) || $this->HasPermission('View/Rental', true)
+						|| $this->HasPermission('View/Parts', true) || $this->HasPermission('View/Sales', true)
+					)
+						return true;
+					return false;
+				case 'Edit/Orders':
+					if ($this->HasPermission('Edit/Service', true) || $this->HasPermission('Edit/Rental', true)
+						|| $this->HasPermission('Edit/Parts', true) || $this->HasPermission('Edit/Sales', true)
+					)
+						return true;
+					return false;
+			}
+		}
 
 		foreach($this->permissions as $tPermission) {
 			if($tPermission->permission == $Permission)

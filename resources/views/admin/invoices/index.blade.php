@@ -23,7 +23,7 @@
 					<table class="table table-bordered table-hover table-striped" @if(count($tInvoices)) data-toggle="table" @endif>
 						<thead>
 						<tr>
-							<th>Edit</th>
+							@if($objLoggedInUser->HasPermission('Edit/Orders'))<th>Edit</th>@endif
 							<th data-sortable="true">Type</th>
 							<th data-sortable="true">Name</th>
 							<th data-sortable="true">Email Address</th>
@@ -39,9 +39,11 @@
 						<tbody>
 						@forelse ($tInvoices as $objInvoice)
 							<tr>
-								<td>
-									<a href='/admin/invoices/edit/{{ $objInvoice->id }}'><button name='EditInvoice' class='btn btn-default center-block' style='width:100%' InvoiceID="{{ $objInvoice->id }}">Edit</button></a>
-								</td>
+								@if($objLoggedInUser->HasPermission("Edit/{$objInvoice->type}"))
+									<td><a href='/admin/invoices/edit/{{ $objInvoice->id }}'><button name='EditInvoice' class='btn btn-default center-block' style='width:100%' InvoiceID="{{ $objInvoice->id }}">Edit</button></a></td>
+								@else
+									<td></td>
+								@endif
 								<td>{{ $objInvoice->type }}</td>
 								<td>{{--<a href='/admin/invoices/edit/{{ $objInvoice->id }}'>--}}{{ $objInvoice->first_name }} {{ $objInvoice->last_name }}</td>
 								<td><a href="mailto:{{ $objInvoice->email }}">{{ $objInvoice->email }}</a></td>

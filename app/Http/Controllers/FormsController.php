@@ -83,16 +83,45 @@ class FormsController extends StaticController
     public function store()
     {
         $Input = Request::all();
-        $Validator = Validator::make($Input, [
-            'FirstName' 		=> 'required',
-            'LastName' 			=> 'required',
-            'CompanyName' 		=> '',
-            'PhoneNumber' 		=> 'required',
-            'EmailAddress' 		=> 'required',
-        ]);
+
+        if($Input['RequestType'] == static::REQUEST_TYPE_SALES || $Input['RequestType'] == static::REQUEST_TYPE_RENTAL) {
+        /*
+         * @if (count($errors) > 0)
+				<div class="alert alert-danger">
+					<ul>
+						@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+			@endif
+         */
+			$tValidation = [
+				'FirstName' 		=> 'required',
+				'LastName' 			=> 'required',
+				'CompanyName' 		=> '',
+				'PhoneNumber' 		=> 'required',
+				'EmailAddress' 		=> 'required',
+				'Brand' 			=> 'required',
+				'Tires' 			=> 'required',
+				'Engine' 			=> 'required',
+				'Capacity' 			=> 'required',
+				'Attachment' 		=> 'required',
+				'OperatingHours' 	=> 'required',
+			];
+		} else {
+			$tValidation = [
+				'FirstName' 		=> 'required',
+				'LastName' 			=> 'required',
+				'CompanyName' 		=> '',
+				'PhoneNumber' 		=> 'required',
+				'EmailAddress' 		=> 'required',
+			];
+		}
+        $Validator = Validator::make($Input, $tValidation);
 
         if ($Validator->fails())
-            return redirect('/forms/' . str_replace(' ', '', strtolower($Input['RequestType']))->withErrors($Validator));
+            return redirect('/forms/' . str_replace(' ', '', strtolower($Input['RequestType'])))->withErrors($Validator);
 
         switch($Input['RequestType']) {
             case static::REQUEST_TYPE_PARTS:
@@ -160,6 +189,21 @@ class FormsController extends StaticController
     }
 
     public function ProcessSaleRequest($Input) {
+    	$this->validate(Request::all(), [
+			'FirstName' => 'required',
+			'LastName' => 'required',
+			'CompanyName' => 'required',
+			'PhoneNumber' => 'required',
+			'EmailAddress' => 'required',
+			'Brand' => 'required',
+			'Tires' => 'required',
+			'Engine' => 'required',
+			'Capacity' => 'required',
+			'Attachment' => 'required',
+			'OperatingHours' => 'required',
+    	]);
+
+
         // Get logged user, or register as guest
         $objUser = \Auth::User() ?: \App\User::GetGuestAccount();
 
