@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					Order #{{ $objInvoice->id }}
+					Order #{{ $objInvoice->id }} ({{ $objInvoice->type }})
 				</h1>
 				<ol class="breadcrumb">
 					<li>
@@ -47,8 +47,8 @@
 					</div>
 					<div class="col-lg-4">
 						<div class="form-group">
-							<label>Type</label>
-							<input class="form-control" type='text' name='InvoiceType' value="{{ $objInvoice->type }}" readonly>
+							<label>Minitrac Invoice Number</label>
+							<input class="form-control" type='text' name='MinitracInvoiceNumber' value="{{ $objInvoice->minitrac_invoice_number }}" {{ $ReadOnly }}>
 						</div>
 					</div>
 					<div class="col-lg-4">
@@ -69,6 +69,14 @@
 							<input class="form-control" type='text' name='InvoiceCompany' value="{{ $objInvoice->company_name }}" {{ $ReadOnly }}>
 						</div>
 					</div>
+					@if($objInvoice->minitrac_filename)
+					<div class="col-lg-4">
+						<div class="form-group">
+							<label>Minitrac Invoice</label><br />
+							<a href="/admin/invoices/minitrac_view/{{ $objInvoice->id }}"  type='text'>{{ $objInvoice->minitrac_filename }}</a>
+						</div>
+					</div>
+					@endif
 				</div>
 			</div>
 		</div>

@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use View;
 use Storage;
+use Log;
 
 class StaticController extends Controller
 {
@@ -27,22 +28,65 @@ class StaticController extends Controller
 
 		$Parser = new \Smalot\PdfParser\Parser();
 		foreach($Files as $File) {
-			$PDF = $Parser->parseFile(storage_path('app') . '/' .$File);
-			preg_match('/DATE\s+\d{2}\/\d{2}\/\d{2}\s+(\d+)/', $PDF->getText(), $tMatches);
-			$AccountNumber = $tMatches[1];
+			$PDF = $Parser->parseFile(storage_path('app') . '/' . $File);
+			preg_match('/INVOICE\s+NUMBER\s+(\w+)\s+DATE\s+\d{2}\/\d{2}\/\d{2}\s+(\d+)/', $PDF->getText(), $tMatches);
+			$InvoiceNumber = trim($tMatches[1]);
+			$AccountNumber = trim($tMatches[2]);
+
 			if(!Storage::exists("{$PDFDir}/{$AccountNumber}")) {
 				Storage::makeDirectory("{$PDFDir}/{$AccountNumber}");
 			}
-			echo $AccountNumber;
-			die();
+
+			$DestPath = "{$PDFDir}/{$AccountNumber}/" . uniqid() . '.pdf';
+			$tPaths = explode('/', $DestPath);
+			$DestFilename = array_pop($tPaths);
+			$FileDir = implode('/', $tPaths);
+
+			$tUsers = \App\User::where('account_number', '=', $AccountNumber)->get();
+			if(count($tUsers) == 0) {
+				Log::warning("No users with this account number.  Skipping...");
+				continue;
+			}
+
+			if(count($tUsers) > 1) {
+				Log::warning("Multiple users with the same account number.  Skipping...");
+				continue;
+			}
+
+
+			$FoundInvoice = false;
+			foreach ($tUsers as $objUser) {
+				foreach ($objUser->invoices as $objInvoice) {
+					if ($objInvoice->minitrac_invoice_number == $InvoiceNumber) {
+						$FoundInvoice = true;
+						if (Storage::move($File, $DestPath)) {
+							$objInvoice->minitrac_filename = $DestFilename;
+							$objInvoice->save();
+						}
+						break;
+					}
+				}
+			}
+
+			if(!$FoundInvoice)
+				Log::warning("No invoice tied with invoice minitrac invoice # . $InvoiceNumber");
+
 		}
 
+		$FilePath = public_path() . '/img/gallery_images/' . uniqid() . ".{$FileExtension}";
 
+		$tPaths = explode('/', $FilePath);
+		$Filename = array_pop($tPaths);
+		$FileDir = implode('/', $tPaths);
 
-
-
-		echo $AccountNumber;
-		die();*/
+		if ($File->move($FileDir, $Filename)) {
+			if ($objImage->image_filename) {
+				// Remove old file
+				File::delete(public_path() . '/img/gallery_images/' . $objImage->image_filename);
+			}
+			$objImage->image_filename = $Filename;
+		}
+*/
 
 		// TODO:  Ajax button to change display on front page status.  Right now forcing top power of 2 to top
 		$tBlogPosts = \App\BlogPost::where('display_on_front_page', true)->orderBy('order_by', 'ASC')->get();

@@ -20,6 +20,7 @@ class AddAccountNumToUser extends Migration
 		Schema::table('invoices', function (Blueprint $table) {
 			// Both user_ids in system
 			$table->string('minitrac_filename');
+			$table->string('minitrac_invoice_number');
 		});
 	}
 
@@ -37,6 +38,7 @@ class AddAccountNumToUser extends Migration
 		Schema::table('invoices', function (Blueprint $table) {
 			// Both user_ids in system
 			$table->dropColumn('minitrac_filename');
+			$table->dropColumn('minitrac_invoice_number');
 		});
 	}
 }

@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use View;
 use Session;
+use Storage;
 
 class InvoiceController extends AdminController
 {
@@ -50,12 +51,14 @@ class InvoiceController extends AdminController
 			$objInvoiceItem->save();
 		}
 
-		$objInvoice->first_name = $Input['InvoiceFirstName'];
-		$objInvoice->last_name = $Input['InvoiceLastName'];
-		$objInvoice->type = $Input['InvoiceType'];
-		$objInvoice->email = $Input['InvoiceEmail'];
-		$objInvoice->phone = $Input['InvoicePhone'];
-		$objInvoice->company_name = $Input['InvoiceCompany'];
+		$objInvoice->first_name = Request::get('InvoiceFirstName');
+		$objInvoice->last_name = Request::get('InvoiceLastName');
+		// Not changeable currently.
+		//$objInvoice->type = Request::get('InvoiceType');
+		$objInvoice->email = Request::get('InvoiceEmail');
+		$objInvoice->phone = Request::get('InvoicePhone');
+		$objInvoice->company_name = Request::get('InvoiceCompany');
+		$objInvoice->minitrac_invoice_number = Request::get('MinitracInvoiceNumber');
 
 		$objInvoice->comments = $Input['Comments'];
 		$objInvoice->assigned_to = $Input['AssignTo'];
@@ -77,6 +80,22 @@ class InvoiceController extends AdminController
 		return redirect("admin{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Invoice saved successfully']);
 	}
 
+	public function minitrac_view($id)
+	{
+		$objInvoice = \App\Invoice::findOrFail($id);
+		$Filename = $objInvoice->minitrac_filename;
+		$AccountID = $objInvoice->user->account_number;
+		
+		if(!$this->objLoggedInUser->HasPermission("View/{$objInvoice->type}") || !$Filename || !$AccountID)
+			abort('404');
+
+		header("Content-type:application/pdf");
+
+		// It will be called downloaded.pdf
+		header("Content-Disposition:attachment;filename='{$Filename}'");
+
+		echo Storage::get("minitrac_invoices/{$AccountID}/{$Filename}");
+	}
 
 	/**
 	 * Ajax delete

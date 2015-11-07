@@ -145,7 +145,7 @@
 								<tr>
 									@if($objLoggedInUser->HasPermission("Edit/{$objInvoice->type}"))
 										<td><a href='/admin/invoices/edit/{{ $objInvoice->id }}'>
-												<button name='EditInvoice' class='btn btn-default center-block' style='width:100%' InvoiceID="{{ $objInvoice->id }}">
+												<button type="button" name='EditInvoice' class='btn btn-default center-block' style='width:100%' InvoiceID="{{ $objInvoice->id }}">
 													Edit
 												</button>
 											</a></td>
