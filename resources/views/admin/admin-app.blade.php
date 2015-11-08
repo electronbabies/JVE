@@ -211,8 +211,27 @@
 						class="active"
 					@endif
 					>
-					<a href="/admin/invoices"><i class="fa fa-fw {{ Config::get('constants.ICON_INVOICE') }}"></i> Orders</a>
+					<a href="/admin/invoices"><i class="fa fa-fw {{ Config::get('constants.ICON_INVOICE') }}"></i> All Orders</a>
 				</li>
+				@endif
+				@if($objLoggedInUser->HasPermission('View/AssignedOrders'))
+					<li
+						@if ($ActiveClass == 'Assigned Orders')
+						class="active"
+						@endif
+						>
+						<a href="/admin/invoices/Assigned"><i class="fa fa-fw {{ Config::get('constants.ICON_INVOICE') }}"></i>
+							Assigned Orders</a>
+					</li>
+				@endif
+				@if($objLoggedInUser->HasPermission('View/FinalizedOrders'))
+					<li
+						@if ($ActiveClass == 'Finalized Orders')
+						class="active"
+						@endif
+						>
+						<a href="/admin/invoices/Finalized"><i class="fa fa-fw {{ Config::get('constants.ICON_INVOICE') }}"></i> Finalized Orders</a>
+					</li>
 				@endif
 				@if($objLoggedInUser->HasPermission('View/Blog'))
 				<li

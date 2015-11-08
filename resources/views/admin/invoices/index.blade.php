@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">
-				Orders
+				{{ $Status }} Orders
 			</h1>
 			<ol class="breadcrumb">
 				<li>
@@ -57,8 +57,8 @@
 							</tr>
 						@empty
 							<tr>
-								<td colspan="9" class='text-center'>
-									This user has no invoices.
+								<td colspan="99" class='text-center'>
+									No {{ $Status }} Orders.
 								</td>
 							</tr>
 						@endforelse

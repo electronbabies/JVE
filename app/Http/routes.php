@@ -61,11 +61,13 @@ Route::get('admin/vacations/edit/{VacationID}', 'VacationController@edit');
 Route::get('admin/vacations/edit/{VacationID}/ReturnTo/{Location}', 'VacationController@edit');
 Route::get('admin/vacations/holidays/', 'VacationController@holidays');
 Route::get('admin/vacations/holidays/edit/{VacationID}', 'VacationController@holidays_edit');
+Route::get('admin/vacations/holidays/edit/{VacationID}/ReturnTo/{location}', 'VacationController@holidays_edit');
 Route::get('admin/vacations/holidays/delete/{id}', 'VacationController@holidays_delete');
 Route::post('admin/vacations/store/', 'VacationController@store');
 
 // Admin Invoices
 Route::get('admin/invoices', 'InvoiceController@index');
+Route::get('admin/invoices/{Status}', 'InvoiceController@index');
 Route::get('admin/invoices/edit/{InvoiceID}', 'InvoiceController@edit');
 Route::get('admin/invoices/edit/{InvoiceID}/ReturnTo/{Location}', 'InvoiceController@edit');
 Route::get('admin/invoices/delete_item/{id}', 'InvoiceController@delete_item');

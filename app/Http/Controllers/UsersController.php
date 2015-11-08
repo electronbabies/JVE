@@ -18,7 +18,6 @@ class UsersController extends AdminController
 		if(!$this->objLoggedInUser->HasPermission("View/{$objUser->role}"))
 			abort('404');
 
-
 		$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->where('user_id', $UserID)->get();
 
 		View::share('objUser', $objUser);

@@ -163,7 +163,7 @@
 								</tr>
 							@empty
 								<tr>
-									<td colspan="9" class='text-center'>
+									<td colspan="99" class='text-center'>
 										This user has no orders.
 									</td>
 								</tr>

@@ -52,7 +52,7 @@
 						</tr>
 					@empty
 						<tr>
-							<td colspan="6" class='text-center'>
+							<td colspan="99" class='text-center'>
 								No vacations
 							</td>
 						</tr>
