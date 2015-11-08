@@ -21,7 +21,7 @@ class AddGallerySpecs extends Migration
 			$table->string('warranty');
 			$table->smallInteger('year');
 			$table->double('price');
-			$table->boolean('sold');
+			$table->boolean('sold')->default('0');
 			$table->double('hours');
 		});
     }

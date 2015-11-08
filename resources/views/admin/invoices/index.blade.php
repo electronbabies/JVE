@@ -3,7 +3,11 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">
-				{{ $Status }} Orders
+				@if($Status == \App\Invoice::TYPE_CONTACT)
+					Contact Us Requests
+				@else
+					{{ $Status }} Orders
+				@endif
 			</h1>
 			<ol class="breadcrumb">
 				<li>

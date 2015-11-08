@@ -96,7 +96,7 @@ class StaticController extends Controller
 		View::share('PageTitleSlug', 'home');
 		// Header Properties
 		View::share('headline', 'Welcome to JVEquipment');
-		View::share('subhead', 'The dealership without borders');
+		View::share('subhead', 'The forklift dealership without borders');
 		return view('index');
 	}
 
@@ -127,8 +127,8 @@ class StaticController extends Controller
 		View::share('val8', 'Locale');
 		View::share('valSub8', 'Three full service locations');
 		// end listView
-		$tGalleryImages = \App\GalleryImage::all();
-		View::share('tGalleryImages', $tGalleryImages);
+		//$tGalleryImages = \App\GalleryImage::all();
+		//View::share('tGalleryImages', $tGalleryImages);
 		return view('service');
 	}
 
@@ -158,8 +158,8 @@ class StaticController extends Controller
 		View::share('val8', 'Locale');
 		View::share('valSub8', 'Three full service locations');
 		// end listView
-		$tGalleryImages = \App\GalleryImage::all();
-		View::share('tGalleryImages', $tGalleryImages);
+		//$tGalleryImages = \App\GalleryImage::all();
+		//View::share('tGalleryImages', $tGalleryImages);
 		return view('parts');
 	}
 
@@ -169,11 +169,25 @@ class StaticController extends Controller
 		View::share('PageTitleSlug', 'sales');
 		View::share('headline', 'Sales Department');
 		View::share('subhead', 'Our sales experience is unmatched');
-		View::share('PageText', 'Owning and buying a forklift is not always an easy endeavor. Heavy loading equipment is highly specialized and requires knowledge to make the right choice. You may have particular needs that must be met and to get the right equipment you need a company that has years of equipment sales experience. You need a company that has the knowledge required to put the right equipment in the right spot. With over 34 years of sales experience why look anywhere else? Call us today and tell us what your needs are and we&rsquo;ll make sure you get the right forklift for the job.
-
-');
-		$tGalleryImages = \App\GalleryImage::all();
-		View::share('tGalleryImages', $tGalleryImages);
+		View::share('PageText', 'Owning and buying a forklift is not always an easy endeavor. Heavy loading equipment is highly specialized and requires knowledge to make the right choice. You may have particular needs that must be met and to get the right equipment you need a company that has years of equipment sales experience. You need a company that has the knowledge required to put the right equipment in the right spot. With over 34 years of sales experience why look anywhere else? Call us today and tell us what your needs are and we&rsquo;ll make sure you get the right forklift for the job.');
+		View::share('val1', 'Avaliability');
+		View::share('valSub1', 'Fleet of Over 400 Units');
+		View::share('val2', 'Choice');
+		View::share('valSub2', 'Late Model Units Available');
+		View::share('val3', 'Options');
+		View::share('valSub3', 'Pneumatic, electric, gas, narrow aisle and scissor lifts available');
+		View::share('val4', 'Delivery');
+		View::share('valSub4', 'We offer fast delivery');
+		View::share('val5', 'Add ons');
+		View::share('valSub5', 'Various attachments available');
+		View::share('val6', 'Transparent');
+		View::share('valSub6', 'No hidden fees or cost');
+		View::share('val7', 'Rates');
+		View::share('valSub7', 'Daily, weekly and monthly rates avaliable');
+		View::share('val8', 'Brands');
+		View::share('valSub8', 'All major manufacturers available');
+		//$tGalleryImages = \App\GalleryImage::all();
+		//View::share('tGalleryImages', $tGalleryImages);
 		return view('sales');
 	}
 
@@ -196,15 +210,15 @@ class StaticController extends Controller
 		View::share('valSub4', 'We offer fast delivery');
 		View::share('val5', 'Add ons');
 		View::share('valSub5', 'Various attachments available');
-		View::share('val6', 'Transpare t');
+		View::share('val6', 'Transparent');
 		View::share('valSub6', 'No hidden fees or cost');
 		View::share('val7', 'Rates');
 		View::share('valSub7', 'Daily, weekly and monthly rates avaliable');
 		View::share('val8', 'Brands');
 		View::share('valSub8', 'All major manufacturers available');
 		// end listView
-		$tGalleryImages = \App\GalleryImage::all();
-		View::share('tGalleryImages', $tGalleryImages);
+		//$tGalleryImages = \App\GalleryImage::all();
+		//View::share('tGalleryImages', $tGalleryImages);
 		return view('rentals');
 	}
 	function gallery()
@@ -215,7 +229,8 @@ class StaticController extends Controller
 		View::share('headline', 'We have factory trained technicians');
 		View::share('subhead', 'We take pride in what we do and stand behind our work 100%');
 		View::share('PageText', 'Factory trained technicians means that your forklift equipment is in good hands. We pride ourselves on being able to quickly and accurately respond to units that are down or not functioning correctly. The goal of our service department is to ensure that your forklift equipment will be quickly and promptly repaired. Your business is important to us because if you succeed then we succeed. We take pride in what we do and stand behind our work 100%. Give us a call today to request a service call for all makes and models of forklifts. Interested in a preventive maintenance program for your fleet of forklifts? Call us today or request a quote.');
-		$tGalleryImages = \App\GalleryImage::all();
+
+		$tGalleryImages = \App\GalleryImage::Newandrecentlysold()->get();
 		View::share('tGalleryImages', $tGalleryImages);
 		return view('gallery');
 	}

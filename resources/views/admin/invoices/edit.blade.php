@@ -115,7 +115,7 @@
 									<td><input type="text" class="form-control" name="InvoiceItem[{{ $objItem->id }}][Title]" value="{{ $objItem->title }}" {{ $ReadOnly }}></td>
 									<td>
 									<select type="text" class="form-control" name="InvoiceItem[{{ $objItem->id }}][Type]" value="{{ $objItem->type }}" {{ $ReadOnly }}>
-										@foreach(\App\Invoice::$tTypes as $Type)
+										@foreach(\App\InvoiceItem::$tTypes as $Type)
 										<?php $Selected = $Type == $objItem->type ? 'selected' : ''; ?>
 											<option value="{{ $Type }}" {{ $Selected }}>{{ $Type }}</option>
 										@endforeach
@@ -232,7 +232,7 @@
 				<tr name="ItemRow" ItemID="new">\
 					<td><input type="text" class="form-control" name="InvoiceItem[new][' + NewItemCount + '][Title]"></td>\
 					<td><select type="text" class="form-control" name="InvoiceItem[new][' + NewItemCount + '][Type]">\
-						@foreach(\App\Invoice::$tTypes as $Type)
+						@foreach(\App\InvoiceItem::$tTypes as $Type)
 						<option value="{{ $Type }}">{{ $Type }}</option>\
 						@endforeach
 						</select>\

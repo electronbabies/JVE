@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">
-				Your Vacations
+				@if($objLoggedInUser->IsAdmin()) All @else Your @endif Vacations
 			</h1>
 			<ol class="breadcrumb">
 				<li>
@@ -36,6 +36,7 @@
 							<th data-sortable="true">To</th>
 							<th>Comments</th>
 							<th data-sortable="true">Status</th>
+							<th data-sortable="true">Approved By</th>
 							<th data-sortable="true">Vacation Length</th>
 						</tr>
 					</thead>
@@ -48,6 +49,7 @@
 
 							<td><textarea class="form-control" readonly>{{ $objRequest->comments }}</textarea></td>
 							<td>{{ $objRequest->status }}</td>
+							<td>{{ $objRequest->UserApproved['name'] }}</td>
 							<td>{{ str_replace('after', '', $objRequest->to->diffForHumans($objRequest->from)) }}
 						</tr>
 					@empty

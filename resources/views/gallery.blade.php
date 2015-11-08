@@ -25,8 +25,18 @@
     float: right;
     text-align: right;
   }
-</style>
 
+  .overlaypic {
+	  position: relative;
+	  top: 0px;
+	  width: 320px;
+	  height: 240px;
+	  opacity: 0.75;
+	background-image: url('/img/sold.png');
+	background-repeat: no-repeat;
+  }
+</style>
+{{--http://i.istockimg.com/file_thumbview_approve/57837952/6/stock-illustration-57837952-red-vector-grunge-stamp-sold.jpg--}}
 <script type="text/javascript">
   $(document).on('click', 'a.controls', function() {
     //this is where we add our logic
@@ -109,47 +119,57 @@
 </section>
 <div class="wrap tc-white bg-cement-texture d-wrap bg-repeat" id="team-section">
   <div class="container wrap-lg">
-    <ul class="row"> @foreach($tGalleryImages as $objImage)
-
+    <ul class="row">
+    @foreach($tGalleryImages as $objImage)
       <li class="col-md-4">
-        <div class="productbox">
-          <div class="img-responsive" class="photo"><img class="pop img-thumbnail" src="/img/gallery_images/{{ $objImage->image_filename }}" /> </div>
-					<span style="padding: 10px; display: block">
 
-          <div class="producttitle">$ProductTitle</div>
+        <div class="productbox" >
+
+        <div class="">
+          	{{--<img class="pop img-thumbnail center-block" src="/img/gallery_images/{{ $objImage->image_filename }}" />--}}
+			<div class="center-block" style="background-image: url('/img/gallery_images/{{ $objImage->image_filename }}'); width:320px; height: 240px; background-size: 100%; background-repeat: no-repeat;">
+				@if($objImage->sold)
+					<div class="overlaypic"></div>
+				@endif
+			</div>
+		</div>
+		<span style="padding: 10px; display: block">
+
+          <div class="producttitle text-center">{{ $objImage->title }}</div>
           <div class="row">
             <div class="text-left col-sm-6">
-              <span style="color: #333; text-left">Mast Height: <span style="color: #b5b5b5">20px</span></span>
+              <span style="color: #333;">Mast Height: <span style="color: #b5b5b5">{{ $objImage->mast_height }}</span></span>
             </div>
-            <div class="text-left col-sm-6">
-              <span style="color: #333; text-left">Mast Height: <span style="color: #b5b5b5">20px</span></span>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="text-left col-sm-6">
-              <span style="color: #333; text-left">Serial: <span style="color: #b5b5b5">ABCD1234</span></span>
-            </div>
-            <div class="text-left col-sm-6">
-              <span style="color: #333; text-left">Warrant: <span style="color: #b5b5b5">Yes</span></span>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="text-left col-sm-6">
-              <span style="color: #333; text-left">Year: <span style="color: #b5b5b5">1984</span></span>
-            </div>
-            <div class="text-left col-sm-6">
-              <span style="color: #333; text-left">Hours: <span style="color: #b5b5b5">1500</span></span>
-            </div>
+			  <div class="text-left col-sm-6">
+				  <span style="color: #333;">Serial: <span style="color: #b5b5b5">{{ $objImage->serial }}</span></span>
+			  </div>
           </div>
 
           <div class="row">
+			  <div class="text-left col-sm-6">
+				  <span style="color: #333;">Make: <span style="color: #b5b5b5">{{ $objImage->make }}</span></span>
+			  </div>
+			  <div class="text-left col-sm-6">
+				  <span style="color: #333;">Model: <span style="color: #b5b5b5">{{ $objImage->model }}</span></span>
+			  </div>
+
+          </div>
+
+          <div class="row">
             <div class="text-left col-sm-6">
+              <span style="color: #333;">Year: <span style="color: #b5b5b5">{{ $objImage->year }}</span></span>
             </div>
             <div class="text-left col-sm-6">
-              <span style="color: #333; text-left">Price: <span style="color: red">$1,500</span></span>
+              <span style="color: #333;">Hours: <span style="color: #b5b5b5">{{ $objImage->hours }}</span></span>
+            </div>
+          </div>
+
+          <div class="row">
+			  <div class="text-left col-sm-6">
+				  <span style="color: #333;">Warranty: <span style="color: #b5b5b5">{{ $objImage->warranty }}</span></span>
+			  </div>
+            <div class="text-left col-sm-6">
+              <span style="color: #333;">Price: <span style="color: red">{{ $objImage->price }}</span></span>
             </div>
           </div>
 </span>

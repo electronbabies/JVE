@@ -142,18 +142,19 @@ class InvoiceController extends AdminController
 
 		switch($Status) {
 			case \App\Invoice::STATUS_NEW:
-				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->new()->get();
+				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->new()->orderby('created_at', 'desc')->get();
 				break;
 			case \App\Invoice::STATUS_FINALIZED:
-				View::share('ActiveClass', 'Finalized Orders');
-				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->finalized()->get();
+				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->finalized()->orderby('created_at', 'desc')->get();
 				break;
 			case \App\Invoice::STATUS_ASSIGNED:
-				View::share('ActiveClass', 'Assigned Orders');
-				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->assigned($this->objLoggedInUser)->get();
+				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->assigned($this->objLoggedInUser)->orderby('created_at', 'desc')->get();
+				break;
+			case \App\Invoice::TYPE_CONTACT:
+				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->contact()->orderby('created_at', 'desc')->get();
 				break;
 			default:
-				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->inprogress()->get();
+				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->inprogress()->orderby('created_at', 'desc')->get();
 				break;
 		}
 

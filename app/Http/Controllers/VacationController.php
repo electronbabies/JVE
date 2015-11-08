@@ -15,8 +15,9 @@ class VacationController extends AdminController
 	public function index()
 	{
 		$objUser = \Auth::User();
+		$tVacationRequests = $objUser->IsAdmin() ? \App\VacationRequest::all() : $objUser->Vacations;
 		View::share('ActiveClass', 'Vacation Request');
-		View::share('tVacationRequests', $objUser->Vacations);
+		View::share('tVacationRequests', $tVacationRequests);
 		return view('admin.vacations.index');
 	}
 
@@ -83,8 +84,13 @@ class VacationController extends AdminController
 			$objVacation->status = \App\VacationRequest::STATUS_APPROVED;
 		else {
 			// Only admins can change status and status always starts pending.
-			if ($objUser->role == \App\User::ROLE_ADMIN && $VacationID != 'new')
+			if ($objUser->role == \App\User::ROLE_ADMIN && $VacationID != 'new') {
+				if($Input['Status'] != \App\VacationRequest::STATUS_PENDING)
+					$objVacation->approved_by = $objUser->id;
+
 				$objVacation->status = $Input['Status'] ?: \App\VacationRequest::STATUS_PENDING;
+
+			}
 		}
 
 		$objVacation->type = $Input['Type'];
@@ -97,8 +103,5 @@ class VacationController extends AdminController
 			$Path = Request::get('ReturnTo') == 'Dashboard' ? '' : '/vacations';
 
 		return redirect("/admin{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => Request::get('Type') . ' saved successfully']);
-
-
-
 	}
 }

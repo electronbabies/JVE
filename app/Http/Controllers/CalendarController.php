@@ -37,6 +37,9 @@ class CalendarController extends AdminController
 				$tResult['title'] = "HOLIDAY: {$objVacation->comments}";
 			}
 			else {
+				if($objVacation->status == \App\VacationRequest::STATUS_DENIED)
+					continue;
+
 				$tResult['class'] = $objVacation->status == \App\VacationRequest::STATUS_PENDING ? 'event-warning' : 'event-success';
 				$PreText = $objVacation->status == \App\VacationRequest::STATUS_PENDING ? 'PENDING VACATION REQUEST' : 'APPROVED VACATION REQUEST';
 				$tResult['url'] = "/admin/vacations/edit/{$objVacation->id}";

@@ -26,17 +26,18 @@ Route::get('parts', 'StaticController@parts');
 Route::get('sales', 'StaticController@sales');
 Route::get('rentals', 'StaticController@rentals');
 
-// Not exactly static.  Might want to change name.  GalleryController is currently an AdminController
+// Not exactly static.  Might want to change name.  GalleryController is currently an AdminController, however.
 Route::get('gallery', 'StaticController@gallery');
-Route::get('gallery/view/{ImageID}', 'StaticController@gallery_view');
 
 // Forms
 Route::get('forms/service', 'FormsController@service');
 Route::get('forms/parts', 'FormsController@parts');
 Route::get('forms/sales', 'FormsController@sales');
 Route::get('forms/rental', 'FormsController@rental');
-Route::post('forms/store', 'FormsController@store');
+Route::get('forms/contact', 'FormsController@contact');
 Route::get('forms/success', 'FormsController@success');
+Route::post('forms/store', 'FormsController@store');
+
 
 
 /******************************************************************************************************

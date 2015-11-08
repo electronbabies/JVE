@@ -178,6 +178,10 @@
 						<a href="/admin/invoices/Finalized">{{ $FinalizedOrderCount }} <span class="label label-danger pull-right">Finalized</span></a>
 					</li>
 					<li>
+						<a href="/admin/invoices/Contact">{{ $ContactUsCount }}
+							<span class="label label-info pull-right">Contact Requests</span></a>
+					</li>
+					<li>
 						<a href="/admin/invoices">{{ $TotalOrderCount }}<span class="label label-warning pull-right">Total</span></a>
 					</li>
 					@endif

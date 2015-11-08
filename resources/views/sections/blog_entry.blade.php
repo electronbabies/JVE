@@ -12,7 +12,7 @@
 
       @forelse($tBlogPosts as $objPost)
         <div class="media">
-          <span class="media-object" style="background: url(img/blog_images/{{ $objPost->image_filename }}); background-position: center center; width: 320px; height: 200px; display: inline-block"></span>
+          <span class="media-object" style="background: url(img/blog_images/{{ $objPost->image_filename }}); background-position: center center; width: 320px; height: 200px; display: inline-block; border-radius: 8px;"></span>
           <div class="media-body">
             <h5 class="media-heading">{!! $objPost->title !!} </h5>
             <p>{!! $objPost->entry !!}</p>

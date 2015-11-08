@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use View;
 use Request;
 use File;
+use Carbon\Carbon;
 
 class GalleryController extends AdminController
 {
@@ -88,6 +89,8 @@ class GalleryController extends AdminController
 		$objImage->warranty = Request::get('warranty');
 		$objImage->year = str_replace(',', '', Request::get('year'));
 		$objImage->price = str_replace('$', '', Request::get('price'));
+		if(!$objImage->sold && Request::get('sold') == 'on')
+			$objImage->sold_at = Carbon::now();
 		$objImage->sold = Request::get('sold') == 'on' ? true : false;
 		$objImage->hours = Request::get('hours');
 		$objImage->serial = Request::get('serial');

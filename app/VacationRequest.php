@@ -34,6 +34,11 @@ class VacationRequest extends Model
 		return $this->belongsTo('\App\User');
 	}
 
+	public function UserApproved()
+	{
+		return $this->belongsTo('\App\User', 'approved_by');
+	}
+
 	public function scopeUpcomingVacations($query)
 	{
 		$StartDate = Carbon::now();

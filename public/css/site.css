@@ -292,6 +292,10 @@ color: #333333;
 .parts-quote-bg {
     background-image: url('/img/parts-quote.jpg');
 }
+
+.contact-us-bg {
+    background-image: url('/img/home.jpg');
+}
 .quote.wrap.d-wrap {
     background: url("/img/cement-texture.gif") !important;
 }

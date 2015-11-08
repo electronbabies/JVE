@@ -25,12 +25,14 @@ class Invoice extends Model
 	const TYPE_PARTS 			= 'Parts';
 	const TYPE_RENTAL 			= 'Rental';
 	const TYPE_SALES 			= 'Sales';
+	const TYPE_CONTACT			= 'Contact';
 
 	static public $tTypes = [
 		self::TYPE_SERVICE,
 		self::TYPE_PARTS,
 		self::TYPE_RENTAL,
 		self::TYPE_SALES,
+		self::TYPE_CONTACT,
 	];
 
 
@@ -80,6 +82,10 @@ class Invoice extends Model
 		return $query->where('assigned_to', '=', $objUser->id);
 	}
 
+	public function scopeContact($query)
+	{
+		return $query->where('type', '=', static::TYPE_CONTACT);
+	}
 
 	/**
 	 * Invoices (aka Orders) allowed to be viewed by user
@@ -103,6 +109,9 @@ class Invoice extends Model
 
 			if ($objUser->HasPermission('View/' . static::TYPE_SALES)) {
 				$query->orwhere('type', static::TYPE_SALES);
+			}
+			if ($objUser->HasPermission('View/' . static::TYPE_CONTACT)) {
+				$query->orwhere('type', static::TYPE_CONTACT);
 			}
 		});
 

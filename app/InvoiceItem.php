@@ -16,6 +16,28 @@ class InvoiceItem extends Model
 		self::STATUS_MODIFIED,
 	];
 
+	static $tTypes = [
+		// Rental / Sales form
+		'Brand',
+		'Environment',
+		'MotivePower',
+		'Capacity',
+		'Attachment',
+		'OperatingHours',
+		'Accessory',
+
+		// Invoice Types
+		'Service',
+		'Rental',
+		'Parts',
+		'Sales',
+
+		// Service / Parts form
+		'Make',
+		'Model',
+		'Serial Number',
+	];
+
 	protected $table = 'invoice_items';
 
 	public function Invoice()

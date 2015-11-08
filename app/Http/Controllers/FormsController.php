@@ -14,6 +14,7 @@ class FormsController extends StaticController
     const REQUEST_TYPE_RENTAL = 'Rental';
     const REQUEST_TYPE_SALES = 'Sales';
     const REQUEST_TYPE_SERVICE = 'Service';
+	const REQUEST_TYPE_CONTACT_US = 'Contact';
 
     public $tBrands = [
         'Crown',
@@ -25,15 +26,18 @@ class FormsController extends StaticController
     ];
 
     // Form options => css class of their option in the graphic
-    public $tTires = [
-        'Solid Pneumatic Tires (Indoor / Outdoor)'		=> 'PneumaticTire',
-        'Black Non Marking Tires'						=> 'NonMarkingTire',
-        'Cushion Tires (Warehouse'						=> 'WarehouseTire',
+    public $tEnvironment = [
+        'Indoor / Outdoor'								=> 'IndoorOutdoorEnv',
+        'Indoor'										=> 'IndoorEnv',
+        'Outdoor'										=> 'OutdoorEnv',
     ];
 
-    public $tEngine = [
-        'Electric'		=> 'ElectricEngine',
-        'Gas'			=> 'GasEngine',
+    public $tMotivePower = [
+    	'LP'							=> 'LPEngine',
+    	'Gasoline'						=> 'GasolineEngine',
+    	'Diesel'						=> 'DieselEngine',
+    	'Dual Fuel Gasoline & LP'		=> 'DualEngine',
+        'Electric'						=> 'ElectricEngine',
     ];
 
     // TODO:  To display capacity, show it lifting boxes of different sizes with the # in lbs on the side.
@@ -65,12 +69,12 @@ class FormsController extends StaticController
     ];
 
     public $tAccessories = [
-		'Opportunity Charger' 		=> 'OpportunityCharger',
-        'LP Tank'					=> 'LPTank',
         'Seat Belt' 				=> 'SeatBelt',
         'Strobe Light' 				=> 'StrobeLight',
         'Fire Extinguisher' 		=> 'FireExtinguisher',
 		'Side Shifter' 				=> 'SideShifter',
+		'Opportunity Charger' 		=> 'OpportunityCharger',
+		'LP Tank' 					=> 'LPTank',
     ];
 
     public $tMandatoryItems = [
@@ -103,8 +107,8 @@ class FormsController extends StaticController
 				'PhoneNumber' 		=> 'required',
 				'EmailAddress' 		=> 'required',
 				'Brand' 			=> 'required',
-				'Tires' 			=> 'required',
-				'Engine' 			=> 'required',
+				'Environment' 			=> 'required',
+				'MotivePower' 			=> 'required',
 				'Capacity' 			=> 'required',
 				'Attachment' 		=> 'required',
 				'OperatingHours' 	=> 'required',
@@ -135,6 +139,9 @@ class FormsController extends StaticController
 
             case static::REQUEST_TYPE_SERVICE:
                 return $this->ProcessServiceRequest($Input);
+
+			case static::REQUEST_TYPE_CONTACT_US:
+				return $this->ProcessContactUsRequest($Input);
         }
     }
 
@@ -155,25 +162,52 @@ class FormsController extends StaticController
         $objInvoice->comments = $Input['Comments'];
 
         if (!$objInvoice->save())
-            App::abort('500', 'Master invoice could not save.  Breaking page.  Not saving invoice items.');
+			App::abort('500', 'Master invoice could not save.  Breaking page.  Not saving invoice items.');
 
         $objInvoiceItem = new \App\InvoiceItem;
         $objInvoiceItem->invoice_id = $objInvoice->id;
-        $objInvoiceItem->type = $Input['RequestType'] == 'Parts' ? 'Parts' : 'Service';
-        $objInvoiceItem->title = $Input['RequestType'] == 'Parts' ? 'Parts Request' : 'Service Request';
+        $objInvoiceItem->type = $Input['RequestType'];
+        switch($Input['RequestType']) {
+			case static::REQUEST_TYPE_PARTS :
+				$objInvoiceItem->title = 'Parts Request';
+				break;
+			case static::REQUEST_TYPE_SALES :
+				$objInvoiceItem->title = 'Service Request';
+				break;
+			case static::REQUEST_TYPE_CONTACT_US :
+				$objInvoiceItem->title = 'Contact Us';
+				break;
+		}
         $objInvoiceItem->status = \App\InvoiceItem::STATUS_ACTIVE;
-        $objInvoiceItem->save();
+		$objInvoiceItem->save();
 
-        // All this work to make a title pretty!!!
         $tTitleOptions = [];
-        if ($Input['Make'])
-            $tTitleOptions[] = "Make - " . $Input['Make'];
+        if (Request::get('Make')) {
+			$objInvoiceItem = new \App\InvoiceItem;
+			$objInvoiceItem->invoice_id = $objInvoice->id;
+			$objInvoiceItem->type = 'Make';
+			$objInvoiceItem->title = Request::get('Make');
+			$objInvoiceItem->status = \App\InvoiceItem::STATUS_ACTIVE;
+			$objInvoiceItem->save();
+		}
 
-        if ($Input['Model'])
-            $tTitleOptions[] = "Model - " . $Input['Model'];
+        if (Request::get('Model')) {
+			$objInvoiceItem = new \App\InvoiceItem;
+			$objInvoiceItem->invoice_id = $objInvoice->id;
+			$objInvoiceItem->type = 'Model';
+			$objInvoiceItem->title = Request::get('Model');
+			$objInvoiceItem->status = \App\InvoiceItem::STATUS_ACTIVE;
+			$objInvoiceItem->save();
+		}
 
-        if ($tTitleOptions)
-            $objInvoiceItem->title .= ": (" . implode(' / ', $tTitleOptions) . ")";
+        if(Request::get('SerialNumber')) {
+			$objInvoiceItem = new \App\InvoiceItem;
+			$objInvoiceItem->invoice_id = $objInvoice->id;
+			$objInvoiceItem->type = 'Serial Number';
+			$objInvoiceItem->title = Request::get('SerialNumber');
+			$objInvoiceItem->status = \App\InvoiceItem::STATUS_ACTIVE;
+			$objInvoiceItem->save();
+		}
 
         return redirect('/forms/success');
     }
@@ -188,20 +222,31 @@ class FormsController extends StaticController
         return $this->ProcessSaleRequest($Input);
     }
 
+    public function ProcessContactUsRequest($Input)
+	{
+		return $this->ProcessServiceRequest($Input);
+	}
+
     public function ProcessSaleRequest($Input) {
-    	$this->validate(Request::all(), [
+    	$tValidation =  [
 			'FirstName' => 'required',
 			'LastName' => 'required',
 			'CompanyName' => 'required',
 			'PhoneNumber' => 'required',
 			'EmailAddress' => 'required',
 			'Brand' => 'required',
-			'Tires' => 'required',
-			'Engine' => 'required',
+			'Environment' => 'required',
+			'MotivePower' => 'required',
 			'Capacity' => 'required',
 			'Attachment' => 'required',
 			'OperatingHours' => 'required',
-    	]);
+    	];
+
+
+		$Validator = Validator::make($Input, $tValidation);
+
+		if ($Validator->fails())
+			return redirect('/forms/' . str_replace(' ', '', strtolower($Input['RequestType'])))->withErrors($Validator);
 
 
         // Get logged user, or register as guest
@@ -230,8 +275,8 @@ class FormsController extends StaticController
         // Invoice Items
         $tInvoiceItemFields = [
             'Brand',
-            'Tires',
-            'Engine',
+            'Environment',
+            'MotivePower',
             'Capacity',
             'Attachment',
             'OperatingHours',
@@ -285,8 +330,8 @@ class FormsController extends StaticController
         View::share('tOperatingHours', $this->tOperatingHours);
         View::share('tAttachment', $this->tAttachment);
         View::share('tCapacity', $this->tCapacity);
-        View::share('tEngine', $this->tEngine);
-        View::share('tTires', $this->tTires);
+        View::share('tMotivePower', $this->tMotivePower);
+        View::share('tEnvironment', $this->tEnvironment);
         View::share('tMandatoryItems', $this->tMandatoryItems);
 
 		View::share('RequestType', 'Rental');
@@ -301,12 +346,17 @@ class FormsController extends StaticController
         View::share('tOperatingHours', $this->tOperatingHours);
         View::share('tAttachment', $this->tAttachment);
         View::share('tCapacity', $this->tCapacity);
-        View::share('tEngine', $this->tEngine);
-        View::share('tTires', $this->tTires);
+        View::share('tMotivePower', $this->tMotivePower);
+        View::share('tEnvironment', $this->tEnvironment);
 		View::share('tMandatoryItems', $this->tMandatoryItems);
 
 		View::share('RequestType', 'Sales');
 		return view('forms.sales');
+	}
+
+	public function contact()
+	{
+		return view('forms.contact');
 	}
 
     public function parts()

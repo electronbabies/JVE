@@ -12,7 +12,7 @@
           <li> <a href="/sales">Sales</a> </li>
           <li> <a href="/rentals">Rentals</a> </li>
           <li> <a href="/gallery">Gallery</a> </li>
-          <li> <a href="/contact">Contact Us</a> </li>
+          <li> <a href="/forms/contact">Contact Us</a> </li>
         </ul>
       </div>
     </div>

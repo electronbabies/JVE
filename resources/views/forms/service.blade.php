@@ -17,12 +17,21 @@
 
 
 	<div class="wrap bg-repeat ">
+		@if (count($errors) > 0)
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
 		<div class="container wrap-md">
 			<div class="row">
 				<div class="col-sm-12">
 					<form action="/forms/store" method="post">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<input type="hidden" name="RequestType" value="Parts">
+						<input type="hidden" name="RequestType" value="Service">
 
 						<div class="row">
 							<div class="col-sm-12">
@@ -34,7 +43,7 @@
 														<label>
 															First Name
 														</label>
-														<input class="form-control" tabindex="1" name="FirstName" value="{{ $objUser->first_name }}"/>
+														<input class="form-control" tabindex="1" name="FirstName" value="{{ $objUser->first_name }}" required/>
 													</div>
 													<div class="form-group">
 														<label>
@@ -48,7 +57,7 @@
 														<label>
 															Last Name
 														</label>
-														<input class="form-control" tabindex="2" name="LastName" value="{{ $objUser->last_name }}"/>
+														<input class="form-control" tabindex="2" name="LastName" value="{{ $objUser->last_name }}" required/>
 													</div>
 													<div class="row">
 														<div class="col-sm-6">
@@ -72,26 +81,37 @@
 											</div>
 											<div class="row">
 												<div class="col-sm-6">
-													<div class="form-group">
-														<label>
-															Phone Number
-														</label>
-														<input class="form-control" tabindex="6" name="PhoneNumber" value="{{ $objUser->phone }}"/>
+													<div class="row">
+														<div class="col-sm-6">
+															<div class="form-group">
+																<label>
+																	Phone Number
+																</label>
+																<input class="form-control" tabindex="6" name="PhoneNumber" value="{{ $objUser->phone }}" required/>
+															</div>
+														</div>
+														<div class="col-sm-6">
+															<div class="form-group">
+																<label>
+																	Email Address
+																</label>
+																<input class="form-control" tabindex="7" name="EmailAddress" value="{{ $objUser->email }}" required/>
+															</div>
+														</div>
 													</div>
 												</div>
 												<div class="col-sm-6">
 													<div class="form-group">
 														<label>
-															Email Address
+															Serial Number
 														</label>
-														<input class="form-control" tabindex="7" name="EmailAddress" value="{{ $objUser->email }}"/>
+														<input class="form-control" tabindex="8" name="SerialNumber"/>
 													</div>
 												</div>
 											</div>
 											<div class="form-group">
-												<label>
-Service Request												</label>
-												<textarea class="form-control" rows="4" cols="50" tabindex="8"
+												<label>Service Request</label>
+												<textarea class="form-control" rows="4" cols="50" tabindex="9"
 														  name="Comments"></textarea>
 											</div>
 											<button class="wrap-button btn btn-d btn-lg btn-block" type="submit"

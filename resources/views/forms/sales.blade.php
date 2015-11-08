@@ -11,7 +11,7 @@
       <div class="col-sm-12">
         <div class="row">
           <div class="col-sm-12 text-center">
-            <h2 class="text-center mg-sm">Rental &amp; Sales Quote</h2>
+            <h2 class="text-center mg-sm">{{ $RequestType }} Quote</h2>
             <h3 class="text-center mg-lg"> <span>Contact us today about your sales or rental quote</span> </h3>  </div>
         </div>
       </div>
@@ -21,6 +21,15 @@
 
 <section>
 	<div class="wrap bg-repeat ">
+		@if (count($errors) > 0)
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
 		<div class="container wrap-md">
 			{{-- <div id="ForkliftBuilder">
 				<div class='ForkliftPart ForkliftSilhouette'></div>
@@ -46,7 +55,7 @@
 													<label>
 														First Name
 													</label>
-													<input name="FirstName" class="form-control" tabindex="1" value="{{ $objUser->first_name }}"/>
+													<input name="FirstName" class="form-control" tabindex="1" value="{{ $objUser->first_name }}" required/>
 												</div>
 												<div class="form-group">
 													<label>
@@ -60,7 +69,7 @@
 													<label>
 														Last Name
 													</label>
-													<input name="LastName" class="form-control" tabindex="2" value="{{ $objUser->last_name }}"/>
+													<input name="LastName" class="form-control" tabindex="2" value="{{ $objUser->last_name }}" required/>
 												</div>
 												<div class="row">
 													<div class="col-sm-6">
@@ -68,7 +77,7 @@
 															<label>
 																Phone Number
 															</label>
-															<input name="PhoneNumber" class="form-control" value="{{ $objUser->phone }}" tabindex="4"/>
+															<input name="PhoneNumber" class="form-control" value="{{ $objUser->phone }}" tabindex="4" required/>
 														</div>
 													</div>
 													<div class="col-sm-6">
@@ -76,7 +85,7 @@
 															<label>
 																Email Address
 															</label>
-															<input name="EmailAddress" class="form-control" value="{{ $objUser->email }}" tabindex="5"/>
+															<input name="EmailAddress" class="form-control" value="{{ $objUser->email }}" tabindex="5" required/>
 														</div>
 													</div>
 												</div>
@@ -89,7 +98,7 @@
 													<label>
 														Brand
 													</label>
-													<select id="Brand" name="Brand" class="form-control" tabindex="6">
+													<select id="Brand" name="Brand" class="form-control" tabindex="6" required>
 														<?php
 														foreach ($tBrands as $Brand) {
 															echo "<option>{$Brand}</option>";
@@ -101,13 +110,13 @@
 											<div class="col-sm-6">
 												<div class="form-group">
 													<label>
-														Tires
+														Environment
 													</label>
-													<select id="Tires" name="Tires" class="form-control" tabindex="7">
+													<select id="Environment" name="Environment" class="form-control" tabindex="7" required>
 														<option selected disabled></option>
-														@foreach ($tTires as $Tire => $CSSClass)
+														@foreach ($tEnvironment as $Environment => $CSSClass)
 															<option
-																FBCSS="{{ $CSSClass }}">{{ $Tire }}</option>
+																FBCSS="{{ $CSSClass }}">{{ $Environment }}</option>
 														@endforeach
 													</select>
 												</div>
@@ -117,11 +126,11 @@
 											<div class="col-sm-6">
 												<div class="form-group">
 													<label>
-														Engine
+														Motive Power
 													</label>
-													<select id="Engine" name="Engine" class="form-control" tabindex="8">
+													<select id="Engine" name="MotivePower" class="form-control" tabindex="8" required>
 														<option selected disabled></option>
-														@foreach ($tEngine as $Engine => $CSSClass)
+														@foreach ($tMotivePower as $Engine => $CSSClass)
 															<option FBCSS="{{ $CSSClass }}">{{ $Engine }}</option>
 														@endforeach
 													</select>
@@ -132,7 +141,7 @@
 													<label>
 														Capacity
 													</label>
-													<select id="Capacity" name="Capacity" class="form-control" tabindex="9">
+													<select id="Capacity" name="Capacity" class="form-control" tabindex="9" required>
 														<option selected disabled></option>
 														@foreach ($tCapacity as $Capacity => $CSSClass)
 															<option
@@ -148,7 +157,7 @@
 													<label>
 														Attachment
 													</label>
-													<select id="Attachment" name="Attachment" class="form-control" tabindex="10">
+													<select id="Attachment" name="Attachment" class="form-control" tabindex="10" required>
 														<option selected disabled></option>
 														@foreach ($tAttachment as $Attachment => $CSSClass)
 															<option
@@ -162,7 +171,7 @@
 													<label>
 														Operating Hours
 													</label>
-													<select id="OperatingHours" name="OperatingHours" class="form-control" tabindex="11">
+													<select id="OperatingHours" name="OperatingHours" class="form-control" tabindex="11" required>
 														<option selected disabled></option>
 														@foreach ($tOperatingHours as $OperatingHours => $CSSClass)
 															<option
@@ -190,16 +199,21 @@
 																	echo "<div class='col-sm-" . (int)(12 / $Divisions) . "'>";
 																 }
 															?>
+															<div>
 															<input type="checkbox" name="Accessories[]" FBCSS="{{ $CSSClass }}" value="{{ $Accessory }}" TabIndex="12" {{ $IsDisabled }}>
 															<label>
 																{{ $Accessory }}
 															</label>
-															<br />
+															</div>
+
 															<?php
 																if ($Count % (count($tAccessories) / $Divisions) == 0) {
 																	echo "</div>";
 																}
 															?>
+																@if($IsDisabled)
+																	<input type="hidden" name="Accessories[]" FBCSS="{{ $CSSClass }}" value="{{ $Accessory }}">
+																@endif
 														@endforeach
 													</div>
 												</div>
@@ -233,6 +247,22 @@
 	<!-- Main container END -->
 
 	<script type="text/javascript">
+	// Accessory chooser
+	$('#Engine').change(function() {
+		if(this.value == 'Electric') {
+			$('input[fbcss=LPTank]').parent('div').hide();
+			$('input[fbcss=LPTank]').prop('disabled', true);
+			$('input[fbcss=OpportunityCharger]').parent('div').show();
+			$('input[fbcss=OpportunityCharger]').prop('disabled', false);
+		} else {
+			$('input[fbcss=LPTank]').parent('div').show();
+			$('input[fbcss=LPTank]').prop('disabled', false);
+			$('input[fbcss=OpportunityCharger]').parent('div').hide();
+			$('input[fbcss=OpportunityCharger]').prop('disabled', true);
+		}
+	});
+
+	// Forklift builder
 		function GetOrCreateDiv(id) {
 			var $e = $("#"+id);
 			if(!$e.length)
@@ -256,7 +286,7 @@
 		}
 
 		$('#Brand').change(SelectHandler);
-		$('#Tires').change(SelectHandler);
+		$('#Environment').change(SelectHandler);
 		$('#Engine').change(SelectHandler);
 		$('#Capacity').change(SelectHandler);
 		$('#Attachment').change(SelectHandler);
