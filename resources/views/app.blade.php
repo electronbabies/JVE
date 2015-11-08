@@ -21,6 +21,6 @@
 <body>
 	@include('sections.header')
 	@yield('content')
-	@include('sections.locations')
-	@include('sections.footer') </body>
+	@include('sections.footer') 
+</body>
 </html>

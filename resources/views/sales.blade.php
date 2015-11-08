@@ -1,15 +1,16 @@
 @extends('app')
 @section('content')
-<div class="wrap bg-banner-holder-3 d-wrap" id="wrap-16">
-	<div class="container wrap-xl">
+<div class="wrap bg-banner-holder-3">
+	<div class="container wrap-lg">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="row">
 					<div class="col-sm-12">
-						<h6 class="text-center tc-dodger-blue mg-md">
+						<h6 class="text-center tc-dodger-blue mg-clear">
+							<span class="fa fa-tasks icon icon-book icon-gears icon-magnifying-glass icon-552 icon-1951 icon-md animated fadeInDown animDelay02"></span>
 						</h6>
 						<h2 class=" text-center mg-sm tc-white">
-							Sales Department
+							We provide parts for all makes and models of forklift as well as OEM for Nissan, Crown and more...
 						</h2>
 						<h3 class="orange text-center mg-lg tc-saffron">
 							<span>Serving You Since 1976.</span>
@@ -22,7 +23,7 @@
 </div>
 <div class="wrap tc-white  bg-cement-texture d-wrap bg-repeat" id="wrap-17">
 	<div class="container wrap-lg">
-		<div class="row">
+		{{-- <div class="row">
 			<div class="col-sm-12">
 				<div class="row voffset">
 					<div class="col-sm-12">
@@ -41,7 +42,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<div class="row voffset">
 			<div class="col-sm-12">
 				<p class="text-center mg-lg">
@@ -60,5 +61,5 @@
 		</div>
 	</div>
 </div>
-@include('sections.scroll_gallery', ['BGColor' => Config::get('constants.COLOR_LIGHT_BLUE')])
+{{-- @include('sections.scroll_gallery') --}}
 @stop
