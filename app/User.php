@@ -41,8 +41,6 @@ class User extends Model implements AuthenticatableContract,
 			'View/Parts' 				=> 'View Parts Orders',
 			'View/Rental' 				=> 'View Rental Orders',
 			'View/Sales' 				=> 'View Sales Orders',
-			'View/AssignedOrders'		=> 'View Assigned Orders',
-			'View/FinalizedOrders' 		=> 'View Finalized Orders',
 		],
 		'Blog' => [
 			'Edit/Blog'			=> 'Edit Blog Posts',

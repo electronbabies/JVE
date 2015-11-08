@@ -135,12 +135,15 @@ class InvoiceController extends AdminController
 		return view('admin.invoices.edit');
 	}
 
-	public function index($Status = '')
+	public function index($Status = 'All')
 	{
 		if(!$this->objLoggedInUser->HasPermission('View/Orders'))
 			abort('404');
 
 		switch($Status) {
+			case \App\Invoice::STATUS_NEW:
+				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->new()->get();
+				break;
 			case \App\Invoice::STATUS_FINALIZED:
 				View::share('ActiveClass', 'Finalized Orders');
 				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->finalized()->get();

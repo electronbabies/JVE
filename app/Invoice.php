@@ -60,11 +60,6 @@ class Invoice extends Model
 	}
 
 	// Scopes
-	public function scopeUnhandled($query)
-	{
-		return $query->where('status', '=', static::STATUS_NEW);
-	}
-
 	public function scopeInprogress($query)
 	{
 		return $query->where('status', '!=', static::STATUS_FINALIZED);
@@ -73,6 +68,11 @@ class Invoice extends Model
 	public function scopeFinalized($query)
 	{
 		return $query->where('status', '=', static::STATUS_FINALIZED);
+	}
+
+	public function scopeNew($query)
+	{
+		return $query->where('status', '=', static::STATUS_NEW);
 	}
 
 	public function scopeAssigned($query, $objUser)

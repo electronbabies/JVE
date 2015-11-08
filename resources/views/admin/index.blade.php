@@ -15,6 +15,7 @@
                 </div>
 
                 <div class="row">
+					@if($objLoggedInUser->HasPermission('View/Orders'))
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -37,6 +38,8 @@
                             </a>
                         </div>
                     </div>
+                    @endif
+                    @if($objLoggedInUser->HasPermission('View/Gallery'))
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-green">
                             <div class="panel-heading">
@@ -59,6 +62,8 @@
                             </a>
                         </div>
                     </div>
+                    @endif
+					@if($objLoggedInUser->HasPermission('View/Users'))
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-yellow">
                             <div class="panel-heading">
@@ -81,6 +86,8 @@
                             </a>
                         </div>
                     </div>
+                    @endif
+					@if($objLoggedInUser->HasPermission('View/Blog'))
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-red">
                             <div class="panel-heading">
@@ -103,8 +110,10 @@
                             </a>
                         </div>
                     </div>
+                    @endif
                 </div>
                 <div class="row">
+					@if($objLoggedInUser->HasPermission('View/Orders'))
 					<div class="col-lg-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -129,6 +138,7 @@
 							</div>
 						</div>
 					</div>
+					@endif
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">

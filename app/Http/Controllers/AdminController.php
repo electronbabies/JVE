@@ -26,6 +26,16 @@ class AdminController extends Controller
 		$FormResponse = Session::get('FormResponse') ? Session::get('FormResponse') : [];
 		View::share('FormResponse', $FormResponse);
 
+		$NewOrderCount = \App\Invoice::perminvoices($this->objLoggedInUser)->new()->count();
+		$AssignedOrderCount = \App\Invoice::perminvoices($this->objLoggedInUser)->assigned($this->objLoggedInUser)->count();
+		$FinalizedOrderCount = \App\Invoice::perminvoices($this->objLoggedInUser)->finalized()->count();
+		$TotalOrderCount = \App\Invoice::perminvoices($this->objLoggedInUser)->count();
+
+		View::share('NewOrderCount', $NewOrderCount);
+		View::share('AssignedOrderCount', $AssignedOrderCount);
+		View::share('FinalizedOrderCount', $FinalizedOrderCount);
+		View::share('TotalOrderCount', $TotalOrderCount);
+
 		// No parent constructor.  All is well.
 	}
 
@@ -34,7 +44,7 @@ class AdminController extends Controller
 		$tUpcomingVacations = \App\VacationRequest::upcomingvacations()->get();
 		$tUpcomingHolidays = \App\VacationRequest::upcomingholidays()->get();
 		$tVacationRequests = \App\VacationRequest::requests()->get();
-		$tNewInvoices = \App\Invoice::unhandled()->get();
+		$tNewInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->new()->get();
 		$tActiveGalleryImages = \App\GalleryImage::all();
 		$tAllClients = \App\User::clients()->get();
 		$BlogCount = \App\BlogPost::count();
