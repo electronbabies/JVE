@@ -69,6 +69,17 @@
 							<input class="form-control" type='text' name='InvoiceCompany' value="{{ $objInvoice->company_name }}" {{ $ReadOnly }}>
 						</div>
 					</div>
+					<div class="col-lg-4">
+						<div class="form-group">
+							<label>Department</label><br/>
+							<select type="text" class="form-control" name="InvoiceType" value="{{ $objInvoice->type }}" {{ $ReadOnly }}>
+								@foreach(\App\Invoice::$tTypes as $Type)
+									<?php $Selected = $Type == $objInvoice->type ? 'selected' : ''; ?>
+									<option value="{{ $Type }}" {{ $Selected }}>{{ $Type }}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
 					@if($objInvoice->minitrac_filename)
 					<div class="col-lg-4">
 						<div class="form-group">
@@ -103,7 +114,13 @@
 								<tr name='ItemRow' ItemID="{{ $objItem->id }}">
 									<td><input type="text" class="form-control" name="InvoiceItem[{{ $objItem->id }}][Title]" value="{{ $objItem->title }}" {{ $ReadOnly }}></td>
 									<td>
-										<input type="text" class="form-control" name="InvoiceItem[{{ $objItem->id }}][Type]" value="{{ $objItem->type }}" readonly></td>
+									<select type="text" class="form-control" name="InvoiceItem[{{ $objItem->id }}][Type]" value="{{ $objItem->type }}" {{ $ReadOnly }}>
+										@foreach(\App\Invoice::$tTypes as $Type)
+										<?php $Selected = $Type == $objItem->type ? 'selected' : ''; ?>
+											<option value="{{ $Type }}" {{ $Selected }}>{{ $Type }}</option>
+										@endforeach
+									</select>
+									</td>
 									<td>{{ $objItem->status }}</td>
 									<td>{{ $objItem->created_at->format('m/d/Y h:i:s A') }}</td>
 									<td>{{ $objItem->updated_at->format('m/d/Y h:i:s A') }}</td>
@@ -113,7 +130,7 @@
 								</tr>
 							@empty
 								<tr>
-									<td colspan="8" class='text-center'>
+									<td colspan="99" class='text-center'>
 										No invoice items.  <i style="color:red">Report to administrator!</i>
 									</td>
 								</tr>
@@ -214,7 +231,12 @@
 			$('#ItemTable tr:last').after('\
 				<tr name="ItemRow" ItemID="new">\
 					<td><input type="text" class="form-control" name="InvoiceItem[new][' + NewItemCount + '][Title]"></td>\
-					<td><input type="text" class="form-control" name="InvoiceItem[new][' + NewItemCount + '][Type]"></td>\
+					<td><select type="text" class="form-control" name="InvoiceItem[new][' + NewItemCount + '][Type]">\
+						@foreach(\App\Invoice::$tTypes as $Type)
+						<option value="{{ $Type }}">{{ $Type }}</option>\
+						@endforeach
+						</select>\
+					</td>\
 					<td>Pending Save</td>\
 					<td>N/A</td>\
 					<td>N/A</td>\

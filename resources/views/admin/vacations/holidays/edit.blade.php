@@ -23,6 +23,7 @@
 		<input type="hidden" value="{{ $objRequest->id }}" name="VacationID">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<input type="hidden" value="Holiday" name="Type">
+		<input type="hidden" value="{{ $ReturnTo }}" name="ReturnTo">
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="col-lg-4 col-lg-offset-1">

@@ -139,10 +139,13 @@
 					</li>
 				</ul>
 			</li>
+			--}}
+
+			@if($objLoggedInUser->HasPermission('View/Orders'))
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa {{ Config::get('constants.ICON_INVOICE') }} "></i> Orders <b class="caret"></b></a>
 				<ul class="dropdown-menu alert-dropdown">
-					<li>
+					{{--<li>
 						<a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
 					</li>
 					<li>
@@ -163,9 +166,24 @@
 					<li class="divider"></li>
 					<li>
 						<a href="#">View All</a>
+					</li>--}}
+					@if($objLoggedInUser->HasPermission('View/Orders'))
+					<li>
+						<a href="/admin/invoices/New">{{ $NewOrderCount }} <span class="label label-success pull-right">New</span></a>
 					</li>
+					<li>
+						<a href="/admin/invoices/Assigned">{{ $AssignedOrderCount }} <span class="label label-primary pull-right">Assigned</span></a>
+					</li>
+					<li>
+						<a href="/admin/invoices/Finalized">{{ $FinalizedOrderCount }} <span class="label label-danger pull-right">Finalized</span></a>
+					</li>
+					<li>
+						<a href="/admin/invoices">{{ $TotalOrderCount }}<span class="label label-warning pull-right">Total</span></a>
+					</li>
+					@endif
 				</ul>
-			</li>--}}
+			</li>
+			@endif
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ $objLoggedInUser->name  }} <b
 						class="caret"></b></a>
@@ -214,6 +232,27 @@
 					<a href="/admin/invoices"><i class="fa fa-fw {{ Config::get('constants.ICON_INVOICE') }}"></i> Orders</a>
 				</li>
 				@endif
+				{{--
+				@if($objLoggedInUser->HasPermission('View/AssignedOrders'))
+					<li
+						@if ($ActiveClass == 'Assigned Orders')
+						class="active"
+						@endif
+						>
+						<a href="/admin/invoices/Assigned"><i class="fa fa-fw {{ Config::get('constants.ICON_INVOICE') }}"></i>
+							Assigned Orders</a>
+					</li>
+				@endif
+				@if($objLoggedInUser->HasPermission('View/FinalizedOrders'))
+					<li
+						@if ($ActiveClass == 'Finalized Orders')
+						class="active"
+						@endif
+						>
+						<a href="/admin/invoices/Finalized"><i class="fa fa-fw {{ Config::get('constants.ICON_INVOICE') }}"></i> Finalized Orders</a>
+					</li>
+				@endif
+				--}}
 				@if($objLoggedInUser->HasPermission('View/Blog'))
 				<li
 					@if ($ActiveClass == 'Blog')

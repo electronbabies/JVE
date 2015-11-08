@@ -11,6 +11,9 @@ class Invoice extends Model
 	const STATUS_REVIEWED		= 'Reviewed';
 	const STATUS_FINALIZED		= 'Finalized';
 
+	// Not a db status, so do not include in array below.
+	const STATUS_ASSIGNED		= 'Assigned';
+
 	static public $tStatuses = [
 		self::STATUS_NEW,
 		self::STATUS_MODIFIED,
@@ -57,10 +60,26 @@ class Invoice extends Model
 	}
 
 	// Scopes
-	public function scopeUnhandled($query)
+	public function scopeInprogress($query)
+	{
+		return $query->where('status', '!=', static::STATUS_FINALIZED);
+	}
+
+	public function scopeFinalized($query)
+	{
+		return $query->where('status', '=', static::STATUS_FINALIZED);
+	}
+
+	public function scopeNew($query)
 	{
 		return $query->where('status', '=', static::STATUS_NEW);
 	}
+
+	public function scopeAssigned($query, $objUser)
+	{
+		return $query->where('assigned_to', '=', $objUser->id);
+	}
+
 
 	/**
 	 * Invoices (aka Orders) allowed to be viewed by user

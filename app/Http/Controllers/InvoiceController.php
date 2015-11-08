@@ -22,6 +22,7 @@ class InvoiceController extends AdminController
 			abort('404');
 
 		$tWarnings = [];
+
 		foreach($Input['InvoiceItem'] as $ID => $tItem) {
 			if($ID == 'new') {
 				foreach($tItem as $tNewItem) {
@@ -53,8 +54,7 @@ class InvoiceController extends AdminController
 
 		$objInvoice->first_name = Request::get('InvoiceFirstName');
 		$objInvoice->last_name = Request::get('InvoiceLastName');
-		// Not changeable currently.
-		//$objInvoice->type = Request::get('InvoiceType');
+		$objInvoice->type = Request::get('InvoiceType');
 		$objInvoice->email = Request::get('InvoiceEmail');
 		$objInvoice->phone = Request::get('InvoicePhone');
 		$objInvoice->company_name = Request::get('InvoiceCompany');
@@ -135,12 +135,29 @@ class InvoiceController extends AdminController
 		return view('admin.invoices.edit');
 	}
 
-	public function index()
+	public function index($Status = 'All')
 	{
 		if(!$this->objLoggedInUser->HasPermission('View/Orders'))
 			abort('404');
-		$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->get();
 
+		switch($Status) {
+			case \App\Invoice::STATUS_NEW:
+				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->new()->get();
+				break;
+			case \App\Invoice::STATUS_FINALIZED:
+				View::share('ActiveClass', 'Finalized Orders');
+				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->finalized()->get();
+				break;
+			case \App\Invoice::STATUS_ASSIGNED:
+				View::share('ActiveClass', 'Assigned Orders');
+				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->assigned($this->objLoggedInUser)->get();
+				break;
+			default:
+				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->inprogress()->get();
+				break;
+		}
+
+		View::share('Status', $Status);
 		View::share('tInvoices', $tInvoices);
 		return view('admin.invoices.index');
 	}

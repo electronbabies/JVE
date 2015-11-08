@@ -44,10 +44,11 @@ class VacationController extends AdminController
 		return view('admin.vacations.holidays.index');
 	}
 
-	public function holidays_edit($HolidayID)
+	public function holidays_edit($HolidayID, $ReturnTo = '')
 	{
 		View::share('ActiveClass', 'Holidays');
 		$objRequest = $HolidayID == 'new' ? new \App\VacationRequest : \App\VacationRequest::findOrFail($HolidayID);
+		View::share('ReturnTo', $ReturnTo);
 		View::share('objRequest', $objRequest);
 		return view('admin.vacations.holidays.edit');
 	}
