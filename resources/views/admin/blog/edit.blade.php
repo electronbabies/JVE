@@ -45,6 +45,12 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3 form-group">
+				<label>CSS</label>
+				<textarea class="form-control" name='css' rows=20 {{ $ReadOnly }}>{{ $objPost->css }}</textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset-3 form-group">
 				<label>Image</label><br />
 				@if ($objPost->image_filename)
 					<a href="/img/blog_images/{{ $objPost->image_filename }}" target="_blank"><img src="/img/blog_images/{{ $objPost->image_filename }}" class="blog_image"></a><br/>

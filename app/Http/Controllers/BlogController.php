@@ -118,6 +118,7 @@ class BlogController extends AdminController
 
 		$objPost->title = $Input['title'];
 		$objPost->entry = $Input['entry'];
+		$objPost->css = $Input['css'];
 		$objPost->save();
 
 		$Path = Request::get('submit') == 'Save' ? '' : "/edit/{$objPost->id}";
