@@ -1,4 +1,6 @@
-@extends('app') @section('extra_header')
+@extends('app')
+
+@section('extra_header')
 <style type="text/css">
   ul {
     padding: 0 0 0 0;
@@ -32,8 +34,8 @@
 	  width: 320px;
 	  height: 240px;
 	  opacity: 0.75;
-	background-image: url('/img/sold.png');
-	background-repeat: no-repeat;
+		background-image: url('/img/sold.png');
+		background-repeat: no-repeat;
   }
 
   .image_stat {
@@ -42,73 +44,97 @@
   }
 </style>
 {{--http://i.istockimg.com/file_thumbview_approve/57837952/6/stock-illustration-57837952-red-vector-grunge-stamp-sold.jpg--}}
+
 <script type="text/javascript">
-  $(document).on('click', 'a.controls', function() {
-    //this is where we add our logic
-    var index = $(this).attr('href');
-    var src = $('ul.row li:nth-child(' + index + ') img').attr('src');
-    $('.modal-body img').attr('src', src);
+	$(document).ready(function () {
 
-    var newPrevIndex = parseInt(index) - 1;
-    var newNextIndex = parseInt(newPrevIndex) + 2;
+		loadGallery(true, 'a.thumbnail');
 
-    if ($(this).hasClass('previous')) {
-      $(this).attr('href', newPrevIndex);
-      $('a.next').attr('href', newNextIndex);
-    } else {
-      $(this).attr('href', newNextIndex);
-      $('a.previous').attr('href', newPrevIndex);
-    }
+		//This function disables buttons when needed
+		function disableButtons(counter_max, counter_current) {
+			$('#show-previous-image, #show-next-image').show();
+			if (counter_max == counter_current) {
+				$('#show-next-image').hide();
+			} else if (counter_current == 1) {
+				$('#show-previous-image').hide();
+			}
+		}
 
-    var total = $('ul.row li').length + 1;
-    //hide next button
-    if (total === newNextIndex) {
-      $('a.next').hide();
-    } else {
-      $('a.next').show()
-    }
-    //hide previous button
-    if (newPrevIndex === 0) {
-      $('a.previous').hide();
-    } else {
-      $('a.previous').show()
-    }
+		/**
+		 *
+		 * @param setIDs        Sets IDs when DOM is loaded. If using a PHP counter, set to false.
+		 * @param setClickAttr  Sets the attribute for the click handler.
+		 */
 
-    return false;
-  });
+		function loadGallery(setIDs, setClickAttr) {
+			var current_image,
+				selector,
+				counter = 0;
 
-  $(document).ready(function() {
-    $('img.pop').on('click', function() {
-      var src = $(this).attr('src');
-      var img = '<img src="' + src + '" class="img-responsive center-block"/>';
+			$('#show-next-image, #show-previous-image').click(function () {
+				if ($(this).attr('id') == 'show-previous-image') {
+					current_image--;
+				} else {
+					current_image++;
+				}
 
-      //Start of new code
-      var index = $(this).parent('li').index();
-      var html = '';
-      html += img;
-      html += '<div style="height:25px;clear:both;display:block;">';
-      html += '<a class="controls next" href="' + (index + 2) + '">next &raquo;</a>';
-      html += '<a class="controls previous" href="' + (index) + '">&laquo; prev</a>';
-      html += '</div>';
-      //End of new code
+				selector = $('[data-image-id="' + current_image + '"]');
+				updateGallery(selector);
+			});
 
-      $('#Popup').modal();
-      $('#Popup').on('shown.bs.modal', function() {
-        $('#Popup .modal-body').html(html);
-      });
-      $('#Popup').on('hidden.bs.modal', function() {
-        $('#Popup .modal-body').html('');
-      });
+			function updateGallery(selector) {
+				var $sel = selector;
+				current_image = $sel.data('image-id');
+				$('#image-gallery-caption').text($sel.data('caption'));
+				$('#image-gallery-title').text($sel.data('title'));
+				$('#image-gallery-image').attr('src', $sel.data('image'));
+				disableButtons(counter, $sel.data('image-id'));
+			}
 
-      $('#Popup').on('shown.bs.modal', function() {
-        $('#myModal .modal-body').html(html);
-        //this will hide or show the right links:
-        $('a.controls').trigger('click');
-      })
-    });
-  })
+			if (setIDs == true) {
+				$('[data-image-id]').each(function () {
+					counter++;
+					$(this).attr('data-image-id', counter);
+				});
+			}
+			$(setClickAttr).on('click', function () {
+				updateGallery($(this));
+			});
+		}
+	});
 </script>
-@stop @section('content')
+@stop
+
+
+@section('content')
+	<div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" style="background-image: url('/img/cement-texture.gif'); border-radius: 8px;">
+				<div class="modal-header" style="border-bottom: 0px;">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+					<h3 class="modal-title text-center" style="color:white;"id="image-gallery-title"></h3>
+				</div>
+				<div class="modal-body">
+					<img id="image-gallery-image" class="img-responsive" src="" style="border-radius: 8px;">
+				</div>
+				<div class="modal-footer" style="border-top: 0px;">
+
+					<div class="col-md-2">
+						<button type="button" style="" class="btn btn-primary" id="show-previous-image">Prev</button>
+					</div>
+
+					<div class="col-md-8 text-justify" id="image-gallery-caption">
+					</div>
+
+					<div class="col-md-2">
+						<button type="button" id="show-next-image" style="" class="btn btn-primary">Next</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 <section class="{{ $PageTitleSlug }} wrap {{ $PageTitleSlug }}-bg">
   <div class="container wrap-xl" style="padding-top: 250px">
     <div class="row">
@@ -132,11 +158,13 @@
 
         <div class="">
           	{{--<img class="pop img-thumbnail center-block" src="/img/gallery_images/{{ $objImage->image_filename }}" />--}}
+			<a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="{{ $objImage->title }}" data-caption="" data-image="/img/gallery_images/{{ $objImage->image_filename}}" data-target="#image-gallery">
 			<div class="center-block" style="background-image: url('/img/gallery_images/{{ $objImage->image_filename }}'); width:320px; height: 240px; background-size: 100%; background-repeat: no-repeat;">
 				@if($objImage->sold)
 					<div class="overlaypic"></div>
 				@endif
 			</div>
+			</a>
 		</div>
 		<span style="padding: 10px; display: block">
 
