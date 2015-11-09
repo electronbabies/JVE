@@ -9,7 +9,7 @@
 						<div class="col-sm-12 text-center">
 							<h2 class="text-center mg-sm">Contact Us</h2>
 
-							<h3 class="text-center mg-lg"><span>Contact us today about your parts quote</span></h3>
+							<h3 class="text-center mg-lg"><span>How may we help?</span></h3>
 						</div>
 					</div>
 				</div>
@@ -34,7 +34,6 @@
 					<form action="/forms/store" method="post">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="RequestType" value="Contact">
-
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="row voffset-sm">

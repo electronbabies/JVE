@@ -11,7 +11,7 @@
               <li> <a href="/parts">Parts</a> </li>
               <li> <a href="/sales">Sales</a> </li>
               <li> <a href="/rentals">Rentals</a> </li>
-              <li> <a href="/contact">Contact</a> </li>
+              <li> <a href="/forms/contact">Contact</a> </li>
             </ul>
           </article>
         </div>
@@ -24,12 +24,12 @@
               <li> <a href="#"> {!! $objPost->title !!} </a> @empty @endforelse
             </ul> --}}
             <ul>
-              <li> <a href="#"> Privacy Policy </a>
+              <li> <a href="/privacy"> Privacy Policy </a>
               </li>
-              <li> <a href="#"> Terms &amp; Conditions </a>
+              {{--<li> <a href="#"> Terms &amp; Conditions </a>
               </li>
               <li> <a href="#"> Careers </a>
-              </li>
+              </li>--}}
             </ul>
           </article>
         </div>

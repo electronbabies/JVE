@@ -293,6 +293,10 @@ color: #333333;
     background-image: url('/img/parts-quote.jpg');
 }
 
+.privacy-bg {
+    background-image: url('/img/home.jpg');
+}
+
 .contact-us-bg {
     background-image: url('/img/home.jpg');
 }
