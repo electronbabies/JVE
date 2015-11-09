@@ -117,7 +117,7 @@ img.media-object {
 }
 .contacts {
 	background-color: transparent;
-	padding: 40px 0 60px;
+	padding: 0px 0 20px;
 }
 .panel-heading, .panel-footer {
 	background-color: #438dfc;
@@ -311,3 +311,8 @@ article.contact-item {
     padding: 20px;
     margin-bottom: 90px;
 }
+
+.checkbox label {
+    line-height: 1.6 !important;
+}
+

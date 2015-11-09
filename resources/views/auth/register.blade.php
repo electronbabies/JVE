@@ -1,11 +1,29 @@
 @extends('app')
+@section('extra_header')
+	<style>
+		.fullstyle, header, nav#nav {
+			display: none !important;
+		}
+
+		label {
+			color: #000000 !important;
+		}
+
+	</style>
+@stop
 
 @section('content')
-<div class="container-fluid">
+<div class="container wrap-md">
+	<div class="row voffset">
+		<div class="col-sm-12">
+			<h2 class=" text-center tc-white mg-sm"> Register Account </h2>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
+			<div class="row voffset-md">
 			<div class="panel panel-default">
-				<div class="panel-heading">Register</div>
+				<div class="panel-heading"><img alt="logo" src="/img/logo-color2.png" class="center-block"></div>
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
@@ -59,7 +77,14 @@
 					</form>
 				</div>
 			</div>
+			</div>
 		</div>
 	</div>
 </div>
-@endsection
+@stop
+
+<style>
+	.fullstyle, header, nav#nav {
+		display: none !important;
+	}
+</style>

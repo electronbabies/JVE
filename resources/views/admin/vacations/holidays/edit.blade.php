@@ -14,7 +14,7 @@
 					<i class="fa {{ Config::get('constants.ICON_VACATION') }}"></i><a href="/admin/vacations"> Vacations</a>
 				</li>
 				<li class="active">
-					<i class="fa {{ Config::get('constants.ICON_EDIT') }}"></i> New Vacation Request
+					<i class="fa {{ Config::get('constants.ICON_EDIT') }}"></i> @if($objRequest->id) Edit @else New @endif Holiday
 				</li>
 			</ol>
 		</div>

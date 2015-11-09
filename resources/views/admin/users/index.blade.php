@@ -1,4 +1,12 @@
 @extends('admin.admin-app')
+@section('extra_header')
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function () {
+			setFilterGrid("UsersTable");
+		});
+	</script>
+@stop
+
 @section('content')
 <div class="row">
 	<div class="col-lg-12">
@@ -20,7 +28,7 @@
 	<div class="col-lg-12">
 		<div class="col-lg-8 col-lg-offset-2">
 			<div class="table-responsive">
-				<table class="table table-bordered table-hover table-striped" @if(count($tUsers)) data-toggle="table" @endif>
+				<table id="UsersTable" class="table table-bordered table-hover table-striped" @if(count($tUsers)) data-toggle="table" @endif>
 					<thead>
 					<tr>
 						<th data-sortable="true">Name</th>
@@ -32,7 +40,7 @@
 					<tbody>
 					@forelse ($tUsers as $objUser)
 						<tr>
-							<td><a sort="{{ $objUser->name }}" href='/admin/users/edit/{{ $objUser->id }}'>{{ $objUser->name }}</a></td>
+							<td><a sort="{{ $objUser->name }}" href='/admin/users/edit/{{ $objUser->id }}'>{{ $objUser->name }}</a><objectrow href='/admin/users/edit/{{ $objUser->id }}' /></td>
 							<td><a href="mailto:{{ $objUser->email }}">{{ $objUser->email }}</a></td>
 							<td>{{ $objUser->role }}
 							<td>{{ count($objUser->Invoices) }}</td>

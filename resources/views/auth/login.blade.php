@@ -1,10 +1,19 @@
-{{-- @extends('app') --}}
+@extends('app')
+@section('extra_header')
+	<style>
+		.fullstyle, header, nav#nav {
+			display: none !important;
+		}
 
-{{-- @section('content') --}}
+		label {
+			color: #333 !important;
+		}
 
+	</style>
+@stop
 
-
-<div class="container wrap-md">
+@section('content')
+	<div class="container wrap-md">
         <div class="row voffset">
           <div class="col-sm-12">
             <h2 class=" text-center tc-white mg-sm"> Login </h2>
@@ -68,7 +77,4 @@
           </div>
         </div>
       </div>
-<style>
-.fullstyle, header, nav#nav { display: none !important;  }
-</style>
-{{-- @endsection --}}
+@stop

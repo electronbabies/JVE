@@ -25,4 +25,5 @@ return [
 	'ICON_VACATION'				=> 'fa-suitcase',
 	'ICON_HOLIDAYS'				=> 'fa-tree',
 	'ICON_PERMISSIONS' 			=> 'fa-key',
+	'ICON_DOCUMENTS'			=> 'fa-file-word-o',
 ];

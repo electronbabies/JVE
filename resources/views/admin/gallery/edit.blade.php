@@ -107,15 +107,20 @@
 		</div>
 		@if($objLoggedInUser->HasPermission("Edit/Gallery"))
 		<div class="row">
-			<div class="col-lg-5 col-lg-offset-5 form-group">
-				<div class="col-lg-2 form-group">
-					<button type="submit" class="btn btn-lg btn-primary center-block" name='submit' value='Apply'>Apply</button>
-				</div>
-				<div class="col-lg-2 form-group">
-					<button type="submit" class="btn btn-lg btn-primary center-block" name='submit' value='Save'>Save</button>
+			<div class="col-lg-12 voffset-md">
+				<div class="col-lg-12 col-sm-6 col-sm-offset-3 form-group">
+					<div class="col-lg-3 col-xs-6">
+						<button type="submit" name='Submit' value='Apply' class="btn btn-lg btn-primary center-block">
+							Apply
+						</button>
+					</div>
+					<div class="col-lg-2 col-xs-6">
+						<button type="submit" name='Submit' value='Save' class="btn btn-lg btn-primary center-block">
+							Save
+						</button>
+					</div>
 				</div>
 			</div>
-
 		</div>
 		@endif
 	</form>

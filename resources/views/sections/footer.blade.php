@@ -1,5 +1,4 @@
 <footer class="fullstyle">
-
   <section class="contacts">
     <div class="container">
       <div class="row">
@@ -11,6 +10,7 @@
               <li> <a href="/parts">Parts</a> </li>
               <li> <a href="/sales">Sales</a> </li>
               <li> <a href="/rentals">Rentals</a> </li>
+			  <li><a href="/gallery">Gallery</a></li>
               <li> <a href="/forms/contact">Contact</a> </li>
             </ul>
           </article>
@@ -41,14 +41,12 @@
               <li> <a href="#"> {!! $objPost->title !!} </a> @empty @endforelse
             </ul> --}}
             <ul>
-              <li> <a href="#"> Laredo </a>
-              </li>
-              <li> <a href="#"> Edinburg </a>
-              </li>
-              <li> <a href="#"> Brownsville </a>
-              </li>
-              <li> <a href="#"> Reynosa </a>
-              </li>
+				<li role="presentation" class="">
+					<a data-toggle="tab" role="tab" aria-controls="Edinburg" href="#Edinburg" aria-expanded="true">Edinburg</a></li>
+				<li role="presentation" class="">
+					<a aria-expanded="false" href="#Laredo" aria-controls="Laredo" role="tab" data-toggle="tab">Laredo</a></li>
+				<li role="presentation" class="">
+					<a href="#Reynosa" aria-controls="Reynosa" role="tab" data-toggle="tab" aria-expanded="false">Reynosa</a></li>
             </ul>
           </article>
         </div>
@@ -88,27 +86,9 @@
             <li><a href="https://www.facebook.com/JV-Equipment-Inc-100276043359234/" target="_blank"><i class="fa fa-facebook fa-lg"></i></a> </li>
             <li><a href="https://twitter.com/jvequipment" target="_blank"><i class="fa fa-twitter fa-lg"></i></a> </li>
             <li><a href="https://www.youtube.com/user/jvequipment" target="_blank"><i class="fa fa-youtube-play fa-lg"></i></a> </li>
-            {{--
-            <li><a href="#fakelink"><i class="fa fa-google-plus fa-lg"></i></a> </li>
-            <li><a href="#fakelink"><i class="fa fa-instagram fa-lg"></i></a> </li>--}}
           </ul>
         </div>
       </div>
     </div>
-  </section>
+  </section>		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
 </footer>
-
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en'
-    }, 'google_translate_element');
-  }
-</script>
-
-<style>
-	div#google_translate_element select {
-		color: black !important;
-	}
-</style>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​

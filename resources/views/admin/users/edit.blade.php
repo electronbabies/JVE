@@ -1,4 +1,13 @@
 @extends('admin.admin-app')
+@section('extra_header')
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function () {
+			if ($('#OrdersTable tr').length > 2)
+				setFilterGrid("OrdersTable");
+		});
+	</script>
+@stop
+
 @section('content')
 	<div class="row">
 		<div class="col-lg-12">
@@ -125,11 +134,9 @@
 
 				<div class="col-lg-10 col-lg-offset-1">
 					<div class="table-responsive">
-						<table class="table table-bordered table-hover table-striped" data-toggle="table">
+						<table id="OrdersTable" class="table table-bordered table-hover table-striped" data-toggle="table">
 							<thead>
 							<tr>
-								@if($objLoggedInUser->HasPermission('Edit/Orders'))
-									<th>Edit</th>@endif
 								<th data-sortable="true">Type</th>
 								<th data-sortable="true">Name</th>
 								<th data-sortable="true">Email Address</th>
@@ -143,16 +150,11 @@
 							<tbody>
 							@forelse ($tInvoices as $objInvoice)
 								<tr>
-									@if($objLoggedInUser->HasPermission("Edit/{$objInvoice->type}"))
-										<td><a href='/admin/invoices/edit/{{ $objInvoice->id }}'>
-												<button type="button" name='EditInvoice' class='btn btn-default center-block' style='width:100%' InvoiceID="{{ $objInvoice->id }}">
-													Edit
-												</button>
-											</a></td>
-									@else
-										<td></td>
-									@endif
-									<td>{{ $objInvoice->type }}</td>
+									<td>{{ $objInvoice->type }}
+										@if($objLoggedInUser->HasPermission("Edit/{$objInvoice->type}"))
+										<objectrow href='/admin/invoices/edit/{{ $objInvoice->id }}' />
+										@endif
+									</td>
 									<td>{{--<a href='/admin/invoices/edit/{{ $objInvoice->id }}'>--}}{{ $objInvoice->first_name }} {{ $objInvoice->last_name }}</td>
 									<td><a href="mailto:{{ $objInvoice->email }}">{{ $objInvoice->email }}</a></td>
 									<td>{{ $objInvoice->phone }}</td>

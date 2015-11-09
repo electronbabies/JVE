@@ -96,7 +96,7 @@
 			<div class="col-lg-12">
 				<div class="col-lg-10 col-lg-offset-1">
 					<div class="table-responsive">
-						<table class="table table-bordered table-hover table-striped" id="ItemTable">
+						<table class="table table-bordered table-striped" id="ItemTable">
 							<thead>
 							<tr>
 								<th>Title</th>

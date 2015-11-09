@@ -3,17 +3,20 @@ $(document).ready(function() {
   $('.scroll').click(function(e) {
     var off = -79;
     var target = this.hash;
-    if ($(target).offset().top == 0) {
-      off = 0;
-    }
-    $('html,body').scrollTo(target, 800, {
-      offset: off,
-      easing: 'easeInOutExpo'
-    });
-    e.preventDefault();
-    //  ---- dissapearing menu on click
-    if ($('.navbar-collapse').hasClass('in')) {
-      $('.navbar-collapse').removeClass('in').addClass('collapse');
+    if(target) {
+        if ($(target).offset().top == 0) {
+            off = 0;
+        }
+
+        $('html,body').scrollTo(target, 800, {
+            offset: off,
+            easing: 'easeInOutExpo'
+        });
+        e.preventDefault();
+        //  ---- dissapearing menu on click
+        if ($('.navbar-collapse').hasClass('in')) {
+            $('.navbar-collapse').removeClass('in').addClass('collapse');
+        }
     }
   });
 

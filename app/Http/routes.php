@@ -90,6 +90,13 @@ Route::get('admin/gallery/edit/{id}', 'GalleryController@edit');
 Route::get('admin/gallery/delete/{id}', 'GalleryController@delete');
 Route::post('admin/gallery/store/', 'GalleryController@store');
 
+// Admin Documents
+Route::get('admin/documents', 'DocumentController@index');
+Route::get('admin/documents/edit/{id}', 'DocumentController@edit');
+Route::get('admin/documents/delete/{id}', 'DocumentController@delete');
+Route::get('admin/documents/document_view/{id}', 'DocumentController@document_view');
+Route::post('admin/documents/store/', 'DocumentController@store');
+
 // Admin Calendar
 Route::get('admin/calendar', 'CalendarController@index');
 Route::get('admin/calendar/events', 'CalendarController@events');

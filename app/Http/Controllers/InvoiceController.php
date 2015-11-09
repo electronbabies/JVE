@@ -150,6 +150,9 @@ class InvoiceController extends AdminController
 			case \App\Invoice::STATUS_ASSIGNED:
 				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->assigned($this->objLoggedInUser)->orderby('created_at', 'desc')->get();
 				break;
+			case \App\Invoice::STATUS_REVIEWED:
+				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->reviewed()->orderby('created_at', 'desc')->get();
+				break;
 			case \App\Invoice::TYPE_CONTACT:
 				$tInvoices = \App\Invoice::perminvoices($this->objLoggedInUser)->contact()->orderby('created_at', 'desc')->get();
 				break;

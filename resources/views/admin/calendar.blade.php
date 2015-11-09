@@ -3,6 +3,34 @@
 @section('extra_header')
 	{{-- <link rel="stylesheet" href="/css/bootstrap-responsive.css">--}}
 	<link rel="stylesheet" href="/css/calendar.css">
+
+	<style type="text/css">
+		.full-circle {
+			background-color: #c06;
+			height: 15px;
+			-moz-border-radius: 75px;
+			-webkit-border-radius: 75px;
+			width: 15px;
+			margin-top: 2px;
+		}
+		.holiday {
+			background-color: #800080 !important;
+		}
+
+		.new-client {
+			background-color: #1e90ff !important;
+		}
+
+		.pending-vacation {
+			background-color: #e3bc08 !important;
+		}
+
+		.approved-vacation {
+			background-color: #006400 !important;
+		}
+
+
+	</style>
 @stop
 
 @section('content')
@@ -53,6 +81,42 @@
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-2">
 			<div id="calendar"></div>
+		</div>
+		<div class="col-lg-2">
+			<h2>Key:</h2>
+			<div class="row">
+				<div class="col-lg-2">
+					<p class="full-circle holiday"></p>
+				</div>
+				<div class="col-lg-9">
+					Holiday
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-2">
+					<p class="full-circle new-client"></p>
+				</div>
+				<div class="col-lg-9">
+					New Client
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-2">
+					<p class="full-circle pending-vacation"></p>
+				</div>
+				<div class="col-lg-9">
+					Pending Vacation
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-2">
+					<p class="full-circle approved-vacation"></p>
+				</div>
+				<div class="col-lg-9">
+					Approved Vacation
+				</div>
+			</div>
+
 		</div>
 	</div>
 

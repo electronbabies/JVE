@@ -31,7 +31,9 @@ class AdminController extends Controller
 		$FinalizedOrderCount = \App\Invoice::perminvoices($this->objLoggedInUser)->finalized()->count();
 		$TotalOrderCount = \App\Invoice::perminvoices($this->objLoggedInUser)->count();
 		$ContactUsCount = \App\Invoice::perminvoices($this->objLoggedInUser)->contact()->new()->count();
+		$ReviewedCount = \App\Invoice::perminvoices($this->objLoggedInUser)->reviewed()->count();
 
+		View::share('ReviewedCount', $ReviewedCount);
 		View::share('ContactUsCount', $ContactUsCount);
 		View::share('NewOrderCount', $NewOrderCount);
 		View::share('AssignedOrderCount', $AssignedOrderCount);

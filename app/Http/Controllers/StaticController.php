@@ -148,7 +148,7 @@ class StaticController extends Controller
 		View::share('val3', 'Fast');
 		View::share('valSub3', 'Most parts delivered same day');
 		View::share('val4', 'Choice');
-		View::share('valSub4', 'OEM &amp after market parts for all brands');
+		View::share('valSub4', 'OEM &amp; after market parts for all brands');
 		View::share('val5', 'Availability');
 		View::share('valSub5', 'High percetage availbled');
 		View::share('val6', 'Stock');

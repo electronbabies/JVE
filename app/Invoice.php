@@ -77,6 +77,11 @@ class Invoice extends Model
 		return $query->where('status', '=', static::STATUS_NEW);
 	}
 
+	public function scopeReviewed($query)
+	{
+		return $query->where('status', '=', static::STATUS_REVIEWED);
+	}
+
 	public function scopeAssigned($query, $objUser)
 	{
 		return $query->where('assigned_to', '=', $objUser->id);

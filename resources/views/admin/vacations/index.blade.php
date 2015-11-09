@@ -1,5 +1,12 @@
 @extends('admin.admin-app')
-
+@section('extra_header')
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function () {
+			if ($('#VacationTable tr').length > 2)
+				setFilterGrid("VacationTable");
+		});
+	</script>
+@stop
 @section('content')
 	<div class="row">
 		<div class="col-lg-12">
@@ -28,7 +35,7 @@
 		<div class="col-xs-12">
 			<div class="table-responsive">
 			<label></label>
-				<table class="table table-bordered table-hover table-striped" @if(count($tVacationRequests)) data-toggle="table" @endif >
+				<table id="VacationTable" class="table table-bordered table-hover table-striped" @if(count($tVacationRequests)) data-toggle="table" @endif >
 					<thead>
 						<tr>
 							<th data-sortable="true">Users</th>
@@ -43,7 +50,7 @@
 					<tbody>
 					@forelse ($tVacationRequests as $objRequest)
 						<tr>
-							<td><a sort="{{ $objRequest->User->name }}" href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->User->name }}</a></td>
+							<td><a sort="{{ $objRequest->User->name }}" href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->User->name }}</a><objectrow href='/admin/vacations/edit/{{ $objRequest->id }}' /></td>
 							<td><a sort="{{ $objRequest->from->format('Y/m/d H:i:s') }}" href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->from->format('m/d/Y h:i:s A') }}</a></td>
 							<td><a sort="{{ $objRequest->to->format('Y/m/d H:i:s') }}" href='/admin/vacations/edit/{{ $objRequest->id }}'>{{ $objRequest->to->format('m/d/Y h:i:s A') }}</a></td>
 

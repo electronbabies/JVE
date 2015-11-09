@@ -16,11 +16,26 @@
 	{!! Html::script('js/bootstrap.js')!!}
 	{!! Html::script('js/custom.js') !!}
 	@yield('extra_header')
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+				pageLanguage: 'en'
+			}, 'google_translate_element');
+		}
+	</script>
+
+	<style>
+		div#google_translate_element select {
+			color: black !important;
+		}
+	</style>
+
 	<title>J.V. Equipment - {{ $PageTitle }}</title>
 </head>
 <body>
 	@include('sections.header')
 	@yield('content')
-	@include('sections.footer') 
+	@include('sections.footer')
 </body>
 </html>

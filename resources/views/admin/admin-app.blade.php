@@ -17,6 +17,9 @@
 	{!! Html::script('/js/moment.js') !!}
 	{!! Html::script('/js/bootstrap-datetimepicker.js') !!}
 
+	{!! Html::script('/js/table_filter/tablefilter.js') !!}
+
+
 	{{--{!! Html::script('js/jquery.tablesorter.min.js') !!}--}}
 
 		<!-- Latest compiled and minified CSS -->
@@ -54,6 +57,12 @@
 			$("img").error(function () {
 				$(this).attr('src', '/img/image-not-found.gif');
 			});
+			$("tr").click(function () {
+				var URL = $(this).find('td:first > objectrow').attr('href');
+
+				if(URL)
+					window.document.location = URL;
+			});
 		});
 	</script>
 
@@ -63,7 +72,7 @@
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -175,6 +184,10 @@
 						<a href="/admin/invoices/Assigned">{{ $AssignedOrderCount }} <span class="label label-primary pull-right">Assigned</span></a>
 					</li>
 					<li>
+						<a href="/admin/invoices/Reviewed">{{ $ReviewedCount }}
+							<span class="label label-default pull-right">Reviewed</span></a>
+					</li>
+					<li>
 						<a href="/admin/invoices/Finalized">{{ $FinalizedOrderCount }} <span class="label label-danger pull-right">Finalized</span></a>
 					</li>
 					<li>
@@ -274,6 +287,16 @@
 					>
 					<a href="/admin/gallery"><i class="fa fa-fw {{ Config::get('constants.ICON_GALLERY') }}"></i> Gallery</a>
 				</li>
+				@endif
+				@if($objLoggedInUser->HasPermission('View/Documents'))
+					<li
+						@if ($ActiveClass == 'Documents')
+						class="active"
+						@endif
+						>
+						<a href="/admin/documents"><i class="fa fa-fw {{ Config::get('constants.ICON_DOCUMENTS') }}"></i>
+							Documents</a>
+					</li>
 				@endif
 
 				<li

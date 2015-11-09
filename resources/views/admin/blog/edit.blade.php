@@ -61,22 +61,20 @@
 			</div>
 		</div>
 		@endif
-		<div class="row">
-			<div class="col-lg-6 col-lg-offset-3 form-group">
-				<label>Image Offset</label><br/>
-				<div style="float:left; padding-top: 6px; padding-right: 5px; padding-bottom: 15px;" >X </div> <input class="form-control" id='x_offset' name='x_offset' value="{{ $objPost->x_offset }}" style="width: 50px;" maxlength=3 placeholder="  0" {{ $ReadOnly }}>
-				<div class="clearfix"></div>
-				<div style="float:left; padding-top: 6px; padding-right: 5px;">Y</div> <input class="form-control" id='y_offset' name='y_offset' value="{{ $objPost->y_offset }}" style="width: 50px" maxlength=3 placeholder="  0" {{ $ReadOnly }}>
-			</div>
-		</div>
 		@if($objLoggedInUser->HasPermission("Edit/Blog"))
 		<div class="row">
-			<div class="col-lg-6 col-lg-offset-5 form-group">
-				<div class="col-lg-2">
-					<button type="submit" name="submit" value="Apply" class="btn btn-lg btn-primary center-block">Apply</button>
-				</div>
-				<div class="col-lg-2">
-					<button type="submit" name="submit" value="Save" class="btn btn-lg btn-primary center-block">Save</button>
+			<div class="col-lg-12 voffset-md">
+				<div class="col-lg-12 col-sm-6 col-sm-offset-3 form-group">
+					<div class="col-lg-3 col-xs-6">
+						<button type="submit" name='Submit' value='Apply' class="btn btn-lg btn-primary center-block">
+							Apply
+						</button>
+					</div>
+					<div class="col-lg-2 col-xs-6">
+						<button type="submit" name='Submit' value='Save' class="btn btn-lg btn-primary center-block">
+							Save
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

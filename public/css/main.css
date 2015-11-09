@@ -1353,13 +1353,7 @@ label
     opacity: .1;
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 }
-.contacts
-{
-    padding: 40px 0 60px;
 
-    border-top: medium none;
-    background-color: transparent;
-}
 .contacts h5
 {
     margin-bottom: 25px;
@@ -7589,7 +7583,7 @@ h1
 }
 .wrap-md
 {
-    padding: 50px;
+    padding: 30px;
 }
 .wrap-sm
 {
@@ -8208,6 +8202,9 @@ iframe
 }
 @media (max-width: 767px)
 {
+    .voffset {
+        margin-top: 0px;
+    }
     .page-container
     {
         position: relative;

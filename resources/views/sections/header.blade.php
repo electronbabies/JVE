@@ -1,6 +1,6 @@
 <header class="navbar-fixed-top">
 
-  <nav role="navigation" class="navbar navbar-default navbar-fixed-top navmobile" id="nav">
+  <nav class="navbar navbar-default navbar-fixed-top navmobile" id="nav">
 	  @include('sections.userbar')
     <div class="container relative-nav-container">
       <a data-target="#navbar-collapse" data-toggle="collapse" class="toggle-button visible-xs-block"> <i class="fa fa-navicon"></i> </a>
