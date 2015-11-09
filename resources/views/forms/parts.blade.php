@@ -1,26 +1,25 @@
 @extends('app')
 
 @section('content')
+<section class="parts-quote wrap parts-quote-bg">
+  <div class="container wrap-xl" style="padding: 150px;padding-bottom: 0px;">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <h2 class="text-center mg-sm">Parts Quote</h2>
+            <h3 class="text-center mg-lg"> <span>Contact us today about your parts quote</span> </h3>  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-	<div class="wrap tc-white bg-repeat d-wrap">
+
+	<div class="wrap bg-repeat ">
 		<div class="container wrap-md">
 			<div class="row">
 				<div class="col-sm-12">
-					<h6 class="text-center tc-white-2 mg-md">
-						<span class="fa fa-plug icon icon-book icon-gears icon-magnifying-glass icon-md"></span>
-					</h6>
-
-					<h2 class=" text-center tc-white mg-sm">
-						Contact Us
-					</h2>
-
-					<h3 class="text-center mg-lg">
-						<span>Parts Department</span>
-					</h3>
-
-					<div class="divider-h">
-						<span class="divider"></span>
-					</div>
 					<form action="/forms/store" method="post">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="RequestType" value="Parts">
@@ -28,12 +27,6 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="row voffset-sm">
-									<div class="col-sm-2"></div>
-									<div class="col-sm-8">
-										<div class="row">
-											<div class="col-sm-12">
-											</div>
-										</div>
 										<div class="center">
 											<div class="row">
 												<div class="col-sm-6">
@@ -110,16 +103,12 @@
 									</div>
 								</div>
 							</div>
+						</form>
 						</div>
 				</div>
 			</div>
-			</form>
-			<div class="divider-h">
-				<span class="divider"></span>
-			</div>
 		</div>
-	</div>
 
-	@include('sections.locations', ['BGColor' => Config::get('constants.COLOR_DARK_BLUE')] )
+	@include('sections.locations')
 
 @stop

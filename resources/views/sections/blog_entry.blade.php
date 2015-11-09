@@ -1,8 +1,7 @@
 <section class="blog" id="blog">
   <div class="container">
     {{-- <div class="row"> --}}
-      <div class="col-sm-12">
-        <h6 class="text-center white mg-md"> <span style="color: #ffffff; padding-top: 50px" class="fa fa-newspaper-o icon icon-book icon-gears icon-magnifying-glass icon-md"></span> </h6>
+      <div class="col-sm-12 wrap-md">
         <h2 class="text-center mg-sm">News &amp; Latest Information </h2>
         <h3 class="text-center mg-lg "><span style="">Company and Industry News</span> </h3>
       </div>

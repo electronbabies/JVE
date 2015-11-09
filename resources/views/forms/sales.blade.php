@@ -3,37 +3,39 @@
 @section('extra_header')
 	{!! Html::style('css/ForkliftBuilder.css') !!}
 @stop
-
 @section('content')
+
+<section class="parts-quote wrap parts-quote-bg">
+  <div class="container wrap-xl" style="padding: 150px;padding-bottom: 0px;">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <h2 class="text-center mg-sm">Rental &amp; Sales Quote</h2>
+            <h3 class="text-center mg-lg"> <span>Contact us today about your sales or rental quote</span> </h3>  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+	<div class="wrap bg-repeat ">
+		<div class="container wrap-md">
+			{{-- <div id="ForkliftBuilder">
+				<div class='ForkliftPart ForkliftSilhouette'></div>
+			</div> --}}
+			<div class="row">
+				<div class="col-sm-12">
 <form action="/forms/store" method="post">
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<input type="hidden" name="RequestType" value="{{ $RequestType }}">
-	<div class="wrap tc-white bg-repeat d-wrap" id="wrap-22">
-		<div class="container wrap-md">
-			<div class="row">
-				<div class="col-sm-12">
-					<h6 class="text-center tc-white-2 mg-md">
-						<span class="fa fa-plug icon icon-book icon-gears icon-magnifying-glass icon-md"></span>
-					</h6>
-
-					<h2 class=" text-center tc-white mg-sm">
-						Contact Us
-					</h2>
-
-					<h3 class="text-center mg-lg">
-						<span>{{ $RequestType }} Department</span>
-					</h3>
-
-					<div class="divider-h">
-						<span class="divider"></span>
-					</div>
-
 					<!-- Begin known brand form -->
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="row voffset-sm">
 								<div class="col-sm-2"></div>
-								<div class="col-sm-8">
+								<div>
 									<div class="row">
 										<div class="col-sm-12"></div>
 									</div>
@@ -221,24 +223,13 @@
 						</div>
 					</div>
 					<!-- End known brand form -->
-				</div>
-			</div>
-			<div id="ForkliftBuilder">
-				<div class='ForkliftPart ForkliftSilhouette'></div>
-			</div>
-
-			<div class="divider-h">
-				<span class="divider"></span>
-			</div>
 		</div>
 	</div>
-</form>
-		<!-- ScrollToTop Button -->
-	<a class="wrap-button btn btn-d scrollToTop" onclick="scrollToTarget('1')"><span
-			class="fa fa-chevron-up"></span></a>
-	<!-- ScrollToTop Button END-->
+</div>
+</div>
 
-	</div>
+</form>
+</section>
 	<!-- Main container END -->
 
 	<script type="text/javascript">

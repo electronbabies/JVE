@@ -3,7 +3,7 @@
   <section class="contacts">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
           <article class="contacts-block bottom-border">
             <h5 class="white">Quick Links</h5>
             <ul>
@@ -16,27 +16,44 @@
           </article>
         </div>
         <!-- Start News -->
-        <div class="col-md-4">
+        <div class="col-md-3">
           <article class="contacts-block bottom-border">
-            <h5 class="white">Latest News</h5> {{--
+            <h5 class="white">Legal</h5> {{--
             <ul>
               @forelse($tBlogPosts as $objPost)
               <li> <a href="#"> {!! $objPost->title !!} </a> @empty @endforelse
             </ul> --}}
             <ul>
-              <li> <a href="#"> Blog Post 1 </a>
+              <li> <a href="#"> Privacy Policy </a>
               </li>
-              <li> <a href="#"> Forkliter Bro Says Brosif </a>
+              <li> <a href="#"> Terms &amp; Conditions </a>
               </li>
-              <li> <a href="#"> New Blog Post </a>
+              <li> <a href="#"> Careers </a>
               </li>
-              <li> <a href="#"> Blog Post 4 </a>
+            </ul>
+          </article>
+        </div>
+        <div class="col-md-3">
+          <article class="contacts-block bottom-border">
+            <h5 class="white">Locations</h5> {{--
+            <ul>
+              @forelse($tBlogPosts as $objPost)
+              <li> <a href="#"> {!! $objPost->title !!} </a> @empty @endforelse
+            </ul> --}}
+            <ul>
+              <li> <a href="#"> Laredo </a>
+              </li>
+              <li> <a href="#"> Edinburg </a>
+              </li>
+              <li> <a href="#"> Brownsville </a>
+              </li>
+              <li> <a href="#"> Reynosa </a>
               </li>
             </ul>
           </article>
         </div>
         <!-- Start Accounts -->
-        <div class="col-md-4">
+        <div class="col-md-3">
           <article class="contacts-block bottom-border">
             <h5 class="white">Accounts Information</h5>
             <ul>

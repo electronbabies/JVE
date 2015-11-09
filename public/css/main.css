@@ -7440,7 +7440,7 @@ body
     padding: 0;
 
     background-color: #21385e;
-    background-image: url('/img/cement-texture.gif');
+    background-image: url("/img/squared-bg.png");
 
     -moz-osx-font-smoothing: grayscale;
 }

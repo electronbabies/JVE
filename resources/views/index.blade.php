@@ -1,5 +1,5 @@
 @extends('app') @section('content')
-<section class="home-header">
+{{-- <section class="home-header">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -14,9 +14,24 @@
         class="wow fadeInUp"></div>
       </div>
     </div>
+
+  </div>
+</section> --}}
+<section class="{{ $PageTitleSlug }} wrap {{ $PageTitleSlug }}-bg">
+  <div class="container wrap-xl" style="padding-top: 250px">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <h2 class="text-center mg-sm">{{ $headline }}</h2>
+            <h3 class="text-center mg-lg"> <span>{{ $subhead }}</span> </h3> </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-@include('sections.blog_entry', ['BGColor' => Config::get('constants.COLOR_DARK_BLUE')] )
+
+@include('sections.blog_entry')
 @include('sections.quote')
 @include('sections.locations')
 {{-- @include('sections.footer') --}}

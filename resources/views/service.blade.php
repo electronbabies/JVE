@@ -64,8 +64,7 @@
   </div>
 </section>
 
-{{-- @include('sections.quote') --}}
-{{-- @include('sections.locations') --}}
+@include('sections.locations')
 
 
 @stop

@@ -1,3 +1,97 @@
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+.col-item
+{
+}
+.col-item .photo img
+{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.col-item .info
+{
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    margin-top: 1px;
+}
+.col-item .price
+{
+    /*width: 50%;*/
+    float: left;
+    margin-top: 5px;
+}
+
+.col-item .price h5
+{
+    line-height: 20px;
+    margin: 0;
+}
+
+.price-text-color
+{
+    color: #219FD1;
+}
+
+.col-item .info .rating
+{
+    color: #777;
+}
+
+.col-item .rating
+{
+    /*width: 50%;*/
+    float: left;
+    font-size: 17px;
+    text-align: right;
+    line-height: 52px;
+    margin-bottom: 10px;
+    height: 52px;
+}
+
+
+.clear-left
+{
+    clear: left;
+}
+
+.col-item .separator p
+{
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.col-item .separator p i
+{
+    margin-right: 5px;
+}
+.col-item .btn-add
+{
+    width: 50%;
+    float: left;
+}
+
+.col-item .btn-add
+{
+    border-right: 1px solid #E1E1E1;
+}
+
+.col-item .btn-details
+{
+    width: 50%;
+    float: left;
+    padding-left: 10px;
+}
+.controls
+{
+    margin-top: 20px;
+}
+[data-slide="prev"]
+{
+    margin-right: 10px;
+}
+
 h3, h3 span {
 	color: #6FA1EE;
 }
@@ -19,7 +113,7 @@ img.media-object {
 .d-wrap, .contact {
 	background-color: #1b2f4f;
 	color: #ffffff;
-	/*background: url("/img/squared-bg.png");*/
+	background: url("/img/squared-bg.png");
 }
 .contacts {
 	background-color: transparent;
@@ -68,7 +162,7 @@ a.btn.dropdown-toggle.btn-block.btn-sq.btn-dark-slate-gray {
 	background-color: #1c84ff;
 }
 section.contacts {
-	background: url("/img/squared-bg.png")
+	background: url("/img/dark-cement.gif");
 }
 .parts-bg {
 	background-image: url("/img/parts.jpg");
@@ -100,7 +194,7 @@ section.service.parts.wrap.sales-bg {
 .skiptranslate.goog-te-gadget {
 	color: white;
 }
-section.service div.col-sm-9 h3 {
+div.col-sm-9 h3 {
 	padding-top: 18px !important;
 	font-size: 22px !important;
 }
@@ -108,11 +202,11 @@ section.service div.col-sm-9 h3 {
 	padding: 0px;
 	margin: 0 auto;
 }
-section.service a.btn.btn-primary {
-	padding: 4px 11px;
-	font-size: 16px;
-	font-weight: normal;
-	color: #f55c1b;
+a.btn.btn-primary {
+    padding: 4px 11px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #fff;
 }
 .sectionButton {
 	font-size: 24px !important;
@@ -149,16 +243,63 @@ section.values p.valsub {
 .hallow {
 	background-color: transparent !important;
 	color: rgba(255, 255, 255, 0.55) !important;
-	border-color: rgba(255, 255, 255, 0.33) !important;
-	border-width: 3px !important;
 	font-weight: bold;
+  border: 2px solid rgba(255, 255, 255, 0.52);
 	transition: background-color 0.3s ease 0s;
 }
 .hallow:hover {
 	background-color: #ffffff !important;
 	color: rgba(25, 118, 210, 0.72) !important;
-	border-color: rgba(255, 255, 255, 0.33) !important;
-	border-width: 3px !important;
-	transition: background-color 0.2s ease 0.3s;
-	transition: color 0.41s ease 0.02s;
+}
+.productbox {
+    background-color:#ffffff;
+	padding:10px;
+	margin:5px 0;
+}
+
+.producttitle {
+    font-weight:bold;
+    color: #333333;
+    font-size:1.2em;
+	padding:5px 0 5px 0;
+}
+
+.producttext {
+color: #333333;
+}
+
+.productprice {
+	border-top:1px solid #dadada;
+	padding-top:5px;
+}
+
+.pricetext {
+	font-weight:bold;
+	font-size:1.4em;
+}
+.gallery-bg {
+    background-image: url('/img/gallery.jpg');
+}
+.rental-bg {
+    background-image: url('/img/rental.jpg');
+}
+.sales-bg {
+    background-image: url('/img/sales.jpg');
+}
+.home-bg {
+    background-image: url('/img/home.jpg');
+}
+.parts-quote-bg {
+    background-image: url('/img/parts-quote.jpg');
+}
+.quote.wrap.d-wrap {
+    background: url("/img/cement-texture.gif") !important;
+}
+article.contact-item {
+    background-color: #fff;
+    border-radius: 10px;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 90px;
 }
