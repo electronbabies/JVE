@@ -14,7 +14,7 @@
         <div class="media">
         	<div class="row voffset">
 				<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-					<img class='img-thumbnail' style="display:block; margin:auto;" src='img/blog_images/{{ $objPost->image_filename }}' />
+					<img class='img-thumbnail' style="display:block; width:100%;" src='img/blog_images/{{ $objPost->image_filename }}' />
 					{{--<div class="media-object" style="background: url('img/blog_images/{{ $objPost->image_filename }}'); background-position: center; width: 320px; height: 200px; border-radius: 8px;"></div>--}}
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-7 col-lg-8 voffset">

@@ -43,8 +43,8 @@
 					@forelse ($tHolidays as $objRequest)
 						<tr>
 							<td><a sort="{{ $objRequest->User->name }}" href='/admin/vacations/holidays/edit/{{ $objRequest->id }}'>{{ $objRequest->User->name }}</a></td>
-							<td><a sort="{{ $objRequest->from->format('Y/m/d H:i:s') }}" href='/admin/vacations/holidays/edit/{{ $objRequest->id }}'>{{ $objRequest->from->format('Y/m/d H:i:s') }}</a></td>
-							<td><a sort="{{ $objRequest->to->format('Y/m/d H:i:s') }}" href='/admin/vacations/holidays/edit/{{ $objRequest->id }}'>{{ $objRequest->to->format('Y/m/d H:i:s') }}</a></td>
+							<td><a sort="{{ $objRequest->from->format('Y/m/d H:i:s') }}" href='/admin/vacations/holidays/edit/{{ $objRequest->id }}'>{{ $objRequest->from->format('m/d/Y h:i:s A') }}</a></td>
+							<td><a sort="{{ $objRequest->to->format('Y/m/d H:i:s') }}" href='/admin/vacations/holidays/edit/{{ $objRequest->id }}'>{{ $objRequest->to->format('m/d/Y h:i:s A') }}</a></td>
 
 							<td><textarea class="form-control" readonly>{{ $objRequest->comments }}</textarea></td>
 							<td>{{ str_replace('after', '', $objRequest->to->diffForHumans($objRequest->from)) }}
