@@ -17,9 +17,10 @@
 					<img class='img-thumbnail' style="display:block; width:100%;" src='img/blog_images/{{ $objPost->image_filename }}' />
 					{{--<div class="media-object" style="background: url('img/blog_images/{{ $objPost->image_filename }}'); background-position: center; width: 320px; height: 200px; border-radius: 8px;"></div>--}}
 				</div>
-				<div class="col-xs-12 col-sm-6 col-md-7 col-lg-8 voffset">
-					<h5 class="media-heading text-center">{!! $objPost->title !!} </h5>
-					<p>{!! $objPost->entry !!}</p>
+				<div class="col-xs-12 col-sm-6 col-md-7 col-lg-8 voffset-md">
+					<h3 class="media-heading text-center">{!! $objPost->title !!} </h3>
+					<hr>
+					<p style="font-size:16px;" class="text-justify">{!! $objPost->entry !!}</p>
 				</div>
 			</div>
 		</div>
