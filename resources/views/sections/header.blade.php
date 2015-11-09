@@ -1,6 +1,5 @@
-@include('sections.userbar')
-
 <header>
+  @include('sections.userbar')
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top navmobile" id="nav">
     <div class="container relative-nav-container">
       <a data-target="#navbar-collapse" data-toggle="collapse" class="toggle-button visible-xs-block"> <i class="fa fa-navicon"></i> </a>
@@ -14,41 +13,6 @@
           <li> <a href="/rentals">Rentals</a> </li>
           <li> <a href="/gallery">Gallery</a> </li>
           <li> <a href="/contact">Contact Us</a> </li>
-
-          {{--
-          <li>
-            <a href="#" class="dropdown-toggle ltc-white" data-toggle="dropdown"><i class="fa fa-envelope"></i>&nbsp;&nbsp;{{ $objUser->name }}<b class="caret"></b></a>
-            <ul class="dropdown-menu message-dropdown" style="top: 120%;">
-              <li class="dropdown">
-                <ul style="list-style: none; padding-left: 20px;">
-                  @if($objUser->IsGuestAccount())
-                  <a href="/auth/register">
-                    <li> <i class="fa fa-fw fa-user"></i> Create Account </li>
-                  </a>
-                  <a href="/auth/login">
-                    <li> <i class="fa fa-fw fa-laptop"></i> Log In </li>
-                  </a>
-                  @endif @if($objUser->HasPermissions('Admin Panel'))
-                  <a href="/admin">
-                    <li> <i class="fa fa-fw {{ Config::get('constants.ICON_DASHBOARD') }}"></i> Admin Panel </li>
-                  </a>
-                  @endif
-                  <a href="/forms/service">
-                    <li> <i class="fa fa-fw fa-envelope"></i> Contact Us </li>
-                  </a>
-                  @if(!$objUser->IsGuestAccount())
-                  <li class="divider"></li>
-                  <a href="/auth/logout">
-                    <li> <i class="fa fa-fw fa-power-off"></i> Log Out </li>
-                  </a>
-                  @endif
-                </ul>
-              </li>
-            </ul>
-          </li> --}} {{--
-          <li>
-            <div id="google_translate_element" style="width: 150px;"></div>
-          </li> --}}
         </ul>
       </div>
     </div>

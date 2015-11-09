@@ -1,10 +1,10 @@
 <!-- Locations -->
-<section id="gallery" class="gallery gallery-2 gallery-squares">
+<section class="locations gallery gallery-2 gallery-squares">
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1 col-sm-12">
         <header data-wow-duration="2s" style="animation-duration: 2s; animation-name: fadeInUp;" class="section-header wow fadeInUp animated">
-          <p class="subhead">Questions or Concerns?</p>
+          {{-- <p class="subhead">Questions or Concerns?</p> --}}
           <h2>Contact Us Today</h2>
           <p class="large">Select your location below for more contact information!</p>
         </header>

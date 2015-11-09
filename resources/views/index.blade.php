@@ -17,6 +17,7 @@
   </div>
 </section>
 @include('sections.blog_entry', ['BGColor' => Config::get('constants.COLOR_DARK_BLUE')] )
-{{-- @include('sections.quote') --}}
+@include('sections.quote')
+@include('sections.locations')
 {{-- @include('sections.footer') --}}
 @stop

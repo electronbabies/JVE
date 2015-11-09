@@ -103,13 +103,13 @@
                 <div class="col-sm-12">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h6 class="text-center tc-dodger-blue mg-md">
+                            <h6 class="text-center mg-md">
                             </h6>
 
                             <h2 class=" text-center mg-sm tc-white">
                                 In Stock
                             </h2>
-                            <h3 class="orange text-center mg-lg tc-saffron">
+                            <h3 class="text-center mg-lg">
                                 <span>Special deals on in stock equipment!</span>
                             </h3>
                         </div>

@@ -18,7 +18,7 @@
 				<h2 class=" text-center tc-white mg-sm">
 					Contact Us
 				</h2>
-				<h3 class="orange text-center mg-lg tc-saffron">
+				<h3 class="text-center mg-lg">
 					<span>Get Started Below</span>
 				</h3>
 				<div class="divider-h">
@@ -33,7 +33,7 @@
 										<div class="col-sm-12">
 											<div class="panel">
 												<div class="panel-heading">
-													<h3 class="orange mg-clear text-center">
+													<h3 class="mg-clear text-center">
 														<span>How many we help you? Select all that apply.</span>
 													</h3>
 												</div>
@@ -132,7 +132,7 @@
 										</label>
 										<textarea id="message2-2563" class="form-control" rows="4" cols="50">
 										</textarea>
-									</div> 
+									</div>
 									<button class="wrap-button btn btn-d btn-lg btn-block" type="submit">
 										Submit
 									</button>
@@ -141,7 +141,7 @@
 							<div class="col-sm-4">
 								<div class="panel">
 									<div class="panel-heading">
-										<h3 class="orange mg-clear">
+										<h3 class="mg-clear">
 											Contact Information
 										</h3>
 									</div>
@@ -175,7 +175,7 @@
 						<h2 class=" text-center tc-white mg-sm">
 							Location &amp; Contact Information
 						</h2>
-						<h3 class="orange text-center mg-lg tc-saffron">
+						<h3 class="text-center mg-lg">
 							<span>Serving the US and Mexico</span>
 						</h3>
 					</div>
@@ -194,7 +194,7 @@
 <!-- Main container END -->
 
 </body>
-  
+
 <!-- Google Analytics -->
 
 <!-- Google Analytics END -->

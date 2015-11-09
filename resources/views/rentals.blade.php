@@ -1,202 +1,71 @@
-@extends('app')
-@section('content')
-<div class="wrap  bg-banner-holder-3 d-wrap" id="wrap-10">
-	<div class="container wrap-xl">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="row">
-					<div class="col-sm-12">
-						<h6 class="text-center tc-dodger-blue mg-md">
-						</h6>
-						<h2 class=" text-center mg-sm tc-white">
-							Rental Department
-						</h2>
-						<h3 class="orange text-center mg-lg tc-saffron">
-							<span>Our rental fleet is over 400 units.</span>
-						</h3>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- wrap-10 END -->
+@extends('app') @section('content')
+<section class="{{ $PageTitleSlug }} wrap {{ $PageTitleSlug }}-bg">
+  <div class="container wrap-xl" style="padding-top: 250px">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <h2 class="text-center mg-sm">{{ $headline }}</h2>
+            <h3 class="text-center mg-lg"> <span>{{ $subhead }}</span> </h3> <a href="/forms/{{ $PageTitleSlug }}" class="hallow text-center btn btn-primary sectionButton">Get a {{ $PageTitle }} Quote</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- team-section -->
-<div class="wrap tc-white  bg-cement-texture d-wrap bg-repeat" id="team-section">
-	<div class="container wrap-lg">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="row voffset">
-					<div class="col-sm-12">
-						<h6 class="text-center tc-dodger-blue mg-clear">
-							<span class="fa fa-plug icon icon-book icon-gears icon-magnifying-glass icon-552 icon-1951 icon-md animated fadeInDown animDelay02"></span>
-						</h6>
-						<h2 class=" text-center mg-sm tc-white">
-							Our rental fleet is over 400 units.
-						</h2>
-						<h3 class="orange text-center mg-lg tc-saffron">
-							<span></span>
-						</h3>
-						<div class="divider-h">
-							<span class="divider"></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row voffset">
-			<div class="col-sm-12">
-				<p class="text-center">
-					<span>J.V. Equipment, Inc. understands that time is money. We know that when you have a need to fulfill the obligations of your business that resources are critical. With that in mind consider some of the industry leading features we offer for your critical logistics needs.</span>
-				</p>
-			</div>
-		</div>
-		<div class="row voffset">
-			<div class="col-sm-6">
-				<div class="col-sm-9">
-					<h3 class="orange text-right mg-md">
-						<span>Fleet of Over 400 Units</span>
-					</h3>
-					<p class="text-right">
-						A little feature description could go here.
-					</p>
-				</div>
-				<div class="col-sm-3">
-					<div class="text-center">
-						<span class="fa fa-heart icon-round icon-md"></span>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="col-sm-3">
-					<div class="text-center">
-						<span class="fa fa-rocket icon-round icon-md"></span>
-					</div>
-				</div>
-				<div class="col-sm-9">
-					<h3 class="orange mg-md">
-						<span>Late Model Units Available</span>
-					</h3>
-					<p>
-						A little feature description could go here.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="row voffset">
-			<div class="col-sm-6">
-				<div class="col-sm-9">
-					<h3 class="orange text-right mg-md">
-						<span>Fast Delivery</span>
-					</h3>
-					<p class="text-right">
-						A little feature description could go here.
-					</p>
-				</div>
-				<div class="col-sm-3">
-					<div class="text-center">
-						<span class="fa fa-heart icon-round icon-md"></span>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="col-sm-3">
-					<div class="text-center">
-						<span class="fa fa-rocket icon-round icon-md"></span>
-					</div>
-				</div>
-				<div class="col-sm-9">
-					<h3 class="orange mg-md">
-						<span>Various Attachements Available</span>
-					</h3>
-					<p>
-						A little feature description could go here.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="row voffset">
-			<div class="col-sm-6">
-				<div class="col-sm-9">
-					<h3 class="orange text-right mg-md">
-						<span>Multiple Options</span>
-					</h3>
-					<p class="text-right">
-						Pneumatic, Cushion, Electric, LP Gas, Narrow Aisle and Scissor Lifts Available
-					</p>
-				</div>
-				<div class="col-sm-3">
-					<div class="text-center">
-						<span class="fa fa-heart icon-round icon-md"></span>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="col-sm-3">
-					<div class="text-center">
-						<span class="fa fa-rocket icon-round icon-md"></span>
-					</div>
-				</div>
-				<div class="col-sm-9">
-					<h3 class="orange mg-md">
-						<span>No Hidden Costs</span>
-					</h3>
-					<p>
-						A little feature description could go here.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="row voffset">
-			<div class="col-sm-6">
-				<div class="col-sm-9">
-					<h3 class="orange text-right mg-md">
-						<span>Daily, Weekly, and Monthly Rates</span>
-					</h3>
-					<p class="text-right">
-						A little feature description could go here.
-					</p>
-				</div>
-				<div class="col-sm-3">
-					<div class="text-center">
-						<span class="fa fa-heart icon-round icon-md"></span>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="col-sm-3">
-					<div class="text-center">
-						<span class="fa fa-rocket icon-round icon-md"></span>
-					</div>
-				</div>
-				<div class="col-sm-9">
-					<h3 class="orange mg-md">
-						<span>All Major Manufacturers Available</span>
-					</h3>
-					<p>
-						A little feature description could go here.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="row voffset-lg">
-			<div class="col-sm-12">
-				<h6 class="text-center tc-white-2 mg-md">
-					<span class="fa fa-bicycle icon icon-book icon-gears icon-magnifying-glass icon-md"></span>
-				</h6>
-				<h2 class=" text-center tc-white mg-sm">
-					Get a Quote Today
-				</h2>
-				<h3 class="orange text-center mg-lg tc-saffron">
-					<span>What kind of quote would you like today?</span>
-				</h3>
-				<div class="text-center">
-					<a href="/forms/rental" class="btn btn-sq btn-d btn-xl">Click Here to Get Started</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-@include('sections.scroll_gallery')
+<section class="values {{ $PageTitleSlug }} bg-cement-texture d-wrap bg-repeat">
+  <div class="container wrap-md">
+    <h3 class="text-center"><span style="font-size: 70%">Our {{ $PageTitle }} department offers some of these benefits.</span>
+
+</h3> {{-- row start --}}
+    <div class="row offset text-center wrap-md">
+      <div class="col-md-3"> <i style="color: #7faaed;" class="fa fa-diamond fa-4x"></i>
+        <h2 class="val">{{ $val1 }}</h2>
+        <p class="valsub">{{ $valSub1 }}</p>
+      </div>
+      <div class="col-md-3"> <i style="color: #7faaed;" class="fa fa-database fa-4x"></i>
+        <h2 class="val">{{ $val2 }}</h2>
+        <p class="valsub">{{ $valSub2 }}</p>
+      </div>
+      <div class="col-md-3"> <i style="color: #7faaed;" class="fa fa-exchange fa-4x"></i>
+        <h2 class="val">{{ $val3 }}</h2>
+        <p class="valsub">{{ $valSub3 }}</p>
+      </div>
+      <div class="col-md-3"> <i style="color: #7faaed;" class="fa fa-cubes fa-4x"></i>
+        <h2 class="val">{{ $val4 }}</h2>
+        <p class="valsub">{{ $valSub4 }}</p>
+      </div>
+		</div> {{-- row start --}}
+		<div class="row offset text-center wrap-md" style="padding-top: 20px; padding-bottom: 10px">
+      <div class="col-md-3"> <i style="color: #7faaed;" class="fa fa-barcode fa-4x"></i>
+        <h2 class="val">{{ $val5 }}</h2>
+        <p class="valsub">{{ $valSub5 }}</p>
+      </div>
+
+      <div class="col-md-3"> <i style="color: #7faaed;" class="fa fa-certificate fa-4x"></i>
+        <h2 class="val">{{ $val6 }}</h2>
+        <p class="valsub">{{ $valSub6 }}</p>
+      </div>
+      <div class="col-md-3"> <i style="color: #7faaed;" class="fa fa-compass fa-4x"></i>
+        <h2 class="val">{{ $val7 }}</h2>
+        <p class="valsub">{{ $valSub7 }}</p>
+      </div>
+      <div class="col-md-3"> <i style="color: #7faaed;" class="fa fa-calculator fa-4x"></i>
+        <h2 class="val">{{ $val8 }}</h2>
+        <p class="valsub">{{ $valSub8 }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-center">{{ $PageText }} <br /><br />
+          <a href="/forms/{{ $PageTitleSlug }}" style="font-weight: bold; color: #333" class="text-center btn btn-primary sectionButton">Get a {{ $PageTitleSlug }} quote today!</a>   </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{-- @include('sections.quote') --}}
+{{-- @include('sections.locations') --}}
+
+
 @stop

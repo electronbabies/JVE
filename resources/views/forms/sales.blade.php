@@ -20,7 +20,7 @@
 						Contact Us
 					</h2>
 
-					<h3 class="orange text-center mg-lg tc-saffron">
+					<h3 class="text-center mg-lg">
 						<span>{{ $RequestType }} Department</span>
 					</h3>
 

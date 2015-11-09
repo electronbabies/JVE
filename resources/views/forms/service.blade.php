@@ -12,7 +12,7 @@
 				<h2 class=" text-center tc-white mg-sm">
 					Contact Us
 				</h2>
-				<h3 class="orange text-center mg-lg tc-saffron">
+				<h3 class="text-center mg-lg">
 					<span>Service Department</span>
 				</h3>
 				<div class="divider-h">

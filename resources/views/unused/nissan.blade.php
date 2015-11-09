@@ -8,7 +8,7 @@
                 <h2 class="mg-lg ">
                     Nissan Forklifts
                 </h2>
-                <h3 class="orange mg-sm">
+                <h3 class="mg-sm">
                     <span>Nissan has the best standard warranty in the business with two years and unlimited hours.</span>
                 </h3>
                 <p class="mg-lg">

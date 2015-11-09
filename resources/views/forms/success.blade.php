@@ -12,7 +12,7 @@
 						Success
 					</h2>
 
-					<h3 class="orange text-center mg-md	 tc-saffron">
+					<h3 class="text-center mg-md	">
 						<span>Your request has been submitted!</span>
 					</h3>
 				</div>

@@ -12,7 +12,5 @@
         <a href="/auth/logout"> <i class="fa fa-fw fa-power-off"></i> Log Out </a>
   </span> @endif
     <span class="language-status">
-    <div id="google_translate_element" style="width: 150px;"></div>
-  </span>
-</div>
+  </div>
 </section>
