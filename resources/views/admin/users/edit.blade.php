@@ -71,7 +71,7 @@
 						@endif
 					</select>
 				</div>
-				<div class="col-lg-10 col-lg-offset-1">
+				<div class="col-lg-10 col-lg-offset-2">
 					<?php $Count = 0; ?>
 					@foreach(\App\User::$tUserPermissions as $Group => $tPermissionGroup)
 						<?php $Count++; ?>
@@ -100,14 +100,14 @@
 		</div>
 		@if($objLoggedInUser->HasPermission("Edit/{$objUser->role}"))
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="col-lg-12 voffset-md">
 					<div class="col-lg-12 col-sm-6 col-sm-offset-3 form-group">
-						<div class="col-lg-3 col-sm-6">
+						<div class="col-lg-3 col-xs-6">
 							<button type="submit" name='Submit' value='Apply' class="btn btn-lg btn-primary center-block">
 								Apply
 							</button>
 						</div>
-						<div class="col-lg-2 col-sm-6">
+						<div class="col-lg-2 col-xs-6">
 							<button type="submit" name='Submit' value='Save' class="btn btn-lg btn-primary center-block">
 								Save
 							</button>

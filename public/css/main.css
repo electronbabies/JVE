@@ -923,7 +923,7 @@ label
 .navbar
 {
     min-height: inherit;
-    margin-top: 30px;
+    #margin-top: 30px;
 
     transition: background-color .3s linear 0s;
 }
@@ -960,7 +960,7 @@ label
 .nav-logo
 {
     height: auto;
-    padding: 27.5px 0;
+    padding: 30px 0;
 
     transition: padding .3s linear 0s;
 }
@@ -969,14 +969,19 @@ label
     .nav-logo
     {
         position: absolute;
-        right: 0;
-        left: 0;
+        right: 30px;
+        #left: 0;
 
         display: block;
 
         width: 40px;
         margin-right: auto;
         margin-left: auto;
+        padding-top: 22px;
+
+    }
+    .nav-logo img {
+        float: right;
     }
 }
 .nav-logo .logoColor
@@ -8409,8 +8414,8 @@ iframe
     .col-md-12,
     .col-lg-12
     {
-        margin-top: 50px;
-        margin-bottom: 50px;
+        #margin-top: 50px;
+        #margin-bottom: 50px;
     }
 }
 .transparent
@@ -8465,7 +8470,7 @@ iframe
 }
 #LogoImg:hover
 {
-    background-image: url('/img/logo-mobile.png');
+    background-image: url('/img/logo-color.png');
 }
 #UnknownBrandForm
 {

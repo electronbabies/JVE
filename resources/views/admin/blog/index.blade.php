@@ -26,20 +26,20 @@
 @endif
 @foreach($tBlogPosts as $objPost)
 <div class="row" name="BlogPost" BlogID="{{ $objPost->id }}">
-	<div class="col-lg-12">
+	<div class="col-xs-12">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">{!! $objPost->title !!}</h3>
 			</div>
 			<div class="panel-body" style="padding-left: 30px;">
 				<div class="row">
-					<div class="col-lg-3" style="border: 1px solid #ddd; border-radius: 4px;">
+					<div class="col-xs-3" style="border: 1px solid #ddd; border-radius: 4px;">
 						<img src="/img/blog_images/{{ $objPost->image_filename }}" class="blog_image center-block" style="padding-top: 10px; padding-bottom: 10px;">
 					</div>
-					<div class="col-lg-6">
+					<div class="col-xs-6">
 						{!! $objPost->entry !!}
 					</div>
-					<div class="col-lg-2 col-lg-offset-1">
+					<div class="col-xs-2 col-xsoffset-1">
 						<div class="pull-right">
 							<a href="/admin/blog/edit/{{ $objPost->id }}"><button type="button" class="btn btn-sm btn-default" name="EditBlog">Edit</button></a>
 							<button type="button" class="btn btn-sm btn-default" name="DeleteBlog">Delete</button>
@@ -49,12 +49,12 @@
 				@if($objLoggedInUser->HasPermission("Edit/Blog"))
 				<hr>
 				<div class="row">
-					<div class="col-lg-12">
-						<div class="col-lg-3 form-group">
-							<div class="col-lg-3">
+					<div class="col-xs-12">
+						<div class="col-xs-3 form-group">
+							<div class="col-xs-6">
 								<label class="control-label" style="font-weight: bold; padding-top: 5px;">Order</label>
 							</div>
-							<div class="col-lg-6 ">
+							<div class="col-xs-6 ">
 								<input type="text" class="form-control" name="FrontPageOrder" value="{{ $objPost->order_by }}" style="width: 42px;">
 							</div>
 						</div>

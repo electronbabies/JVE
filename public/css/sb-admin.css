@@ -234,3 +234,15 @@ ul.alert-dropdown {
 input[type='checkbox'] {
     cursor: pointer;
 }
+
+.voffset-sm {
+    margin-top: 10px;
+}
+
+.voffset-md {
+    margin-top: 30px;
+}
+
+.voffset-lg {
+    margin-top: 50px;
+}

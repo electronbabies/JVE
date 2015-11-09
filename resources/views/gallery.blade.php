@@ -35,6 +35,11 @@
 	background-image: url('/img/sold.png');
 	background-repeat: no-repeat;
   }
+
+  .image_stat {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+  }
 </style>
 {{--http://i.istockimg.com/file_thumbview_approve/57837952/6/stock-illustration-57837952-red-vector-grunge-stamp-sold.jpg--}}
 <script type="text/javascript">
@@ -121,7 +126,7 @@
   <div class="container wrap-lg">
     <ul class="row">
     @foreach($tGalleryImages as $objImage)
-      <li class="col-md-4">
+      <li class="col-md-4 image_stat">
 
         <div class="productbox" >
 
@@ -137,38 +142,38 @@
 
           <div class="producttitle text-center">{{ $objImage->title }}</div>
           <div class="row">
-            <div class="text-left col-sm-6">
+            <div class="text-left col-sm-6 image_stat">
               <span style="color: #333;">Mast Height: <span style="color: #b5b5b5">{{ $objImage->mast_height }}</span></span>
             </div>
-			  <div class="text-left col-sm-6">
+			  <div class="text-left col-sm-6 image_stat">
 				  <span style="color: #333;">Serial: <span style="color: #b5b5b5">{{ $objImage->serial }}</span></span>
 			  </div>
           </div>
 
           <div class="row">
-			  <div class="text-left col-sm-6">
+			  <div class="text-left col-sm-6 image_stat">
 				  <span style="color: #333;">Make: <span style="color: #b5b5b5">{{ $objImage->make }}</span></span>
 			  </div>
-			  <div class="text-left col-sm-6">
+			  <div class="text-left col-sm-6 image_stat">
 				  <span style="color: #333;">Model: <span style="color: #b5b5b5">{{ $objImage->model }}</span></span>
 			  </div>
 
           </div>
 
           <div class="row">
-            <div class="text-left col-sm-6">
+            <div class="text-left col-sm-6 image_stat">
               <span style="color: #333;">Year: <span style="color: #b5b5b5">{{ $objImage->year }}</span></span>
             </div>
-            <div class="text-left col-sm-6">
+            <div class="text-left col-sm-6 image_stat">
               <span style="color: #333;">Hours: <span style="color: #b5b5b5">{{ $objImage->hours }}</span></span>
             </div>
           </div>
 
           <div class="row">
-			  <div class="text-left col-sm-6">
+			  <div class="text-left col-sm-6 image_stat">
 				  <span style="color: #333;">Warranty: <span style="color: #b5b5b5">{{ $objImage->warranty }}</span></span>
 			  </div>
-            <div class="text-left col-sm-6">
+            <div class="text-left col-sm-6 image_stat">
               <span style="color: #333;">Price: <span style="color: red">{{ $objImage->price }}</span></span>
             </div>
           </div>

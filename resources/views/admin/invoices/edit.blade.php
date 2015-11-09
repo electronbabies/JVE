@@ -144,7 +144,7 @@
 		@if($objLoggedInUser->HasPermission("Edit/{$objInvoice->type}"))
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="col-lg-3 col-lg-offset-5">
+				<div class="col-lg-3 col-lg-offset-5 col-xs-3 col-xs-offset-5">
 					<div class="form-group">
 						<button type="button" id="AddItem" class="btn btn-default">Add Order Item</button>
 					</div>
@@ -192,16 +192,22 @@
 		</div>
 		<hr />
 		@if($objLoggedInUser->HasPermission("Edit/{$objInvoice->type}"))
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="col-lg-2 col-lg-offset-5">
-					<div class="form-group">
-						<button type="Submit" class="btn btn-primary" name='Submit' value="Apply">Apply</button>
-						<button type="Submit" class="btn btn-primary" name='Submit' value="Save">Save</button>
+			<div class="row">
+				<div class="col-lg-12 voffset-md">
+					<div class="col-lg-12 col-sm-6 col-sm-offset-3 form-group">
+						<div class="col-lg-3 col-xs-6">
+							<button type="submit" name='Submit' value='Apply' class="btn btn-lg btn-primary center-block">
+								Apply
+							</button>
+						</div>
+						<div class="col-lg-2 col-xs-6">
+							<button type="submit" name='Submit' value='Save' class="btn btn-lg btn-primary center-block">
+								Save
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 		@endif
 	</form>
 	<script type="text/javascript">

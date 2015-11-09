@@ -18,14 +18,14 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-12 col-lg-offset-5">
+		<div class="col-xs-2 col-lg-offset-5 col-sm-offset-5 col-xs-offset-2">
 			<a href="/admin/vacations/edit/new">
-				<button type="button" class="btn btn-lg btn-default" style='width:300px' ; name="NewPost">Make A Vacation Request</button>
+				<button type="button" class="btn btn-lg btn-default" name="NewPost">Make A Vacation Request</button>
 			</a><br/><br/>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-12">
+		<div class="col-xs-12">
 			<div class="table-responsive">
 			<label></label>
 				<table class="table table-bordered table-hover table-striped" @if(count($tVacationRequests)) data-toggle="table" @endif >

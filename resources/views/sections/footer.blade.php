@@ -69,7 +69,7 @@
               @if(!$objUser->IsGuestAccount())
               <li><a href="/auth/logout">Log Out </a></li>
               @endif
-              <li><a href="/auth/logout">Website Translation</a> <div id="google_translate_element"></div> </li>
+              <li><a href="/auth/logout">Website Translation</a> <div id="google_translate_element" style="color:black; !important"></div> </li>
             </ul>
           </article>
         </div>
@@ -106,3 +106,9 @@
     }, 'google_translate_element');
   }
 </script>
+
+<style>
+	div#google_translate_element select {
+		color: black !important;
+	}
+</style>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​

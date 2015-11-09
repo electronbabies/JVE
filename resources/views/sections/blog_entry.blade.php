@@ -12,13 +12,18 @@
 
       @forelse($tBlogPosts as $objPost)
         <div class="media">
-          <span class="media-object" style="background: url(img/blog_images/{{ $objPost->image_filename }}); background-position: center center; width: 320px; height: 200px; display: inline-block; border-radius: 8px;"></span>
-          <div class="media-body">
-            <h5 class="media-heading">{!! $objPost->title !!} </h5>
-            <p>{!! $objPost->entry !!}</p>
-          </div>
-        </div>
-        <span style="width: 100%; display: block; clear: both"></span>
+        	<div class="row voffset">
+				<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+					<img class='img-thumbnail' style="display:block; margin:auto;" src='img/blog_images/{{ $objPost->image_filename }}' />
+					{{--<div class="media-object" style="background: url('img/blog_images/{{ $objPost->image_filename }}'); background-position: center; width: 320px; height: 200px; border-radius: 8px;"></div>--}}
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-7 col-lg-8 voffset">
+					<h5 class="media-heading text-center">{!! $objPost->title !!} </h5>
+					<p>{!! $objPost->entry !!}</p>
+				</div>
+			</div>
+		</div>
+			<span style="width: 100%; display: block; clear: both"></span>
         @empty @endforelse
 
       </div>

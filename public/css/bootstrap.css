@@ -1416,7 +1416,7 @@ pre code {
     width: 41.6667%;
 }
 .col-sm-4 {
-    width: 50%;
+    width: 33.3333%;
 }
 .col-sm-3 {
     width: 25%;
@@ -3193,7 +3193,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 }
 }
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
-    max-height: 340px;
+    #max-height: 340px;
 }
 @media (max-device-width: 480px) and (orientation: landscape) {
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {

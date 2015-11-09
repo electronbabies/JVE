@@ -7,7 +7,7 @@
 
 @section('content')
 	<div class="row">
-		<div class="col-lg-12">
+		<div class="col-xs-12">
 			<h1 class="page-header">
 				Calendar
 			</h1>
@@ -57,7 +57,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-lg-12 col-lg-offset-5">
+		<div class="col-xs-7 col-xs-offset-3 col-sm-offset-5">
 			<div class="pull-center form-inline" style="padding-left:21px;">
 				<div class="row">
 					<div class="btn-group" style="padding-left:10px; padding-bottom:10px; padding-top:20px;">

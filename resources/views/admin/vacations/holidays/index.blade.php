@@ -18,7 +18,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-12 col-lg-offset-5">
+		<div class="col-xs-2 col-lg-offset-5 col-sm-offset-5 col-xs-offset-2">
 			<a href="/admin/vacations/holidays/edit/new">
 				<button type="button" class="btn btn-lg btn-default" style='width:300px;' name="NewPost">Add Holiday</button>
 			</a><br/><br/>
