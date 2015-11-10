@@ -340,3 +340,7 @@ article.contact-item {
 .media-heading span, .media-entry span {
 	color:white;
 }
+kbd, code {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}

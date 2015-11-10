@@ -11,6 +11,7 @@
 		});
 	});
 	</script>
+	<script src="//cdn.ckeditor.com/4.5.5/full/ckeditor.js"></script>
 @stop
 @section('content')
 	<?php
@@ -46,13 +47,19 @@
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3 form-group">
 				 <label>Title</label>
-				 <input class="form-control" id='Title' name='title' value="{{ $objPost->title }}" {{ $ReadOnly }}>
+				 <textarea id="Title" class="form-control" name='title' rows=20 {{ $ReadOnly }}>{{ $objPost->title }}</textarea>
+				<script>
+					CKEDITOR.replace('Title');
+				</script>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3 form-group">
 				<label>Body</label>
-				<textarea class="form-control" name='entry' rows=20 {{ $ReadOnly }}>{{ $objPost->entry }}</textarea>
+				<textarea id="Body" class="form-control" name='entry' rows=20 {{ $ReadOnly }}>{{ $objPost->entry }}</textarea>
+				<script>
+					CKEDITOR.replace('Body');
+				</script>
 			</div>
 		</div>
 		<div class="row">
