@@ -1,12 +1,12 @@
 @extends('app')
 
 @section('content')
-	<section class="wrap contact-us-bg">
-		<div class="container wrap-xl" style="padding: 150px;padding-bottom: 0px;">
+	<section class="wrap contact contact-us-bg">
+		<div class="container" style="padding-top: 250px;">
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-xs-12">
 					<div class="row">
-						<div class="col-sm-12 text-center">
+						<div class="col-xs-12 text-center">
 							<h2 class="text-center mg-sm">Contact Us</h2>
 
 							<h3 class="text-center mg-lg"><span>How may we help?</span></h3>

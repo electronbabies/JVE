@@ -25,7 +25,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-2 col-lg-offset-5 col-sm-offset-5 col-xs-offset-2">
+		<div class="col-xs-3 col-lg-offset-5 col-xs-offset-1 col-sm-offset-3">
 			<a href="/admin/vacations/edit/new">
 				<button type="button" class="btn btn-lg btn-default" name="NewPost">Make A Vacation Request</button>
 			</a><br/><br/>

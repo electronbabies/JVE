@@ -80,7 +80,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-4 col-lg-offset-2  form-group">
+			<div class="col-xs-4 col-lg-offset-2  form-group">
 				<label>Image</label><br />
 				@if ($objImage->image_filename)
 					<a href="/img/gallery_images/{{ $objImage->image_filename }}" target="_blank"><img src="/img/gallery_images/{{ $objImage->image_filename }}" class="gallery_image img-responsive"></a><br/>
@@ -88,23 +88,55 @@
 					<i>No image uploaded</i>
 				@endif
 			</div>
-			<div class="row">
-				<div class="col-lg-6 form-group">
-					<div class="checkbox checkbox-success checkbox-circle" style="padding-top: 20px;">
-						<?php $Checked = $objImage->sold ? 'checked' : ''; ?>
-						<input type="checkbox" class="checkbox" name="sold" {{ $Checked }} {{ $Disabled }}>
-						<label style="padding-left: 5px; font-weight: bold;">Sold</label>
-					</div>
+
+
+			<div class="col-xs-2 col-xs-offset-1 form-group">
+				<div class="checkbox checkbox-success checkbox-circle" style="padding-top: 20px;">
+					<?php $Checked = $objImage->sold ? 'checked' : ''; ?>
+					<input type="checkbox" class="checkbox" name="sold" {{ $Checked }} {{ $Disabled }}>
+					<label style="padding-left: 5px; font-weight: bold;">Sold</label>
 				</div>
-				@if($objLoggedInUser->HasPermission("Edit/Gallery"))
-				<div class="col-lg-6 form-group">
-					<i style='font-size: 12px;'>Upload New File </i><i style="font-size: 8px">(Old image will be
-						replaced)</i>
-					<input type="file" name='Image'>
-				</div>
-				@endif
 			</div>
 		</div>
+		<div class="row">
+			@if($objLoggedInUser->HasPermission("Edit/Gallery"))
+			<div class="col-xs-6 col-md-offset-2 form-group">
+				<i style='font-size: 12px;'>Upload New File </i><i style="font-size: 8px">(Old image will be
+					replaced)</i>
+				<input type="file" name='Image'>
+			</div>
+			@endif
+
+		</div>
+
+		@if($objLoggedInUser->HasPermission('Edit/Gallery'))
+			<div class="row">
+				<div class="col-lg-12">
+					<hr/>
+					<h1 class="text-center">Front Page Visibility</h1>
+					<div class="col-lg-8 col-lg-offset-3">
+						<?php $Count = 0; ?>
+						@foreach(\App\GalleryImage::$tFields as $Field)
+						<?php $Count++; ?>
+						@if($Count % 2 == 1)
+						<div class="row">
+						@endif
+							<div class="col-xs-6">
+								<div class="checkbox checkbox-success checkbox-circle">
+									<?php $Checked = $objImage->IsFieldSet($Field) ? 'checked' : ''; ?>
+									<input type="checkbox" class="checkbox" name="fields[{{ $Field }}]" {{ $Checked }}>
+									<label>{{ $Field }}</label><br/>
+
+									@if($Count % 2 == 0)
+								</div>
+								@endif
+							</div>
+						</div>
+						@endforeach
+					</div>
+				</div>
+			</div>
+		@endif
 		@if($objLoggedInUser->HasPermission("Edit/Gallery"))
 		<div class="row">
 			<div class="col-lg-12 voffset-md">

@@ -2,8 +2,8 @@
   <section class="contacts">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
-          <article class="contacts-block bottom-border">
+        <div class="col-sm-3 col-xs-12">
+          <article class="contacts-block bottom-border ">
             <h5 class="white">Quick Links</h5>
             <ul>
 				<li> <a href="/service">Service</a> </li>
@@ -17,8 +17,8 @@
           </article>
         </div>
         <!-- Start News -->
-        <div class="col-md-3">
-          <article class="contacts-block bottom-border">
+        <div class="col-sm-3 col-xs-12">
+          <article class="contacts-block bottom-border ">
             <h5 class="white">Legal</h5> {{--
             <ul>
               @forelse($tBlogPosts as $objPost)
@@ -34,8 +34,8 @@
             </ul>
           </article>
         </div>
-        <div class="col-md-3">
-          <article class="contacts-block bottom-border">
+        <div class="col-sm-3 col-xs-12">
+          <article class="contacts-block bottom-border ">
             <h5 class="white">Locations</h5> {{--
             <ul>
               @forelse($tBlogPosts as $objPost)
@@ -52,8 +52,8 @@
           </article>
         </div>
         <!-- Start Accounts -->
-        <div class="col-md-3">
-          <article class="contacts-block bottom-border">
+        <div class="col-sm-3 col-xs-12">
+          <article class="contacts-block bottom-border ">
             <h5 class="white">Accounts Information</h5>
             <ul>
               @if($objUser->IsGuestAccount())

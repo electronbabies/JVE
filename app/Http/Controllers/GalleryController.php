@@ -99,6 +99,7 @@ class GalleryController extends AdminController
 			}
 		}
 
+		$objImage->front_page_visibility = implode('|', array_keys(Request::get('fields')));
 		$objImage->title = Request::get('title');
 		$objImage->entry = Request::get('entry');
 		$objImage->mast_height = Request::get('mast_height');

@@ -89,17 +89,6 @@ class FormsController extends StaticController
         $Input = Request::all();
 
         if($Input['RequestType'] == static::REQUEST_TYPE_SALES || $Input['RequestType'] == static::REQUEST_TYPE_RENTAL) {
-        /*
-         * @if (count($errors) > 0)
-				<div class="alert alert-danger">
-					<ul>
-						@foreach ($errors->all() as $error)
-							<li>{{ $error }}</li>
-						@endforeach
-					</ul>
-				</div>
-			@endif
-         */
 			$tValidation = [
 				'FirstName' 		=> 'required',
 				'LastName' 			=> 'required',
@@ -113,6 +102,9 @@ class FormsController extends StaticController
 				'Attachment' 		=> 'required',
 				'OperatingHours' 	=> 'required',
 			];
+
+			if($Input['RequestType'] == static::REQUEST_TYPE_RENTAL)
+				unset($tValidation['Brand']);
 		} else {
 			$tValidation = [
 				'FirstName' 		=> 'required',
@@ -228,27 +220,6 @@ class FormsController extends StaticController
 	}
 
     public function ProcessSaleRequest($Input) {
-    	$tValidation =  [
-			'FirstName' => 'required',
-			'LastName' => 'required',
-			'CompanyName' => 'required',
-			'PhoneNumber' => 'required',
-			'EmailAddress' => 'required',
-			'Brand' => 'required',
-			'Environment' => 'required',
-			'MotivePower' => 'required',
-			'Capacity' => 'required',
-			'Attachment' => 'required',
-			'OperatingHours' => 'required',
-    	];
-
-
-		$Validator = Validator::make($Input, $tValidation);
-
-		if ($Validator->fails())
-			return redirect('/forms/' . str_replace(' ', '', strtolower($Input['RequestType'])))->withErrors($Validator);
-
-
         // Get logged user, or register as guest
         $objUser = \Auth::User() ?: \App\User::GetGuestAccount();
 
@@ -292,6 +263,9 @@ class FormsController extends StaticController
             ],
         ];
 
+        if($Input['RequestType'] == static::REQUEST_TYPE_RENTAL)
+        	unset($tInvoiceItemFields[0]); // Brand
+
         foreach($tInvoiceItemFields as $Item) {
             if(is_array($Item)) {
                 foreach($Item as $Accessory) {
@@ -334,9 +308,7 @@ class FormsController extends StaticController
         View::share('tEnvironment', $this->tEnvironment);
         View::share('tMandatoryItems', $this->tMandatoryItems);
 
-		View::share('RequestType', 'Rental');
-        // Intentionally sales.  Currently, there is literally no difference between the two forms except for the type.
-		return view('forms.sales');
+		return view('forms.rental');
     }
 
 	public function sales()
@@ -350,7 +322,6 @@ class FormsController extends StaticController
         View::share('tEnvironment', $this->tEnvironment);
 		View::share('tMandatoryItems', $this->tMandatoryItems);
 
-		View::share('RequestType', 'Sales');
 		return view('forms.sales');
 	}
 

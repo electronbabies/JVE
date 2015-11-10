@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-md-3">
             <div class="panel bgc-white">
               <div class="panel-heading bgc-true-blue">
                 <div class="text-center">
@@ -25,7 +25,7 @@
                 </h6>
               </div>
               <div class="panel-body">
-                <p class="text-center  mg-md"> Here are some of the options we provide to secure the seamless operation of your equipment with a service contract. </p>
+                <p class="text-justify mg-md"> Here are some of the options we provide to secure the seamless operation of your equipment with a service contract. </p>
 
 
                 <div class="btn-group btn-block">
@@ -34,7 +34,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3">
             <div class="panel bgc-white-2">
               <div class="panel-heading bgc-true-blue">
                 <div class="text-center">
@@ -48,7 +48,7 @@
                 </h6>
               </div>
               <div class="panel-body">
-                <p class="text-center  mg-md"> J.V. Equipment offers some of the best service on parts. Here are a few benefits when you depend on us for all your parts needs. </p>
+                <p class="text-justify  mg-md"> J.V. Equipment offers some of the best service on parts. Here are a few benefits when you depend on us for all your parts needs. </p>
 
 
                 <div class="btn-group btn-block">
@@ -58,7 +58,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3">
             <div class="panel bgc-white-2">
               <div class="panel-heading bgc-true-blue">
                 <div class="text-center">
@@ -72,7 +72,7 @@
                 </h6>
               </div>
               <div class="panel-body">
-                <p class="text-center  mg-md"> Our company has been in business since 1976 and we understand what it takes to leverage costs in a market that is constantly expanding. </p>
+                <p class="text-justify mg-md"> Our company has been in business since 1976 and we understand what it takes to leverage costs in a market that is constantly expanding. </p>
 
 
                 <div class="btn-group btn-block">
@@ -82,7 +82,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3">
             <div class="panel bgc-white-2">
               <div class="panel-heading bgc-true-blue">
                 <div class="text-center">
@@ -96,7 +96,7 @@
                 </h6>
               </div>
               <div class="panel-body">
-                <p class="text-center  mg-md"> Obligations of your business that resources are critical. Some of the leading features we offer for your logistics needs. </p>
+                <p class="text-justify mg-md"> Obligations of your business that resources are critical. Some of the leading features we offer for your logistics needs. </p>
 
                 <div class="btn-group btn-block">
                   <div class="text-center"> <a style="padding: 10px; color: white" href="/forms/rental" class="a-btn ">Get a Quote!</a></div>

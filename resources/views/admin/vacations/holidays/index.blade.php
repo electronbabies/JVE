@@ -25,9 +25,9 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-2 col-lg-offset-5 col-sm-offset-5 col-xs-offset-2">
+		<div class="col-xs-3 col-lg-offset-5 col-xs-offset-3 col-sm-offset-4">
 			<a href="/admin/vacations/holidays/edit/new">
-				<button type="button" class="btn btn-lg btn-default" style='width:300px;' name="NewPost">Add Holiday</button>
+				<button type="button" class="btn btn-lg btn-default" style="padding-left: 30px; padding-right: 30px" name="NewPost">Add Holiday</button>
 			</a><br/><br/>
 		</div>
 	</div>
@@ -75,7 +75,9 @@
 	<script type="text/javascript">
 
 		$(document).ready(function() {
-			$('button[name=Delete]').click(function () {
+			$('button[name=Delete]').click(function (e) {
+				e.preventDefault();
+				e.stopPropagation();
 				if (confirm('Are you sure you want to delete this holiday?')) {
 					var HolidayElem = $(this).parents('tr');
 					var HolidayID = $(this).attr('HolidayID');

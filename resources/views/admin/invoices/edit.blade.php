@@ -99,8 +99,8 @@
 						<table class="table table-bordered table-striped" id="ItemTable">
 							<thead>
 							<tr>
-								<th>Title</th>
-								<th>Type</th>
+								<th style="min-width: 165px">Title</th>
+								<th style="min-width: 165px">Type</th>
 								<th>Status</th>
 								<th>Created At</th>
 								<th>Modified At</th>

@@ -39,13 +39,9 @@ class GalleryImage extends Model
 		self::FIELD_SOLD,
 	];
 
-	static function IsFieldSet($Field)
+	function IsFieldSet($Field)
 	{
-		$objSettings = \App\Ini::where('Type', self::GALLERY_FRONT_PAGE_SETTINGS)->first();
-		if(!$objSettings)
-			return false;
-
-		$tFields = explode('|', $objSettings->value);
+		$tFields = explode('|', $this->front_page_visibility);
 
 		return in_array($Field, $tFields);
 	}

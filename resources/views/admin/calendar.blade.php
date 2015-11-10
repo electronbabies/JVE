@@ -79,40 +79,40 @@
 
 
 	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2">
+		<div class="col-xs-12 col-lg-8 col-lg-offset-1">
 			<div id="calendar"></div>
 		</div>
-		<div class="col-lg-2">
+		<div class="col-xs-6 col-xs-offset-3 col-sm-4 col-xs-offset-4 col-sm-offset-4 col-lg-2 col-lg-offset-0">
 			<h2>Key:</h2>
 			<div class="row">
-				<div class="col-lg-2">
+				<div class="col-xs-2">
 					<p class="full-circle holiday"></p>
 				</div>
-				<div class="col-lg-9">
+				<div class="col-xs-9">
 					Holiday
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-2">
+				<div class="col-xs-2">
 					<p class="full-circle new-client"></p>
 				</div>
-				<div class="col-lg-9">
+				<div class="col-xs-9">
 					New Client
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-2">
+				<div class="col-xs-2">
 					<p class="full-circle pending-vacation"></p>
 				</div>
-				<div class="col-lg-9">
+				<div class="col-xs-9">
 					Pending Vacation
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-2">
+				<div class="col-xs-2">
 					<p class="full-circle approved-vacation"></p>
 				</div>
-				<div class="col-lg-9">
+				<div class="col-xs-9">
 					Approved Vacation
 				</div>
 			</div>
@@ -121,7 +121,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-xs-7 col-xs-offset-3 col-sm-offset-5">
+		<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
 			<div class="pull-center form-inline" style="padding-left:21px;">
 				<div class="row">
 					<div class="btn-group" style="padding-left:10px; padding-bottom:10px; padding-top:20px;">
@@ -138,8 +138,6 @@
 						<button class="btn btn-warning" data-calendar-view="day">Day</button>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 	</div>

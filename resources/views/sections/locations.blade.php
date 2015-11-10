@@ -15,7 +15,7 @@
         <ul role="tablist" class="nav nav-tabs-alt nav-tabs-one btn-group clearfix">
           <li role="presentation" class=""><a data-toggle="tab" role="tab" aria-controls="Edinburg" href="#Edinburg" aria-expanded="true">Edinburg, TX</a> </li>
           <li role="presentation" class=""><a aria-expanded="false" href="#Laredo" aria-controls="Laredo" role="tab" data-toggle="tab">Laredo, TX</a> </li>
-          <li role="presentation" class=""><a href="#Reynosa" aria-controls="Reynosa" role="tab" data-toggle="tab" aria-expanded="false">Reynosa, Mexico</a> </li>
+          <li role="presentation" class=""><a href="#Reynosa" aria-controls="Reynosa" role="tab" data-toggle="tab" aria-expanded="false">Reynosa, MX</a> </li>
         </ul>
       </div>
       <div class="clear"></div>

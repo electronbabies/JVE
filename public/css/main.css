@@ -1280,7 +1280,7 @@ label
     }
     .floated .navbar-nav > li
     {
-        padding: 0 40px;
+        padding: 0 20px;
 
         text-align: left;
     }
@@ -1368,7 +1368,7 @@ label
 }
 .contacts article
 {
-    margin-top: 40px;
+    margin-top: 0px;
 }
 @media (min-width: 992px)
 {
@@ -1381,11 +1381,13 @@ label
         border-left: 1px dotted #c5c5c7;
     }
 }
-@media (max-width: 991px)
+@media (max-width: 767px)
 {
     .contacts .bottom-border
     {
         border-bottom: 1px dotted #c5c5c7;
+        text-align: center;
+        padding-bottom: 15px;
     }
 }
 .contacts .contacts-block p
@@ -1583,7 +1585,7 @@ label
 }
 .section-header
 {
-    margin: 90px 0 0;
+    margin: 60px 0 0;
 }
 .section-header h2,
 .section-header p
@@ -4770,7 +4772,7 @@ section.team .team-description p
 }
 .gallery-2 .btn-group
 {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 .gallery-2 .gallery-load
 {
