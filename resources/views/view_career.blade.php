@@ -94,7 +94,7 @@
 								<b>Description</b>
 							</div>
 							<div class="col-xs-11 col-md-8">
-								{!! $objCareer->description !!}
+								{!! str_replace("\r\n","<br />",$objCareer->description) !!}
 							</div>
 						</div>
 						<br />
@@ -103,7 +103,7 @@
 								<b>Requirements</b>
 							</div>
 							<div class="col-xs-11 col-md-8">
-								{!! $objCareer->requirements !!}
+								{!! str_replace("\r\n","<br />", $objCareer->requirements) !!}
 							</div>
 						</div>
 						<br />
