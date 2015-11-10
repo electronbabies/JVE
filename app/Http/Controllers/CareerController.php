@@ -23,8 +23,6 @@ class CareerController extends AdminController
 		if (!$this->objLoggedInUser->HasPermission('Edit/Blog'))
 			abort('404');
 
-		//$Input = Request::all();
-
 		$objCareer = Request::get('CareerID') ? \App\Career::findOrFail(Request::get('CareerID')) : new \App\Career;
 
 		$objCareer->title = Request::get('title');

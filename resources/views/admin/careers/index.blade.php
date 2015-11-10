@@ -83,7 +83,7 @@
 
 				}).done(function (data) {
 					if (data == 'success') {
-						DocumentElem.remove();
+						Elem.remove();
 					} else {
 						alert('Error deleting career.  Contact network administrator');
 					}
