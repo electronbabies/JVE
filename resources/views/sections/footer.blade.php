@@ -6,12 +6,13 @@
           <article class="contacts-block bottom-border">
             <h5 class="white">Quick Links</h5>
             <ul>
-              <li> <a href="/service">Service</a> </li>
-              <li> <a href="/parts">Parts</a> </li>
-              <li> <a href="/sales">Sales</a> </li>
-              <li> <a href="/rentals">Rentals</a> </li>
-			  <li><a href="/gallery">Gallery</a></li>
-              <li> <a href="/forms/contact">Contact</a> </li>
+				<li> <a href="/service">Service</a> </li>
+				<li> <a href="/parts">Parts</a> </li>
+				<li> <a href="/sales">Sales</a> </li>
+				<li> <a href="/rentals">Rentals</a> </li>
+				<li><a href="/gallery">Gallery</a></li>
+				<li> <a href="/forms/contact">Contact</a> </li>
+				@if($CareerCount)<li><a href="/careers">Careers</a></li>@endif
             </ul>
           </article>
         </div>

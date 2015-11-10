@@ -15,6 +15,7 @@ class StaticController extends Controller
 
 		$objUser = \Auth::User() ?: \App\User::GetGuestAccount();
 
+		View::share('CareerCount', \App\Career::where('status', \App\Career::STATUS_ENABLED)->count());
 		View::share('PageTitle', 'Welcome');
 		View::share('objUser', $objUser);
 	}
@@ -98,6 +99,13 @@ class StaticController extends Controller
 		View::share('headline', 'Welcome to JVEquipment');
 		View::share('subhead', 'The forklift dealership without borders');
 		return view('index');
+	}
+
+	function careers()
+	{
+		$tJobOpenings = \App\Career::where('status', \App\Career::STATUS_ENABLED)->get();
+		View::share('tJobOpenings', $tJobOpenings);
+		return view('careers');
 	}
 
 	function service()

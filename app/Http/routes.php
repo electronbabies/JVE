@@ -25,6 +25,7 @@ Route::get('service', 'StaticController@service');
 Route::get('parts', 'StaticController@parts');
 Route::get('sales', 'StaticController@sales');
 Route::get('rentals', 'StaticController@rentals');
+Route::get('careers', 'StaticController@careers');
 Route::get('privacy', 'StaticController@privacy');
 
 // Not exactly static.  Might want to change name.  GalleryController is currently an AdminController, however.

@@ -169,6 +169,11 @@ section.contacts {
 	background-position: center center;
 	background-attachment: fixed;
 }
+.careers-bg {
+    background-image: url("/img/parts.jpg");
+    background-position: center center;
+    background-attachment: fixed;
+}
 section.service.parts.wrap.service-bg {
 	background-image: url("/img/service-bg.jpg");
 	background-position: center center;
