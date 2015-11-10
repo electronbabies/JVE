@@ -42,9 +42,11 @@
 									<br />
 								</div>
 							</a>
+							@if($objLoggedInUser->HasPermission('Edit/Gallery'))
 							<div style='width: 100%'>
 								<button type="button" class="btn btn-xs btn-danger" name="DeleteGallery" style="display:block; margin-top: 10px; margin-left: auto; margin-right: auto;">Delete</button>
 							</div>
+							@endif
 						</div>
 					<?php
 						if($Count % 6 == 0 || count($tGalleryImages) == $Count)

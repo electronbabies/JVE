@@ -39,12 +39,14 @@
 					<div class="col-xs-6">
 						{!! $objPost->entry !!}
 					</div>
+					@if($objLoggedInUser->HasPermission("Edit/Blog"))
 					<div class="col-xs-2 col-xs-offset-1">
 						<div class="pull-right">
 							<a href="/admin/blog/edit/{{ $objPost->id }}"><button type="button" class="btn btn-sm btn-default" name="EditBlog">Edit</button></a>
 							<button type="button" class="btn btn-sm btn-default" name="DeleteBlog">Delete</button>
 						</div>
 					</div>
+					@endif
 				</div>
 				@if($objLoggedInUser->HasPermission("Edit/Blog"))
 				<hr>

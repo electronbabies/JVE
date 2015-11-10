@@ -40,7 +40,7 @@
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3 form-group">
 				<label>Department</label>
-				<select class="form-control" name="Department">
+				<select class="form-control" name="Department" {{ $Disabled }}>
 					@foreach(\App\Invoice::$tTypes as $Department)
 						<?php $Selected = $Department == $objDocument->department ? 'selected' : ''; ?>
 						<option value="{{ $Department }}" {{ $Selected }}>{{ $Department }}</option>

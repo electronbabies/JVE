@@ -24,6 +24,7 @@
 			</ol>
 		</div>
 	</div>
+	@if($objLoggedInUser->HasPermission('Edit/Documents'))
 	<div class="row">
 		<div class="col-xs-3 col-lg-offset-5 col-xs-offset-3 col-sm-offset-4">
 			<a href="/admin/documents/edit/new">
@@ -31,6 +32,7 @@
 			</a><br/><br/>
 		</div>
 	</div>
+	@endif
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="table-responsive">
