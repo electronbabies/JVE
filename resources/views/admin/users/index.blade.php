@@ -2,7 +2,8 @@
 @section('extra_header')
 	<script language="javascript" type="text/javascript">
 		$(document).ready(function () {
-			setFilterGrid("UsersTable");
+			if ($('#UsersTable tr').length > 2)
+				setFilterGrid("UsersTable");
 		});
 	</script>
 @stop

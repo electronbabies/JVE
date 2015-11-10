@@ -25,6 +25,20 @@
 		}
 	</script>
 
+	<script type="text/javascript">
+		$(document).ready(function () { /* Hide broken titles */
+			$("img").error(function () {
+				$(this).attr('src', '/img/image-not-found.gif');
+			});
+			$("tr").click(function () {
+				var URL = $(this).find('td:first > objectrow').attr('href');
+
+				if (URL)
+					window.document.location = URL;
+			});
+		});
+	</script>
+
 	<style>
 		div#google_translate_element select {
 			color: black !important;

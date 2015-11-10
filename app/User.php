@@ -56,6 +56,10 @@ class User extends Model implements AuthenticatableContract,
 			'Edit/Documents'	=> 'Edit Documents',
 			'View/Documents'	=> 'View Documents',
 		],
+		'Careers' => [
+			'Edit/Careers' 		=> 'Edit Careers',
+			'View/Careers' 		=> 'View Careers',
+		],
 		/*'Vacations' => [
 			// Should be all employees
 			'Edit/Vacation'		=> 'Edit Vacation Requests',

@@ -298,6 +298,16 @@
 							Documents</a>
 					</li>
 				@endif
+				@if($objLoggedInUser->HasPermission('View/Careers'))
+					<li
+						@if ($ActiveClass == 'Careers')
+						class="active"
+						@endif
+						>
+						<a href="/admin/careers"><i class="fa fa-fw {{ Config::get('constants.ICON_CAREERS') }}"></i>
+							Careers</a>
+					</li>
+				@endif
 
 				<li
 					@if ($ActiveClass == 'Vacations')

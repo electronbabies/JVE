@@ -91,7 +91,7 @@
 						if (data == 'success') {
 							DocumentElem.remove();
 						} else {
-							alert('Error deleting holiday.  Contact network administrator');
+							alert('Error deleting document.  Contact network administrator');
 						}
 					});
 				}

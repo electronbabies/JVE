@@ -103,9 +103,16 @@ class StaticController extends Controller
 
 	function careers()
 	{
-		$tJobOpenings = \App\Career::where('status', \App\Career::STATUS_ENABLED)->get();
-		View::share('tJobOpenings', $tJobOpenings);
+		$tCareers = \App\Career::where('status', \App\Career::STATUS_ENABLED)->get();
+		View::share('tCareers', $tCareers);
 		return view('careers');
+	}
+
+	function view_career($id)
+	{
+		$objCareer = \App\Career::findOrFail($id);
+		View::share('objCareer', $objCareer);
+		return view('view_career');
 	}
 
 	function service()

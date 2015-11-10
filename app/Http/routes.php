@@ -26,6 +26,7 @@ Route::get('parts', 'StaticController@parts');
 Route::get('sales', 'StaticController@sales');
 Route::get('rentals', 'StaticController@rentals');
 Route::get('careers', 'StaticController@careers');
+Route::get('careers/view_career/{id}', 'StaticController@view_career');
 Route::get('privacy', 'StaticController@privacy');
 
 // Not exactly static.  Might want to change name.  GalleryController is currently an AdminController, however.
@@ -98,6 +99,12 @@ Route::get('admin/documents/edit/{id}', 'DocumentController@edit');
 Route::get('admin/documents/delete/{id}', 'DocumentController@delete');
 Route::get('admin/documents/document_view/{id}', 'DocumentController@document_view');
 Route::post('admin/documents/store/', 'DocumentController@store');
+
+// Admin Careers
+Route::get('admin/careers', 'CareerController@index');
+Route::get('admin/careers/edit/{id}', 'CareerController@edit');
+Route::get('admin/careers/delete/{id}', 'CareerController@delete');
+Route::post('admin/careers/store/', 'CareerController@store');
 
 // Admin Calendar
 Route::get('admin/calendar', 'CalendarController@index');

@@ -22,8 +22,9 @@ return [
 	'ICON_GALLERY'				=> 'fa-image',
 	'ICON_INVOICE'				=> 'fa-archive',
 	'ICON_INVOICE_ITEMS'		=> 'fa-file-archive-o',
-	'ICON_VACATION'				=> 'fa-suitcase',
+	'ICON_VACATION'				=> 'fa-umbrella',
 	'ICON_HOLIDAYS'				=> 'fa-tree',
 	'ICON_PERMISSIONS' 			=> 'fa-key',
 	'ICON_DOCUMENTS'			=> 'fa-file-word-o',
+	'ICON_CAREERS'				=> 'fa-suitcase',
 ];

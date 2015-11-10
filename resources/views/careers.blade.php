@@ -42,10 +42,10 @@
 						<th>Location</th>
 					</thead>
 					<tbody>
-						@forelse($tJobOpenings as $objJobOpening)
-							<td><objectrow href="/careers/view_career/{{ $objJobOpening->id }}" />{{ $objJobOpening->created_at->format('m/d/Y') }}</td>
-							<td>{{ $objJobOpening->title }}</td>
-							<td>{{ $objJobOpening->city }}, {{ $objJobOpening->state}}</td>
+						@forelse($tCareers as $objCareer)
+							<td><objectrow href="/careers/view_career/{{ $objCareer->id }}" />{{ $objCareer->created_at->format('m/d/Y') }}</td>
+							<td>{{ $objCareer->title }}</td>
+							<td>{{ $objCareer->city }}, {{ $objCareer->state}}</td>
 						@empty
 							<td colspan="99" class='text-center'>No job openings currently available.</td>
 						@endforelse
