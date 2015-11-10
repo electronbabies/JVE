@@ -1,5 +1,17 @@
 @extends('admin.admin-app')
-
+@section('extra_header')
+	<!-- Codemirror -->
+	<link href="/css/codemirror.css" rel="stylesheet">
+	<script src="/js/codemirror.js"></script>
+	<script src="/js/codemirror/mode/css/css.js"></script>
+	<script>
+	$( document ).ready(function() {
+		var editor = CodeMirror.fromTextArea(document.getElementById('css_textarea'), {
+			lineNumbers: true
+		});
+	});
+	</script>
+@stop
 @section('content')
 	<?php
 		$ReadOnly = !$objLoggedInUser->HasPermission("Edit/Blog") ? 'readonly' : '';
@@ -46,7 +58,7 @@
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3 form-group">
 				<label>CSS</label>
-				<textarea class="form-control" name='css' rows=20 {{ $ReadOnly }}>{{ $objPost->css }}</textarea>
+				<textarea class="form-control" id="css_textarea"  name='css' rows=20 {{ $ReadOnly }}>{{ $objPost->css }}</textarea>
 			</div>
 		</div>
 		<div class="row">
