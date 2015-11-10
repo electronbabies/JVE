@@ -88,7 +88,8 @@ Route::post('admin/blog/store/', 'BlogController@store');
 Route::get('admin/gallery', 'GalleryController@index');
 Route::get('admin/gallery/edit/{id}', 'GalleryController@edit');
 Route::get('admin/gallery/delete/{id}', 'GalleryController@delete');
-Route::post('admin/gallery/store/', 'GalleryController@store');
+Route::post('admin/gallery/store', 'GalleryController@store');
+Route::post('admin/gallery/set_permissions', 'GalleryController@set_permissions');
 
 // Admin Documents
 Route::get('admin/documents', 'DocumentController@index');

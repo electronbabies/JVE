@@ -55,6 +55,24 @@ class GalleryController extends AdminController
 		return view('admin.gallery.create');
 	}
 
+	public function set_permissions()
+	{
+		if (!$this->objLoggedInUser->IsAdmin())
+			abort('404');
+
+		$tFields = Request::get('Fields');
+
+		$objSettings = \App\Ini::where('Type', \App\GalleryImage::GALLERY_FRONT_PAGE_SETTINGS)->first();
+		if(!$objSettings) {
+			$objSettings = new \App\Ini;
+			$objSettings->type = \App\GalleryImage::GALLERY_FRONT_PAGE_SETTINGS;
+		}
+		$objSettings->value = implode('|', array_keys($tFields));
+		$objSettings->save();
+
+		return redirect("/admin/gallery")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Gallery settings saved successfully']);
+	}
+
 	public function store()
 	{
 		if(!$this->objLoggedInUser->HasPermission("Edit/Gallery"))
@@ -97,7 +115,6 @@ class GalleryController extends AdminController
 		$objImage->save();
 
 		$Path = Request::get('submit') == 'Save' ? '' : "/edit/{$objImage->id}";
-
 
 		return redirect("/admin/gallery{$Path}")->with('FormResponse', ['ResponseType' => static::MESSAGE_SUCCESS, 'Content' => 'Gallery saved successfully']);
 	}

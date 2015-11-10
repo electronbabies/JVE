@@ -153,14 +153,11 @@
     <ul class="row">
     @foreach($tGalleryImages as $objImage)
       <li class="col-md-4 image_stat">
-
         <div class="productbox" >
-
         <div class="">
-          	{{--<img class="pop img-thumbnail center-block" src="/img/gallery_images/{{ $objImage->image_filename }}" />--}}
 			<a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="{{ $objImage->title }}" data-caption="" data-image="/img/gallery_images/{{ $objImage->image_filename}}" data-target="#image-gallery">
 			<div class="center-block" style="background-image: url('/img/gallery_images/{{ $objImage->image_filename }}'); width:320px; height: 240px; background-size: 100%; background-repeat: no-repeat;">
-				@if($objImage->sold)
+				@if($objImage->sold && \App\GalleryImage::IsFieldSet(\App\GalleryImage::FIELD_SOLD))
 					<div class="overlaypic"></div>
 				@endif
 			</div>
@@ -170,40 +167,46 @@
 
           <div class="producttitle text-center">{{ $objImage->title }}</div>
           <div class="row">
-            <div class="text-left col-sm-6 image_stat">
-              <span style="color: #333;">Mast Height: <span style="color: #b5b5b5">{{ $objImage->mast_height }}</span></span>
-            </div>
-			  <div class="text-left col-sm-6 image_stat">
-				  <span style="color: #333;">Serial: <span style="color: #b5b5b5">{{ $objImage->serial }}</span></span>
-			  </div>
-          </div>
-
-          <div class="row">
-			  <div class="text-left col-sm-6 image_stat">
-				  <span style="color: #333;">Make: <span style="color: #b5b5b5">{{ $objImage->make }}</span></span>
-			  </div>
-			  <div class="text-left col-sm-6 image_stat">
-				  <span style="color: #333;">Model: <span style="color: #b5b5b5">{{ $objImage->model }}</span></span>
-			  </div>
-
-          </div>
-
-          <div class="row">
-            <div class="text-left col-sm-6 image_stat">
-              <span style="color: #333;">Year: <span style="color: #b5b5b5">{{ $objImage->year }}</span></span>
-            </div>
-            <div class="text-left col-sm-6 image_stat">
-              <span style="color: #333;">Hours: <span style="color: #b5b5b5">{{ $objImage->hours }}</span></span>
-            </div>
-          </div>
-
-          <div class="row">
-			  <div class="text-left col-sm-6 image_stat">
-				  <span style="color: #333;">Warranty: <span style="color: #b5b5b5">{{ $objImage->warranty }}</span></span>
-			  </div>
-            <div class="text-left col-sm-6 image_stat">
-              <span style="color: #333;">Price: <span style="color: red">{{ $objImage->price }}</span></span>
-            </div>
+			@if(\App\GalleryImage::IsFieldSet(\App\GalleryImage::FIELD_MAST_HEIGHT))
+				<div class="text-left col-sm-6 image_stat">
+					<span style="color: #333;">Mast Height: <span style="color: #b5b5b5">{{ $objImage->mast_height }}</span></span>
+				</div>
+        	@endif
+			@if(\App\GalleryImage::IsFieldSet(\App\GalleryImage::FIELD_SERIAL))
+				<div class="text-left col-sm-6 image_stat">
+					<span style="color: #333;">Serial: <span style="color: #b5b5b5">{{ $objImage->serial }}</span></span>
+				</div>
+			@endif
+			@if(\App\GalleryImage::IsFieldSet(\App\GalleryImage::FIELD_MAKE))
+				<div class="text-left col-sm-6 image_stat">
+					<span style="color: #333;">Make: <span style="color: #b5b5b5">{{ $objImage->make }}</span></span>
+				</div>
+			@endif
+			@if(\App\GalleryImage::IsFieldSet(\App\GalleryImage::FIELD_MODEL))
+				<div class="text-left col-sm-6 image_stat">
+					<span style="color: #333;">Model: <span style="color: #b5b5b5">{{ $objImage->model }}</span></span>
+				</div>
+			@endif
+			@if(\App\GalleryImage::IsFieldSet(\App\GalleryImage::FIELD_YEAR))
+				<div class="text-left col-sm-6 image_stat">
+				  <span style="color: #333;">Year: <span style="color: #b5b5b5">{{ $objImage->year }}</span></span>
+				</div>
+			@endif
+			@if(\App\GalleryImage::IsFieldSet(\App\GalleryImage::FIELD_HOURS))
+				<div class="text-left col-sm-6 image_stat">
+				  <span style="color: #333;">Hours: <span style="color: #b5b5b5">{{ $objImage->hours }}</span></span>
+				</div>
+			@endif
+			@if(\App\GalleryImage::IsFieldSet(\App\GalleryImage::FIELD_WARRANTY))
+				<div class="text-left col-sm-6 image_stat">
+					<span style="color: #333;">Warranty: <span style="color: #b5b5b5">{{ $objImage->warranty }}</span></span>
+				</div>
+			@endif
+			@if(\App\GalleryImage::IsFieldSet(\App\GalleryImage::FIELD_PRICE))
+				<div class="text-left col-sm-6 image_stat">
+					<span style="color: #333;">Price: <span style="color: red">{{ $objImage->price }}</span></span>
+				</div>
+			@endif
           </div>
 </span>
         </div>
