@@ -29,7 +29,7 @@
 				<div class="col-xs-12 col-sm-6 col-md-7 col-lg-8 voffset-md">
 					<h3 class="media-heading text-center">{!! $objPost->title !!} </h3>
 					<hr>
-					<p style="font-size:16px;" class="text-justify">{!! $objPost->entry !!}</p>
+					<p style="font-size:16px;" class="text-justify media-entry">{!! $objPost->entry !!}</p>
 				</div>
 			</div>
 		</div>
