@@ -92,7 +92,7 @@
     margin-right: 10px;
 }
 
-h3, h3 span {
+h3, h3 > span {
 	color: #6FA1EE;
 }
 .blog .mg-md {
