@@ -22,7 +22,7 @@
 		<div class="col-lg-12">
 			<h1 class="page-header" id="BlogTitleHeader">
 				@if ($objPost->title)
-					{{ $objPost->title }}
+					{{ strip_tags($objPost->title) }}
 				@else
 					Untitled
 				@endif
@@ -105,10 +105,4 @@
 		</div>
 		@endif
 	</form>
-
-	<script type="text/javascript">
-		$('#Title').on('input', function () {
-			$("#BlogTitleHeader").html(this.value);
-		});
-	</script>
 @stop
