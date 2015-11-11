@@ -255,3 +255,8 @@ input[type='checkbox'] {
 .flt {
     width: 100%;
 }
+
+kbd, code {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
