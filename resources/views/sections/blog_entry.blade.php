@@ -2,9 +2,7 @@
 <style>
 	@foreach($tBlogPosts as $objPost)
 		@if($objPost->css)
-	    	#Image{{$objPost->id}} {
 	    		{{ $objPost->css }}
-	    	}
 	    @endif
 	@endforeach
 </style>
