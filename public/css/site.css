@@ -337,3 +337,6 @@ article.contact-item {
         margin-top: 8px;
     }
 }
+.media-heading span, .media-entry span {
+	color:white;
+}
