@@ -134,19 +134,10 @@
 			</div>
 		</div>
 	</div>
+<section class="gallery wrap">
+	<div class="container wrap-xl gallery-container-bg" style="padding-top: 393px; margin-top: 50px; margin-bottom: 50px;">
 
-<section class="{{ $PageTitleSlug }} wrap {{ $PageTitleSlug }}-bg">
-  <div class="container wrap-xl" style="padding-top: 250px">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="row">
-          <div class="col-sm-12 text-center">
-            <h2 class="text-center mg-sm">{{ $PageTitle }}</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	</div>
 </section>
 <div class="wrap tc-white bg-cement-texture d-wrap bg-repeat" id="team-section">
   <div class="container wrap-lg">

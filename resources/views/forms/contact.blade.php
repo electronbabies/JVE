@@ -1,15 +1,15 @@
 @extends('app')
 
 @section('content')
-	<section class="wrap contact contact-us-bg">
+	<section class="wrap contact contact-us-bg" style="background-color: #00AFF0;">
 		<div class="container" style="padding-top: 250px;">
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="row">
-						<div class="col-xs-12 text-center">
-							<h2 class="text-center mg-sm">Contact Us</h2>
+						<div class="col-xs-12 text-center" style="margin-top: 35px;">
+							<h2 class="text-center mg-sm" style="color: white;">Contact Us</h2>
 
-							<h3 class="text-center mg-lg"><span>How may we help?</span></h3>
+							<h3 class="text-center mg-lg"><span style="color: white;">How may we help?</span></h3>
 						</div>
 					</div>
 				</div>
@@ -18,7 +18,7 @@
 	</section>
 
 
-	<div class="wrap bg-repeat ">
+	<div class="wrap bg-repeat" style="background-color: #00AFF0; color:white;">
 		@if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>

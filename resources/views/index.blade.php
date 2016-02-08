@@ -18,12 +18,12 @@
   </div>
 </section> --}}
 <section class="{{ $PageTitleSlug }} wrap {{ $PageTitleSlug }}-bg">
-  <div class="container wrap-xl" style="padding-top: 250px">
+  <div class="container wrap-xl home-container-bg" style="padding-top: 383px; margin-top: 200px;">
     <div class="row">
       <div class="col-sm-12">
         <div class="row">
           <div class="col-sm-12 text-center">
-            <h2 class="text-center mg-sm">{{ $headline }}</h2>
+            <h2 class="text-center mg-sm" style="color: white; ">{{ $headline }}</h2>
             <h3 class="text-center mg-lg"> <span>{{ $subhead }}</span> </h3> </div>
         </div>
       </div>

@@ -932,10 +932,12 @@ label
     margin-top: 0;
 
     background: rgba(25, 26, 29, .65) none repeat scroll 0 0;
+
 }
 .navMobile.navbar-default .navbar-search
 {
-    background: rgba(255, 255, 255, .2) none repeat scroll 0 0;
+    /*background: rgba(255, 255, 255, .2) none repeat scroll 0 0;*/
+    background: rgba(25, 26, 29, .65) none repeat scroll 0 0;
 }
 .navMobile .nav-logo
 {
@@ -2839,7 +2841,8 @@ footer.fullstyle
 }
 .blog
 {
-    margin-bottom: 130px;
+    /*margin-bottom: 10px;*/
+    background-color: #fff;
 }
 .blog .post
 {
@@ -7440,8 +7443,10 @@ body
     margin: 0;
     padding: 0;
 
-    background-color: #21385e;
-    background-image: url("/img/squared-bg.png");
+    background-color: white;
+    color: black;
+    /*background-color: #21385e;
+    background-image: url("/img/squared-bg.png");*/
 
     -moz-osx-font-smoothing: grayscale;
 }
@@ -7752,7 +7757,8 @@ h2
 .navbar
 {
     z-index: 99999 !important;
-
+    /*background: rgba(25, 26, 29, .65) none repeat scroll 0 0;*/
+    background: rgba(0, 0, 0, .85) none repeat scroll 0 0;
     margin-bottom: 0;
 }
 .navbar-brand
@@ -7884,7 +7890,7 @@ nav .caret
     margin-top: 10px;
     margin-bottom: 5px;
 
-    color: #f8f8f8;
+    /*color: #f8f8f8;*/
 }
 .mg-md
 {
@@ -8172,10 +8178,41 @@ iframe
 {
     background-image: url('/img/banner-holder-2.jpg');
 }
-.service-bg
-{
-    background-image: url('/img/service.jpg');
+
+.home-container-bg {
+    /*background-image: url('/img/home.jpg');*/
+    background-image: url('/img/warehouse_crown2.jpg');
 }
+
+.gallery-container-bg {
+    /*background-image: url('/img/home.jpg');*/
+    background-image: url('/img/warehouse_crown2.jpg');
+}
+
+.service-container-bg
+{
+    background-image: url('/img/warehouse_crown2.jpg');
+    background-repeat: no-repeat;
+}
+.careers-container-bg {
+    background-image: url('/img/warehouse_crown2.jpg');
+    background-repeat: no-repeat;
+}
+.sales-container-bg {
+    background-image: url('/img/warehouse_crown2.jpg');
+    background-repeat: no-repeat;
+}
+
+.parts-container-bg {
+    background-image: url('/img/warehouse_crown2.jpg');
+    background-repeat: no-repeat;
+}
+
+.rental-container-bg {
+    background-image: url('/img/warehouse_crown2.jpg');
+    background-repeat: no-repeat;
+}
+
 @media (max-width: 1024px)
 {
     .wrap
@@ -8433,6 +8470,9 @@ iframe
 {
     padding-right: 20px;
     padding-left: 20px;
+    margin-top: 60px;
+    padding-bottom: 60px;
+    background-color: #eee;
 }
 .blog p
 {
@@ -8525,7 +8565,7 @@ footer section.contacts article a
 {
     padding-top: 0;
 
-    color: white;
+    /*color: white;*/
 }
 div.media:nth-child(1) > a:nth-child(1) > img:nth-child(1)
 

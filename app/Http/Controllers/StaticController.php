@@ -96,8 +96,8 @@ class StaticController extends Controller
 		View::share('PageTitle', 'Home');
 		View::share('PageTitleSlug', 'home');
 		// Header Properties
-		View::share('headline', 'Welcome to JVEquipment');
-		View::share('subhead', 'The forklift dealership without borders');
+		View::share('headline', '');
+		View::share('subhead', '');
 		return view('index');
 	}
 
@@ -120,9 +120,9 @@ class StaticController extends Controller
 		View::share('PageTitle', 'Service');
 		View::share('PageTitleSlug', 'service');
 
-		View::share('headline', 'We have factory trained technicians');
-		View::share('subhead', 'We take pride in what we do and stand behind our work 100%');
-		View::share('PageText', 'Factory trained technicians means that your forklift equipment is in good hands. We pride ourselves on being able to quickly and accurately respond to units that are down or not functioning correctly. The goal of our service department is to ensure that your forklift equipment will be quickly and promptly repaired. Your business is important to us because if you succeed then we succeed. We take pride in what we do and stand behind our work 100%. Give us a call today to request a service call for all makes and models of forklifts. Interested in a preventive maintenance program for your fleet of forklifts? Call us today or request a quote.');
+		View::share('headline', '');
+		View::share('subhead', '');
+		View::share('PageText', '');
 
 		View::share('val1', 'Proud');
 		View::share('valSub1', 'award winning service');

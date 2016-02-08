@@ -1,14 +1,14 @@
 @extends('app')
 
 @section('content')
-<section class="parts-quote wrap parts-quote-bg">
+<section class="parts-quote wrap parts-quote-bg" style="background-color: #00AFF0;">
   <div class="container wrap-xl" style="padding: 150px;padding-bottom: 0px;">
     <div class="row">
       <div class="col-sm-12">
         <div class="row">
-          <div class="col-sm-12 text-center">
-            <h2 class="text-center mg-sm">Parts Quote</h2>
-            <h3 class="text-center mg-lg"> <span>Contact us today about your parts quote</span> </h3>  </div>
+          <div class="col-sm-12 text-center" style="margin-top: 35px;">
+            <h2 class="text-center mg-sm" style="color: white;">Parts Quote</h2>
+            <h3 class="text-center mg-lg"> <span style="color: white;">Contact us today about your parts quote</span> </h3>  </div>
         </div>
       </div>
     </div>
@@ -16,7 +16,7 @@
 </section>
 
 
-	<div class="wrap bg-repeat ">
+	<div class="wrap bg-repeat " style="background-color: #00AFF0; color:white;">
 		@if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
@@ -116,7 +116,7 @@
 												<textarea class="form-control" rows="4" cols="50" tabindex="9"
 														  name="Comments"></textarea>
 											</div>
-											<button class="wrap-button btn btn-d btn-lg btn-block" type="submit"
+											<button class="wrap-button btn btn-d btn-lg btn-block form-button" type="submit"
 													tabindex="9">
 												Submit
 											</button>

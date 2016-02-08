@@ -76,11 +76,11 @@
     </div>
   </section>
 
-  <section class="copyright">
+  <section class="copyright" style="color: white;">
     <div class="container">
       <div class="row">
         <div class="col-md-7">
-          <p>J.V. Equipment, Inc. © 2015 – Trademarks and brands are the property of their respective owners</p>
+          <p>J.V. Equipment, Inc. &copy; <?=date("Y"); ?> – Trademarks and brands are the property of their respective owners</p>
         </div>
         <div class="col-md-4">
           <ul class="copyright-links list-inline">

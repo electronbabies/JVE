@@ -1,17 +1,14 @@
 @extends('app')
+@section('extra_header')
+<style>
+	h3 > span {
+		color: white;
+	}
+</style>
+@stop
 @section('content')
-	<section class="careers wrap careers-bg">
-		<div class="container wrap-xl" style="padding-top: 250px">
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="row">
-						<div class="col-sm-12 text-center">
-							<h2 class="text-center mg-sm">Careers</h2>
-							{{-- <h3 class="text-center mg-lg"><span></span></h3> --}}
-						</div>
-					</div>
-				</div>
-			</div>
+	<section class="careers wrap">
+		<div class="container wrap-xl careers-container-bg" style="padding-top: 393px; margin-top: 50px; margin-bottom: 50px;">
 		</div>
 	</section>
 	<section class="values careers bg-cement-texture d-wrap bg-repeat">
@@ -19,7 +16,7 @@
 			<div class="row">
 				<div class="col-xs-10 col-xs-offset-1">
 					<h2 class="text-center mg-sm"></h2>
-					<h3 class="text-center"><span>Careers Available</span></h3>
+					<h3 class="text-center"><span style="color:white;">Careers Available</span></h3>
 
 					<p class="text-justify">
 						It takes a wide range of skills sets to run a forklift company.  JVEquipment's jobs include
