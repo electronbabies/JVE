@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="parts-quote wrap parts-quote-bg" style="background-color: #00AFF0;">
-  <div class="container wrap-xl" style="padding: 150px;padding-bottom: 0px;">
+  <div class="container wrap-xl service-header-div" style="padding: 150px;padding-bottom: 0px;">
     <div class="row">
       <div class="col-sm-12">
         <div class="row">

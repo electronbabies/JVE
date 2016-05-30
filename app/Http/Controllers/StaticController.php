@@ -182,7 +182,7 @@ class StaticController extends Controller
 		View::share('subhead', 'Our sales experience is unmatched');
 		View::share('PageText', 'Owning and buying a forklift is not always an easy endeavor. Heavy loading equipment is highly specialized and requires knowledge to make the right choice. You may have particular needs that must be met and to get the right equipment you need a company that has years of equipment sales experience. You need a company that has the knowledge required to put the right equipment in the right spot. With over 34 years of sales experience why look anywhere else? Call us today and tell us what your needs are and we&rsquo;ll make sure you get the right forklift for the job.');
 
-		View::share('val1', 'Avaliability');
+		View::share('val1', 'Availability');
 		View::share('valSub1', 'Fleet of Over 400 Units');
 		View::share('val2', 'Choice');
 		View::share('valSub2', 'Late Model Units Available');

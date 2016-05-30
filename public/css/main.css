@@ -8181,36 +8181,88 @@ iframe
 
 .home-container-bg {
     /*background-image: url('/img/home.jpg');*/
-    background-image: url('/img/warehouse_crown2.jpg');
+    background-image: url('/img/background_home.jpg');
 }
 
 .gallery-container-bg {
     /*background-image: url('/img/home.jpg');*/
-    background-image: url('/img/warehouse_crown2.jpg');
+    background-image: url('/img/background_gallery.jpg');
+    background-repeat: no-repeat;
 }
 
 .service-container-bg
 {
-    background-image: url('/img/warehouse_crown2.jpg');
+    background-image: url('/img/background_service.jpg');
     background-repeat: no-repeat;
 }
 .careers-container-bg {
-    background-image: url('/img/warehouse_crown2.jpg');
+    background-image: url('/img/background_careers.jpg');
     background-repeat: no-repeat;
 }
 .sales-container-bg {
-    background-image: url('/img/warehouse_crown2.jpg');
+    background-image: url('/img/background_sales.jpg');
     background-repeat: no-repeat;
 }
 
 .parts-container-bg {
-    background-image: url('/img/warehouse_crown2.jpg');
+    background-image: url('/img/background_parts.jpg');
     background-repeat: no-repeat;
 }
 
 .rental-container-bg {
-    background-image: url('/img/warehouse_crown2.jpg');
+    background-image: url('/img/background_rental.jpg');
     background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 600px) {
+  .home-container-bg {
+    background-image: none !important;
+    margin-top: -10px !important;
+    padding-top: 0px !important;
+  }
+  .gallery-container-bg {
+    background-image: none !important;
+    margin-top: -10px !important;
+    padding-top: 0px !important;
+  }
+  .service-container-bg {
+    background-image: none !important;
+    margin-top: 39px !important;
+    padding-top: 0px !important;
+  }
+  .careers-container-bg {
+    background-image: none !important;
+    margin-top: 39px !important;
+    padding-top: 0px !important;
+  }
+  .sales-container-bg {
+    background-image: none !important;
+    margin-top: 39px !important;
+    padding-top: 0px !important;
+  }
+  .parts-container-bg {
+    background-image: none !important;
+    margin-top: 39px !important;
+    padding-top: 0px !important;
+  }
+  .rental-container-bg {
+    background-image: none !important;
+    margin-top: 39px !important;
+    padding-top: 0px !important;
+  }
+  .service-header-div {
+    padding: 125px 0px 0px 0px !important;
+    margin-top: 200px !important;
+  }
+  .rental-header-div {
+    padding: 125px 0px 0px 0px !important;
+  }
+  .parts-header-div {
+    padding: 125px 0px 0px 0px !important;
+  }
+  .sales-header-div {
+    padding: 125px 0px 0px 0px !important;
+  }
 }
 
 @media (max-width: 1024px)
@@ -8454,6 +8506,7 @@ iframe
         #margin-bottom: 50px;
     }
 }
+
 .transparent
 {
     background-color: rgba(155, 155, 155, .1);

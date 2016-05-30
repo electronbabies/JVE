@@ -271,8 +271,9 @@ a.btn.btn-primary {
 	border-radius: 7px;
 }
 .locations {
-	background-color: #1976d2;
-	background-image: url("/img/jve_gray2.png");
+	/*background-color: #1976d2;
+	background-image: url("/img/jve_gray2.png");*/
+	background-color: #197684;
 	background-position: center center, center center;
 	background-repeat: no-repeat;
 	background-size: cover, cover;

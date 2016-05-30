@@ -8,7 +8,7 @@
 @stop
 @section('content')
 	<section class="careers wrap">
-		<div class="container wrap-xl careers-container-bg" style="padding-top: 393px; margin-top: 50px; margin-bottom: 50px;">
+		<div class="container wrap-xl careers-container-bg" style="padding-top: 393px; margin-top: 200px; margin-bottom: 50px;">
 		</div>
 	</section>
 	<section class="values careers bg-cement-texture d-wrap bg-repeat">

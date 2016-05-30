@@ -11,8 +11,8 @@
   <div class="container">
     {{-- <div class="row"> --}}
       <div class="col-sm-12" style="margin-top: 20px;">
-        <h2 class="text-center mg-sm">News &amp; Latest Information </h2>
-        <h3 class="text-center mg-lg" style="margin-bottom: 20px; margin-top: 15px;"><span style=""><div class="btn-group btn-block header-img" style="width: 200px;"><a style="padding: 10px; color: white" href="/forms/service" class="a-btn ">View Latest News</a></div></span> </h3>
+        <h2 class="text-center mg-sm" style="margin-bottom: 20px;">News &amp; Latest Information </h2>
+        <!-- <h3 class="text-center mg-lg" style="margin-bottom: 20px; margin-top: 15px;"><span style=""><div class="btn-group btn-block header-img" style="width: 200px;"><a style="padding: 10px; color: white" href="/forms/service" class="a-btn ">View Latest News</a></div></span> </h3> -->
         
       </div>
     {{-- </div> --}}

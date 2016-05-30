@@ -2,7 +2,7 @@
 
 @section('content')
 	<section class="wrap contact contact-us-bg" style="background-color: #00AFF0;">
-		<div class="container" style="padding-top: 250px;">
+		<div class="container" style="padding-top: 150px;">
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="row">

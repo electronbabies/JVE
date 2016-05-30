@@ -135,7 +135,7 @@
 		</div>
 	</div>
 <section class="gallery wrap">
-	<div class="container wrap-xl gallery-container-bg" style="padding-top: 393px; margin-top: 50px; margin-bottom: 50px;">
+	<div class="container wrap-xl gallery-container-bg" style="padding-top: 393px; margin-top: 200px; margin-bottom: 50px;">
 
 	</div>
 </section>

@@ -1,6 +1,6 @@
 @extends('app') @section('content')
 <section class="{{ $PageTitleSlug }} wrap {{ $PageTitleSlug }}-bg">
-  <div class="container wrap-xl" style="padding-top: 250px">
+  <div class="container wrap-xl sales-header-div" style="padding-top: 250px">
     <div class="row">
       <div class="col-sm-12">
         <div class="row">
