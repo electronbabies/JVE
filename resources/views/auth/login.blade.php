@@ -9,6 +9,10 @@
 			color: #333 !important;
 		}
 
+		body {
+			background-color: #21385e;
+		}
+
 	</style>
 @stop
 
@@ -16,7 +20,7 @@
 	<div class="container wrap-md">
         <div class="row voffset">
           <div class="col-sm-12">
-            <h2 class=" text-center tc-white mg-sm"> Login </h2>
+            <h2 class=" text-center tc-white mg-sm" style="color: white;"> Login </h2>
           </div>
         </div>
         <div class="row">

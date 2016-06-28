@@ -22,7 +22,9 @@ class StaticController extends Controller
 
 	function index()
 	{
-		/*$PDFDir = 'minitrac_invoices';
+		/*
+		 * The code below works, but needs to be in a cron job to get minitrac invoices tied with the system.
+		$PDFDir = 'minitrac_invoices';
 
 		$Files = Storage::Files($PDFDir);
 		gPrint($Files);
@@ -267,4 +269,18 @@ class StaticController extends Controller
 		View::share('PageText', 'Factory trained technicians means that your forklift equipment is in good hands. We pride ourselves on being able to quickly and accurately respond to units that are down or not functioning correctly. The goal of our service department is to ensure that your forklift equipment will be quickly and promptly repaired. Your business is important to us because if you succeed then we succeed. We take pride in what we do and stand behind our work 100%. Give us a call today to request a service call for all makes and models of forklifts. Interested in a preventive maintenance program for your fleet of forklifts? Call us today or request a quote.');
 		return view('privacy');
 	}
+
+	function news_entry($BlogID) {
+	    $objPost = \App\BlogPost::findOrFail($BlogID);
+	    View::share('objPost', $objPost);
+
+        return view('single_news_entry');
+    }
+
+    function all_news() {
+	    $tAllPosts = \App\BlogPost::all();
+	    View::share('tAllPosts', $tAllPosts);
+
+        return view('all_news_entry');
+    }
 }

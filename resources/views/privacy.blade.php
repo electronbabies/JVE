@@ -1,11 +1,12 @@
-@extends('app') @section('content')
+@extends('app')
+@section('content')
 	<section class="wrap privacy-bg">
 		<div class="container wrap-xl" style="padding-top: 250px">
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="row">
 						<div class="col-sm-12 text-center">
-							<h2 class="text-center mg-sm">Privacy Policy</h2>
+							<h2 class="text-center mg-sm" style="color: white;">Privacy Policy</h2>
 						</div>
 					</div>
 				</div>

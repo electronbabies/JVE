@@ -1,10 +1,20 @@
 @section('extra_header')
 <style>
+	.blogentrycontainer a:link {
+		color: blue;
+	}
+	.blogentrycontainer a:visited {
+		color: purple;
+	}
+	.blogentrycontainer a:active {
+		color: red;
+	}
 	@foreach($tBlogPosts as $objPost)
 		@if($objPost->css)
 	    	{{ $objPost->css }}
 	    @endif
 	@endforeach
+
 </style>
 @stop
 <section class="blog" id="blog">
@@ -12,29 +22,13 @@
     {{-- <div class="row"> --}}
       <div class="col-sm-12" style="margin-top: 20px;">
         <h2 class="text-center mg-sm" style="margin-bottom: 20px;">News &amp; Latest Information </h2>
-        <!-- <h3 class="text-center mg-lg" style="margin-bottom: 20px; margin-top: 15px;"><span style=""><div class="btn-group btn-block header-img" style="width: 200px;"><a style="padding: 10px; color: white" href="/forms/service" class="a-btn ">View Latest News</a></div></span> </h3> -->
+        <h3 class="text-center mg-lg" style="margin-bottom: 20px; margin-top: 15px;"><span style=""><div class="btn-group btn-block header-img" style="width: 200px;"><a style="padding: 10px; color: white" href="/all_news" class="a-btn ">View Latest News</a></div></span> </h3>
         
       </div>
     {{-- </div> --}}
 
     <div class="container">
 
-      <!--
-        <div class="media">
-        	<div class="row voffset">
-				<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-					<img id="Image{{ $objPost->id}}" alt="{{ $objPost->title }}" class='img-thumbnail' style="display:block; width:100%;" src='img/blog_images/{{ $objPost->image_filename }}' />
-					{{--<div class="media-object" style="background: url('img/blog_images/{{ $objPost->image_filename }}'); background-position: center; width: 320px; height: 200px; border-radius: 8px;"></div>--}}
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-7 col-lg-8 voffset-md">
-					<h3 class="media-heading text-center">{!! $objPost->title !!} </h3>
-					<hr>
-					<p style="font-size:16px;" class="text-justify media-entry">{!! $objPost->entry !!}</p>
-				</div>
-			</div>
-		</div>
-		<span style="width: 100%; display: block; clear: both"></span>
-		-->
 		<?php
 			$ColumnSize = 4;
 			/*if(count($tBlogPosts) % 3 == 0)
@@ -58,7 +52,7 @@
 							<h4 class="media-heading text-center" style="margin-top: 10px;">{!! $objPost->title !!} </h4>
 						</div>
 						<hr style="margin-top: 20px; margin-bottom: 20px;">
-						<p style="margin: 0 0 0 0; font-size:16px; line-height: 150%;" class="text-justify media-entry">{!! substr($objPost->entry, 0, 200) !!}...</p>
+						<p style="margin: 0 0 0 0; font-size:16px; line-height: 150%;" class="text-justify media-entry">{!! substr($objPost->entry, 0, 200) !!}... </p><a href="/news_entry/view/{{ $objPost->id }}">Click to read more... </a>
 					</div>
 				</div>
 				<?php $Count++; ?>
