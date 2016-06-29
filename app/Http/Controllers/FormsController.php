@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\EmailController;
 use View;
 use Request;
 use Validator;
@@ -115,7 +116,9 @@ class FormsController extends StaticController
 			];
 		}
         $Validator = Validator::make($Input, $tValidation);
-
+        
+        EmailController::send("test subject", "body", "eddiecantu@gmail.com");
+        
         if ($Validator->fails())
             return redirect('/forms/' . str_replace(' ', '', strtolower($Input['RequestType'])))->withErrors($Validator);
 
