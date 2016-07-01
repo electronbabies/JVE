@@ -116,12 +116,10 @@ class FormsController extends StaticController
 			];
 		}
         $Validator = Validator::make($Input, $tValidation);
-        
-        EmailController::send("test subject", "body", "eddiecantu@gmail.com");
-        
+                
         if ($Validator->fails())
             return redirect('/forms/' . str_replace(' ', '', strtolower($Input['RequestType'])))->withErrors($Validator);
-
+        
         switch($Input['RequestType']) {
             case static::REQUEST_TYPE_PARTS:
                 return $this->ProcessPartsRequest($Input);
@@ -214,6 +212,7 @@ class FormsController extends StaticController
 
     public function ProcessRentalRequest($Input) {
         // Same thing at this point
+        EmailController::sendRentalsEmail($Input);
         return $this->ProcessSaleRequest($Input);
     }
 

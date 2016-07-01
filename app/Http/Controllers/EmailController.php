@@ -10,19 +10,20 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Mail;
-use App\User;
+use Log;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class EmailController extends StaticController
 {
 
-    public static function send($subject, $body, $to)
+    public static function sendRentalsEmail($formData)
     {
-
-        Mail::raw($body,function($message){
-            $message->to("eddiecantu@gmail.com", $name = null);
-            $message->subject("testSubject");
+        Log::useFiles(storage_path().'/logs/laravel.log');
+        Log::info($formData);
+        $sent = Mail::send('emails.rentals', $formData, function($message)
+        {
+            $message->from('no-reply@jveequipment.com');
+            $message->to('eddiecantu@gmail.com')->subject('New Rental Request');
         });
     }
 }

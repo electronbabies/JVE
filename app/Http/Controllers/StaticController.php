@@ -229,7 +229,7 @@ class StaticController extends Controller
 		View::share('valSub7', 'Daily, weekly and monthly rates avaliable');
 		View::share('val8', 'Brands');
 		View::share('valSub8', 'All major manufacturers available');
-
+		
 		return view('static_template');
 	}
 	function gallery()
