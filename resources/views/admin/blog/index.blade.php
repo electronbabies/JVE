@@ -31,12 +31,12 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">{!! $objPost->title !!}</h3>
 			</div>
-			<div class="panel-body" style="padding-left: 30px;">
+			<div class="panel-body"">
 				<div class="row">
 					<div class="col-xs-3" style="border: 1px solid #ddd; border-radius: 4px;">
 						<img src="/img/blog_images/{{ $objPost->image_filename }}" class="blog_image center-block" style="padding-top: 10px; padding-bottom: 10px;">
 					</div>
-					<div class="col-xs-6">
+					<div class="col-xs-6" style="padding-left: 30px; max-height: 400px; overflow: hidden;">
 						{!! $objPost->entry !!}
 					</div>
 					@if($objLoggedInUser->HasPermission("Edit/Blog"))
