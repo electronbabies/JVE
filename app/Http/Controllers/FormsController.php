@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmailController;
+use Log;
 use View;
 use Request;
 use Validator;
@@ -138,10 +139,11 @@ class FormsController extends StaticController
         }
     }
 
-    public function ProcessServiceRequest($Input) {
+    public function ProcessServiceRequest($Input, $SendServiceEmail = true) {
         // Get logged user, or register as guest
         $objUser = \Auth::User() ?: \App\User::GetGuestAccount();
 
+        Log::info('Hello world!');
         // Create invoice
         $objInvoice = new \App\Invoice;
         $objInvoice->user_id = $objUser->id;
@@ -174,7 +176,6 @@ class FormsController extends StaticController
         $objInvoiceItem->status = \App\InvoiceItem::STATUS_ACTIVE;
 		$objInvoiceItem->save();
 
-        $tTitleOptions = [];
         if (Request::get('Make')) {
 			$objInvoiceItem = new \App\InvoiceItem;
 			$objInvoiceItem->invoice_id = $objInvoice->id;
@@ -201,13 +202,18 @@ class FormsController extends StaticController
 			$objInvoiceItem->status = \App\InvoiceItem::STATUS_ACTIVE;
 			$objInvoiceItem->save();
 		}
+        if($SendServiceEmail){
+            EmailController::sendServiceEmail($Input);    
+        }
+        
 
         return redirect('/forms/success');
     }
 
     public function ProcessPartsRequest($Input) {
         // Same thing at this point
-        return $this->ProcessServiceRequest($Input);
+        EmailController::sendPartsEmail($Input);
+        return $this->ProcessServiceRequest($Input, false);
     }
 
     public function ProcessRentalRequest($Input) {
@@ -291,7 +297,7 @@ class FormsController extends StaticController
                 }
             }
         }
-
+        EmailController::sendSalesEmail($Input);
         return redirect('/forms/success');
     }
 
@@ -299,6 +305,7 @@ class FormsController extends StaticController
     {
         return view('forms.success');
     }
+
     public function rental()
     {
         View::share('tBrands', $this->tBrands);
