@@ -109,7 +109,26 @@
 						<br />
 						<div class="row">
 							<div class="col-xs-11">
-							<i> We are an Equal Opportunity Employer.  Please send your resume to <br /><a href="mailto: careers@jvequipment.com">careers@jvequipment.com</a>
+							<i> We are an Equal Opportunity Employer.</i>
+								<div class="row">
+									<div class="col-lg-6 col-lg-offset-3 form-group">
+										<i style='font-size: 12px;'>Upload Your Resume!</i><i style="font-size: 8px"></i>
+										<form action="/forms/store" method="post" enctype="multipart/form-data">
+											<input type="hidden" name="_token" value="{{ csrf_token() }}">
+											<input type="hidden" name="Id" value="{{$objCareer->id}}">
+											<input type="hidden" name="Position" value="{{$objCareer->title}}">
+											<input type="hidden" name="City" value="{{$objCareer->city}}">
+											<input type="hidden" name="State" value="{{$objCareer->state}}">
+											<input type="hidden" name="RequestType" value="Resume">
+											<input type="file" name='Resume'>
+											<button class="btn btn-default" type="submit"
+													tabindex="9">
+												Submit
+											</button>
+										</form>
+									</div>
+								</div>
+							</div>
 						</div>
 					</article>
 				</div>

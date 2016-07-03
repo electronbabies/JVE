@@ -31,7 +31,7 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">{!! $objPost->title !!}</h3>
 			</div>
-			<div class="panel-body"">
+			<div class="panel-body">
 				<div class="row">
 					<div class="col-xs-3" style="border: 1px solid #ddd; border-radius: 4px;">
 						<img src="/img/blog_images/{{ $objPost->image_filename }}" class="blog_image center-block" style="padding-top: 10px; padding-bottom: 10px;">
@@ -82,8 +82,7 @@
 			var BlogID = BlogElem.attr('BlogID');
 
 			$.ajax({
-				url: '/admin/blog/delete/' + BlogID,
-
+				url: '/admin/blog/delete/' + BlogID
 			}).done(function(data) {
 				if(data == 'success') {
 					BlogElem.remove();

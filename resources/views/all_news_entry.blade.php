@@ -53,7 +53,7 @@
         .blog-entry .title{
             font-size: 20px;
             color: #999;
-            max-height: 70px;
+            max-height: 68px;
             overflow: hidden;
         }
         .blog-entry .btn{

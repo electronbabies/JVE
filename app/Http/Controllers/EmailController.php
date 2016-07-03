@@ -51,4 +51,17 @@ class EmailController extends StaticController
             $message->to('eddiecantu@gmail.com')->subject('New Sales Request');
         });
     }
+
+    public static function sendResumeEmail($formData, $file)
+    {
+        Mail::send('emails.application', $formData, function($message) use ($formData, $file)
+        {
+            $message->from('no-reply@jveequipment.com');
+            $message->to('eddiecantu@gmail.com')->subject('New Career Application');
+            $message->attach($file->getRealPath(), array(
+                    'as' => 'resume.' . $file->getClientOriginalExtension(),
+                    'mime' => $file->getMimeType())
+            );
+        });
+    }
 }
