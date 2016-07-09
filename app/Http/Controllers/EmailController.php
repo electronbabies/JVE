@@ -21,7 +21,7 @@ class EmailController extends StaticController
         Mail::send('emails.rentals', $formData, function($message)
         {
             $message->from('no-reply@jveequipment.com');
-            $message->to('eddiecantu@gmail.com')->subject('New Rental Request');
+            $message->to('garywgipson@gmail.com')->subject('New Rental Request');
         });
     }
 
@@ -30,7 +30,7 @@ class EmailController extends StaticController
         Mail::send('emails.service', $formData, function($message)
         {
             $message->from('no-reply@jveequipment.com');
-            $message->to('eddiecantu@gmail.com')->subject('New Service Request');
+            $message->to('garywgipson@gmail.com')->subject('New Service Request');
         });
     }
 
@@ -39,7 +39,7 @@ class EmailController extends StaticController
         Mail::send('emails.parts', $formData, function($message)
         {
             $message->from('no-reply@jveequipment.com');
-            $message->to('eddiecantu@gmail.com')->subject('New Parts Request');
+            $message->to('garywgipson@gmail.com')->subject('New Parts Request');
         });
     }
 
@@ -48,7 +48,7 @@ class EmailController extends StaticController
         Mail::send('emails.sales', $formData, function($message)
         {
             $message->from('no-reply@jveequipment.com');
-            $message->to('eddiecantu@gmail.com')->subject('New Sales Request');
+            $message->to('garywgipson@gmail.com')->subject('New Sales Request');
         });
     }
 
@@ -57,7 +57,7 @@ class EmailController extends StaticController
         Mail::send('emails.application', $formData, function($message) use ($formData, $file)
         {
             $message->from('no-reply@jveequipment.com');
-            $message->to('eddiecantu@gmail.com')->subject('New Career Application');
+            $message->to('garywgipson@gmail.com')->subject('New Career Application');
             $message->attach($file->getRealPath(), array(
                     'as' => 'resume.' . $file->getClientOriginalExtension(),
                     'mime' => $file->getMimeType())

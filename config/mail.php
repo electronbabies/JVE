@@ -33,7 +33,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.emailsrvr.com'),
+    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'username' => env('edinburg@jvequipment.com'),
+    'username' => env('MAIL_USERNAME'),
 
     /*
     |--------------------------------------------------------------------------
@@ -98,7 +98,7 @@ return [
     |
     */
 
-    'password' => env('F0rklift1976'),
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
@@ -112,7 +112,7 @@ return [
     */
 
 //    'sendmail' => '/usr/sbin/sendmail -bs',
-    'sendmail' => 'C:\Users\eddie_000\Downloads\sendmail\sendmail.exe -bs',
+    'sendmail' => '/usr/sbin/sendmail -bs',
     /*
     |--------------------------------------------------------------------------
     | Mail "Pretend"
@@ -123,7 +123,5 @@ return [
     | you may inspect the message. This is great for local development.
     |
     */
-
     'pretend' => false,
-
 ];
