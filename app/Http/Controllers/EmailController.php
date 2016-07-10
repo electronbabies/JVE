@@ -21,7 +21,9 @@ class EmailController extends StaticController
         Mail::send('emails.rentals', $formData, function($message)
         {
             $message->from('no-reply@jveequipment.com');
-            $message->to('garywgipson@gmail.com')->subject('New Rental Request');
+            $tToEmails = env('RENTAL_EMAILS_TO') ? array_map('trim', explode(',', env('RENTAL_EMAILS_TO'))) : 'josh@jvequipment.com';
+
+            $message->to($tToEmails)->subject('New Rental Request');
         });
     }
 
@@ -30,7 +32,9 @@ class EmailController extends StaticController
         Mail::send('emails.service', $formData, function($message)
         {
             $message->from('no-reply@jveequipment.com');
-            $message->to('garywgipson@gmail.com')->subject('New Service Request');
+            $tToEmails = env('SERVICE_EMAILS_TO') ? array_map('trim', explode(',', env('SERVICE_EMAILS_TO'))) : 'josh@jvequipment.com';
+
+            $message->to($tToEmails)->subject('New Service Request');
         });
     }
 
@@ -39,7 +43,9 @@ class EmailController extends StaticController
         Mail::send('emails.parts', $formData, function($message)
         {
             $message->from('no-reply@jveequipment.com');
-            $message->to('garywgipson@gmail.com')->subject('New Parts Request');
+            $tToEmails = env('PARTS_EMAILS_TO') ? array_map('trim', explode(',', env('PARTS_EMAILS_TO'))) : 'josh@jvequipment.com';
+
+            $message->to($tToEmails)->subject('New Parts Request');
         });
     }
 
@@ -48,7 +54,9 @@ class EmailController extends StaticController
         Mail::send('emails.sales', $formData, function($message)
         {
             $message->from('no-reply@jveequipment.com');
-            $message->to('garywgipson@gmail.com')->subject('New Sales Request');
+            $tToEmails = env('SALES_EMAILS_TO') ? array_map('trim', explode(',', env('SALES_EMAILS_TO'))) : 'josh@jvequipment.com';
+
+            $message->to($tToEmails)->subject('New Sales Request');
         });
     }
 
@@ -57,7 +65,9 @@ class EmailController extends StaticController
         Mail::send('emails.application', $formData, function($message) use ($formData, $file)
         {
             $message->from('no-reply@jveequipment.com');
-            $message->to('garywgipson@gmail.com')->subject('New Career Application');
+            $tToEmails = env('RESUME_EMAILS_TO') ? array_map('trim', explode(',', env('RESUME_EMAILS_TO'))) : 'josh@jvequipment.com';
+
+            $message->to($tToEmails)->subject('New Career Application');
             $message->attach($file->getRealPath(), array(
                     'as' => 'resume.' . $file->getClientOriginalExtension(),
                     'mime' => $file->getMimeType())

@@ -106,7 +106,6 @@ class FormsController extends StaticController
                 'Capacity' => 'required',
                 'Attachment' => 'required',
                 'OperatingHours' => 'required',
-                'Resume' => 'required'
             ];
 
             if ($Input['RequestType'] == static::REQUEST_TYPE_RENTAL)
@@ -128,7 +127,7 @@ class FormsController extends StaticController
         $Validator = Validator::make($Input, $tValidation);
 
         if ($Validator->fails()) {
-            if ($Input['RequestType'] == static::REQUEST_TYPE_RESUME) {
+            if ($Input['RequestType'] != static::REQUEST_TYPE_RESUME) {
                 return redirect('/forms/' . str_replace(' ', '', strtolower($Input['RequestType'])))->withErrors($Validator);
             } else {
                 return redirect('/careers/view_career/' . $Input['Id'])->withErrors($Validator);

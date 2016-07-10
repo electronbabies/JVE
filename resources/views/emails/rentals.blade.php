@@ -93,7 +93,7 @@
                                 <td valign="top" style="vertical-align: top;">
                                     <!-- ///////////////////////////////////////////////////// -->
 
-                                    <table cellpadding="0" cellspacing="0" border="0" align="center">
+                                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin-bottom: 20px;">
                                         <tr>
                                             <td valign="top" style="vertical-align: top;">
                                                 <span style=""><h3>JVEquipment Rental Request</h3></span>

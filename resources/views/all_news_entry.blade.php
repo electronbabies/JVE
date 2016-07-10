@@ -20,12 +20,17 @@
 
         .blogentrycontainer {
             margin-top: 20px;
-            height: 350px;
+            height: 260px;
+            overflow-y: hidden;
         }
 
-        h1, h2, h3, h4 {
+		h2, h3, h4 {
             color: #999;
         }
+
+		h1 {
+			color: #555
+		}
 
         em {
             display: inline-block;
@@ -38,11 +43,13 @@
             padding-top: 10px;
             padding-bottom: 10px;
             line-height: 1.1;
-            margin-right: 15px;
+            margin-right: 50px;
+            margin-left: 50px;
             margin-top: 20px;
+            margin-bottom:75px;
             height: 800px;
         }
-        .blog-entry img{
+        .blog-entry img {
             border: none;
             padding: 0;
             margin-bottom: 10px;
@@ -53,9 +60,46 @@
         .blog-entry .title{
             font-size: 20px;
             color: #999;
-            max-height: 68px;
+            height: 85px;
             overflow: hidden;
         }
+
+		/* Mobile */
+		@media only screen
+		  and (min-device-width: 320px)
+		  and (max-device-width: 480px)
+		  and (-webkit-min-device-pixel-ratio: 2) {
+
+		  	.blog-entry {
+		  		margin-left: 0px;
+		  		margin-bottom:25px;
+			}
+
+		}
+
+        /* Tablet */
+		@media only screen
+		  and (min-device-width: 768px)
+		  and (max-device-width: 1024px)
+		  and (-webkit-min-device-pixel-ratio: 1) {
+
+			.blog-entry {
+				height: 600px;
+				margin-left: 0px;
+				margin-bottom:25px;
+			}
+
+			.blog-entry .title{
+            	height: 55px;
+        	}
+
+        	.blogentrycontainer {
+				height: 90px;
+			}
+
+		}
+
+
         .blog-entry .btn{
             margin: 0 auto;
             position: relative;
@@ -80,15 +124,10 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-12 text-justify blogentrycontainer" style="">
-                                {!! substr($objPost->entry, 0, 500) !!}
-                                <?php
-                                if (strlen($objPost->entry) > 500)
-                                    echo "..."
-                                ?>
-
+                            	{!! $objPost->entry !!}
                             </div>
                         </div>
-                        <a class='btn btn-default' href='/news_entry/view/{$objPost->id}'>Read More</a>
+                        <a class='btn btn-default' href='/news_entry/view/{$objPost->id}' style="margin-top: 70px;">Read More</a>
                     </div>
                 @endforeach
             </div>

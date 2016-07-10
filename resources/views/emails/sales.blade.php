@@ -93,10 +93,10 @@
                                 <td valign="top" style="vertical-align: top;">
                                     <!-- ///////////////////////////////////////////////////// -->
 
-                                    <table cellpadding="0" cellspacing="0" border="0" align="center">
+                                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin-bottom: 20px;">
                                         <tr>
                                             <td valign="top" style="vertical-align: top;">
-                                                <span style=""><h3>JVEquipment Sales Qoute</h3></span>
+                                                <span style=""><h3>JVEquipment Sales Quote</h3></span>
                                                 <span style=""><span class="label" style="width: 100px; font-weight: bold; display:inline-block">First Name: </span><span class="value">{{$FirstName}}</span></span><br>
                                                 <span style=""><span class="label" style="width: 100px; font-weight: bold; display:inline-block">Last Name: </span><span class="value">{{$LastName}}</span></span><br>
                                                 <span style=""><span class="label" style="width: 100px; font-weight: bold; display:inline-block">Phone: </span><span class="value"><a href="tel:{{$PhoneNumber}}">{{$PhoneNumber}}</a></span></span><br>

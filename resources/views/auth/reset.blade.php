@@ -1,8 +1,26 @@
 @extends('app')
+@section('extra_header')
+	<style>
+		.fullstyle, header, nav#nav {
+			display: none !important;
+		}
 
+		label {
+			color: #333 !important;
+		}
+
+		body {
+			background-color: #21385e;
+		}
+
+	</style>
+@stop
 @section('content')
-<div class="container-fluid">
-	<div class="row">
+<div class="container wrap-xs">
+        <div class="row voffset">
+          <div class="col-xs-12">
+            <h2 class=" text-center tc-white mg-sm" style="color: white;"> Reset Password </h2>
+          </div>
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
 				<div class="panel-heading">Reset Password</div>
