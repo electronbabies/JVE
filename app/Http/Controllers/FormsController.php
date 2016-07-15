@@ -88,6 +88,13 @@ class FormsController extends StaticController
         'Fire Extinguisher',
         'Side Shifter',
     ];
+    
+    public function submitapplication() {
+        $Input = Request::all();
+        unset($Input['_token']);
+
+        EmailController::sendEmploymentApplication($Input);
+    }
 
     public function store()
     {
@@ -363,6 +370,10 @@ class FormsController extends StaticController
         return view('forms.sales');
     }
 
+    public function applyjob() {
+        return view('forms.applyjob');
+    }
+    
     public function contact()
     {
         return view('forms.contact');

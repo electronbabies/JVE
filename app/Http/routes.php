@@ -41,8 +41,10 @@ Route::get('forms/parts', 'FormsController@parts');
 Route::get('forms/sales', 'FormsController@sales');
 Route::get('forms/rental', 'FormsController@rental');
 Route::get('forms/contact', 'FormsController@contact');
+Route::get('forms/applyjob', 'FormsController@applyjob');
 Route::get('forms/success', 'FormsController@success');
 Route::post('forms/store', 'FormsController@store');
+Route::post('forms/submitapplication', 'FormsController@submitapplication');
 
 
 

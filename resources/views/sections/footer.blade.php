@@ -13,6 +13,7 @@
 				<li><a href="/gallery">Gallery</a></li>
 				<li> <a href="/forms/contact">Contact</a> </li>
 				@if($CareerCount)<li><a href="/careers">Careers</a></li>@endif
+				<li> <a href="/forms/applyjob">Apply for a job!</a> </li>
             </ul>
           </article>
         </div>
