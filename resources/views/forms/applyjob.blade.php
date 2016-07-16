@@ -3,7 +3,7 @@
 	<style type="text/css">
 		.FormHeader {
 			background-color: rgba(50,50,50,.4);
-			height: 70px;
+			height: 100px;
 			padding-top: 13px;
 			border-radius: 8px;
 			padding-left: 25px;
@@ -77,10 +77,10 @@
 								<div class="row voffset-sm">
 										<div class="center">
 											<div class="row">
-												<div class="col-lg-12 FormHeader">
+												<div class="col-sm-offset-1 col-sm-10 col-lg-offset-0 col-lg-12 FormHeader">
 													<label><h2 >Application Information</h2></label>
 												</div>
-												<div class="col-lg-5">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-5">
 													<div class="form-group">
 														<label>
 															Last Name
@@ -88,7 +88,7 @@
 														<input class="form-control" tabindex="1" name="LastName" value="{{ $objUser->last_name }}" required />
 													</div>
 												</div>
-												<div class="col-lg-5">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-5">
 													<div class="form-group">
 														<label>
 															First Name
@@ -96,7 +96,7 @@
 														<input class="form-control" tabindex="3" name="FirstName" value="{{ $objUser->first_name }}" required />
 													</div>
 												</div>
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label>
 															M.I.
@@ -104,7 +104,7 @@
 														<input class="form-control" tabindex="3" name="MiddleInitial" value="{{ $objUser->middle_initial }}"/>
 													</div>
 												</div>
-												<div class="col-lg-8">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-8">
 													<div class="form-group">
 														<label>
 															Street Address
@@ -112,7 +112,7 @@
 														<input class="form-control" tabindex="3" name="StreetAddress" value="{{ $objUser->street_address }}" required />
 													</div>
 												</div>
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<div class="form-group">
 														<label>
 															Apartment / Unit #
@@ -120,7 +120,7 @@
 														<input class="form-control" tabindex="3" name="Apartment" value="{{ $objUser->apartment }}"/>
 													</div>
 												</div>
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<div class="form-group">
 														<label>
 															City
@@ -129,7 +129,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<div class="form-group">
 														<label>
 															State
@@ -138,7 +138,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<div class="form-group">
 														<label>
 															Zip
@@ -147,7 +147,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Phone
@@ -156,7 +156,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Email Address
@@ -165,7 +165,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<div class="form-group">
 														<label>
 															Date Available
@@ -174,7 +174,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<div class="form-group">
 														<label>
 															TXDL #
@@ -183,7 +183,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<div class="form-group">
 														<label>
 															Desired Salary
@@ -192,7 +192,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-12">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-12">
 													<div class="form-group">
 														<label>
 															Position Applied For
@@ -201,45 +201,45 @@
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<label class="radio-label">Are you a citizen of the United States?</label>
 												</div>
 												<div class="form-group">
-													<div class="col-lg-1">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1">
 														<label><input class="form-control" type="radio" tabindex="3" name="Citizen" value="Yes"/>Yes</label>
 													</div>
-													<div class="col-lg-1">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1">
 														<label><input class="form-control" type="radio" tabindex="3" name="Citizen" value="No"/>No</label>
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<label class="radio-label">If no, are you authorized to work in the U.S.?</label>
 												</div>
 
 												<div class="form-group">
-													<div class="col-lg-1">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1">
 														<label><input class="form-control" type="radio" tabindex="3" name="NonCitizenAuthorized" value="Yes"/>Yes</label>
 													</div>
-													<div class="col-lg-1">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1">
 														<label><input class="form-control" type="radio" tabindex="3" name="NonCitizenAuthorized" value="No"/>No</label>
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<label class="radio-label">Have you ever worked for this company?</label>
 												</div>
 
 												<div class="form-group">
-													<div class="col-lg-1">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1">
 														<label><input class="form-control" type="radio" tabindex="3" name="WorkedCompany" value="Yes"/>Yes</label>
 													</div>
-													<div class="col-lg-1">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1">
 														<label><input class="form-control" type="radio" tabindex="3" name="WorkedCompany" value="No"/>No</label>
 													</div>
 												</div>
 
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															If so, when?
@@ -248,20 +248,20 @@
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<label class="radio-label">Have you ever been convicted of a felony?</label>
 												</div>
 
 												<div class="form-group">
-													<div class="col-lg-1">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1">
 														<label><input class="form-control" type="radio" tabindex="3" name="Felony" value="Yes"/>Yes</label>
 													</div>
-													<div class="col-lg-1">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1">
 														<label><input class="form-control" type="radio" tabindex="3" name="Felony" value="No"/>No</label>
 													</div>
 												</div>
 
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															If yes, explain
@@ -271,12 +271,12 @@
 												</div>
 											</div>
 											<div class="row">
-												<div class="col-lg-12 FormHeader">
+												<div class="col-sm-offset-1 col-sm-10 col-lg-offset-0 col-lg-12 FormHeader">
 													<label><h2 >Education</h2></label>
 												</div>
 
 												<!-- Highschool Questionaire -->
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															High School
@@ -284,7 +284,7 @@
 														<input class="form-control" tabindex="3" name="HighSchool" value="{{ $objUser->highschool }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Address
@@ -293,7 +293,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label>
 															From
@@ -302,7 +302,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label>
 															To
@@ -311,22 +311,22 @@
 													</div>
 												</div>
 
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label class="radio-label mid-label">Did you graduate?</label>
 													</div>
 												</div>
 
 												<div class="form-group">
-													<div class="col-lg-1 mid-answer">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1 mid-answer">
 														<label><input class="form-control" type="radio" tabindex="3" name="HighschoolGraduate" value="Yes"/>Yes</label>
 													</div>
-													<div class="col-lg-1 mid-answer">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1 mid-answer">
 														<label><input class="form-control" type="radio" tabindex="3" name="HighschoolGraduate" value="No"/>No</label>
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<div class="form-group">
 														<label>
 															Degree
@@ -335,9 +335,9 @@
 													</div>
 												</div>
 												<!-- End Highschool Questionaire -->
-												<div class="col-lg-12 divider-row"></div>
+												<div class="col-xs-12 divider-row"></div>
 												<!-- College Questionaire -->
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															College
@@ -345,7 +345,7 @@
 														<input class="form-control" tabindex="3" name="College" value="{{ $objUser->college_school }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Address
@@ -354,7 +354,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label>
 															From
@@ -363,7 +363,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label>
 															To
@@ -372,22 +372,22 @@
 													</div>
 												</div>
 
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label class="radio-label mid-label">Did you graduate?</label>
 													</div>
 												</div>
 
 												<div class="form-group">
-													<div class="col-lg-1 mid-answer">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1 mid-answer">
 														<label><input class="form-control" type="radio" tabindex="3" name="CollegeGraduate" value="Yes"/>Yes</label>
 													</div>
-													<div class="col-lg-1 mid-answer">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1 mid-answer">
 														<label><input class="form-control" type="radio" tabindex="3" name="CollegeGraduate" value="No"/>No</label>
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<div class="form-group">
 														<label>
 															Degree
@@ -396,9 +396,9 @@
 													</div>
 												</div>
 												<!-- End College Questionaire -->
-												<div class="col-lg-12 divider-row"></div>
+												<div class="col-xs-12 divider-row"></div>
 												<!-- Other Questionaire -->
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Other
@@ -406,7 +406,7 @@
 														<input class="form-control" tabindex="3" name="Other" value="{{ $objUser->other }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Address
@@ -415,7 +415,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label>
 															From
@@ -424,7 +424,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label>
 															To
@@ -433,22 +433,22 @@
 													</div>
 												</div>
 
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label class="radio-label mid-label">Did you graduate?</label>
 													</div>
 												</div>
 
 												<div class="form-group">
-													<div class="col-lg-1 mid-answer">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1 mid-answer">
 														<label><input class="form-control" type="radio" tabindex="3" name="OtherGraduate" value="Yes"/>Yes</label>
 													</div>
-													<div class="col-lg-1 mid-answer">
+													<div class="col-xs-6 col-sm-offset-1 col-sm-4 col-lg-offset-0 col-lg-1 mid-answer">
 														<label><input class="form-control" type="radio" tabindex="3" name="OtherGraduate" value="No"/>No</label>
 													</div>
 												</div>
 
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<div class="form-group">
 														<label>
 															Degree
@@ -459,15 +459,15 @@
 												<!-- End Other Questionaire -->
 											</div>
 											<div class="row">
-												<div class="col-lg-12 FormHeader">
+												<div class="col-sm-offset-1 col-sm-10 col-lg-offset-0 col-lg-12 FormHeader">
 													<label><h2 >References</h2></label>
 												</div>
-												<div class="col-lg-12 SubHeader">
+												<div class="col-sm-offset-1 col-sm-10 col-lg-12 SubHeader">
 													<label><i>Please list three professional references.</i></label>
 												</div>
 
 											<!-- Reference #1 -->
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Full name
@@ -475,7 +475,7 @@
 														<input class="form-control" tabindex="3" name="Reference1FullName" value="{{ $objUser->reference1_full_name }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Relationship
@@ -483,7 +483,7 @@
 														<input class="form-control" tabindex="3" name="Reference1Relationship" value="{{ $objUser->reference1_relationship }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Company
@@ -491,7 +491,7 @@
 														<input class="form-control" tabindex="3" name="Reference1Company" value="{{ $objUser->reference1_company }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Phone
@@ -499,16 +499,16 @@
 														<input class="form-control" tabindex="3" name="Reference1Phone" value="{{ $objUser->reference1_phone }}"/>
 													</div>
 												</div>
-												<div class="col-lg-12">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-12">
 													<div class="form-group">
 														<label>Address</label>
 														<input class="form-control" tabindex="3" name="Reference1Address" value="{{ $objUser->reference1_address }}"/>
 													</div>
 												</div>
 											<!-- End Reference #1 -->
-												<div class="col-lg-12 divider-row"></div>
+												<div class="col-xs-12 divider-row"></div>
 											<!-- Reference #2 -->
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Full name
@@ -516,7 +516,7 @@
 														<input class="form-control" tabindex="3" name="Reference2FullName" value="{{ $objUser->reference2_full_name }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Relationship
@@ -524,7 +524,7 @@
 														<input class="form-control" tabindex="3" name="Reference2Relationship" value="{{ $objUser->reference2_relationship }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Company
@@ -532,7 +532,7 @@
 														<input class="form-control" tabindex="3" name="Reference2Company" value="{{ $objUser->reference2_company }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Phone
@@ -540,16 +540,16 @@
 														<input class="form-control" tabindex="3" name="Reference2Phone" value="{{ $objUser->reference2_phone }}"/>
 													</div>
 												</div>
-												<div class="col-lg-12">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-12">
 													<div class="form-group">
 														<label>Address</label>
 														<input class="form-control" tabindex="3" name="Reference2Address" value="{{ $objUser->reference2_address }}"/>
 													</div>
 												</div>
 											<!-- End Reference #2 -->
-												<div class="col-lg-12 divider-row"></div>
+												<div class="col-xs-12 divider-row"></div>
 											<!-- Reference #3 -->
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Full name
@@ -557,7 +557,7 @@
 														<input class="form-control" tabindex="3" name="Reference3FullName" value="{{ $objUser->reference3_full_name }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Relationship
@@ -565,7 +565,7 @@
 														<input class="form-control" tabindex="3" name="Reference3Relationship" value="{{ $objUser->reference3_relationship }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Company
@@ -573,7 +573,7 @@
 														<input class="form-control" tabindex="3" name="Reference3Company" value="{{ $objUser->reference3_company }}"/>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-6">
 													<div class="form-group">
 														<label>
 															Phone
@@ -581,7 +581,7 @@
 														<input class="form-control" tabindex="3" name="Reference3Phone" value="{{ $objUser->reference3_phone }}"/>
 													</div>
 												</div>
-												<div class="col-lg-12">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-12">
 													<div class="form-group">
 														<label>Address</label>
 														<input class="form-control" tabindex="3" name="Reference3Address" value="{{ $objUser->reference3_address }}"/>
@@ -591,10 +591,10 @@
 											</div>
 
 											<div class="row">
-												<div class="col-lg-12 FormHeader">
+												<div class="col-sm-offset-1 col-sm-10 col-lg-offset-0 col-lg-12 FormHeader">
 													<label><h2 >Military Service</h2></label>
 												</div>
-												<div class="col-lg-8">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-8">
 													<div class="form-group">
 														<label>
 															Branch
@@ -602,7 +602,7 @@
 														<input class="form-control" tabindex="3" name="MilitaryBranch" value="{{ $objUser->military_branch }}"/>
 													</div>
 												</div>
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label>
 															From
@@ -610,7 +610,7 @@
 														<input class="form-control"  tabindex="3"  name="MilitaryFrom" value="{{ $objUser->military_from }}"/>
 													</div>
 												</div>
-												<div class="col-lg-2">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-2">
 													<div class="form-group">
 														<label>
 															To
@@ -618,7 +618,7 @@
 														<input class="form-control" tabindex="3" name="MilitaryTo"   value="{{ $objUser->military_to }}"/>
 													</div>
 												</div>
-												<div class="col-lg-8">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-8">
 													<div class="form-group">
 														<label>
 															Rank at Discharge
@@ -626,7 +626,7 @@
 														<input class="form-control" tabindex="3" name="MilitaryRankDischarge" value="{{ $objUser->military_rank_discharge }}"/>
 													</div>
 												</div>
-												<div class="col-lg-4">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-4">
 													<div class="form-group">
 														<label>
 															Type of Discharge
@@ -635,7 +635,7 @@
 													</div>
 												</div>
 
-												<div class="col-lg-12">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-12">
 													<div class="form-group">
 														<label>
 															If other than honorable, explain
@@ -644,12 +644,12 @@
 													</div>
 												</div>
 
-												<div class="col-lg-12">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-12">
 													<div class="col-lg-12">
-														<label><i>By clicking submit, you certify that your answers are true and complete to the best of your knowledge.  If this application leads to employment, you understand that false or misleading information in my application or interview may result in your release.</i></label>
+														<label class="text-justify"><i>By clicking submit, you certify that your answers are true and complete to the best of your knowledge.  If this application leads to employment, you understand that false or misleading information in my application or interview may result in your release.</i></label>
 													</div>
 												</div>
-												<div class="col-lg-12">
+												<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-lg-12">
 													<button class="wrap-button btn btn-d btn-lg btn-block form-button" type="submit"
 															tabindex="9">
 														Submit
