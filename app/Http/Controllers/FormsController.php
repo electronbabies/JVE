@@ -98,8 +98,10 @@ class FormsController extends StaticController
 
     public function store()
     {
+
         Log::useFiles(storage_path() . '/logs/laravel.log');
         $Input = Request::all();
+
         if ($Input['RequestType'] == static::REQUEST_TYPE_SALES || $Input['RequestType'] == static::REQUEST_TYPE_RENTAL) {
             $tValidation = [
                 'FirstName' => 'required',
@@ -155,7 +157,7 @@ class FormsController extends StaticController
                 return $this->ProcessServiceRequest($Input);
 
             case static::REQUEST_TYPE_CONTACT_US:
-                return $this->ProcessContactUsRequest($Input);
+                return $this->ProcessContactUsRequest($Input, false);
             case static::REQUEST_TYPE_RESUME:
                 $File = Request::file('Resume');
 
@@ -248,9 +250,9 @@ class FormsController extends StaticController
         return $this->ProcessSaleRequest($Input);
     }
 
-    public function ProcessContactUsRequest($Input)
+    public function ProcessContactUsRequest($Input, $ProcessService = true)
     {
-        return $this->ProcessServiceRequest($Input);
+        return $this->ProcessServiceRequest($Input, $ProcessService);
     }
 
     public function ProcessResumeRequest($Input, $File)
