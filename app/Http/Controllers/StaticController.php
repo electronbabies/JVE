@@ -127,21 +127,21 @@ class StaticController extends Controller
 		View::share('PageText', '');
 
 		View::share('val1', 'Proud');
-		View::share('valSub1', 'award winning service');
+		View::share('valSub1', 'Award Winning Service');
 		View::share('val2', 'Skill');
-		View::share('valSub2', 'Factory trained and certified technicians');
+		View::share('valSub2', 'Factory Trained and Certified Technicians');
 		View::share('val3', 'Fast');
-		View::share('valSub3', 'Rapid response time');
+		View::share('valSub3', 'Rapid Response Time');
 		View::share('val4', 'Focus');
-		View::share('valSub4', 'Focus on quality controll');
+		View::share('valSub4', 'Focus On Quality Control');
 		View::share('val5', 'Concern');
-		View::share('valSub5', 'Optimum efficiency & safety');
+		View::share('valSub5', 'Optimum Efficiency & Safety');
 		View::share('val6', 'Loyal');
-		View::share('valSub6', 'Dedicated staff');
-		View::share('val7', 'service');
-		View::share('valSub7', 'Emergency after-hours service');
-		View::share('val8', 'Locale');
-		View::share('valSub8', 'Three full service locations');
+		View::share('valSub6', 'Dedicated Staff');
+		View::share('val7', 'Service');
+		View::share('valSub7', 'Emergency After-Hours Service');
+		View::share('val8', 'Local');
+		View::share('valSub8', 'Three Full Service Locations');
 
 		return view('static_template');
 	}
@@ -156,21 +156,21 @@ class StaticController extends Controller
 		View::share('PageText', 'Let&rsquo;s be honest. Forklift equipment repair can be critical for keeping your business running. We have over 1 million dollars in parts available. We provide OEM parts for Unicarriers, Nissan, Crown, Bendi, Drexel, Barret, Manitou, Heli, and just about any other make and model of forklift. We also provide after-market parts. When you need parts we have them. If your interested in quality parts trust our OEM parts on Nissan, Crown, Bendi and many other makes and models of forklift equipment. Get in touch with us today and request a quote for parts on all makes and model of forklifts.');
 
 		View::share('val1', 'Warranty');
-		View::share('valSub1', 'We Back 180 day warranty on Nissan &amp; Duralift parts');
+		View::share('valSub1', 'We Offer 180 Day Warranty On Nissan &amp; Duralift Parts');
 		View::share('val2', 'Inventory');
-		View::share('valSub2', 'Extensive inventory including tires');
+		View::share('valSub2', 'Vast Inventory Of Parts & Tires');
 		View::share('val3', 'Fast');
-		View::share('valSub3', 'Most parts delivered same day');
+		View::share('valSub3', 'Most Parts Next Day Available');
 		View::share('val4', 'Choice');
-		View::share('valSub4', 'OEM &amp; after market parts for all brands');
+		View::share('valSub4', 'OEM &amp; After Market Parts For All Brands');
 		View::share('val5', 'Availability');
-		View::share('valSub5', 'High percetage availbled');
+		View::share('valSub5', 'High Percentage Availability');
 		View::share('val6', 'Stock');
-		View::share('valSub6', '1.25 million parts at our locations');
+		View::share('valSub6', 'Over 1 Million In Available Parts');
 		View::share('val7', 'Save');
-		View::share('valSub7', 'Competative pricing avaliable');
-		View::share('val8', 'Locale');
-		View::share('valSub8', 'Three full service locations');
+		View::share('valSub7', 'Competitive Pricing Available');
+		View::share('val8', 'Local');
+		View::share('valSub8', 'Three Service Locations In South Texas');
 
 		return view('static_template');;
 	}
@@ -181,25 +181,25 @@ class StaticController extends Controller
 		View::share('PageTitleSlug', 'sales');
 
 		View::share('headline', 'Sales Department');
-		View::share('subhead', 'Our sales experience is unmatched');
-		View::share('PageText', 'Owning and buying a forklift is not always an easy endeavor. Heavy loading equipment is highly specialized and requires knowledge to make the right choice. You may have particular needs that must be met and to get the right equipment you need a company that has years of equipment sales experience. You need a company that has the knowledge required to put the right equipment in the right spot. With over 34 years of sales experience why look anywhere else? Call us today and tell us what your needs are and we&rsquo;ll make sure you get the right forklift for the job.');
+		View::share('subhead', 'Our Sales Experience Is Unmatched');
+		View::share('PageText', 'Owning And Buying A Forklift Is Not Always An Easy Endeavor. Heavy Lifting Equipment Is Highly Specialized And Requires Knowledge To Make The Right Choice. You May Have Particular Needs That Must Be met and to get the right equipment you need a company that has years of equipment sales experience. You need a company that has the knowledge required to put the right equipment in the right spot. With over 34 years of sales experience why look anywhere else? Call us today and tell us what your needs are and we&rsquo;ll make sure you get the right forklift for the job.');
 
 		View::share('val1', 'Availability');
 		View::share('valSub1', 'Fleet of Over 400 Units');
 		View::share('val2', 'Choice');
 		View::share('valSub2', 'Late Model Units Available');
 		View::share('val3', 'Options');
-		View::share('valSub3', 'Pneumatic, electric, gas, narrow aisle and scissor lifts available');
+		View::share('valSub3', 'Pneumatic, Electric, Gas, Narrow Aisle And Scissor Lifts Available');
 		View::share('val4', 'Delivery');
-		View::share('valSub4', 'We offer fast delivery');
+		View::share('valSub4', 'We Offer Fast Delivery');
 		View::share('val5', 'Add ons');
-		View::share('valSub5', 'Various attachments available');
+		View::share('valSub5', 'Various Attachments Available');
 		View::share('val6', 'Transparent');
-		View::share('valSub6', 'No hidden fees or cost');
+		View::share('valSub6', 'No Hidden Fees Or Cost');
 		View::share('val7', 'Rates');
-		View::share('valSub7', 'Daily, weekly and monthly rates avaliable');
+		View::share('valSub7', 'Daily, Weekly And Monthly Rates Available');
 		View::share('val8', 'Brands');
-		View::share('valSub8', 'All major manufacturers available');
+		View::share('valSub8', 'All Major Manufacturers Available');
 
 		return view('static_template');
 	}
@@ -210,7 +210,7 @@ class StaticController extends Controller
 		View::share('PageTitleSlug', 'rental');
 
 		View::share('headline', 'Rental Department');
-		View::share('subhead', 'Our rental fleet is over 400 units.');
+		View::share('subhead', 'Our Rental Fleet Is Over 400 Units.');
 		View::share('PageText', 'J.V. specializes in forklift - rentals. We have forklifts available for short and long term rental applications. We rent Unicarriers, Nissan, Crown, Bendi, Drexel, Genie, Mec, Manitou, Nilfisk-Advance, and various other makes and model of forklifts. We understand that the expense of a forklift can be great and that&rsquo;s why we have such a large selection of forklifts and other lifting equipment available for rental. We are able to provide rental units in Northern Mexico, Laredo, McAllen, Edinburg, Pharr, Brownsville and in South Texas. Our rental forklifts go through a critical inspection process to ensure a good working unit. If you are concerned about the costs of owning a forklift why not rent from us! We provide short and long term rental solutions.');
 
 		View::share('val1', 'Availability');
