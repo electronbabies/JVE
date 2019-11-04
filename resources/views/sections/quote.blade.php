@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2 class="text-center mg-sm">
-                    Get a Quote Today
+                    Need A Quote Fast?
                 </h2>
                 <h3 class="text-center mg-lg white">
-                    <span style="color: white !important">What kind of quote would you like today?</span>
+                    <span style="color: white !important">What kind of quote would you like?</span>
                 </h3>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 </h6>
               </div>
               <div class="panel-body">
-                <p class="text-justify mg-md"> Here are some of the options we provide to secure the seamless operation of your equipment with a service contract. </p>
+                <p class="text-justify mg-md"> J.V. Equipment, Inc. has an award winning factory trained service department. When your equipment is down you can trust us to get things moving with quick and efficient solutions. We know that time is money! </p>
 
 
                 <div class="btn-group btn-block">
@@ -48,7 +48,7 @@
                 </h6>
               </div>
               <div class="panel-body">
-                <p class="text-justify  mg-md"> J.V. Equipment offers some of the best service on parts. Here are a few benefits when you depend on us for all your parts needs. </p>
+                <p class="text-justify  mg-md"> If you're looking for parts for all makes and models we are your one stop shop. With rapid turn around and excellent service let us get you back to where you need to be. Need OEM Parts today? No problem! </p>
 
 
                 <div class="btn-group btn-block">
@@ -72,7 +72,7 @@
                 </h6>
               </div>
               <div class="panel-body">
-                <p class="text-justify mg-md"> Our company has been in business since 1976 and we understand what it takes to leverage costs in a market that is constantly expanding. </p>
+                <p class="text-justify mg-md"> J.V. Equipment, Inc. is an industry leading provider of forklift equipment. Since 1976 we have been providing solutions for our customers that surpass expectations. We can help you get a handle on material handling! </p>
 
 
                 <div class="btn-group btn-block">
@@ -96,7 +96,7 @@
                 </h6>
               </div>
               <div class="panel-body">
-                <p class="text-justify mg-md"> Obligations of your business that resources are critical. Some of the leading features we offer for your logistics needs. </p>
+                <p class="text-justify mg-md"> For most customers engaged in long term and seasonal forklift utilization we have a fleet of over 400 units to meet the increasing demands of our market. Need a unit delivered next day? We'll show you what we can do!  </p>
 
                 <div class="btn-group btn-block">
                   <div class="text-center"> <a style="padding: 10px; color: white" href="/forms/rental" class="a-btn ">Get a Quote!</a></div>

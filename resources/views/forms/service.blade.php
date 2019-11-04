@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-sm-12 text-center" style="margin-top: 35px;">
             <h2 class="text-center mg-sm" style="color: white;">Service Quote</h2>
-            <h3 class="text-center mg-lg"> <span style="color: white;">Contact us today about your service quote</span> </h3>  </div>
+            <h3 class="text-center mg-lg"> <span style="color: white;">Request Quote For Service</span> </h3>  </div>
         </div>
       </div>
     </div>
